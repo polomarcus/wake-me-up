@@ -10,7 +10,8 @@ angular.module( 'ngBoilerplate', [
   $urlRouterProvider.otherwise( '/home' );
 })
 
-.run( function run () {
+.run(function(amMoment) {
+    amMoment.changeLocale('fr'); //momentJS
 })
 
 .controller( 'AppCtrl', function AppCtrl ( $scope, $location ) {
@@ -22,4 +23,3 @@ angular.module( 'ngBoilerplate', [
 })
 
 ;
-
