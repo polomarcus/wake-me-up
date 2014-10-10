@@ -5,11 +5,10 @@ angular.module( 'plusOne', [] )
     link: function( scope, element, attrs ) {
       gapi.plusone.render( element[0], {
         "size": "medium",
-        "href": "http://bit.ly/ngBoilerplate"
+        "href": "http://www.reveil-en-ligne.fr"
       });
     }
   };
 })
 
 ;
-

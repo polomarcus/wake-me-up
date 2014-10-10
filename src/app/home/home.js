@@ -33,29 +33,24 @@ angular.module( 'ngBoilerplate.home', [
         templateUrl: 'home/home.tpl.html'
       }
     },
-    data:{ pageTitle: 'Home' }
+    data:{ pageTitle: '' }
   });
 })
 
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'HomeCtrl', function HomeController( $scope ) {
+.controller( 'HomeCtrl', function HomeController( $scope, $timeout) {
 
     //init
     $scope.clock = {
-      time: new Date()
+      time: moment()
     };
-
-//TODO
-    setInterval(function(){
-      $scope.clock.time = new Date();
-    }, 1000);
 
     $scope.alarm={};
     $scope.alarm.time = {
       'min': 0,
-      'hour': 0
+      'hour': moment().get('hour') + 5
     };
     $scope.alarm.value = 0;
     $scope.alarm.status='';
@@ -63,46 +58,94 @@ angular.module( 'ngBoilerplate.home', [
     $scope.alarm.url='http://youtu.be/KGyZY4HNumw';
 
     //logic functions
-    $scope.alarm.called = function() {
-      console.log("$scope.alarm.time.min * 60 +   $scope.alarm.time.hour * 60 * 60;", $scope.alarm.time.min * 60 +   $scope.alarm.time.hour * 60 * 60);
-      $scope.alarm.value = $scope.alarm.time.min * 60 +   $scope.alarm.time.hour * 60 * 60;
+    //display current date on the website
+    setInterval(function(){
+      $scope.clock.time = moment();
+      $timeout(function() {
+        $scope.$apply();  // anything you want can go here and will safely be run on the next digest.
+      });
+    }, 1000);
+
+    //when the user click on the ON button
+    $scope.alarm.activate = function() {
+      var tmp,
+          today = moment(),
+          alarmDate = moment();
+
+      //compute diff between today and alarmDate
+      if(today.get('hour') <= $scope.alarm.time.hour ){ //ex : 16h to 23h
+        alarmDate.add($scope.alarm.time.hour - today.get('hour'), 'h');
+      }
+      else { //ex 23h to 7h
+        alarmDate.add(24 - today.get('hour') + $scope.alarm.time.hour, 'h');
+      }
+
+      if(today.get('minute') <= $scope.alarm.time.min ){ //ex : 16h30 to 23h45
+        alarmDate.add($scope.alarm.time.min - today.get('minute'), 'm');
+      }
+      else { //ex 23h45 to 7h30
+        alarmDate.add(60 - today.get('minute') + $scope.alarm.time.min, 'm');
+        alarmDate.subtract(1, 'h');
+      }
+
+      $scope.alarm.value = alarmDate.diff(today, 'seconds');
+      //$timeout(function() {
+        $scope.$apply();  // anything you want can go here and will safely be run on the next digest.
+      //});
+
       $scope.alarm.button='OFF';
 
-
-      document.getElementsByTagName('timer')[0].addCDSeconds($scope.alarm.value);
-      document.getElementsByTagName('timer')[0].start();
+      //document.getElementById('countdown').getElementsByTagName('timer')[0].addCDSeconds($scope.alarm.value);
+      document.getElementById('countdown').getElementsByTagName('timer')[0].start();
       $scope.alarm.status='L\'alarme est activée';
     };
 
+    //cancel alarm
     $scope.alarm.reset = function() {
-      $scope.alarm.button='ON';
-      document.getElementsByTagName('timer')[0].reset();
-      $scope.alarm.status='';
+      $scope.alarm.button = 'ON';
+      document.getElementById('countdown').getElementsByTagName('timer')[0].stop();
+      $scope.alarm.status = '';
     };
 
-    $scope.alarm.finished=function(){
+    //when we need to wake up the user with the alarm
+    $scope.alarm.finish = function(){
         $scope.alarm.status='L\'alarme sonne !';
 
         //Launch link
         alert("Le lien est :" + $scope.alarm.url);
+        //$('#url2play')
     };
 
     //chronometer
-            $scope.timerRunning = false;
+    $scope.timerRunning = false;
+    $scope.timerPaused = false;
 
-            $scope.startTimer = function (){
-                $scope.$broadcast('timer-start');
-                $scope.timerRunning = true;
-            };
+    $scope.startTimer = function (){
+        $scope.$broadcast('timer-start');
+        $scope.timerRunning = true;
+        $scope.timerPaused = false;
+    };
 
-            $scope.stopTimer = function (){
-                $scope.$broadcast('timer-stop');
-                $scope.timerRunning = false;
-            };
+    $scope.stopTimer = function (){
+        if($scope.timerRunning === false){
+          $scope.$broadcast('timer-reset');
+        }
+        else {
+          $scope.timerPaused = true;
+          $scope.$broadcast('timer-stop');
+          $scope.timerRunning = false;
+        }
+    };
 
-            $scope.$on('timer-stopped', function (event, data){
-                console.log('Timer Stopped - data = ', data);
-            });
+    $scope.resumeTimer = function (){
+        $scope.$broadcast('timer-resume');
+        $scope.timerRunning = true;
+        $scope.timerPaused = false;
+    };
+
+    $scope.$on('timer-stopped', function (event, data){
+        console.log('Timer Stopped - data = ', data);
+    });
 })
 
 ;

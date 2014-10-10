@@ -5,16 +5,13 @@
 
     <!-- social media tags -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@joshdmiller">
-    <meta name="twitter:title" content="ngBoilerplate">
-    <meta name="twitter:description" content="Non-Trivial AngularJS Made Easy: Everything you need to kickstart AngularJS projects: a best-practice directory structure, an intelligent build system, and the best web design libraries around.">
-    <meta name="twitter:creator" content="@joshdmiller">
+    <meta name="twitter:site" content="@polomarcus">
+    <meta name="twitter:title" content="Reveil en ligne">
+    <meta name="twitter:description" content="Le réveil en ligne préféré des internautes">
+    <meta name="twitter:creator" content="@polomarcus">
     <meta name="twitter:image:src" content="https://a248.e.akamai.net/assets.github.com/images/modules/logos_page/Octocat.png?1366128846">
-    <meta property="og:title" content="ngBoilerplate" />
+    <meta property="og:title" content="Reveil ene ligne" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://bit.ly/ngBoilerplate" />
-    <meta property="og:image" content="https://a248.e.akamai.net/assets.github.com/images/modules/logos_page/Octocat.png?1366128846" />
-    <meta property="og:description" content="Non-Trivial AngularJS Made Easy: Everything you need to kickstart AngularJS projects: a best-practice directory structure, an intelligent build system, and the best web design libraries around.">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -33,57 +30,23 @@
     </script>
   </head>
   <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&appId=559454604162123&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
     <div class="container">
       <div class="navbar navbar-default">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" ng-init="menuCollapsed = true"
-            ng-click="menuCollapsed = ! menuCollapsed">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <div class="navbar-brand">
-            ngbp
-            <small>
-              <a href="http://github.com/ngbp/ngbp/blob/v<%= version %>-release/CHANGELOG.md">
-                v<%= version %>
-              </a>
-            </small>
-          </div>
+          <h1>Reveil en ligne.fr</h1>
         </div>
         <div class="collapse navbar-collapse" collapse="menuCollapsed">
           <ul class="nav navbar-nav">
-            <li ui-sref-active="active">
-              <a href ui-sref="home">
-                <i class="fa fa-home"></i>
-                Home
-              </a>
-            </li>
-            <li ui-sref-active="active">
-              <a href ui-sref="about">
-                <i class="fa fa-info-circle"></i>
-                What is it?
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/ngbp/ngbp#readme">
-                <i class="fa fa-book"></i>
-                Read the Docs
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/ngbp/ngbp">
-                <i class="fa fa-github-alt"></i>
-                Github
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/ngbp/ngbp/issues">
-                <i class="fa fa-comments"></i>
-                Support
-              </a>
-            </li>
+            <li><a href="#reveil">Réveil</a></li>
+            <li><a href="#countdown">Chronomètre</a></li>
           </ul>
         </div>
       </div>
@@ -100,22 +63,20 @@
             <li><a target="_blank" href="http://linkedin.com/in/joshdmiller"><i class="fa fa-linkedin-sign"></i></a></li>
             <li><a target="_blank" href="http://github.com/ngbp/ngbp"><i class="fa fa-github-sign"></i></a></li>
           </ul>
-          
 
           <p>
-            (c) 2013 <a href="http://www.joshdavidmiller.com">Josh David Miller</a>. 
-            <a href="http://github.com/ngbp/ngbp/fork_select">Fork this</a>
-            to kickstart your next project.
-            <br />
-            ngbp is based on
-            <a href="http://www.angularjs.org">AngularJS</a>,
-            <a href="http://getbootstrap.com">Bootstrap</a>, 
-            <a href="http://angular-ui.github.com/bootstrap">UI Bootstrap</a>,
-            and 
-            <a href="http://fortawesome.github.com/Font-Awesome">Font Awesome</a>.        
+            <i>Vous reveille depuis 2011</i><span class="glyphicon glyphicon-heart"></span>
           </p>
         </div>
       </div>
     </footer>
+    <script>window.twttr = (function (d, s, id) {
+    var t, js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src= "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+    return window.twttr || (t = { _e: [], ready: function (f) { t._e.push(f) } });
+  }(document, "script", "twitter-wjs"));</script>
   </body>
 </html>
