@@ -63,6 +63,7 @@ module.exports = {
   vendor_files: {
     js: [
       'vendor/angular/angular.js',
+      'vendor/jquery/dist/jquery.min.js',
       'vendor/angular-timer/dist/angular-timer.js',
       'vendor/momentjs/min/moment.min.js',
       'vendor/moment/locale/fr.js',

@@ -112,9 +112,69 @@ angular.module( 'ngBoilerplate.home', [
         $scope.alarm.status='L\'alarme sonne !';
 
         //Launch link
-        alert("Le lien est :" + $scope.alarm.url);
-        //$('#url2play')
+        console.log("Le lien est :" + $scope.alarm.url);
+        launchLink($scope.alarm.url);
     };
+
+    //utils
+    function launchLink(url){
+      $('#url2play').fadeIn();
+  		var urlvideo = url;
+
+  			if (/Youtube/i.test(urlvideo) || (/Youtu/i.test(urlvideo))) { //Cas Youtube
+  				var id = youtubeIDextract(urlvideo);
+
+  			//video = "http://www.youtube.com/v/zR2BboZeLEw"; //Exemple type de vidéo à lire
+  			video = "http://www.youtube.com/v/" + id;
+  			str =  "<center><object width=\"420\" height=\"315\"> "+
+  					"<param name=\"movie\" value=\""
+  					+ video +
+  					"&loop=1&autoplay=1?version=3&amp;hl=fr_FR&amp;rel=0\">"  +
+  				"</param><param name=\"allowFullScreen\" value=\"true\"></param> "+
+  			    "<param name=\"allowscriptaccess\" value=\"always\"></param>"  +
+  					"<embed src=\"" +
+  					video +
+  					"&loop=1&autoplay=1?version=3&amp;hl=fr_FR&amp;rel=0\" type=\"application/x-shockwave-flash\" width=\"420\" height=\"315\" allowscriptaccess=\"always\" allowfullscreen=\"true\"></embed>"  +
+  					"</object></center>";
+
+  			} else if(/Dailymotion/i.test(urlvideo)) { //Cas Dailymotion
+  			  typevideo = "daily";
+  			  	function dailyIDextract(url)  //Retourne l'id de la vidéo daily
+  				{
+  					var d_id;
+  					d_id = url.replace(/^[^v]+video.(.{6}).*/,"$1");
+  					return d_id;
+  				}
+  				var id = dailyIDextract(urlvideo);
+
+
+  				str = "<iframe frameborder=\"0\" width=\"420\" height=\"315\" src=\"" + "http://www.dailymotion.com/embed/video/" + id + "?autoPlay=1\">" +
+  				"</iframe><br />" +
+  				"<a href=\"http://www.dailymotion.com/video/" + id +"\" target=\"_blank\">" +
+  					"Bon réveil !" +
+  			"	</a>" +
+  			"	<i>par " +
+  					"<a href=\"http://www.dailymotion.com/\" target=\"_blank\">" +
+  						"Reveil-en-ligne.fr" +
+  					"</a>"  +
+  				"</i>";
+
+  			}
+  			else { //Cas autres liens chelou
+  				str = "<iframe src='" + url + "'>" + "</iframe>";
+  			//window.location=document.getElementById("musicloc").value
+  			//window.open(document.getElementById("musicloc").value) //Lancement de la vidéo dans un nouvel onglet, bloqué par les navigateurs
+  			}
+
+  		$('#url2play').html(str); //Remplace le html de "vidéo" par la vidéo
+    }
+
+    //TODO new short link
+    function youtubeIDextract(url){  //Retourne l'id de la vidéo youtube
+      var youtube_id;
+      youtube_id = url.replace(/^[^v]+v.(.{11}).*/,"$1");
+      return youtube_id;
+    }
 
     //chronometer
     $scope.timerRunning = false;
