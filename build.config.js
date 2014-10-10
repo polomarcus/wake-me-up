@@ -76,6 +76,7 @@ module.exports = {
     css: [
     ],
     assets: [
+      'vendor/bootstrap/dist/css/bootstrap.min.css'
     ]
   },
 };

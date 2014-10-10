@@ -48,9 +48,10 @@ angular.module( 'ngBoilerplate.home', [
     };
 
     $scope.alarm={};
+    $scope.alarm.error= '';
     $scope.alarm.time = {
       'min': 0,
-      'hour': moment().get('hour') + 5
+      'hour': ((moment().get('hour') + 8) % 24)
     };
     $scope.alarm.value = 0;
     $scope.alarm.status='';
@@ -68,65 +69,90 @@ angular.module( 'ngBoilerplate.home', [
 
     //when the user click on the ON button
     $scope.alarm.activate = function() {
-      var tmp,
-          today = moment(),
-          alarmDate = moment();
+      if( $scope.alarm.time.hour >= 0 && $scope.alarm.time.hour < 24 &&  $scope.alarm.time.min >= 0 &&  $scope.alarm.time.min < 60){
+        //no errors detected
+        $scope.alarm.error= '';
 
-      //compute diff between today and alarmDate
-      if(today.get('hour') <= $scope.alarm.time.hour ){ //ex : 16h to 23h
-        alarmDate.add($scope.alarm.time.hour - today.get('hour'), 'h');
-      }
-      else { //ex 23h to 7h
-        alarmDate.add(24 - today.get('hour') + $scope.alarm.time.hour, 'h');
-      }
+        var tmp,
+            today = moment(),
+            alarmDate = moment().seconds('0'),
+            todayDate = today.date(),
+            todayMonth = today.month(), //0 is january so we need to do + 1
+            alarmTimeHour = $scope.alarm.time.hour,
+            alarmTimeMinute = $scope.alarm.time.min;
 
-      if(today.get('minute') <= $scope.alarm.time.min ){ //ex : 16h30 to 23h45
-        alarmDate.add($scope.alarm.time.min - today.get('minute'), 'm');
-      }
-      else { //ex 23h45 to 7h30
-        alarmDate.add(60 - today.get('minute') + $scope.alarm.time.min, 'm');
-        alarmDate.subtract(1, 'h');
-      }
+        todayDate = correctFormatDate(todayDate);
+        todayMonth = correctFormatDate(todayMonth + 1);
+        alarmTimeHour = correctFormatDate(alarmTimeHour);
+        alarmTimeMinute = correctFormatDate(alarmTimeMinute);
 
-      $scope.alarm.value = alarmDate.diff(today, 'seconds');
-      //$timeout(function() {
-        $scope.$apply();  // anything you want can go here and will safely be run on the next digest.
-      //});
+        //init alarm time
+        var alarmTmp = moment(today.year() + "-" + todayMonth + "-" + todayDate + " " + alarmTimeHour + ":" + alarmTimeMinute  + ":00");
 
-      $scope.alarm.button='OFF';
+        //compute diff between today and alarmDate
+        //hours
+        if(today.get('hour') > $scope.alarm.time.hour ){ //ex : 23h to 7h
+          alarmTmp.add(1, 'd');
+        }
 
-      //document.getElementById('countdown').getElementsByTagName('timer')[0].addCDSeconds($scope.alarm.value);
-      document.getElementById('countdown').getElementsByTagName('timer')[0].start();
-      $scope.alarm.status='L\'alarme est activée';
-    };
+        $scope.alarm.value = alarmTmp.diff(today, 'seconds');
+        //$timeout(function() {
+          $scope.$apply();  // anything you want can go here and will safely be run on the next digest.
+        //});
 
-    //cancel alarm
-    $scope.alarm.reset = function() {
-      $scope.alarm.button = 'ON';
-      document.getElementById('countdown').getElementsByTagName('timer')[0].stop();
-      $scope.alarm.status = '';
+        $scope.alarm.button='OFF';
+
+        //document.getElementById('countdown').getElementsByTagName('timer')[0].addCDSeconds($scope.alarm.value);
+        document.getElementById('countdown').getElementsByTagName('timer')[0].start();
+        $scope.alarm.status='L\'alarme est activée';
+        }
+        else {
+          $scope.alarm.error = 'Format d\'heure non valide, exemple : 7:00';
+        }
+      };
+
+      //cancel alarm
+      $scope.alarm.reset = function() {
+        $scope.alarm.button = 'ON';
+
+        //remove playing URL
+        $('#url2play').html("");
+
+        //stop timer
+        document.getElementById('countdown').getElementsByTagName('timer')[0].stop();
+        $scope.alarm.value = 0;
+
+        $timeout(function() {
+          $scope.$apply();  // anything you want can go here and will safely be run on the next digest.
+        });
+
+        $scope.alarm.status = '';
     };
 
     //when we need to wake up the user with the alarm
     $scope.alarm.finish = function(){
         $scope.alarm.status='L\'alarme sonne !';
 
-        //Launch link
-        console.log("Le lien est :" + $scope.alarm.url);
         launchLink($scope.alarm.url);
     };
 
     //utils
     function launchLink(url){
       $('#url2play').fadeIn();
-  		var urlvideo = url;
+  		var urlvideo = url,
+          id;
 
-  			if (/Youtube/i.test(urlvideo) || (/Youtu/i.test(urlvideo))) { //Cas Youtube
-  				var id = youtubeIDextract(urlvideo);
+  			if (/Youtube/i.test(urlvideo) || (/Youtu/i.test(urlvideo))) { //Cas
+          if(/Youtube/i.test(urlvideo)){
+  				      id = youtubeIDextract(urlvideo, true);
+          }
+          else {
+            id = youtubeIDextract(urlvideo, false);
+          }
 
   			//video = "http://www.youtube.com/v/zR2BboZeLEw"; //Exemple type de vidéo à lire
   			video = "http://www.youtube.com/v/" + id;
-  			str =  "<center><object width=\"420\" height=\"315\"> "+
+  			str =  "<object width=\"420\" height=\"315\"> "+
   					"<param name=\"movie\" value=\""
   					+ video +
   					"&loop=1&autoplay=1?version=3&amp;hl=fr_FR&amp;rel=0\">"  +
@@ -135,20 +161,13 @@ angular.module( 'ngBoilerplate.home', [
   					"<embed src=\"" +
   					video +
   					"&loop=1&autoplay=1?version=3&amp;hl=fr_FR&amp;rel=0\" type=\"application/x-shockwave-flash\" width=\"420\" height=\"315\" allowscriptaccess=\"always\" allowfullscreen=\"true\"></embed>"  +
-  					"</object></center>";
+  					"</object>";
 
   			} else if(/Dailymotion/i.test(urlvideo)) { //Cas Dailymotion
   			  typevideo = "daily";
-  			  	function dailyIDextract(url)  //Retourne l'id de la vidéo daily
-  				{
-  					var d_id;
-  					d_id = url.replace(/^[^v]+video.(.{6}).*/,"$1");
-  					return d_id;
-  				}
+
   				var id = dailyIDextract(urlvideo);
-
-
-  				str = "<iframe frameborder=\"0\" width=\"420\" height=\"315\" src=\"" + "http://www.dailymotion.com/embed/video/" + id + "?autoPlay=1\">" +
+  				str = "<iframe frameborder=\"0\" width=\"420\" height=\"315\" autoplay='true' src=\"" + "http://www.dailymotion.com/embed/video/" + id + "?autoPlay=1\">" +
   				"</iframe><br />" +
   				"<a href=\"http://www.dailymotion.com/video/" + id +"\" target=\"_blank\">" +
   					"Bon réveil !" +
@@ -158,9 +177,8 @@ angular.module( 'ngBoilerplate.home', [
   						"Reveil-en-ligne.fr" +
   					"</a>"  +
   				"</i>";
-
   			}
-  			else { //Cas autres liens chelou
+  			else { //others cases
   				str = "<iframe src='" + url + "'>" + "</iframe>";
   			//window.location=document.getElementById("musicloc").value
   			//window.open(document.getElementById("musicloc").value) //Lancement de la vidéo dans un nouvel onglet, bloqué par les navigateurs
@@ -169,11 +187,39 @@ angular.module( 'ngBoilerplate.home', [
   		$('#url2play').html(str); //Remplace le html de "vidéo" par la vidéo
     }
 
-    //TODO new short link
-    function youtubeIDextract(url){  //Retourne l'id de la vidéo youtube
+    //extract the id of a youtube video
+    function youtubeIDextract(url, longUrl){  //Retourne l'id de la vidéo youtube
       var youtube_id;
-      youtube_id = url.replace(/^[^v]+v.(.{11}).*/,"$1");
+      if( longUrl ){
+        youtube_id = url.replace(/^[^v]+v.(.{11}).*/,"$1");
+      }
+      else {
+        youtube_id = url.replace(/^[^v]+be.(.{11}).*/,"$1");
+      }
+
       return youtube_id;
+    }
+
+    //get the dailymotion video id
+    function dailyIDextract(url){
+      var m = url.match(/^.+dailymotion.com\/(video|hub)\/([^_]+)[^#]*(#video=([^_&]+))?/);
+      if (m !== null) {
+          if(m[4] !== undefined) {
+              return m[4];
+          }
+          return m[2];
+      }
+      return null;
+    }
+
+
+    //9 -> 09 for example
+    function correctFormatDate(date){
+      if(date < 10) {
+        date = '0' + date;
+      }
+
+      return date;
     }
 
     //chronometer
@@ -206,6 +252,11 @@ angular.module( 'ngBoilerplate.home', [
     $scope.$on('timer-stopped', function (event, data){
         console.log('Timer Stopped - data = ', data);
     });
+
+    //url management
+    $scope.changeUrl = function(url){
+      $scope.alarm.url = url;
+    }
 })
 
 ;
