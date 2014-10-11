@@ -47,13 +47,16 @@ angular.module( 'ngBoilerplate.home', [
       time: moment()
     };
 
+    //show/hide URL div
+    $scope.playURL = false;
+
     $scope.alarm={};
     $scope.alarm.error= '';
     $scope.alarm.time = {
       'min': 0,
       'hour': ((moment().get('hour') + 8) % 24)
     };
-    $scope.alarm.value = 0;
+    $scope.countdown = 0;
     $scope.alarm.status='';
     $scope.alarm.button='ON';
     $scope.alarm.url='http://youtu.be/KGyZY4HNumw';
@@ -66,6 +69,18 @@ angular.module( 'ngBoilerplate.home', [
         $scope.$apply();  // anything you want can go here and will safely be run on the next digest.
       });
     }, 1000);
+
+    //enter key launch URL form
+    $('body').bind('keyup', function(event) {
+       if(event.keyCode==13){
+         if($scope.alarm.status === ''){
+           $scope.alarm.activate();
+         }
+         else {
+           $scope.alarm.reset();
+         }
+       }
+    });
 
     //when the user click on the ON button
     $scope.alarm.activate = function() {
@@ -94,16 +109,23 @@ angular.module( 'ngBoilerplate.home', [
         if(today.get('hour') > $scope.alarm.time.hour ){ //ex : 23h to 7h
           alarmTmp.add(1, 'd');
         }
+        else if( today.get('hour') === $scope.alarm.time.hour &&  today.get('minute') >= $scope.alarm.time.min){ //same hour but next day
+          alarmTmp.add(1, 'd');
+        }
 
-        $scope.alarm.value = alarmTmp.diff(today, 'seconds');
-        //$timeout(function() {
+        $scope.countdown = alarmTmp.diff(today, 'seconds');
+
+        $timeout(function() {
           $scope.$apply();  // anything you want can go here and will safely be run on the next digest.
-        //});
+          $scope.$broadcast('timer-set-countdown', $scope.countdown);
+
+          document.getElementById('countdown').getElementsByTagName('timer')[0].start();
+        });
 
         $scope.alarm.button='OFF';
 
-        //document.getElementById('countdown').getElementsByTagName('timer')[0].addCDSeconds($scope.alarm.value);
-        document.getElementById('countdown').getElementsByTagName('timer')[0].start();
+        //document.getElementById('countdown').getElementsByTagName('timer')[0].addCDSeconds($scope.countdown);
+
         $scope.alarm.status='L\'alarme est activée';
         }
         else {
@@ -114,13 +136,12 @@ angular.module( 'ngBoilerplate.home', [
       //cancel alarm
       $scope.alarm.reset = function() {
         $scope.alarm.button = 'ON';
-
+        $scope.playURL = false;
         //remove playing URL
         $('#url2play').html("");
 
-        //stop timer
+        $scope.countdown = 0;
         document.getElementById('countdown').getElementsByTagName('timer')[0].stop();
-        $scope.alarm.value = 0;
 
         $timeout(function() {
           $scope.$apply();  // anything you want can go here and will safely be run on the next digest.
@@ -132,7 +153,7 @@ angular.module( 'ngBoilerplate.home', [
     //when we need to wake up the user with the alarm
     $scope.alarm.finish = function(){
         $scope.alarm.status='L\'alarme sonne !';
-
+        $scope.playURL = true;
         launchLink($scope.alarm.url);
     };
 
@@ -152,22 +173,22 @@ angular.module( 'ngBoilerplate.home', [
 
   			//video = "http://www.youtube.com/v/zR2BboZeLEw"; //Exemple type de vidéo à lire
   			video = "http://www.youtube.com/v/" + id;
-  			str =  "<object width=\"420\" height=\"315\"> "+
+  			str =  "<object width=\"420\" height=\"315\"> "+ //width=\"420\" height=\"315\"
   					"<param name=\"movie\" value=\""
   					+ video +
   					"&loop=1&autoplay=1?version=3&amp;hl=fr_FR&amp;rel=0\">"  +
   				"</param><param name=\"allowFullScreen\" value=\"true\"></param> "+
   			    "<param name=\"allowscriptaccess\" value=\"always\"></param>"  +
-  					"<embed src=\"" +
+  					"<embed  width=\"420\" height=\"315\" src=\"" +
   					video +
-  					"&loop=1&autoplay=1?version=3&amp;hl=fr_FR&amp;rel=0\" type=\"application/x-shockwave-flash\" width=\"420\" height=\"315\" allowscriptaccess=\"always\" allowfullscreen=\"true\"></embed>"  +
+  					"&loop=1&autoplay=1?version=3&amp;hl=fr_FR&amp;rel=0\" type=\"application/x-shockwave-flash\" allowscriptaccess=\"always\" allowfullscreen=\"true\"></embed>"  +
   					"</object>";
 
   			} else if(/Dailymotion/i.test(urlvideo)) { //Cas Dailymotion
   			  typevideo = "daily";
 
   				var id = dailyIDextract(urlvideo);
-  				str = "<iframe frameborder=\"0\" width=\"420\" height=\"315\" autoplay='true' src=\"" + "http://www.dailymotion.com/embed/video/" + id + "?autoPlay=1\">" +
+  				str = "<iframe frameborder=\"0\" autoplay='true' src=\"" + "http://www.dailymotion.com/embed/video/" + id + "?autoPlay=1\">" +
   				"</iframe><br />" +
   				"<a href=\"http://www.dailymotion.com/video/" + id +"\" target=\"_blank\">" +
   					"Bon réveil !" +
@@ -179,7 +200,7 @@ angular.module( 'ngBoilerplate.home', [
   				"</i>";
   			}
   			else { //others cases
-  				str = "<iframe src='" + url + "'>" + "</iframe>";
+  				str = "<iframe style='width:100%;'src='" + url + "'>" + "</iframe>";
   			//window.location=document.getElementById("musicloc").value
   			//window.open(document.getElementById("musicloc").value) //Lancement de la vidéo dans un nouvel onglet, bloqué par les navigateurs
   			}
@@ -212,7 +233,6 @@ angular.module( 'ngBoilerplate.home', [
       return null;
     }
 
-
     //9 -> 09 for example
     function correctFormatDate(date){
       if(date < 10) {
@@ -223,40 +243,62 @@ angular.module( 'ngBoilerplate.home', [
     }
 
     //chronometer
+    $scope.times = [];
     $scope.timerRunning = false;
     $scope.timerPaused = false;
+    $scope.timerBegin = true;
+
 
     $scope.startTimer = function (){
-        $scope.$broadcast('timer-start');
+        $scope.times = [];
+        $scope.timerBegin = false;
+        document.getElementById('chrono').getElementsByTagName('timer')[0].start();
         $scope.timerRunning = true;
         $scope.timerPaused = false;
     };
 
-    $scope.stopTimer = function (){
+    $scope.clearTimer = function (){
+        $scope.times = [];
+        $scope.timerBegin = true;
+        document.getElementById('chrono').getElementsByTagName('timer')[0].start();
+        document.getElementById('chrono').getElementsByTagName('timer')[0].stop();
+        $scope.timerRunning = false;
+        $scope.timerPaused = false;
+    };
+
+    $scope.stopTimer = function (hours, minutes, seconds){
         if($scope.timerRunning === false){
           $scope.$broadcast('timer-reset');
         }
         else {
           $scope.timerPaused = true;
-          $scope.$broadcast('timer-stop');
+          //$scope.$broadcast('timer-stop');
+          var time = $('#chronoHour').html() + ' h ' + $('#chronoMin').html() + ' min ' + $('#chronoSec').html() + ' sec';
+
+          $scope.times.push(time);
+
+          //stop time
+          document.getElementById('chrono').getElementsByTagName('timer')[0].stop();
           $scope.timerRunning = false;
         }
     };
 
     $scope.resumeTimer = function (){
-        $scope.$broadcast('timer-resume');
+        //$scope.$broadcast('timer-resume');
+        document.getElementById('chrono').getElementsByTagName('timer')[0].resume();
         $scope.timerRunning = true;
         $scope.timerPaused = false;
     };
 
     $scope.$on('timer-stopped', function (event, data){
-        console.log('Timer Stopped - data = ', data);
+        //console.log('Timer Stopped - data = ', data);
+        //console.log('Timer Stopped - event = ', event);
     });
 
     //url management
     $scope.changeUrl = function(url){
       $scope.alarm.url = url;
-    }
+    };
 })
 
 ;

@@ -449,7 +449,7 @@ module.exports = function ( grunt ) {
         files: [
           '<%= app_files.js %>'
         ],
-        tasks: [ 'jshint:src', 'karma:unit:run', 'copy:build_appjs' ]
+        tasks: [ 'jshint:src', 'copy:build_appjs' ]
       },
 
       /**
@@ -460,7 +460,7 @@ module.exports = function ( grunt ) {
         files: [
           '<%= app_files.coffee %>'
         ],
-        tasks: [ 'coffeelint:src', 'coffee:source', 'karma:unit:run', 'copy:build_appjs' ]
+        tasks: [ 'coffeelint:src', 'coffee:source', 'copy:build_appjs' ]
       },
 
       /**
@@ -509,7 +509,7 @@ module.exports = function ( grunt ) {
         files: [
           '<%= app_files.jsunit %>'
         ],
-        tasks: [ 'jshint:test', 'karma:unit:run' ],
+        tasks: [ 'jshint:test'],
         options: {
           livereload: false
         }
@@ -523,7 +523,7 @@ module.exports = function ( grunt ) {
         files: [
           '<%= app_files.coffeeunit %>'
         ],
-        tasks: [ 'coffeelint:test', 'karma:unit:run' ],
+        tasks: [ 'coffeelint:test'],
         options: {
           livereload: false
         }

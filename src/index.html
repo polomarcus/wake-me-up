@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="ngBoilerplate" ng-controller="AppCtrl">
   <head>
-    <title ng-bind="pageTitle"></title>
+    <title>Le réveil en ligne préféré des internautes !</title>
 
     <!-- social media tags -->
     <meta name="twitter:card" content="summary">
@@ -12,14 +12,24 @@
     <meta name="twitter:image:src" content="https://a248.e.akamai.net/assets.github.com/images/modules/logos_page/Octocat.png?1366128846">
     <meta property="og:title" content="Reveil ene ligne" />
     <meta property="og:type" content="website" />
-
+    <meta name="keywords" content="reveil en ligne, reveil matin, chronomètre, chrono, montre, horloge, temps, son, musique, reveil musical">
+    <meta name="description" content="Servez vous de vos liens YouTube, Dailymotion, ou le streaming de votre radio préférée pour vous reveiller le tout dans un design simple et moderne. Utilisez aussi le chronomètre en ligne proposé sur le site !">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="fb:admins" content="paul.leclercq">
+    <meta name="robots" content="index,follow">
+    <meta name="revisit-after" content="10 days">
 
+    <link rel="shortcut icon" href="assets/img/icon.png" type="image/x-icon">
+    <link rel="icon" href="assets/img/icon.png" type="image/x-icon">
     <!-- font awesome from BootstrapCDN -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
+    <link type="text/css" href="vendor/bootstrap/css/dist/bootstrap.min.css" rel="stylesheet">
+
     <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
     <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
+
+
 
     <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
     <script type="text/javascript" src="<%= file %>"></script><% }); %>
@@ -41,12 +51,13 @@
     <div class="container">
       <div class="navbar navbar-default">
         <div class="navbar-header">
-          <h2>Reveil-en-ligne.fr</h2>
+          <a class="navbar-brand" href="index.html">Reveil-en-ligne.fr</a>
         </div>
         <div class="collapse navbar-collapse" collapse="menuCollapsed">
           <ul class="nav navbar-nav">
-            <li><a href="#reveil">Réveil</a></li>
-            <li><a href="#countdown">Chronomètre</a></li>
+            <li><a href="" ng-click="goToAnchor('reveil')">Réveil</a></li>
+            <li><a href="" ng-click="goToAnchor('chrono')">Chronomètre</a></li>
+            <li><a href="" ng-click="goToAnchor('comments')">Commentaires</a></li>
           </ul>
         </div>
       </div>
@@ -64,11 +75,13 @@
               <a href="https://twitter.com/share" class="twitter-share-button" data-text="Le réveil en ligne préféré des internautes" data-via="polomarcus" data-hashtags="reveil">Tweeter ce site</a>
               <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
             </li>
-            <li>Google+ TODO</li>
+            <li>				<!-- Google+ -->
+				        <g:plusone href="http://www.reveil-en-ligne.fr/"></g:plusone>
+            </li>
           </ul>
 
           <p>
-            <i>Vous reveille depuis 2011</i> <i class="fa fa-heart"></i>
+            <strong><i>Vous réveille depuis 2011 avec</i> <i class="fa fa-heart"></i></strong>
           </p>
         </div>
       </div>
