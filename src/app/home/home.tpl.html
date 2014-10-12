@@ -5,7 +5,7 @@
   </div>
 
   <div class="panel panel-success">
-    <div class="panel-heading">
+    <div class="panel-heading text-center">
         <strong>Réveil</strong>
     </div>
     <div class="panel-body">
@@ -24,8 +24,8 @@
             </div>
             <div class="radio">
               <label>
-                <input ng-click="changeUrl('http://www.dailymotion.com/video/x22cmhe_banks-beggin-for-thread_music')" type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                Dailymotion - Banks - Beggin For Thread
+                <input ng-click="changeUrl('http://www.dailymotion.com/video/x2ze7l')" type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                Dailymotion - J Dilla - Nothing like this
               </label>
             </div>
             <div class="radio disabled">
@@ -35,7 +35,7 @@
               </label>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="col-xs-12 col-sm-6 col-md-4 text-center">
             <h4><i class="fa fa-music"></i> Radio</h4>
             <p>
               Utilisez un lien radio
@@ -65,7 +65,7 @@
                 </label>
               </div>
           </div>
-          <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="col-xs-12 col-sm-6 col-md-4 text-center">
             <h4><i class="fa fa-video-camera"></i> Direct télévision</h4>
             <p>
               Regarder la télévision
@@ -113,8 +113,8 @@
             <div class="form-group">
               <label class="sr-only" for="hour">Heure</label>
               <div class="input-group">
-                <div class="input-group-addon">Heure</div>
                 <input type="number" name="hour" class="form-control" id="hour" ng-model="alarm.time.hour" placeholder="Heure" ng-disabled="alarm.status !== ''" ng-minlength=0 ng-minlength=23 required>
+                <div class="input-group-addon">Heure</div>
                 <p ng-show="alarmForm.hour.$error.minlength || alarmForm.alarm.time.hour.$error.maxlength"  class="help-block">L'heure n'est pas au bon format, entre 0 et 23.</p>
               </div>
             </div>
@@ -123,8 +123,8 @@
             <div class="form-group">
               <label class="sr-only" for="minute">Minute</label>
               <div class="input-group">
-                <div class="input-group-addon">Minute</div>
                 <input type="number" name="minute" class="form-control" id="minute" ng-model="alarm.time.min" placeholder="Minute" ng-disabled="alarm.status !== ''" ng-minlength=0 ng-minlength=59 required>
+                <div class="input-group-addon">Minute</div>
                 <p ng-show="alarmForm.minute.$error.minlength || alarmForm.alarm.time.hour.$error.maxlength"  class="help-block">Les minutes ne sont pas au bon formats, entre 0 et 59.</p>
               </div>
             </div>
@@ -171,7 +171,7 @@
 <!-- CHRONO DISPLAY -->
 <section id="chrono">
   <div class="panel panel-primary">
-    <div class="panel-heading">
+    <div class="panel-heading text-center">
         <strong>Chronomètre</strong>
     </div>
     <div class="panel-body text-center">
@@ -227,7 +227,7 @@
 
 <section id="comments">
   <div class="panel panel-info">
-    <div class="panel-heading">
+    <div class="panel-heading text-center">
         <strong>Commentaires Facebook</strong>
     </div>
     <div class="panel-body">

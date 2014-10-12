@@ -1,8 +1,7 @@
-angular.module( 'ngBoilerplate', [
+angular.module( 'reveilEnLigne', [
   'templates-app',
   'templates-common',
-  'ngBoilerplate.home',
-  'ngBoilerplate.about',
+  'reveilEnLigne.home',
   'ui.router'
 ])
 
@@ -15,7 +14,7 @@ angular.module( 'ngBoilerplate', [
 })
 
 .controller( 'AppCtrl', function AppCtrl ( $scope, $location, $anchorScroll ) {
-  console.log('%cBienvenue sur reveil-en-ligne.fr, le projet est sur Github :\nhttps://github.com/polomarcus/reveil-en-ligne\n', 'color: #4472B9; font-family: "arial"; font-size: 20px;');
+  console.log('%c\nReveil-en-ligne.fr\nGithub : https://github.com/polomarcus/reveil-en-ligne\nTwitter : @polomarcus', 'color: #4472B9; font-family: "arial"; font-size: 20px;');
 
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
     if ( angular.isDefined( toState.data.pageTitle ) ) {
