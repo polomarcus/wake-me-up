@@ -1,240 +1,266 @@
-<section id="reveil">
-  <div class="jumbotron">
-    <h3><span>{{clock.time | amDateFormat:'dddd D MMMM YYYY'}}</span></h3>
-    <h2><span>{{clock.time | amDateFormat:'HH:mm:ss'}}</span></h2>
+<section>
+  <div class="row">
+    <div class="jumbotron">
+      <h3><span>{{clock.time | amDateFormat:'dddd D MMMM YYYY'}}</span></h3>
+      <h2><span>{{clock.time | amDateFormat:'HH:mm:ss'}}</span></h2>
+    </div>
   </div>
 
-  <div class="panel panel-success">
+  <div class="row">
+    <div class="panel panel-success" id="reveil">
+      <div class="panel-heading text-center">
+          <strong>Réveil</strong>
+      </div>
+      <div class="panel-body">
+        <div class="marketing">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <h4><i class="fa fa-youtube-play"></i> Plate-forme de vidéos</h4>
+              <p>
+                Utilisez un lien Youtube ou Dailymotion !
+              </p>
+              <div class="radio">
+                <label>
+                  <input ng-click="changeUrl('http://www.youtube.com/watch?v=KGyZY4HNumw')" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                  Youtube - Pigeon John - Boomerang
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input ng-click="changeUrl('http://www.dailymotion.com/video/x2ze7l')" type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                  Dailymotion - J Dilla - Nothing like this
+                </label>
+              </div>
+              <div class="radio disabled">
+                <label>
+                  <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+                  Ton son ! Propose le sur <a href="https://www.facebook.com/reveil.en.ligne" target="_BLANK">la page facebook</a>
+                </label>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+              <h4><i class="fa fa-music"></i> Radio</h4>
+              <p>
+                Utilisez un lien radio
+              </p>
+                <div class="radio">
+                  <label>
+                    <input ng-click="changeUrl('http://www.novaplanet.com/radionova/player')" type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                    Nova
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input ng-click="changeUrl('http://play.nrj.fr/nrj/nrj.html')" type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                    NRJ
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input ng-click="changeUrl('http://radio.rtl2.fr/player.html')"type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                    RTL2
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input ng-click="changeUrl('http://radio.funradio.fr/player.html')"type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
+                    FUN
+                  </label>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+              <h4><i class="fa fa-video-camera"></i> Direct télévision</h4>
+              <p>
+                Regarder la télévision
+              </p>
+              <div class="radio">
+                <label>
+                  <input ng-click="changeUrl('http://www.tf1.fr/live/')" type="radio" name="optionsRadios" id="tf1" value="option1">
+                  TF1
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input ng-click="changeUrl('http://www.france2.fr/direct')" type="radio" name="optionsRadios" id="fr2" value="option2">
+                  France 2
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input ng-click="changeUrl('http://www.france3.fr/direct')"type="radio" name="optionsRadios" id="fr3" value="option3">
+                  France 3
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input ng-click="changeUrl('http://pluzz.francetv.fr/france4')"type="radio" name="optionsRadios" id="fr4" value="option3">
+                  France 4
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <form role="form" name="alarmForm" novalidate>
+            <div class="col-md-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">URL</div>
+                  <input type="url" name="url" ng-model="alarm.url" class="form-control" id="url" placeholder="Entrez une URL, exemple : http://youtu.be/KGyZY4HNumw" required>
+                </div>
+                <p ng-show="alarmForm.url.$invalid" class="help-block">L'url n'est pas valide, example : <strong>http://www.youtube.com/watch?v=KGyZY4HNumw</strong></p>
+            </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="sr-only" for="hour">Heure</label>
+                <div class="input-group">
+                  <input type="number" name="hour" class="form-control" id="hour" ng-model="alarm.time.hour" placeholder="Heure" ng-disabled="alarm.status !== ''" ng-minlength=0 ng-minlength=23 required>
+                  <div class="input-group-addon">Heure</div>
+                  <p ng-show="alarmForm.hour.$error.minlength || alarmForm.alarm.time.hour.$error.maxlength"  class="help-block">L'heure n'est pas au bon format, entre 0 et 23.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="sr-only" for="minute">Minute</label>
+                <div class="input-group">
+                  <input type="number" name="minute" class="form-control" id="minute" ng-model="alarm.time.min" placeholder="Minute" ng-disabled="alarm.status !== ''" ng-minlength=0 ng-minlength=59 required>
+                  <div class="input-group-addon">Minute</div>
+                  <p ng-show="alarmForm.minute.$error.minlength || alarmForm.alarm.time.hour.$error.maxlength"  class="help-block">Les minutes ne sont pas au bon formats, entre 0 et 59.</p>
+                </div>
+              </div>
+          </div>
+
+          <div class="col-md-4">
+            <button type="button" ng-disabled="alarmForm.$invalid" ng-click="alarm.activate()" class="btn btn-primary btn-block" ng-show="alarm.status === ''">
+              {{ alarm.button }}
+            </button>
+
+            <button type="button"  ng-click="alarm.reset()" class="btn btn-danger btn-block" ng-show="alarm.status !== ''">
+              {{ alarm.button }}
+            </button>
+          </div>
+          </form>
+        </div>
+
+        <!-- URL TO PLAY -->
+        <div class="row">
+          <div id="url2play" class="flex-video" ng-show="playURL"></div>
+        </div>
+
+        <!-- FORM ERROR -->
+        <div class="alert alert-danger" role="alert" ng-show="alarm.error != ''">
+          <p class="text-center">
+              {{ alarm.error }}
+          </p>
+        </div>
+
+        <!-- COUNTDOWN DISPLAY -->
+        <section id="countdown" ng-show="alarm.status !== ''">
+          <timer autostart="false" countdown="countdown" finish-callback="alarm.finish()" max-time-unit="'hour'" interval="1000">
+            <div class="alert alert-success" role="alert" ng-hide="hours == 0 && minutes == 0 && seconds == 0">
+              <p class="text-center">
+                L'alarme sonnera dans <strong ng-hide="hours == 0">{{hours}} heure{{hoursS}}</strong> <strong ng-hide="minutes == 0">{{minutes}} minute{{minutesS}}</strong> <strong ng-hide="seconds == 0">{{seconds}} seconde{{secondsS}}</strong>
+              </p>
+            </div>
+          </timer>
+        </section>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADS -->
+<div class="row">
+  <div class="panel panel-default">
     <div class="panel-heading text-center">
-        <strong>Réveil</strong>
+        <strong>Publicité</strong><span style="font-size:11px;"> (parce que faire un site ça prend du temps)</span>
     </div>
     <div class="panel-body">
-      <div class="marketing">
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <h4><i class="fa fa-youtube-play"></i> Plate-forme de vidéos</h4>
-            <p>
-              Utilisez un lien Youtube ou Dailymotion !
-            </p>
-            <div class="radio">
-              <label>
-                <input ng-click="changeUrl('http://www.youtube.com/watch?v=KGyZY4HNumw')" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                Youtube - Pigeon John - Boomerang
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input ng-click="changeUrl('http://www.dailymotion.com/video/x2ze7l')" type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                Dailymotion - J Dilla - Nothing like this
-              </label>
-            </div>
-            <div class="radio disabled">
-              <label>
-                <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
-                Ton son ! Propose le sur <a href="https://www.facebook.com/reveil.en.ligne" target="_BLANK">la page facebook</a>
-              </label>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4 text-center">
-            <h4><i class="fa fa-music"></i> Radio</h4>
-            <p>
-              Utilisez un lien radio
-            </p>
-              <div class="radio">
-                <label>
-                  <input ng-click="changeUrl('http://www.novaplanet.com/radionova/player')" type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
-                  Nova
-                </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input ng-click="changeUrl('http://play.nrj.fr/nrj/nrj.html')" type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                  NRJ
-                </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input ng-click="changeUrl('http://radio.rtl2.fr/player.html')"type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-                  RTL2
-                </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input ng-click="changeUrl('http://radio.funradio.fr/player.html')"type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
-                  FUN
-                </label>
-              </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4 text-center">
-            <h4><i class="fa fa-video-camera"></i> Direct télévision</h4>
-            <p>
-              Regarder la télévision
-            </p>
-            <div class="radio">
-              <label>
-                <input ng-click="changeUrl('http://www.tf1.fr/live/')" type="radio" name="optionsRadios" id="tf1" value="option1">
-                TF1
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input ng-click="changeUrl('http://www.france2.fr/direct')" type="radio" name="optionsRadios" id="fr2" value="option2">
-                France 2
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input ng-click="changeUrl('http://www.france3.fr/direct')"type="radio" name="optionsRadios" id="fr3" value="option3">
-                France 3
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input ng-click="changeUrl('http://pluzz.francetv.fr/france4')"type="radio" name="optionsRadios" id="fr4" value="option3">
-                France 4
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <form role="form" name="alarmForm" novalidate>
-          <div class="col-md-12">
-          <div class="form-group">
-            <div class="input-group">
-              <div class="input-group-addon">URL</div>
-                <input type="url" name="url" ng-model="alarm.url" class="form-control" id="url" placeholder="Entrez une URL, exemple : http://youtu.be/KGyZY4HNumw" required>
-              </div>
-              <p ng-show="alarmForm.url.$invalid" class="help-block">L'url n'est pas valide, example : <strong>http://www.youtube.com/watch?v=KGyZY4HNumw</strong></p>
-          </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="sr-only" for="hour">Heure</label>
-              <div class="input-group">
-                <input type="number" name="hour" class="form-control" id="hour" ng-model="alarm.time.hour" placeholder="Heure" ng-disabled="alarm.status !== ''" ng-minlength=0 ng-minlength=23 required>
-                <div class="input-group-addon">Heure</div>
-                <p ng-show="alarmForm.hour.$error.minlength || alarmForm.alarm.time.hour.$error.maxlength"  class="help-block">L'heure n'est pas au bon format, entre 0 et 23.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="sr-only" for="minute">Minute</label>
-              <div class="input-group">
-                <input type="number" name="minute" class="form-control" id="minute" ng-model="alarm.time.min" placeholder="Minute" ng-disabled="alarm.status !== ''" ng-minlength=0 ng-minlength=59 required>
-                <div class="input-group-addon">Minute</div>
-                <p ng-show="alarmForm.minute.$error.minlength || alarmForm.alarm.time.hour.$error.maxlength"  class="help-block">Les minutes ne sont pas au bon formats, entre 0 et 59.</p>
-              </div>
-            </div>
-        </div>
-
+      <!-- Début tag AdServerPub //-->
+        <script language="JavaScript" type="text/javascript" src="http://www2.adserverpub.com/group.php?id=22019-27062&data=1&width=300&height=250"></script>
+      <!-- Fin tag AdServerPub //-->
+      <div ng-show="adBlock">
         <div class="col-md-4">
-          <button type="button" ng-disabled="alarmForm.$invalid" ng-click="alarm.activate()" class="btn btn-primary btn-block" ng-show="alarm.status === ''">
-            {{ alarm.button }}
-          </button>
-
-          <button type="button"  ng-click="alarm.reset()" class="btn btn-danger btn-block" ng-show="alarm.status !== ''">
-            {{ alarm.button }}
-          </button>
+          <img class="center-block" alt="Revelation" src="http://gifs.gifbin.com/1232550297_Dramatic chipmunk.gif">
+        </div>
+        <div class="col-md-8">
+          <p>Tu utilises AdBlock, comme moi ! Cependant j'ai passé beaucoup de temps sur ce site, et il n'y a qu'une seul pub (à la place du gif), promis !</p>
+          <p>Je te remercie si tu le désactives et je boirai un <i class="fa fa-glass"></i> à ta santé ! Sinon, sache que je respecte ton choix et je te laisse profiter du gif.</p>
+          <p><i>Paul</i></p>
         </div>
       </div>
-
-      <!-- URL TO PLAY -->
-      <div class="row">
-        <div id="url2play" class="flex-video" ng-show="playURL"></div>
-      </div>
-
-      <!-- FORM ERROR -->
-      <div class="alert alert-danger" role="alert" ng-show="alarm.error != ''">
-        <p class="text-center">
-            {{ alarm.error }}
-        </p>
-      </div>
-
-      <!-- COUNTDOWN DISPLAY -->
-      <section id="countdown" ng-show="alarm.status !== ''">
-        <timer autostart="false" countdown="countdown" finish-callback="alarm.finish()" max-time-unit="'hour'" interval="1000">
-          <div class="alert alert-success" role="alert" ng-hide="hours == 0 && minutes == 0 && seconds == 0">
-            <p class="text-center">
-              L'alarme sonnera dans <strong ng-hide="hours == 0">{{hours}} heure{{hoursS}}</strong> <strong ng-hide="minutes == 0">{{minutes}} minute{{minutesS}}</strong> <strong ng-hide="seconds == 0">{{seconds}} seconde{{secondsS}}</strong>
-            </p>
-          </div>
-        </timer>
-      </section>
     </div>
   </div>
-  </form>
-</section>
+</div>
 
 <!-- CHRONO DISPLAY -->
-<section id="chrono">
-  <div class="panel panel-primary">
-    <div class="panel-heading text-center">
-        <strong>Chronomètre</strong>
+<div class="row">
+  <section id="chrono">
+    <div class="panel panel-primary">
+      <div class="panel-heading text-center">
+          <strong>Chronomètre</strong>
+      </div>
+      <div class="panel-body text-center">
+        <timer autostart="false" interval="1000">
+          <h3>
+            <strong ng-hide="hours == 0"><span id="chronoHour">{{hours}}</span> heure{{hoursS}}</strong>
+            <strong ng-hide="minutes == 0"><span id="chronoMin">{{minutes}}</span> minute{{minutesS}}</strong>
+            <strong ng-hide="seconds == 0"><span id="chronoSec">{{seconds}}</span> seconde{{secondsS}}</strong>
+            <strong ng-show="hours == 0 && seconds == 0 && minutes == 0">Temps</strong>
+          </h3>
+        </timer>
+        <!-- CHRONO CONTROLLERS -->
+        <div class="row">
+          <div class="col-md-4">
+            <button ng-click="manageTimer()" class="btn btn-primary btn-block">
+              {{ timerStartOrStop }}
+            </button>
+          </div>
+
+          <div class="col-md-4">
+            <button ng-click="lapTimer()" class="btn btn-warning btn-block" ng-disabled="!timerRunning">
+              Tour
+             </button>
+          </div>
+
+          <div class="col-md-4">
+            <button ng-click="clearTimer()" class="btn btn-danger btn-block" ng-disabled="!timerRunning && !timerPaused">
+              Clear
+            </button>
+          </div>
+         </div>
+
+         <!-- LAPS -->
+        <table class="table table-striped"  ng-show="times.length > 0">
+            <tr>
+              <th class="text-center">#</th>
+              <th class="text-center">Temps enregistré</th>
+            </tr>
+            <tr ng-repeat="time in times track by $index">
+              <td>{{ $index + 1 }}</td>
+              <td>{{ time }}</td>
+            </tr>
+         </table>
+      </div>
     </div>
-    <div class="panel-body text-center">
-      <timer autostart="false" interval="1000">
-        <h3>
-          <strong ng-hide="hours == 0"><span id="chronoHour">{{hours}}</span> heure{{hoursS}}</strong>
-          <strong ng-hide="minutes == 0"><span id="chronoMin">{{minutes}}</span> minute{{minutesS}}</strong>
-          <strong ng-hide="seconds == 0"><span id="chronoSec">{{seconds}}</span> seconde{{secondsS}}</strong>
-          <strong ng-show="hours == 0 && seconds == 0 && minutes == 0">Temps</strong>
-        </h3>
-      </timer>
-      <!-- CHRONO CONTROLLERS -->
-      <div class="row">
-        <div class="col-md-3">
-          <button ng-click="startTimer()" class="btn btn-primary btn-block" ng-disabled="!timerBegin">
-            Start
-          </button>
-        </div>
+  </section>
+</div>
 
-        <div class="col-md-3">
-          <button ng-click="clearTimer()" class="btn btn-danger btn-block" ng-disabled="!timerRunning && !timerPaused">
-            Clear
-          </button>
-        </div>
-
-        <div class="col-md-3">
-          <button ng-click="resumeTimer()" class="btn btn-info btn-block" ng-disabled="!timerPaused">
-            Continuer
-          </button>
-        </div>
-
-        <div class="col-md-3">
-          <button ng-click="stopTimer()" class="btn btn-warning btn-block" ng-disabled="!timerRunning">
-            Tour - stop
-           </button>
-        </div>
-       </div>
-
-       <!-- LAPS -->
-      <table class="table table-striped"  ng-show="times.length > 0">
-          <tr>
-            <th class="text-center">#</th>
-            <th class="text-center">Temps enregistré</th>
-          </tr>
-          <tr ng-repeat="time in times track by $index">
-            <td>{{ $index + 1 }}</td>
-            <td>{{ time }}</td>
-          </tr>
-       </table>
+<div class="row">
+  <section id="comments">
+    <div class="panel panel-info">
+      <div class="panel-heading text-center">
+          <strong>Commentaires Facebook</strong>
+      </div>
+      <div class="panel-body">
+        <!-- Facebook Comments -->
+        <center>
+          <div class="fb-comments" data-href="http://www.reveil-en-ligne.fr/" data-num-posts="1" data-width="700" data-colorscheme="dark"></div>
+        </center>
+      </div>
     </div>
-  </div>
-</section>
-
-<section id="comments">
-  <div class="panel panel-info">
-    <div class="panel-heading text-center">
-        <strong>Commentaires Facebook</strong>
-    </div>
-    <div class="panel-body">
-      <!-- Facebook Comments -->
-      <center>
-        <div class="fb-comments" data-href="http://www.reveil-en-ligne.fr/" data-num-posts="1" data-width="700" data-colorscheme="dark"></div>
-      </center>
-    </div>
-  </div>
-</section>
+  </section>
+</div>

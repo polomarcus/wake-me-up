@@ -26,6 +26,7 @@
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
     <link type="text/css" href="assets/bootstrap.min.css" rel="stylesheet">
+    <!--<link type="text/css" href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 
     <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
     <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
@@ -33,6 +34,7 @@
 
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
     <script type="text/javascript" src="assets/js/googleTrack.js"></script>
+    <script type="text/javascript" src="assets/js/advertisement.js"></script>
 
     <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
     <script type="text/javascript" src="<%= file %>"></script><% }); %>
@@ -47,17 +49,21 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
     <div class="container">
-      <div class="navbar navbar-default">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="index.html">Reveil-en-ligne.fr</a>
-        </div>
-        <div class="collapse navbar-collapse" collapse="menuCollapsed">
-          <ul class="nav navbar-nav">
-            <li><a href="" ng-click="goToAnchor('reveil')">Réveil</a></li>
-            <li><a href="" ng-click="goToAnchor('chrono')">Chronomètre</a></li>
-            <li><a href="" ng-click="goToAnchor('comments')">Commentaires</a></li>
-            <li><a href="http://www.facebook.com/reveil.en.ligne" target="_BLANK">Page facebook</a></li>
-          </ul>
+      <div class="row">
+        <div class="navbar navbar-default">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">
+              Reveil-en-ligne.fr
+            </a>
+          </div>
+          <div class="navbar-collapse" collapse="menuCollapsed">
+            <ul class="nav navbar-nav">
+              <li><a href="" ng-click="goToAnchor('reveil')">Réveil</a></li>
+              <li><a href="" ng-click="goToAnchor('chrono')">Chronomètre</a></li>
+              <li><a href="" ng-click="goToAnchor('comments')">Commentaires</a></li>
+              <li><a href="http://www.facebook.com/reveil.en.ligne" target="_BLANK">Page facebook</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

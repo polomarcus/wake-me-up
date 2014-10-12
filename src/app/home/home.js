@@ -247,17 +247,35 @@ angular.module( 'reveilEnLigne.home', [
     $scope.timerRunning = false;
     $scope.timerPaused = false;
     $scope.timerBegin = true;
+    $scope.timerStartOrStop = "Start";
 
-
-    $scope.startTimer = function (){
+    $scope.manageTimer = function (){
+      if($scope.timerRunning === false && $scope.timerBegin === true){
+        $scope.timerStartOrStop = "Pause";
         $scope.times = [];
         $scope.timerBegin = false;
         document.getElementById('chrono').getElementsByTagName('timer')[0].start();
         $scope.timerRunning = true;
         $scope.timerPaused = false;
+      }
+      else if($scope.timerRunning === false) {
+        $scope.timerStartOrStop = "Pause";
+        //$scope.$broadcast('timer-resume');
+        document.getElementById('chrono').getElementsByTagName('timer')[0].resume();
+        $scope.timerRunning = true;
+        $scope.timerPaused = false;
+      }
+      else {
+        $scope.timerStartOrStop = "Continuer";
+        $scope.timerPaused = true;
+        //stop time
+        document.getElementById('chrono').getElementsByTagName('timer')[0].stop();
+        $scope.timerRunning = false;
+      }
     };
 
     $scope.clearTimer = function (){
+        $scope.timerStartOrStop = "Start";
         $scope.times = [];
         $scope.timerBegin = true;
         document.getElementById('chrono').getElementsByTagName('timer')[0].start();
@@ -266,24 +284,14 @@ angular.module( 'reveilEnLigne.home', [
         $scope.timerPaused = false;
     };
 
-    $scope.stopTimer = function (hours, minutes, seconds){
-        if($scope.timerRunning === false){
-          $scope.$broadcast('timer-reset');
-        }
-        else {
-          $scope.timerPaused = true;
-          //$scope.$broadcast('timer-stop');
-          var time = $('#chronoHour').html() + ' h ' + $('#chronoMin').html() + ' min ' + $('#chronoSec').html() + ' sec';
-
-          $scope.times.push(time);
-
-          //stop time
-          document.getElementById('chrono').getElementsByTagName('timer')[0].stop();
-          $scope.timerRunning = false;
-        }
+    //Register a lap
+    $scope.lapTimer = function (){
+        var time = $('#chronoHour').html() + ' h ' + $('#chronoMin').html() + ' min ' + $('#chronoSec').html() + ' sec';
+        $scope.times.push(time);
     };
 
     $scope.resumeTimer = function (){
+        $scope.timerStartOrStop = "Pause";
         //$scope.$broadcast('timer-resume');
         document.getElementById('chrono').getElementsByTagName('timer')[0].resume();
         $scope.timerRunning = true;
