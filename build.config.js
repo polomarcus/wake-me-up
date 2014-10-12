@@ -74,6 +74,7 @@ module.exports = {
       'vendor/angular-ui-utils/modules/route/route.js',
       'assets/js/googleplus.js',
       'assets/js/googleTrack.js',
+      'assets/js/advertisement.js'
     ],
     css: [
     ],
