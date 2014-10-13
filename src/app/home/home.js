@@ -153,15 +153,20 @@ angular.module( 'reveilEnLigne.home', [
     //when we need to wake up the user with the alarm
     $scope.alarm.finish = function(){
         $scope.alarm.status='L\'alarme sonne !';
-        $scope.playURL = true;
-        launchLink($scope.alarm.url);
+        $scope.launchLink();
     };
 
     //utils
-    function launchLink(url){
+    $scope.launchLink = function(){
+      $scope.playURL = true;
+      $scope.alarm.status='L\'alarme sonne !';
+      $scope.alarm.button='OFF';
       $('#url2play').fadeIn();
-  		var urlvideo = url,
-          id;
+
+  		var urlvideo = $scope.alarm.url,
+          id,
+          SoundCloudURL = false;
+          SCregexp = /^https?:\/\/(soundcloud.com|snd.sc)\/(.*)$/;
 
   			if (/Youtube/i.test(urlvideo) || (/Youtu/i.test(urlvideo))) { //Cas
           if(/Youtube/i.test(urlvideo)){
@@ -199,14 +204,21 @@ angular.module( 'reveilEnLigne.home', [
   					"</a>"  +
   				"</i>";
   			}
+        else if( urlvideo.match(SCregexp) && urlvideo.match(SCregexp)[2]) {
+          SoundCloudURL = true;
+          SC.oEmbed(urlvideo, {auto_play: true}, function(oembed){
+            str =  oembed.html;
+            $('#url2play').html(str);
+          });
+        }
   			else { //others cases
-  				str = "<iframe style='width:100%;'src='" + url + "'>" + "</iframe>";
-  			//window.location=document.getElementById("musicloc").value
-  			//window.open(document.getElementById("musicloc").value) //Lancement de la vidéo dans un nouvel onglet, bloqué par les navigateurs
+  				str = "<iframe style='width:100%;'src='" + urlvideo + "'>" + "</iframe>";
   			}
 
-  		$('#url2play').html(str); //Remplace le html de "vidéo" par la vidéo
-    }
+      if( !SoundCloudURL ){
+        $('#url2play').html(str); //make appear the link on the page
+      }
+    };
 
     //extract the id of a youtube video
     function youtubeIDextract(url, longUrl){  //Retourne l'id de la vidéo youtube

@@ -26,7 +26,7 @@
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
     <link type="text/css" href="assets/bootstrap.min.css" rel="stylesheet">
-    <!--<link type="text/css" href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- <link type="text/css" href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 
     <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
     <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
@@ -35,6 +35,15 @@
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
     <script type="text/javascript" src="assets/js/googleTrack.js"></script>
     <script type="text/javascript" src="assets/js/advertisement.js"></script>
+    <script type="text/javascript" src="assets/js/teads.js"></script>
+    
+    <script src="http://connect.soundcloud.com/sdk.js"></script>
+    <script>
+      SC.initialize({
+        client_id: "9f2070a217c081383260f1c7f0c89bea",
+        redirect_uri: "http://www.reveil-en-ligne.fr/",
+      });
+    </script>
 
     <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
     <script type="text/javascript" src="<%= file %>"></script><% }); %>
