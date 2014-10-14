@@ -153,13 +153,17 @@ angular.module( 'reveilEnLigne.home', [
     //when we need to wake up the user with the alarm
     $scope.alarm.finish = function(){
         $scope.alarm.status='L\'alarme sonne !';
-        $scope.launchLink();
+        $scope.launchLink('ring');
     };
 
     //utils
-    $scope.launchLink = function(){
+    //lauch sound, status is used to display the countdown
+    $scope.launchLink = function(status){
       $scope.playURL = true;
-      $scope.alarm.status='L\'alarme sonne !';
+      if(status === 'ring'){
+        $scope.alarm.status= status;
+      }
+
       $scope.alarm.button='OFF';
       $('#url2play').fadeIn();
 

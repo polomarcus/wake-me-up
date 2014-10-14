@@ -64,14 +64,14 @@
                 </div>
                 <div class="radio">
                   <label>
-                    <input ng-click="changeUrl('http://radio.rtl2.fr/player.html')"type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-                    RTL2
+                    <input ng-click="changeUrl('http://www.lemouv.fr/player')" type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                    Le mouv'
                   </label>
                 </div>
                 <div class="radio">
                   <label>
-                    <input ng-click="changeUrl('http://radio.funradio.fr/player.html')"type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
-                    FUN
+                    <input ng-click="changeUrl('http://generations.fr/radio/webradio')"type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
+                    Generation
                   </label>
                 </div>
             </div>
@@ -147,7 +147,7 @@
               </button>
             </div>
             <div class="col-md-6">
-              <button type="button" ng-disabled="$scope.alarmURL == ''" ng-click="launchLink()" class="btn btn-primary btn-block" ng-show="alarm.status === ''">
+              <button type="button" ng-disabled="$scope.alarmURL == ''" ng-click="launchLink('test')" class="btn btn-primary btn-block" ng-show="alarm.status === ''">
                 Tester l'URL
               </button>
             </div>
@@ -223,8 +223,7 @@
           <h3>
             <strong ng-hide="hours == 0"><span id="chronoHour">{{hours}}</span> heure{{hoursS}}</strong>
             <strong ng-hide="minutes == 0"><span id="chronoMin">{{minutes}}</span> minute{{minutesS}}</strong>
-            <strong ng-hide="seconds == 0"><span id="chronoSec">{{seconds}}</span> seconde{{secondsS}}</strong>
-            <strong ng-show="hours == 0 && seconds == 0 && minutes == 0">Temps</strong>
+            <strong><span id="chronoSec">{{seconds}}</span> seconde{{secondsS}}</strong>
           </h3>
         </timer>
         <!-- CHRONO CONTROLLERS -->
