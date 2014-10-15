@@ -142,17 +142,17 @@
 
           <div class="col-md-4">
             <div class="col-md-6">
-              <button type="button" ng-disabled="alarmForm.$invalid" ng-click="alarm.activate()" class="btn btn-primary btn-block" ng-show="alarm.status === ''">
+              <button type="button" ng-disabled="alarmForm.$invalid" ng-click="alarm.activate()" class="btn btn-primary btn-block" ng-show="alarm.button === 'ON'">
                 {{ alarm.button }}
               </button>
             </div>
             <div class="col-md-6">
-              <button type="button" ng-disabled="$scope.alarmURL == ''" ng-click="launchLink('test')" class="btn btn-primary btn-block" ng-show="alarm.status === ''">
+              <button type="button" ng-disabled="$scope.alarmURL == ''" ng-click="launchLink('test')" class="btn btn-primary btn-block" ng-show="alarm.button === 'ON'">
                 Tester l'URL
               </button>
             </div>
 
-            <button type="button"  ng-click="alarm.reset()" class="btn btn-danger btn-block" ng-show="alarm.status !== ''">
+            <button type="button"  ng-click="alarm.reset()" class="btn btn-danger btn-block" ng-show="alarm.button === 'OFF'">
               {{ alarm.button }}
             </button>
           </div>

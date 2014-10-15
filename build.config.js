@@ -64,7 +64,7 @@ module.exports = {
     js: [
       'vendor/angular/angular.js',
       'vendor/jquery/dist/jquery.min.js',
-      'vendor/angular-timer/dist/angular-timer.js',
+      'vendor/angular-timer/dist/angular-timer.min.js',
       'vendor/momentjs/min/moment.min.js',
       'vendor/moment/locale/fr.js',
       'vendor/angular-moment/angular-moment.min.js',
@@ -77,6 +77,7 @@ module.exports = {
       'assets/js/advertisement.js'
     ],
     css: [
+      'vendor/bootstrap/dist/css/bootstrap.min.css',
     ],
     assets: [
     ]
