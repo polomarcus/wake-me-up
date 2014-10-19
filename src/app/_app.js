@@ -1,12 +1,13 @@
 angular.module( 'reveilEnLigne', [
   'templates-app',
   'templates-common',
-  'reveilEnLigne.home',
+  'reveilEnLigne.controllers',
+  'reveilEnLigne.services',
   'ui.router'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
-  $urlRouterProvider.otherwise( '/home' );
+  $urlRouterProvider.otherwise( '/' );
 })
 
 .run(function(amMoment) {

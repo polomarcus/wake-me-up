@@ -1,0 +1,51 @@
+<!-- CHRONO DISPLAY -->
+<div class="row" ng-controller="ChronoCtrl">
+  <section id="chrono">
+    <div class="panel panel-primary">
+      <div class="panel-heading text-center">
+          <strong>Chronomètre</strong>
+      </div>
+      <div class="panel-body text-center">
+        <timer autostart="false" interval="1000">
+          <h3>
+            <strong ng-hide="hours == 0"><span id="chronoHour">{{hours}}</span> heure{{hoursS}}</strong>
+            <strong ng-hide="minutes == 0"><span id="chronoMin">{{minutes}}</span> minute{{minutesS}}</strong>
+            <strong><span id="chronoSec">{{seconds}}</span> seconde{{secondsS}}</strong>
+          </h3>
+        </timer>
+        <!-- CHRONO CONTROLLERS -->
+        <div class="row">
+          <div class="col-md-4">
+            <button ng-click="manageTimer()" class="btn btn-primary btn-block">
+              {{ timerStartOrStop }}
+            </button>
+          </div>
+
+          <div class="col-md-4">
+            <button ng-click="lapTimer()" class="btn btn-warning btn-block" ng-disabled="!timerRunning">
+              Tour
+             </button>
+          </div>
+
+          <div class="col-md-4">
+            <button ng-click="clearTimer()" class="btn btn-danger btn-block" ng-disabled="!timerRunning && !timerPaused">
+              Clear
+            </button>
+          </div>
+         </div>
+
+         <!-- LAPS -->
+        <table class="table table-striped"  ng-show="times.length > 0">
+            <tr>
+              <th class="text-center">#</th>
+              <th class="text-center">Temps enregistré</th>
+            </tr>
+            <tr ng-repeat="time in times track by $index">
+              <td>{{ $index + 1 }}</td>
+              <td>{{ time }}</td>
+            </tr>
+         </table>
+      </div>
+    </div>
+  </section>
+</div>
