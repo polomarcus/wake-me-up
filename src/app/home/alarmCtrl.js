@@ -15,6 +15,9 @@ angular.module( 'AlarmModule', [
 
     $scope.alarm={};
     $scope.alarm.error= '';
+    $scope.alarmTime = moment().subtract(1, 'day'); //previous time for the alarm time init
+    $scope.intervalAlarm;
+    initAlarmTimeValue = moment().subtract(1, 'day' );
     $scope.alarm.time = {
       'min': 0,
       'hour': ((moment().get('hour') + 8) % 24)
@@ -23,6 +26,11 @@ angular.module( 'AlarmModule', [
     $scope.alarm.status='';
     $scope.alarm.button='ON';
     $scope.alarm.url='http://youtu.be/KGyZY4HNumw';
+
+
+    //countdown
+    $scope.countdownInterval = null;
+    $scope.countdownMoment = null;
 
     //logic functions
     //enter key launch URL form
@@ -58,7 +66,6 @@ angular.module( 'AlarmModule', [
 
         //init alarm time
         var alarmTmp = moment(today.year() + "-" + todayMonth + "-" + todayDate + " " + alarmTimeHour + ":" + alarmTimeMinute  + ":00");
-
         //compute diff between today and alarmDate
         //hours
         if(today.get('hour') > $scope.alarm.time.hour ){ //ex : 23h to 7h
@@ -72,14 +79,19 @@ angular.module( 'AlarmModule', [
 
         $timeout(function() {
           $scope.$apply();  // anything you want can go here and will safely be run on the next digest.
+          $scope.alarmTime = alarmTmp;
+
+          //check alarm time and current time
+          $scope.intervalAlarm = setInterval(function(){
+            isItTime();
+          }, 1000);
+
           $scope.$broadcast('timer-set-countdown', $scope.countdown);
 
           document.getElementById('countdown').getElementsByTagName('timer')[0].start();
         });
 
         $scope.alarm.button='OFF';
-
-        //document.getElementById('countdown').getElementsByTagName('timer')[0].addCDSeconds($scope.countdown);
 
         $scope.alarm.status='L\'alarme est activée';
         }
@@ -92,6 +104,45 @@ angular.module( 'AlarmModule', [
       $scope.alarm.reset = function() {
         $scope.alarm.button = 'ON';
         $scope.playURL = false;
+        clearInterval($scope.intervalAlarm);
+        //remove playing URL
+        $('#url2play').html("");
+
+        $scope.countdown = 0;
+        document.getElementById('countdown').getElementsByTagName('timer')[0].stop();
+
+        $timeout(function() {
+          $scope.$apply();  // anything you want can go here and will safely be run on the next digest.
+        });
+
+        $scope.alarm.status = '';
+    };
+
+      //set countdown alarm //TODO
+      $scope.alarm.countdown = function(val) {
+        if( $scope.countdownInterval == null ){
+          $scope.countdownMoment = moment().seconds(parseInt(val));
+          $scope.countdownInterval = setInterval(function(){
+            $timeout(function() {
+              if( $scope.countdownMoment.get('second' ) === 0 ){
+                $scope.launchLink('ring');
+              }
+              else {
+                $scope.countdownMoment.subtract(1, 'second' );
+              }
+            });
+          }, 1000);
+        }
+        else {
+          $scope.countdownMoment = null;
+          clearInterval($scope.countdownInterval);
+        }
+      };
+
+    $scope.alarm.reset = function() {
+        $scope.alarm.button = 'ON';
+        $scope.playURL = false;
+        clearInterval($scope.intervalAlarm);
         //remove playing URL
         $('#url2play').html("");
 
@@ -114,65 +165,67 @@ angular.module( 'AlarmModule', [
     //utils
     //lauch sound, status is used to display the countdown
     $scope.launchLink = function(status){
-      $scope.playURL = true;
-      if(status === 'ring'){
-        $scope.alarm.status= status;
-      }
+      if( !$scope.playURL ){
+        $scope.playURL = true;
+        if(status === 'ring'){
+          $scope.alarm.status= status;
+        }
 
-      $scope.alarm.button='OFF';
-      $('#url2play').fadeIn();
+        $scope.alarm.button='OFF';
+        $('#url2play').fadeIn();
 
-      var urlvideo = $scope.alarm.url,
-          id,
-          SoundCloudURL = false;
-          SCregexp = /^https?:\/\/(soundcloud.com|snd.sc)\/(.*)$/;
+        var urlvideo = $scope.alarm.url,
+            id,
+            SoundCloudURL = false;
+            SCregexp = /^https?:\/\/(soundcloud.com|snd.sc)\/(.*)$/;
 
-        if (/Youtube/i.test(urlvideo) || (/Youtu/i.test(urlvideo))) { //Cas
-          if(/Youtube/i.test(urlvideo)){
-                id = urlUtilsService.youtubeIDextract(urlvideo, true);
+          if (/Youtube/i.test(urlvideo) || (/Youtu/i.test(urlvideo))) { //Cas
+            if(/Youtube/i.test(urlvideo)){
+                  id = urlUtilsService.youtubeIDextract(urlvideo, true);
+            }
+            else {
+              id = urlUtilsService.youtubeIDextract(urlvideo, false);
+            }
+
+          //video = "http://www.youtube.com/v/zR2BboZeLEw"; //Exemple type de vidéo à lire
+          video = "http://www.youtube.com/v/" + id;
+          str =  "<object width=\"420\" height=\"315\"> "+ //width=\"420\" height=\"315\"
+              "<param name=\"movie\" value=\""
+              + video +
+              "&loop=1&autoplay=1?version=3&amp;hl=fr_FR&amp;rel=0\">"  +
+            "</param><param name=\"allowFullScreen\" value=\"true\"></param> "+
+              "<param name=\"allowscriptaccess\" value=\"always\"></param>"  +
+              "<embed  width=\"420\" height=\"315\" src=\"" +
+              video +
+              "&loop=1&autoplay=1?version=3&amp;hl=fr_FR&amp;rel=0\" type=\"application/x-shockwave-flash\" allowscriptaccess=\"always\" allowfullscreen=\"true\"></embed>"  +
+              "</object>";
+
+          } else if(/Dailymotion/i.test(urlvideo)) { //Cas Dailymotion
+            typevideo = "daily";
+
+            id = urlUtilsService.dailyIDextract(urlvideo);
+            str = "<iframe frameborder=\"0\" autoplay='true' src=\"" + "http://www.dailymotion.com/embed/video/" + id + "?autoPlay=1\">" +
+            "</iframe><br />" +
+            "<a href=\"http://www.dailymotion.com/video/" + id +"\" target=\"_blank\">" +
+              "Bon réveil !" +
+          "	</a>" +
+          "	<i>par " +
+              "<a href=\"http://www.dailymotion.com/\" target=\"_blank\">" +
+                "Reveil-en-ligne.fr" +
+              "</a>"  +
+            "</i>";
           }
-          else {
-            id = urlUtilsService.youtubeIDextract(urlvideo, false);
+          else if( urlvideo.match(SCregexp) && urlvideo.match(SCregexp)[2]) {
+            SoundCloudURL = true;
+            urlUtilsService.launchSoundCloud(urlvideo);
+          }
+          else { //others cases
+            str = "<iframe style='width:100%;'src='" + urlvideo + "'>" + "</iframe>";
           }
 
-        //video = "http://www.youtube.com/v/zR2BboZeLEw"; //Exemple type de vidéo à lire
-        video = "http://www.youtube.com/v/" + id;
-        str =  "<object width=\"420\" height=\"315\"> "+ //width=\"420\" height=\"315\"
-            "<param name=\"movie\" value=\""
-            + video +
-            "&loop=1&autoplay=1?version=3&amp;hl=fr_FR&amp;rel=0\">"  +
-          "</param><param name=\"allowFullScreen\" value=\"true\"></param> "+
-            "<param name=\"allowscriptaccess\" value=\"always\"></param>"  +
-            "<embed  width=\"420\" height=\"315\" src=\"" +
-            video +
-            "&loop=1&autoplay=1?version=3&amp;hl=fr_FR&amp;rel=0\" type=\"application/x-shockwave-flash\" allowscriptaccess=\"always\" allowfullscreen=\"true\"></embed>"  +
-            "</object>";
-
-        } else if(/Dailymotion/i.test(urlvideo)) { //Cas Dailymotion
-          typevideo = "daily";
-
-          var id = urlUtilsService.dailyIDextract(urlvideo);
-          str = "<iframe frameborder=\"0\" autoplay='true' src=\"" + "http://www.dailymotion.com/embed/video/" + id + "?autoPlay=1\">" +
-          "</iframe><br />" +
-          "<a href=\"http://www.dailymotion.com/video/" + id +"\" target=\"_blank\">" +
-            "Bon réveil !" +
-        "	</a>" +
-        "	<i>par " +
-            "<a href=\"http://www.dailymotion.com/\" target=\"_blank\">" +
-              "Reveil-en-ligne.fr" +
-            "</a>"  +
-          "</i>";
+        if( !SoundCloudURL ){
+          $('#url2play').html(str); //make appear the link on the page
         }
-        else if( urlvideo.match(SCregexp) && urlvideo.match(SCregexp)[2]) {
-          SoundCloudURL = true;
-          urlUtilsService.launchSoundCloud(urlvideo);
-        }
-        else { //others cases
-          str = "<iframe style='width:100%;'src='" + urlvideo + "'>" + "</iframe>";
-        }
-
-      if( !SoundCloudURL ){
-        $('#url2play').html(str); //make appear the link on the page
       }
     };
 
@@ -184,6 +237,16 @@ angular.module( 'AlarmModule', [
       }
 
       return date;
+    }
+
+    //return boolean
+    //time to wake up
+    function isItTime(){
+      if( $scope.alarmTime.diff(initAlarmTimeValue, 'seconds') !== 0 ) {
+          if($scope.alarmTime.diff(moment(), 'seconds') === 0){
+            $scope.launchLink('ring');
+          }
+      }
     }
 
     //url management
