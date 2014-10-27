@@ -2,16 +2,25 @@ angular.module( 'AlarmModule', [
   'ui.router',
   'timer',
   'angularMoment',
-  'reveilEnLigne.services'
+  'reveilEnLigne.services',
+  'firebase'
 ])
 
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'AlarmCtrl', ['$scope', '$timeout', 'urlUtilsService', function AlarmControl( $scope, $timeout, urlUtilsService) {
+.controller( 'AlarmCtrl', ['$scope', '$timeout', 'urlUtilsService', '$firebase', function AlarmControl( $scope, $timeout, urlUtilsService, $firebase) {
     //Alarm Ctrl
     //show/hide URL div
     $scope.playURL = false;
+
+    //firebase
+    var ref = new Firebase("https://boiling-fire-8614.firebaseio.com/data");
+    var sync = $firebase(ref);
+
+    // create a synchronized array for use in our HTML code
+    $scope.liveData = sync.$asArray();
+
 
     $scope.alarm={};
     $scope.alarm.error= '';
@@ -89,6 +98,14 @@ angular.module( 'AlarmModule', [
           $scope.$broadcast('timer-set-countdown', $scope.countdown);
 
           document.getElementById('countdown').getElementsByTagName('timer')[0].start();
+
+          //save firebase
+          var tmpFirebase = {
+            'url' : $scope.alarm.url,
+            'time' : alarmTmp._i
+          };
+
+          $scope.liveData.$add(tmpFirebase);
         });
 
         $scope.alarm.button='OFF';

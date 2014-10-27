@@ -1,0 +1,27 @@
+<div class="row" ng-controller="liveCtrl">
+  <section id="live" ng-show="liveData.length > 0">
+    <div class="panel panel-warning">
+      <div class="panel-heading text-center">
+          <strong>Les dernières données reçues</strong>
+      </div>
+      <div class="panel-body">
+        <table class="table table-striped">
+            <tr>
+              <th class="text-center">#</th>
+              <th class="text-center">URL</th>
+              <th class="text-center">Heure</th>
+            </tr>
+            <tr ng-repeat="l in liveData track by $index">
+              <td>{{ $index + 1 }}</td>
+              <td>
+                <a target="_BLANK" href="{{ l.url }}">
+                  {{ l.url }}
+                </a>
+              </td>
+              <td>{{ l.time | amDateFormat:'D MMMM HH:mm' }}</td>
+            </tr>
+         </table>
+      </div>
+    </div>
+  </section>
+</div>
