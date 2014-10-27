@@ -4,6 +4,8 @@ app.factory('urlUtilsService', function() {
 
     var urlUtilsService = function() {};
 
+    urlUtilsService.playURL = false;
+
     urlUtilsService.launchSoundCloud = function launchSoundCloud(urlvideo){
       SC.oEmbed(urlvideo, {auto_play: true}, function(oembed){
         str =  oembed.html;

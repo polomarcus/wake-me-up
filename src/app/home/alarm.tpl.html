@@ -1,4 +1,4 @@
-<div class="row" ng-controller="AlarmCtrl">
+<div ng-controller="AlarmCtrl">
   <div class="panel panel-success" id="reveil">
     <div class="panel-heading text-center">
         <strong>Réveil</strong>
@@ -14,19 +14,19 @@
             <div class="radio">
               <label>
                 <input ng-click="changeUrl('http://www.youtube.com/watch?v=KGyZY4HNumw')" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                Youtube - Pigeon John - Boomerang
+                Pigeon John - Boomerang
               </label>
             </div>
             <div class="radio">
               <label>
                 <input ng-click="changeUrl('http://www.dailymotion.com/video/x2ze7l')" type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                Dailymotion - J Dilla - Nothing like this
+                J Dilla - Nothing like this
               </label>
             </div>
             <div class="radio">
               <label>
                 <input ng-click="changeUrl('https://soundcloud.com/20syl/20syl-ongoing-thing')" type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                SoundCloud - 20Syl - Ongoing thing
+                20Syl - Ongoing thing
               </label>
             </div>
 
@@ -102,59 +102,61 @@
 
       <div class="row">
         <form role="form" name="alarmForm" novalidate>
-          <div class="col-md-12">
-          <div class="form-group">
-            <div class="input-group">
-              <div class="input-group-addon">URL</div>
-                <input type="url" name="url" ng-model="alarm.url" class="form-control" id="url" placeholder="Entrez une URL, exemple : http://youtu.be/KGyZY4HNumw" required>
+          <div class="row" style="margin-bottom:10px;">
+            <div class="col-md-12">
+              <div class="form-group">
+                <div class="col-md-8">
+                  <div class="input-group">
+                    <div class="input-group-addon">URL</div>
+                    <input type="url" name="url" ng-model="alarm.url" class="form-control" id="url" placeholder="Entrez une URL, exemple : http://youtu.be/KGyZY4HNumw" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <button type="button" ng-disabled="$scope.alarmURL == ''" ng-click="launchLink('test')" class="btn btn-primary btn-block" ng-show="alarm.button === 'ON'">
+                    Tester
+                  </button>
+                </div>
               </div>
               <p ng-show="alarmForm.url.$invalid" class="help-block">L'url n'est pas valide, example : <strong>http://www.youtube.com/watch?v=KGyZY4HNumw</strong></p>
-          </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="sr-only" for="hour">Heure</label>
-              <div class="input-group">
-                <input type="number" name="hour" class="form-control" id="hour" ng-model="alarm.time.hour" placeholder="Heure" ng-disabled="alarm.status !== ''" ng-minlength=0 ng-minlength=23 required>
-                <div class="input-group-addon">Heure</div>
-                <p ng-show="alarmForm.hour.$error.minlength || alarmForm.alarm.time.hour.$error.maxlength"  class="help-block">L'heure n'est pas au bon format, entre 0 et 23.</p>
-              </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="sr-only" for="minute">Minute</label>
-              <div class="input-group">
-                <input type="number" name="minute" class="form-control" id="minute" ng-model="alarm.time.min" placeholder="Minute" ng-disabled="alarm.status !== ''" ng-minlength=0 ng-minlength=59 required>
-                <div class="input-group-addon">Minute</div>
-                <p ng-show="alarmForm.minute.$error.minlength || alarmForm.alarm.time.hour.$error.maxlength"  class="help-block">Les minutes ne sont pas au bon formats, entre 0 et 59.</p>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="sr-only" for="hour">Heure</label>
+                  <div class="input-group">
+                    <input type="number" name="hour" class="form-control" id="hour" ng-model="alarm.time.hour" placeholder="Heure" ng-disabled="alarm.status !== ''" ng-minlength=0 ng-minlength=23 required>
+                    <div class="input-group-addon">Heure</div>
+                    <p ng-show="alarmForm.hour.$error.minlength || alarmForm.alarm.time.hour.$error.maxlength"  class="help-block">L'heure n'est pas au bon format, entre 0 et 23.</p>
+                  </div>
+                </div>
               </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="sr-only" for="minute">Minute</label>
+                  <div class="input-group">
+                    <input type="number" name="minute" class="form-control" id="minute" ng-model="alarm.time.min" placeholder="Minute" ng-disabled="alarm.status !== ''" ng-minlength=0 ng-minlength=59 required>
+                    <div class="input-group-addon">Minute</div>
+                    <p ng-show="alarmForm.minute.$error.minlength || alarmForm.alarm.time.hour.$error.maxlength"  class="help-block">Les minutes ne sont pas au bon formats, entre 0 et 59.</p>
+                  </div>
+                </div>
             </div>
-        </div>
 
-        <div class="col-md-4">
-          <div class="col-md-6">
-            <button type="button" ng-disabled="alarmForm.$invalid" ng-click="alarm.activate()" class="btn btn-primary btn-block" ng-show="alarm.button === 'ON'">
-              {{ alarm.button }}
-            </button>
-          </div>
-          <div class="col-md-6">
-            <button type="button" ng-disabled="$scope.alarmURL == ''" ng-click="launchLink('test')" class="btn btn-primary btn-block" ng-show="alarm.button === 'ON'">
-              Tester l'URL
-            </button>
-          </div>
+            <div class="col-md-4">
+              <button type="button" ng-disabled="alarmForm.$invalid" ng-click="alarm.activate()" class="btn btn-primary btn-block" ng-show="alarm.button === 'ON'">
+                {{ alarm.button }}
+              </button>
 
-          <button type="button"  ng-click="alarm.reset()" class="btn btn-danger btn-block" ng-show="alarm.button === 'OFF'">
-            {{ alarm.button }}
-          </button>
+              <button type="button"  ng-click="alarm.reset()" class="btn btn-danger btn-block" ng-show="alarm.button === 'OFF'">
+                {{ alarm.button }}
+              </button>
+            </div>
+          </div>
         </div>
 
         </form>
-      </div>
-
-      <!-- URL TO PLAY -->
-      <div class="row">
-        <div id="url2play" class="flex-video" ng-show="playURL"></div>
       </div>
 
       <!-- FORM ERROR -->

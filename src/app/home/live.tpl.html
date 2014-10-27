@@ -1,26 +1,30 @@
-<div class="row" ng-controller="liveCtrl">
-  <section id="live" ng-show="liveData.length > 0">
+<div ng-controller="liveCtrl">
+  <section id="live">
     <div class="panel panel-warning">
       <div class="panel-heading text-center">
-          <strong>Les dernières données reçues</strong>
+          <strong>Les 5 derniers réveils activés sur {{ liveData.length }}</strong>
       </div>
       <div class="panel-body">
-        <table class="table table-striped">
+        <table class="table table-striped" ng-show="liveData.length > 0">
             <tr>
-              <th class="text-center">#</th>
               <th class="text-center">URL</th>
               <th class="text-center">Heure</th>
             </tr>
-            <tr ng-repeat="l in liveData track by $index">
-              <td>{{ $index + 1 }}</td>
-              <td>
+            <tr class="animate-repeat" ng-repeat="l in liveData.slice().reverse() | limitTo:5 track by $index" ng-show="l.url != null">
+              <td class="crop">
                 <a target="_BLANK" href="{{ l.url }}">
-                  {{ l.url }}
+                  {{ l.url.substr(0, 30) }}<span ng-show="l.url.length > 30">...</span>
                 </a>
               </td>
-              <td>{{ l.time | amDateFormat:'D MMMM HH:mm' }}</td>
+              <td>
+                <!--<span class="label label-default">-->
+                  <span am-time-ago="l.time"></span>
+                <!--</span>-->
+                <!-- à {{ l.time | amDateFormat:'HH:mm' }} le {{ l.time | amDateFormat:'D MMMM' }}-->
+              </td>
             </tr>
          </table>
+         <center ng-show="liveData.length === 0"><p>Chargement...</p></center>
       </div>
     </div>
   </section>

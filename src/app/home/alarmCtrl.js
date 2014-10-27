@@ -12,7 +12,7 @@ angular.module( 'AlarmModule', [
 .controller( 'AlarmCtrl', ['$scope', '$timeout', 'urlUtilsService', '$firebase', function AlarmControl( $scope, $timeout, urlUtilsService, $firebase) {
     //Alarm Ctrl
     //show/hide URL div
-    $scope.playURL = false;
+    $scope.$parent.playURL = false;
 
     //firebase
     var ref = new Firebase("https://boiling-fire-8614.firebaseio.com/data");
@@ -98,14 +98,6 @@ angular.module( 'AlarmModule', [
           $scope.$broadcast('timer-set-countdown', $scope.countdown);
 
           document.getElementById('countdown').getElementsByTagName('timer')[0].start();
-
-          //save firebase
-          var tmpFirebase = {
-            'url' : $scope.alarm.url,
-            'time' : alarmTmp._i
-          };
-
-          $scope.liveData.$add(tmpFirebase);
         });
 
         $scope.alarm.button='OFF';
@@ -120,7 +112,7 @@ angular.module( 'AlarmModule', [
       //cancel alarm
       $scope.alarm.reset = function() {
         $scope.alarm.button = 'ON';
-        $scope.playURL = false;
+        $scope.$parent.playURL = false;
         clearInterval($scope.intervalAlarm);
         //remove playing URL
         $('#url2play').html("");
@@ -158,7 +150,7 @@ angular.module( 'AlarmModule', [
 
     $scope.alarm.reset = function() {
         $scope.alarm.button = 'ON';
-        $scope.playURL = false;
+        $scope.$parent.playURL = false;
         clearInterval($scope.intervalAlarm);
         //remove playing URL
         $('#url2play').html("");
@@ -182,10 +174,21 @@ angular.module( 'AlarmModule', [
     //utils
     //lauch sound, status is used to display the countdown
     $scope.launchLink = function(status){
-      if( !$scope.playURL ){
-        $scope.playURL = true;
-        if(status === 'ring'){
+      if( !$scope.$parent.playURL ){
+        //urlUtilsService.playURL = true; //future
+        $scope.$parent.playURL = true;
+        $scope.$parent.playURL = true;
+        if(status === 'ring' || status === "ringSecure"){
           $scope.alarm.status= status;
+        }
+
+        if(status === "ring"){
+          //save firebase
+          var tmpFirebase = {
+            'url' : $scope.alarm.url,
+            'time' : $scope.alarmTime._i
+          };
+          $scope.liveData.$add(tmpFirebase);
         }
 
         $scope.alarm.button='OFF';
@@ -261,7 +264,7 @@ angular.module( 'AlarmModule', [
     function isItTime(){
       if( $scope.alarmTime.diff(initAlarmTimeValue, 'seconds') !== 0 ) {
           if($scope.alarmTime.diff(moment(), 'seconds') === 0){
-            $scope.launchLink('ring');
+            $scope.launchLink('ringSecure');
           }
       }
     }
