@@ -33,22 +33,15 @@
     <script type="text/javascript" src="assets/js/advertisement.js"></script>
     <script type="text/javascript" src="assets/js/teads.js"></script>
 
-    <script src="http://connect.soundcloud.com/sdk.js"></script>
-    <script>
+    <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
+    <script type="text/javascript" src="<%= file %>"></script><% }); %>
+
+    <script type="text/javascript">
       SC.initialize({
         client_id: "9f2070a217c081383260f1c7f0c89bea",
         redirect_uri: "http://www.reveil-en-ligne.fr/",
       });
     </script>
-
-    <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
-    <script type="text/javascript" src="<%= file %>"></script><% }); %>
-
-    <!-- FIREBASE -->
-    <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
-
-    <!-- AngularFire -->
-    <script src="https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js"></script>
 
   </head>
   <body>
