@@ -51,7 +51,7 @@ angular.module( 'reveilEnLigne.home', [
   };
 
   $scope.playURL = urlUtilsService.playURL;
-  
+
   //display current date on the website
   setInterval(function(){
     $scope.clock.time = moment();

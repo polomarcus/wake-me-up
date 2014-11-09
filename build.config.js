@@ -26,7 +26,10 @@ module.exports = {
     coffee: [ 'src/**/*.coffee', '!src/**/*.spec.coffee' ],
     coffeeunit: [ 'src/**/*.spec.coffee' ],
 
-    atpl: [ 'src/app/**/*.tpl.html' ],
+    atpl: [
+    'vendor/angular-utils-pagination/dirPagination.tpl.html',
+    'src/app/**/*.tpl.html'
+    ],
     ctpl: [ 'src/common/**/*.tpl.html' ],
 
     html: [ 'src/index.html' ],
@@ -75,6 +78,7 @@ module.exports = {
       'vendor/angular-ui-router/release/angular-ui-router.js',
       'vendor/angular-ui-utils/modules/route/route.js',
       'vendor/soundcloud/sdk.js',
+      'vendor/angular-utils-pagination/dirPagination.js',
       'assets/js/googleplus.js',
       'assets/js/googleTrack.js',
       'assets/js/advertisement.js'

@@ -2,28 +2,45 @@
   <section id="live">
     <div class="panel panel-warning">
       <div class="panel-heading text-center">
-          <strong>Les 5 derniers réveils activés sur {{ liveData.length }}</strong>
+          <strong ng-show="liveData.length == 0">Chargement des alarmes des internautes...</strong>
+          <strong ng-show="liveData.length > 0">Les 8 derniers alarmes</span></strong>
       </div>
-      <div class="panel-body">
+      <div class="panel-body" style="padding-bottom: 13px;padding-top: 0px;">
+        <!-- SEARCH INPUT -->
+        <div ng-show="liveData.length > 0" class="block-center" style="margin-top: 10px;"class="col-md-12" >
+          <div class="form-group col-md-12">
+            <label class="sr-only" for="hour">Chercher une alarme sur les {{ liveData.length }} enregistrées</label>
+            <div class="input-group">
+              <div class="input-group-addon">Chercher une alarme sur les {{ liveData.length }} enregistrées</div>
+              <input ng-model="q" id="search" class="form-control" placeholder="Chercher une alarme">
+            </div>
+          </div>
+        </div>
+
         <table class="table table-striped" ng-show="liveData.length > 0">
             <tr>
               <th class="text-center">URL</th>
               <th class="text-center">Heure</th>
             </tr>
-            <tr class="animate-repeat" ng-repeat="l in liveData.slice().reverse() | limitTo:5 track by $index" ng-show="l.url != null">
-              <td class="crop">
+            <tr class="animate-repeat" dir-paginate="l in liveData.slice().reverse() |  filter:q | itemsPerPage: 8 track by $index" ng-show="l.url != null">
+              <td class="crop col-lg-10 col-md-10">
                 <a target="_BLANK" href="{{ l.url }}">
-                  {{ l.url.substr(0, 30) }}<span ng-show="l.url.length > 30">...</span>
+                  <span class="hidden-lg hidden-md">{{ l.url.substr(0, 30) }}<span ng-show="l.url.length > 30">...</span></span>
+                  <span class="hidden-xs hidden-sm">{{ l.url.substr(0, 120 )}}<span ng-show="l.url.length > 120">...</span></span>
                 </a>
               </td>
-              <td>
+              <td class="text-center col-lg-2 col-md-2">
                 <!--<span class="label label-default">-->
-                  <span am-time-ago="l.time"></span>
+                <!--  <span am-time-ago="l.time"></span>-->
+                  {{ l.time | amDateFormat:'HH:mm - DD/MM' }}
                 <!--</span>-->
                 <!-- à {{ l.time | amDateFormat:'HH:mm' }} le {{ l.time | amDateFormat:'D MMMM' }}-->
               </td>
             </tr>
          </table>
+
+        <dir-pagination-controls template-url="../../vendor/angular-utils-pagination/dirPagination.tpl.html"></dir-pagination-controls>
+
          <center ng-show="liveData.length === 0">
            <p>Chargement...</p>
            <p>
