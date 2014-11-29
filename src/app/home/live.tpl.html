@@ -3,7 +3,7 @@
     <div class="panel panel-warning">
       <div class="panel-heading text-center">
           <strong ng-show="liveData.length == 0">Chargement des alarmes des internautes...</strong>
-          <strong ng-show="liveData.length > 0">Les 8 derniers alarmes</span></strong>
+          <strong ng-show="liveData.length > 0">Les 8 dernières alarmes</span></strong>
       </div>
       <div class="panel-body" style="padding-bottom: 13px;padding-top: 0px;">
         <!-- SEARCH INPUT -->
@@ -11,8 +11,7 @@
           <div class="form-group col-md-12">
             <label class="sr-only" for="hour">Chercher une alarme sur les {{ liveData.length }} enregistrées</label>
             <div class="input-group">
-              <div class="input-group-addon">Chercher une alarme sur les {{ liveData.length }} enregistrées</div>
-              <input ng-model="q" id="search" class="form-control" placeholder="Chercher une alarme">
+              <input ng-model="q" id="search" class="form-control" placeholder="Chercher une alarme sur les {{ liveData.length }} enregistrées">
             </div>
           </div>
         </div>
