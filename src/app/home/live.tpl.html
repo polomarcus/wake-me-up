@@ -1,0 +1,14 @@
+<div class="row">
+  <section id="live">
+    <div class="panel panel-warning">
+      <div class="panel-heading text-center">
+          <strong>Les dernières données reçues</strong>
+      </div>
+      <div class="panel-body">
+        <li ng-repeat="l in liveData track by $index">
+          {{ l.url }} - {{ l.time }}
+        </li>
+      </div>
+    </div>
+  </section>
+</div>

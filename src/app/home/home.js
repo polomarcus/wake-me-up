@@ -17,7 +17,9 @@ angular.module( 'reveilEnLigne.home', [
   'timer',
   'AlarmModule',
   'ChronoModule',
-  'angularMoment'
+  'liveModule',
+  'angularMoment',
+  'firebase'
 ])
 
 /**
