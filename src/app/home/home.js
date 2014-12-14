@@ -44,11 +44,13 @@ angular.module( 'reveilEnLigne.home', [
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'HomeCtrl', function HomeController( $scope, $timeout) {
+.controller( 'HomeCtrl', function HomeController( $scope, $timeout, urlUtilsService ) {
   //init
   $scope.clock = {
     time: moment()
   };
+
+  $scope.playURL = urlUtilsService.playURL;
 
   //display current date on the website
   setInterval(function(){

@@ -1,19 +1,36 @@
 <div ng-controller="HomeCtrl">
   <div class="row">
-    <div class="jumbotron">
-      <h3><span>{{clock.time | amDateFormat:'dddd D MMMM YYYY'}}</span></h3>
-      <h2><span>{{clock.time | amDateFormat:'HH:mm:ss'}}</span></h2>
+    <div class="col-lg-12">
+      <div class="jumbotron">
+        <h3><span>{{clock.time | amDateFormat:'dddd D MMMM YYYY'}}</span></h3>
+        <h2><span>{{clock.time | amDateFormat:'HH:mm:ss'}}</span></h2>
+      </div>
     </div>
   </div>
 
+  <div class="row">
+    <div class="col-lg-12">
+      <alarm></alarm>
+    </div>
+  </div>
 
-<alarm></alarm>
+  <!-- URL TO PLAY -->
+  <div class="row">
+    <div class="col-lg-12">
+      <div id="url2play" class="flex-video" ng-show="playURL"></div>
+    </div>
+  </div>
 
-<ads></ads>
+  <div class="row">
+    <div class="col-lg-12">
+      <live-data></live-data>
+    </div>
+  </div>
 
-<!-- CHRONO DISPLAY -->
-<chrono></chrono>
+  <!-- CHRONO DISPLAY -->
+  <chrono></chrono>
 
-<comments></comments>
+  <ads></ads>
 
-<live-data></live-data>
+  <comments></comments>
+</div>

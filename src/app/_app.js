@@ -7,12 +7,12 @@ angular.module( 'reveilEnLigne', [
   'firebase'
 ])
 
-.config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
+.config( function myAppConfig ( $stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise( '/' );
 })
 
 .run(function(amMoment) {
-    amMoment.changeLocale('fr'); //momentJS
+    amMoment.changeLocale('fr'); //momentJS init i18n
 })
 
 .controller( 'AppCtrl', function AppCtrl ( $scope, $location, $anchorScroll ) {
@@ -25,7 +25,7 @@ angular.module( 'reveilEnLigne', [
 
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
     if ( angular.isDefined( toState.data.pageTitle ) ) {
-      $scope.pageTitle = toState.data.pageTitle + 'Reveil en ligne.fr' ;
+      $scope.pageTitle = toState.data.pageTitle + 'Reveil-en-ligne.fr' ;
     }
   });
 
@@ -40,5 +40,4 @@ angular.module( 'reveilEnLigne', [
       $anchorScroll();
   };
 })
-
 ;

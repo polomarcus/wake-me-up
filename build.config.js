@@ -26,7 +26,10 @@ module.exports = {
     coffee: [ 'src/**/*.coffee', '!src/**/*.spec.coffee' ],
     coffeeunit: [ 'src/**/*.spec.coffee' ],
 
-    atpl: [ 'src/app/**/*.tpl.html' ],
+    atpl: [
+    'vendor/angular-utils-pagination/dirPagination.tpl.html',
+    'src/app/**/*.tpl.html'
+    ],
     ctpl: [ 'src/common/**/*.tpl.html' ],
 
     html: [ 'src/index.html' ],
@@ -65,6 +68,8 @@ module.exports = {
       'vendor/angular/angular.js',
       'vendor/jquery/dist/jquery.min.js',
       'vendor/angular-timer/dist/angular-timer.min.js',
+      'vendor/firebase/firebase.js',
+      'vendor/angularfire/dist/angularfire.min.js',
       'vendor/momentjs/min/moment.min.js',
       'vendor/moment/locale/fr.js',
       'vendor/angular-moment/angular-moment.min.js',
@@ -72,6 +77,8 @@ module.exports = {
       'vendor/placeholders/angular-placeholders-0.0.1-SNAPSHOT.min.js',
       'vendor/angular-ui-router/release/angular-ui-router.js',
       'vendor/angular-ui-utils/modules/route/route.js',
+      'vendor/soundcloud/sdk.js',
+      'vendor/angular-utils-pagination/dirPagination.js',
       'assets/js/googleplus.js',
       'assets/js/googleTrack.js',
       'assets/js/advertisement.js'
