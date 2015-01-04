@@ -13,26 +13,26 @@
             </p>
             <div class="radio">
               <label>
-                <input ng-click="changeUrl('http://www.youtube.com/watch?v=KGyZY4HNumw')" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                <input ng-click="changeUrl('http://www.youtube.com/watch?v=KGyZY4HNumw')" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" ng-checked="'http://www.youtube.com/watch?v=KGyZY4HNumw' === alarm.url">
                 Pigeon John - Boomerang
               </label>
             </div>
             <div class="radio">
               <label>
-                <input ng-click="changeUrl('http://www.dailymotion.com/video/x2ze7l')" type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                <input ng-click="changeUrl('http://www.dailymotion.com/video/x2ze7l')" type="radio" name="optionsRadios" id="optionsRadios2" value="option2" ng-checked="'http://www.dailymotion.com/video/x2ze7l' === alarm.url">
                 J Dilla - Nothing like this
               </label>
             </div>
             <div class="radio">
               <label>
-                <input ng-click="changeUrl('https://soundcloud.com/20syl/20syl-ongoing-thing')" type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                <input ng-click="changeUrl('https://soundcloud.com/20syl/20syl-ongoing-thing')" type="radio" name="optionsRadios" id="optionsRadios2" value="option3" ng-checked="'https://soundcloud.com/20syl/20syl-ongoing-thing' === alarm.url">
                 20Syl - Ongoing thing
               </label>
             </div>
 
             <div class="radio disabled">
               <label>
-                <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+                <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" ng-disabled="true">
                 Ton son ! Propose le sur <a href="https://www.facebook.com/reveil.en.ligne" target="_BLANK">la page facebook</a>
               </label>
             </div>
@@ -44,26 +44,26 @@
             </p>
               <div class="radio">
                 <label>
-                  <input ng-click="changeUrl('http://www.novaplanet.com/radionova/player')" type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                  <input ng-click="changeUrl('http://www.novaplanet.com/radionova/player')" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" ng-checked="'http://www.novaplanet.com/radionova/player' === alarm.url">
                   Nova
                 </label>
               </div>
               <div class="radio">
                 <label>
-                  <input ng-click="changeUrl('http://play.nrj.fr/nrj/nrj.html')" type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                  <input ng-click="changeUrl('http://play.nrj.fr/nrj/nrj.html')" type="radio" name="optionsRadios" id="optionsRadios2" value="option2" ng-checked="'http://play.nrj.fr/nrj/nrj.html' === alarm.url">
                   NRJ
                 </label>
               </div>
               <div class="radio">
                 <label>
-                  <input ng-click="changeUrl('http://www.lemouv.fr/player')" type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                  <input ng-click="changeUrl('http://www.lemouv.fr/player')" type="radio" name="optionsRadios" id="optionsRadios2" value="option2" ng-checked="'http://www.lemouv.fr/player' === alarm.url">
                   Le mouv'
                 </label>
               </div>
               <div class="radio">
                 <label>
-                  <input ng-click="changeUrl('http://generations.fr/radio/webradio')"type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
-                  Generation
+                  <input ng-click="changeUrl('http://www.rtl.fr/direct')"type="radio" name="optionsRadios" id="optionsRadios4" value="option4" ng-checked="'http://www.rtl.fr/direct' === alarm.url">
+                  RTL
                 </label>
               </div>
           </div>

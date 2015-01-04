@@ -19,7 +19,7 @@ angular.module( 'reveilEnLigne', [
 
   $scope.adBlock = false;
   if (document.getElementById('ads_bottom') === null) {
-		$scope.adBlock = true; //Put true si il ya de la pub
+		$scope.adBlock = true; //Put true if adblock
   }
 
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){

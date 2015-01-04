@@ -16,13 +16,14 @@ angular.module( 'AlarmModule', [
 
     //firebase
     var ref = new Firebase("https://boiling-fire-8614.firebaseio.com/data");
-    var sync = $firebase(ref);
+    var sync =  $firebase(ref);
 
     // create a synchronized array for use in our HTML code
     $scope.liveData = sync.$asArray();
 
 
     $scope.alarm={};
+    $scope.alarm.url = 'https://soundcloud.com/20syl/20syl-ongoing-thing';
     $scope.alarm.error= '';
     $scope.alarmTime = moment().subtract(1, 'day'); //previous time for the alarm time init
     $scope.intervalAlarm;
@@ -34,8 +35,6 @@ angular.module( 'AlarmModule', [
     $scope.countdown = 0;
     $scope.alarm.status='';
     $scope.alarm.button='ON';
-    $scope.alarm.url='http://youtu.be/KGyZY4HNumw';
-
 
     //countdown
     $scope.countdownInterval = null;
@@ -210,10 +209,10 @@ angular.module( 'AlarmModule', [
           //video = "http://www.youtube.com/v/zR2BboZeLEw"; //Exemple type de vidéo à lire
           video = "http://www.youtube.com/v/" + id;
           str =  "<object width=\"420\" height=\"315\"> "+ //width=\"420\" height=\"315\"
-              "<param name=\"movie\" value=\""
-              + video +
-              "&loop=1&autoplay=1?version=3&amp;hl=fr_FR&amp;rel=0\">"  +
-            "</param><param name=\"allowFullScreen\" value=\"true\"></param> "+
+              "<param name=\"movie\" value=\"" +
+              video +
+              "&loop=1&autoplay=1?version=3&amp;hl=fr_FR&amp;rel=0\">" +
+              "</param><param name=\"allowFullScreen\" value=\"true\"></param> " +
               "<param name=\"allowscriptaccess\" value=\"always\"></param>"  +
               "<embed  width=\"420\" height=\"315\" src=\"" +
               video +

@@ -3,9 +3,10 @@
     <div class="panel panel-warning">
       <div class="panel-heading text-center">
           <strong ng-show="liveData.length == 0">Chargement des alarmes des internautes...</strong>
-          <strong ng-show="liveData.length > 0">Les 8 derniers alarmes</span></strong>
+          <strong ng-show="liveData.length > 0">Les 8 dernières alarmes en temps réel</span></strong>
       </div>
       <div class="panel-body" style="padding-bottom: 13px;padding-top: 0px;">
+
         <!-- SEARCH INPUT -->
         <div ng-show="liveData.length > 0" class="block-center" style="margin-top: 10px;"class="col-md-12" >
           <div class="form-group col-md-12">
@@ -17,7 +18,7 @@
           </div>
         </div>
 
-        <table class="table table-striped" ng-show="liveData.length > 0">
+        <table class="table table-bordered" ng-show="liveData.length > 0">
             <tr>
               <th class="text-center">URL</th>
               <th class="text-center">Heure</th>
@@ -41,15 +42,17 @@
 
         <dir-pagination-controls template-url="../../vendor/angular-utils-pagination/dirPagination.tpl.html"></dir-pagination-controls>
 
-         <center ng-show="liveData.length === 0">
-           <p>Chargement...</p>
+         <div ng-show="liveData.length === 0">
+           <p class="text-center">
+             Chargement...
+          </p>
            <p>
              Si cela dure trop longtemps il se peut que le compte gratuit de <a href="https://www.firebase.com/pricing.html">Firebase</a> est atteint son nombre de connexions maximum...
            </p>
            <p>
              Firebase est une base de donnée en ligne permettant de faire du temps réel facilement. Dans notre cas il affiche pour tous les utilisateurs connectés l'heure et l'URL d'une alarme lorsqu'elle sonne, fun non?
            </p>
-         </center>
+         </div>
 
       </div>
     </div>
