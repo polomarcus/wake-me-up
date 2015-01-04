@@ -3,7 +3,7 @@ angular.module( 'reveilEnLigne', [
   'templates-common',
   'reveilEnLigne.controllers',
   'reveilEnLigne.services',
-  'ui.router'
+  'ui.router',
   'firebase'
 ])
 
