@@ -4,7 +4,7 @@ var app = angular.module("liveModule", [
 ]);
 
 app.controller("liveCtrl", function($scope, $firebase, $interval) {
-  var ref = new Firebase("https://boiling-fire-8614.firebaseio.com/data").startAt().limit(100);
+  var ref = new Firebase("https://boiling-fire-8614.firebaseio.com/data").endAt().limit(100);
   var sync = $firebase(ref);
   $scope.liveData = [];
 

@@ -15,7 +15,7 @@ angular.module( 'AlarmModule', [
     $scope.$parent.playURL = false;
 
     //firebase
-    var ref = new Firebase("https://boiling-fire-8614.firebaseio.com/data").startAt().limit(100);
+    var ref = new Firebase("https://boiling-fire-8614.firebaseio.com/data").endAt().limit(100);
     var sync =  $firebase(ref);
 
     // create a synchronized array for use in our HTML code
