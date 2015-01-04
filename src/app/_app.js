@@ -15,7 +15,7 @@ angular.module( 'reveilEnLigne', [
 })
 
 .controller( 'AppCtrl', function AppCtrl ( $scope, $location, $anchorScroll ) {
-  console.log('%c\nReveil-en-ligne.fr\nGithub : https://github.com/polomarcus/reveil-en-ligne\nTwitter : @polomarcus', 'color: #4472B9; font-family: "arial"; font-size: 20px;');
+  console.log('%c\nReveil-en-ligne.fr by @polomarcus from Montpellier, France\nGithub : https://github.com/polomarcus/reveil-en-ligne\n', 'color: #4472B9; font-family: "arial"; font-size: 20px;');
 
   $scope.adBlock = false;
   if (document.getElementById('ads_bottom') === null) {
