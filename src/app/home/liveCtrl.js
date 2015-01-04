@@ -8,5 +8,6 @@ app.controller("liveCtrl", function($scope, $firebase, $interval) {
   var sync = $firebase(ref);
   $scope.liveData = [];
 
+  // create a synchronized array for use in our HTML code
   $scope.liveData = sync.$asArray();
 });

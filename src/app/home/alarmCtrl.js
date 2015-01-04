@@ -26,8 +26,7 @@ angular.module( 'AlarmModule', [
     $scope.alarm.url = 'https://soundcloud.com/20syl/20syl-ongoing-thing';
     $scope.alarm.error= '';
     $scope.alarmTime = moment().subtract(1, 'day'); //previous time for the alarm time init
-    $scope.intervalAlarm;
-    initAlarmTimeValue = moment().subtract(1, 'day' );
+    var initAlarmTimeValue = moment().subtract(1, 'day' );
     $scope.alarm.time = {
       'min': 0,
       'hour': ((moment().get('hour') + 8) % 24)
@@ -108,7 +107,7 @@ angular.module( 'AlarmModule', [
         }
       };
 
-      //cancel alarm
+      //reset alarm
       $scope.alarm.reset = function() {
         $scope.alarm.button = 'ON';
         $scope.$parent.playURL = false;
@@ -126,26 +125,26 @@ angular.module( 'AlarmModule', [
         $scope.alarm.status = '';
     };
 
-      //set countdown alarm //TODO
-      $scope.alarm.countdown = function(val) {
-        if( $scope.countdownInterval == null ){
-          $scope.countdownMoment = moment().seconds(parseInt(val));
-          $scope.countdownInterval = setInterval(function(){
-            $timeout(function() {
-              if( $scope.countdownMoment.get('second' ) === 0 ){
-                $scope.launchLink('ring');
-              }
-              else {
-                $scope.countdownMoment.subtract(1, 'second' );
-              }
-            });
-          }, 1000);
-        }
-        else {
-          $scope.countdownMoment = null;
-          clearInterval($scope.countdownInterval);
-        }
-      };
+    //set countdown alarm //TODO
+     $scope.alarm.countdown = function(val) {
+       if( $scope.countdownInterval == null ){
+         $scope.countdownMoment = moment().seconds(parseInt(val,10));
+         $scope.countdownInterval = setInterval(function(){
+           $timeout(function() {
+             if( $scope.countdownMoment.get('second' ) === 0 ){
+               $scope.launchLink('ring');
+             }
+             else {
+               $scope.countdownMoment.subtract(1, 'second' );
+             }
+           });
+         }, 1000);
+       }
+       else {
+         $scope.countdownMoment = null;
+         clearInterval($scope.countdownInterval);
+       }
+     };
 
     $scope.alarm.reset = function() {
         $scope.alarm.button = 'ON';

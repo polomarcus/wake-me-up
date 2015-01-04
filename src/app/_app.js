@@ -4,6 +4,7 @@ angular.module( 'reveilEnLigne', [
   'reveilEnLigne.controllers',
   'reveilEnLigne.services',
   'ui.router'
+  'firebase'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider) {
