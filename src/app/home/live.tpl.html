@@ -9,11 +9,9 @@
 
         <!-- SEARCH INPUT -->
         <div ng-show="liveData.length > 0" class="block-center" style="margin-top: 10px;"class="col-md-12" >
-          <div class="form-group col-md-12">
+          <div class="form-group">
             <label class="sr-only" for="hour">Chercher une alarme sur les {{ liveData.length }} enregistrées</label>
-            <div class="input-group">
-              <input ng-model="q" id="search" class="form-control" placeholder="Chercher une alarme sur les 100 dernières enregistrées">
-            </div>
+            <input ng-model="q" id="search" class="form-control" placeholder="Chercher une alarme sur les 100 dernières enregistrées">
           </div>
         </div>
 
