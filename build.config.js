@@ -70,7 +70,7 @@ module.exports = {
       'vendor/angular-timer/dist/angular-timer.min.js',
       'vendor/firebase/firebase.js',
       'vendor/angularfire/dist/angularfire.min.js',
-      'vendor/momentjs/min/moment.min.js',
+      'vendor/moment/min/moment.min.js',
       'vendor/moment/locale/fr.js',
       'vendor/angular-moment/angular-moment.min.js',
       'vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
