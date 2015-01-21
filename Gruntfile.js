@@ -18,6 +18,7 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-ngmin');
   grunt.loadNpmTasks('grunt-html2js');
+  grunt.loadNpmTasks('grunt-ftp-deploy');
 
   /**
    * Load in our build configuration file.
@@ -34,6 +35,32 @@ module.exports = function ( grunt ) {
      * version. It's already there, so we don't repeat ourselves here.
      */
     pkg: grunt.file.readJSON("package.json"),
+
+     //FTP deploy staging
+    'ftp-deploy-staging': {
+      build: {
+        auth: {
+          host: 'reveil-en-ligne.fr',
+          port: 21,
+          authKey: 'key1'
+        },
+        src: 'bin',
+        dest: '/staging'
+      }
+    },
+
+    //FTP deploy production
+    'ftp-deploy-prod': {
+     build: {
+       auth: {
+         host: 'reveil-en-ligne.fr',
+         port: 21,
+         authKey: 'key1'
+       },
+       src: 'bin',
+       dest: '/'
+     }
+    },
 
     /**
      * The banner is the comment that is placed at the top of our compiled
@@ -547,7 +574,12 @@ module.exports = function ( grunt ) {
   /**
    * The default task is to build and compile.
    */
-  grunt.registerTask( 'default', [ 'build', 'compile' ] );
+  grunt.registerTask( 'default', [ 'build', 'compile', 'ftp-deploy-staging' ] );
+
+  /**
+   * The default task is to put code in production and bump the version
+   */
+  grunt.registerTask( 'production', [ 'bump', 'ftp-deploy-prod' ] );
 
   /**
    * The `build` task gets your app ready to run for development and testing.
