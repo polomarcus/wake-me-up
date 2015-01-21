@@ -37,7 +37,7 @@ module.exports = function ( grunt ) {
     pkg: grunt.file.readJSON("package.json"),
 
      //FTP deploy staging
-    'ftp-deploy-staging': {
+    'ftp-deploy': {
       build: {
         auth: {
           host: 'reveil-en-ligne.fr',
@@ -46,20 +46,16 @@ module.exports = function ( grunt ) {
         },
         src: 'bin',
         dest: '/staging'
+      },
+      prod: {
+        auth: {
+          host: 'reveil-en-ligne.fr',
+          port: 21,
+          authKey: 'key1'
+        },
+        src: 'bin',
+        dest: '/'
       }
-    },
-
-    //FTP deploy production
-    'ftp-deploy-prod': {
-     build: {
-       auth: {
-         host: 'reveil-en-ligne.fr',
-         port: 21,
-         authKey: 'key1'
-       },
-       src: 'bin',
-       dest: '/'
-     }
     },
 
     /**
@@ -97,13 +93,13 @@ module.exports = function ( grunt ) {
           "package.json",
           "bower.json"
         ],
-        commit: false,
+        commit: true,
         commitMessage: 'chore(release): v%VERSION%',
         commitFiles: [
           "package.json",
           "client/bower.json"
         ],
-        createTag: false,
+        createTag: true,
         tagName: 'v%VERSION%',
         tagMessage: 'Version %VERSION%',
         push: false,
@@ -574,12 +570,12 @@ module.exports = function ( grunt ) {
   /**
    * The default task is to build and compile.
    */
-  grunt.registerTask( 'default', [ 'build', 'compile', 'ftp-deploy-staging' ] );
+  grunt.registerTask( 'default', [ 'build', 'compile', 'ftp-deploy:build' ] );
 
   /**
    * The default task is to put code in production and bump the version
    */
-  grunt.registerTask( 'production', [ 'bump', 'ftp-deploy-prod' ] );
+  grunt.registerTask( 'production', [ 'bump', 'ftp-deploy:prod' ] );
 
   /**
    * The `build` task gets your app ready to run for development and testing.
