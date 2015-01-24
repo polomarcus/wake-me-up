@@ -15,7 +15,7 @@ angular.module( 'reveilEnLigne', [
     amMoment.changeLocale('fr'); //momentJS init i18n
 })
 
-.controller( 'AppCtrl', function AppCtrl ( $scope, $location, $anchorScroll ) {
+.controller( 'AppCtrl', function AppCtrl ( $scope, $location, $anchorScroll, $document ) {
   console.log('%c\nReveil-en-ligne.fr by @polomarcus from Montpellier, France\nGithub : https://github.com/polomarcus/reveil-en-ligne\n', 'color: #4472B9; font-family: "arial"; font-size: 20px;');
 
   $scope.adBlock = false;
