@@ -5,3 +5,5 @@ bin/
 node_modules/
 vendor/
 .ftppass
+.idea
+.DS_Store
