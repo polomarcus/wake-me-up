@@ -9,18 +9,10 @@ angular.module( 'AlarmModule', [
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'AlarmCtrl', ['$scope', '$timeout', 'urlUtilsService', '$firebase', function AlarmControl( $scope, $timeout, urlUtilsService, $firebase) {
+.controller( 'AlarmCtrl', function AlarmControl( $scope, $timeout, urlUtilsService, firebaseService) {
     //Alarm Ctrl
     //show/hide URL div
     $scope.$parent.playURL = false;
-
-    //firebase
-    var ref = new Firebase("https://boiling-fire-8614.firebaseio.com/data").endAt().limit(100);
-    var sync =  $firebase(ref);
-
-    // create a synchronized array for use in our HTML code
-    $scope.liveData = sync.$asArray();
-
 
     $scope.alarm={};
     $scope.alarm.url = 'https://soundcloud.com/20syl/20syl-ongoing-thing';
@@ -42,7 +34,7 @@ angular.module( 'AlarmModule', [
     //logic functions
     //enter key launch URL form
     $('body').bind('keyup', function(event) {
-       if(event.keyCode==13){
+       if(event.keyCode === 13){
          if($scope.alarm.status === ''){
            $scope.alarm.activate();
          }
@@ -125,7 +117,7 @@ angular.module( 'AlarmModule', [
         $scope.alarm.status = '';
     };
 
-    //set countdown alarm //TODO
+    //set countdown alarm //TODO countdown timer
      $scope.alarm.countdown = function(val) {
        if( $scope.countdownInterval == null ){
          $scope.countdownMoment = moment().seconds(parseInt(val,10));
@@ -186,15 +178,17 @@ angular.module( 'AlarmModule', [
             'url' : $scope.alarm.url,
             'time' : $scope.alarmTime._i
           };
-          $scope.liveData.$add(tmpFirebase);
+
+          firebaseService.add(tmpFirebase);
         }
 
         $scope.alarm.button='OFF';
-        $('#url2play').fadeIn();
+        $('#url2play').fadeIn(); //@TODO angular way
 
         var urlvideo = $scope.alarm.url,
             id,
-            SoundCloudURL = false;
+            SoundCloudURL = false,
+            str,
             SCregexp = /^https?:\/\/(soundcloud.com|snd.sc)\/(.*)$/;
 
           if (/Youtube/i.test(urlvideo) || (/Youtu/i.test(urlvideo))) { //Cas
@@ -205,40 +199,19 @@ angular.module( 'AlarmModule', [
               id = urlUtilsService.youtubeIDextract(urlvideo, false);
             }
 
-          //video = "http://www.youtube.com/v/zR2BboZeLEw"; //Exemple type de vidéo à lire
-          video = "http://www.youtube.com/v/" + id;
-          str =  "<object width=\"420\" height=\"315\"> "+ //width=\"420\" height=\"315\"
-              "<param name=\"movie\" value=\"" +
-              video +
-              "&loop=1&autoplay=1?version=3&amp;hl=fr_FR&amp;rel=0\">" +
-              "</param><param name=\"allowFullScreen\" value=\"true\"></param> " +
-              "<param name=\"allowscriptaccess\" value=\"always\"></param>"  +
-              "<embed  width=\"420\" height=\"315\" src=\"" +
-              video +
-              "&loop=1&autoplay=1?version=3&amp;hl=fr_FR&amp;rel=0\" type=\"application/x-shockwave-flash\" allowscriptaccess=\"always\" allowfullscreen=\"true\"></embed>"  +
-              "</object>";
-
-          } else if(/Dailymotion/i.test(urlvideo)) { //Cas Dailymotion
-            typevideo = "daily";
-
+          //video = "http://www.youtube.com/v/zR2BboZeLEw"; //Video example type
+          str =  urlUtilsService.youtubeBuilder(id);
+          }
+          else if(/Dailymotion/i.test(urlvideo)) { //Cas Dailymotion
             id = urlUtilsService.dailyIDextract(urlvideo);
-            str = "<iframe frameborder=\"0\" autoplay='true' src=\"" + "http://www.dailymotion.com/embed/video/" + id + "?autoPlay=1\">" +
-            "</iframe><br />" +
-            "<a href=\"http://www.dailymotion.com/video/" + id +"\" target=\"_blank\">" +
-              "Bon réveil !" +
-          "	</a>" +
-          "	<i>par " +
-              "<a href=\"http://www.dailymotion.com/\" target=\"_blank\">" +
-                "Reveil-en-ligne.fr" +
-              "</a>"  +
-            "</i>";
+            str = urlUtilsService.dailymotionBuilder(id);
           }
           else if( urlvideo.match(SCregexp) && urlvideo.match(SCregexp)[2]) {
             SoundCloudURL = true;
             urlUtilsService.launchSoundCloud(urlvideo);
           }
           else { //others cases
-            str = "<iframe style='width:100%;'src='" + urlvideo + "'>" + "</iframe>";
+            str = urlUtilsService.iframeBuilder(urlvideo);
           }
 
         if( !SoundCloudURL ){
@@ -248,6 +221,7 @@ angular.module( 'AlarmModule', [
     };
 
 
+    //@TODO angular service
     //9 -> 09 for example
     function correctFormatDate(date){
       if(date < 10) {
@@ -271,5 +245,5 @@ angular.module( 'AlarmModule', [
     $scope.changeUrl = function(url){
       $scope.alarm.url = url;
     };
-}])
+})
 ;

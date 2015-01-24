@@ -38,5 +38,58 @@ app.factory('urlUtilsService', function() {
       return null;
     };
 
+    /**
+     * return a youtube video HTML object
+     * @param id
+     * @returns {HTML node}
+     */
+    urlUtilsService.youtubeBuilder = function youtubeBuilder(id){
+        var url = "http://www.youtube.com/v/" + id;
+
+        var video =  "<object width=\"420\" height=\"315\"> "+
+        "<param name=\"movie\" value=\"" +
+        video +
+        "&loop=1&autoplay=1?version=3&amp;hl=fr_FR&amp;rel=0\">" +
+        "</param><param name=\"allowFullScreen\" value=\"true\"></param> " +
+        "<param name=\"allowscriptaccess\" value=\"always\"></param>"  +
+        "<embed  width=\"420\" height=\"315\" src=\"" +
+        url +
+        "&loop=1&autoplay=1?version=3&amp;hl=fr_FR&amp;rel=0\" type=\"application/x-shockwave-flash\" allowscriptaccess=\"always\" allowfullscreen=\"true\"></embed>"  +
+        "</object>";
+
+        return video;
+    };
+
+    /**
+     * return a dailymotion video HTML object
+     * @param id
+     * @returns {HTML node}
+     */
+    urlUtilsService.dailymotionBuilder = function dailymotionBuilder(id){
+        var url = "http://www.dailymotion.com/embed/video/" + id;
+
+        var video =  "<iframe frameborder=\"0\" autoplay='true' src=\"" + url + "?autoPlay=1\">" +
+        "</iframe><br />" +
+        "<a href=\"http://www.dailymotion.com/video/" + id +"\" target=\"_blank\">" +
+        "Bon réveil !" +
+        "	</a>" +
+        "	<i>par " +
+        "<a href=\"http://www.dailymotion.com/\" target=\"_blank\">" +
+        "Reveil-en-ligne.fr" +
+        "</a>"  +
+        "</i>";
+
+        return video;
+    };
+
+    /**
+     * return a iframe HTML object
+     * @param id
+     * @returns {HTML node}
+     */
+    urlUtilsService.iframeBuilder = function iframeBuilder(url){
+        return "<iframe style='width:100%;'src='" + url + "'>" + "</iframe>";
+    };
+
     return urlUtilsService;
 });
