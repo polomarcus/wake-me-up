@@ -10,8 +10,8 @@ describe( 'AppCtrl', function() {
       AppCtrl = $controller( 'AppCtrl', { $location: $location, $scope: $scope });
     }));
 
-    it( 'should pass a dummy test', inject( function() {
-      expect( AppCtrl ).toBeTruthy();
+    it( 'should pass describe all variables', inject( function() {
+      expect( $scope.adBlock ).toBeFalsy();
     }));
   });
 });
