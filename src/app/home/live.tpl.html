@@ -3,7 +3,7 @@
     <div class="panel panel-warning">
       <div class="panel-heading text-center">
           <strong ng-show="liveData.length == 0">Chargement des alarmes des internautes...</strong>
-          <strong ng-show="liveData.length > 0">Les 8 dernières alarmes en temps réel</span></strong>
+          <strong ng-show="liveData.length > 0">Les 8 dernières alarmes en temps réel (si vous êtes chanceux)</span></strong>
       </div>
       <div class="panel-body" style="padding-bottom: 13px;padding-top: 0px;">
 
@@ -28,11 +28,7 @@
                 </a>
               </td>
               <td class="text-center col-lg-2 col-md-2">
-                <!--<span class="label label-default">-->
-                <!--  <span am-time-ago="l.time"></span>-->
                   {{ l.time | amDateFormat:'HH:mm - DD/MM' }}
-                <!--</span>-->
-                <!-- à {{ l.time | amDateFormat:'HH:mm' }} le {{ l.time | amDateFormat:'D MMMM' }}-->
               </td>
             </tr>
          </table>
