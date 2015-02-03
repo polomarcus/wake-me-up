@@ -65,8 +65,7 @@ module.exports = {
    */
   vendor_files: {
     js: [
-      'http://localhost:35729/livereload.js',
-      'vendor/angular/angular.js',
+      'vendor/angular/angular.min.js',
       'vendor/jquery/dist/jquery.min.js',
       'vendor/angular-timer/dist/angular-timer.min.js',
       'vendor/firebase/firebase.js',
