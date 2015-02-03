@@ -19,6 +19,7 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-ngmin');
   grunt.loadNpmTasks('grunt-html2js');
   grunt.loadNpmTasks('grunt-ftp-deploy');
+  grunt.loadNpmTasks('grunt-devperf');
 
   /**
    * Load in our build configuration file.
@@ -81,6 +82,15 @@ module.exports = function ( grunt ) {
       options: {
         dest: 'CHANGELOG.md',
         template: 'changelog.tpl'
+      }
+    },
+
+    /* dev request improvement graph task */
+    devperf: {
+      options: {
+        urls: [
+          'http://www.reveil-en-ligne.fr'
+        ]
       }
     },
 
@@ -575,7 +585,7 @@ module.exports = function ( grunt ) {
   /**
    * The default task is to put code in production and bump the version
    */
-  grunt.registerTask( 'production', [ 'bump', 'ftp-deploy:prod' ] );
+  grunt.registerTask( 'production', [ 'bump', 'ftp-deploy:prod', 'devperf'] );
 
   /**
    * The `build` task gets your app ready to run for development and testing.
