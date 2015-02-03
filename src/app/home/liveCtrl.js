@@ -4,6 +4,5 @@ var app = angular.module("liveModule", [
 ]);
 
 app.controller("liveCtrl", function($scope, firebaseService) {
-
   $scope.liveData = firebaseService.get();
 });

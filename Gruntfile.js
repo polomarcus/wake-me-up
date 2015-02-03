@@ -12,6 +12,7 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-conventional-changelog');
   grunt.loadNpmTasks('grunt-bump');
   grunt.loadNpmTasks('grunt-coffeelint');
@@ -56,6 +57,24 @@ module.exports = function ( grunt ) {
         },
         src: 'bin',
         dest: '/'
+      }
+    },
+
+
+    /**
+     * launch local server
+     */
+    connect: {
+      server: {
+        options: {
+          port: 8080,
+          base: 'build',
+          hostname: 'localhost',
+          open : {
+            target: 'http://localhost:8080', // target url to open
+            appName: 'Google Chrome' // name of the app that opens, ie: open, start, xdg-open
+          }
+        }
       }
     },
 
@@ -575,7 +594,7 @@ module.exports = function ( grunt ) {
    * before watching for changes.
    */
   grunt.renameTask( 'watch', 'delta' );
-  grunt.registerTask( 'watch', [ 'build', 'delta' ] );
+  grunt.registerTask( 'watch', [ 'connect', 'build', 'delta' ] );
 
   /**
    * The default task is to build and compile.

@@ -65,6 +65,7 @@ module.exports = {
    */
   vendor_files: {
     js: [
+      'http://localhost:35729/livereload.js',
       'vendor/angular/angular.js',
       'vendor/jquery/dist/jquery.min.js',
       'vendor/angular-timer/dist/angular-timer.min.js',
@@ -92,9 +93,9 @@ module.exports = {
       'assets/js/advertisement.js'
     ],
     css: [
-      'vendor/bootstrap/dist/css/bootstrap.min.css',
+      'vendor/bootstrap/dist/css/bootstrap.min.css'
     ],
     assets: [
     ]
-  },
+  }
 };
