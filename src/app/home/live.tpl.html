@@ -1,5 +1,5 @@
 <div ng-controller="liveCtrl">
-  <section id="live">
+  <section id="live" ng-show="!peakReached">
     <div class="panel panel-warning">
       <div class="panel-heading text-center">
           <strong ng-show="liveData.length == 0">Chargement des alarmes des internautes...</strong>
@@ -41,9 +41,6 @@
           </p>
            <p>
              Si cela dure trop longtemps il se peut que le compte gratuit de <a href="https://www.firebase.com/pricing.html">Firebase</a> est atteint son nombre de connexions maximum...
-           </p>
-           <p>
-             Firebase est une base de donnée en ligne permettant de faire du temps réel facilement. Dans notre cas il affiche pour tous les utilisateurs connectés l'heure et l'URL d'une alarme lorsqu'elle sonne, fun non?
            </p>
          </div>
       </div>

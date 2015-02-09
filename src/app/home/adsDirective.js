@@ -13,7 +13,7 @@ app.directive('ads', function($timeout) {
             _ttf.push({
                 pid          : 22738,
                 lang        : "fr",
-                slot        : 'live-data',
+                slot        : '#chrono',
                 format      : "inread",
                 minSlot     : 0,
                 BTF         : false
