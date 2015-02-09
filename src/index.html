@@ -29,10 +29,6 @@
     <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
     <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
 
-    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-    <script type="text/javascript" src="assets/js/googleTrack.js"></script>
-    <script type="text/javascript" src="assets/js/advertisement.js"></script>
-
     <script src="assets/js/soundcloud.min.js"></script>
     <script type="text/javascript">
       SC.initialize({
@@ -53,66 +49,13 @@
       js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&appId=559454604162123&version=v2.0";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-    <div class="container">
-      <div>
-        <div class="navbar navbar-default">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="index.html">
-              Reveil-en-ligne.fr
-            </a>
-          </div>
-          <div class="navbar-collapse" collapse="menuCollapsed">
-            <ul class="nav navbar-nav">
-              <li><a href="" ng-click="goToAnchor('reveil')">Réveil</a></li>
-              <li><a href="" ng-click="goToAnchor('chrono')">Chronomètre</a></li>
-              <li><a href="" ng-click="goToAnchor('comments')">Commentaires</a></li>
-              <li><a href="http://www.facebook.com/reveil.en.ligne" target="_BLANK">Page facebook</a></li>
-              <li><a href="http://www.reveil-en-ligne.fr/V1" target="_BLANK">Reveil version 1</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!--&lt;!&ndash; ADS &ndash;&gt;-->
-	<!--<div class="container">-->
-      <!--<center class="hidden-sm hidden-xs">-->
-      <!--&lt;!&ndash; Début tag AdServerPub DESKTOP//&ndash;&gt;-->
-          <!--<script language="JavaScript" type="text/javascript" src="http://www2.adserverpub.com/group.php?id=22019-27062&data=1&width=728&height=90"></script>-->
-      <!--&lt;!&ndash; Fin tag AdServerPub //&ndash;&gt;-->
-      <!--</center>-->
-
-      <!--<center class="hidden-lg hidden-md">-->
-      <!--&lt;!&ndash; Début tag AdServerPub MOBILE//&ndash;&gt;-->
-        <!--<script language="JavaScript" type="text/javascript" src="http://www2.adserverpub.com/group.php?id=22019-27062&data=1&width=300&height=250"></script>-->
-      <!--&lt;!&ndash; Fin tag AdServerPub //&ndash;&gt;-->
-      <!--</center>-->
-    <!--</div>-->
-
+    <menu-top></menu-top>
 
     <div class="container" ui-view="main"></div>
 
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-inner center-block">
-          <ul class="list-inline social-buttons">
-            <li>
-              <div class="fb-like" data-href="http://www.facebook.com/reveil.en.ligne" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div></li>
-            <li>
-              <a href="https://twitter.com/share" class="twitter-share-button" data-text="Le réveil en ligne préféré des internautes" data-via="polomarcus" data-hashtags="reveil">Tweeter ce site</a>
-              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-            </li>
-            <li>
-				        <g:plusone href="http://www.reveil-en-ligne.fr/"></g:plusone>
-            </li>
-          </ul>
+    <footer-content></footer-content>
 
-          <p>
-            <strong><i>Vous réveille avec <i class="fa fa-heart"></i> depuis 2011</i></strong>
-          </p>
-        </div>
-      </div>
-    </footer>
     <script>window.twttr = (function (d, s, id) {
     var t, js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
@@ -129,6 +72,5 @@
     <!-- Début tag AdServerPub //-->
     <script language="JavaScript" type="text/javascript" src="http://www2.adserverpub.com/footerads.php?id=22019-27062&data=1&width=728&height=90"></script>
     <!-- Fin tag AdServerPub //-->
-
   </body>
 </html>

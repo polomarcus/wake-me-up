@@ -87,14 +87,17 @@ module.exports = {
       'vendor/angular-ui-utils/modules/route/route.js',
       'vendor/soundcloud/sdk.js',
       'vendor/angular-utils-pagination/dirPagination.js',
+      'vendor/bootstrap/js/collapse.js',
       'assets/js/googleplus.js',
       'assets/js/googleTrack.js',
       'assets/js/advertisement.js'
     ],
     css: [
+      //'vendor/font-awesome/css/font-awesome.min.css', //@TODO
       'vendor/bootstrap/dist/css/bootstrap.min.css'
     ],
     assets: [
+      'vendor/font-awesome/fonts/*'
     ]
   }
 };
