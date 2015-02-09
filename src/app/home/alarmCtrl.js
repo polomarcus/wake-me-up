@@ -9,7 +9,7 @@ angular.module( 'AlarmModule', [
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'AlarmCtrl', function AlarmControl( $scope, $timeout, urlUtilsService, firebaseService, cookieService) {
+.controller( 'AlarmCtrl', function AlarmControl( $scope, $timeout, urlUtilsService, firebaseService, cookieService, dataService) {
     //Alarm Ctrl
     //show/hide URL div
     $scope.$parent.playURL = false;
@@ -40,7 +40,7 @@ angular.module( 'AlarmModule', [
             'hour': ((moment().get('hour') + 8) % 24)
         };
 
-        $scope.alarm.url = 'https://soundcloud.com/20syl/20syl-ongoing-thing';
+        $scope.alarm.url = dataService.getUrl();
     }
 
     $scope.countdown = 0;
