@@ -7,3 +7,4 @@ vendor/
 .ftppass
 .idea
 .DS_Store
+devperf/
