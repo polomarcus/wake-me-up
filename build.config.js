@@ -66,6 +66,7 @@ module.exports = {
   vendor_files: {
     js: [
       'vendor/angular/angular.min.js',
+      'vendor/angular-cookies/angular-cookies.min.js',
       'vendor/jquery/dist/jquery.min.js',
       'vendor/angular-timer/dist/angular-timer.min.js',
       'vendor/firebase/firebase.js',

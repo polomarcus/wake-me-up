@@ -9,20 +9,40 @@ angular.module( 'AlarmModule', [
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'AlarmCtrl', function AlarmControl( $scope, $timeout, urlUtilsService, firebaseService) {
+.controller( 'AlarmCtrl', function AlarmControl( $scope, $timeout, urlUtilsService, firebaseService, cookieService) {
     //Alarm Ctrl
     //show/hide URL div
     $scope.$parent.playURL = false;
 
     $scope.alarm={};
-    $scope.alarm.url = 'https://soundcloud.com/20syl/20syl-ongoing-thing';
+
     $scope.alarm.error= '';
     $scope.alarmTime = moment().subtract(1, 'day'); //previous time for the alarm time init
+
     var initAlarmTimeValue = moment().subtract(1, 'day' );
-    $scope.alarm.time = {
-      'min': 0,
-      'hour': ((moment().get('hour') + 8) % 24)
-    };
+
+    //cookie service
+    var cookieVal = cookieService.get();
+
+    if(cookieVal !== null){
+        $scope.alarmTime = moment(cookieVal.alarm);
+
+        $scope.alarm.time = {
+            'min': $scope.alarmTime.minute(),
+            'hour': $scope.alarmTime.hour()
+        };
+
+        $scope.alarm.url = cookieVal.url;
+    }
+    else { //No cookie so default alarm + 8 hours from now
+        $scope.alarm.time = {
+            'min': 0,
+            'hour': ((moment().get('hour') + 8) % 24)
+        };
+
+        $scope.alarm.url = 'https://soundcloud.com/20syl/20syl-ongoing-thing';
+    }
+
     $scope.countdown = 0;
     $scope.alarm.status='';
     $scope.alarm.button='ON';
@@ -65,6 +85,10 @@ angular.module( 'AlarmModule', [
 
         //init alarm time
         var alarmTmp = moment(today.year() + "-" + todayMonth + "-" + todayDate + " " + alarmTimeHour + ":" + alarmTimeMinute  + ":00");
+
+          //save cookie
+        cookieService.set(alarmTmp._i, $scope.alarm.url);
+
         //compute diff between today and alarmDate
         //hours
         if(today.get('hour') > $scope.alarm.time.hour ){ //ex : 23h to 7h
@@ -117,7 +141,7 @@ angular.module( 'AlarmModule', [
         $scope.alarm.status = '';
     };
 
-    //set countdown alarm //TODO countdown timer
+    //set countdown alarm //@TODO countdown timer
      $scope.alarm.countdown = function(val) {
        if( $scope.countdownInterval == null ){
          $scope.countdownMoment = moment().seconds(parseInt(val,10));
