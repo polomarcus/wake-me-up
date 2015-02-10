@@ -21,27 +21,7 @@ angular.module( 'AlarmModule', [
 
     var initAlarmTimeValue = moment().subtract(1, 'day' );
 
-    //cookie service
-    var cookieVal = cookieService.get();
-
-    if(cookieVal !== null){
-        $scope.alarmTime = moment(cookieVal.alarm);
-
-        $scope.alarm.time = {
-            'min': $scope.alarmTime.minute(),
-            'hour': $scope.alarmTime.hour()
-        };
-
-        $scope.alarm.url = cookieVal.url;
-    }
-    else { //No cookie so default alarm + 8 hours from now
-        $scope.alarm.time = {
-            'min': 0,
-            'hour': ((moment().get('hour') + 8) % 24)
-        };
-
-        $scope.alarm.url = dataService.getUrl();
-    }
+    getCookieData();
 
     $scope.countdown = 0;
     $scope.alarm.status='';
@@ -263,6 +243,35 @@ angular.module( 'AlarmModule', [
             $scope.launchLink('ringSecure');
           }
       }
+    }
+
+    /**
+     * from cookie data or default data if no cookie is set
+     * set $scope.alarm.time
+     * set $scope.alarm.url
+     */
+    function getCookieData(){
+        //cookie service
+        var cookieVal = cookieService.get();
+
+        if(cookieVal !== null){
+            $scope.alarmTime = moment(cookieVal.alarm);
+
+            $scope.alarm.time = {
+                'min': $scope.alarmTime.minute(),
+                'hour': $scope.alarmTime.hour()
+            };
+
+            $scope.alarm.url = cookieVal.url;
+        }
+        else { //No cookie so default alarm + 8 hours from now
+            $scope.alarm.time = {
+                'min': 0,
+                'hour': ((moment().get('hour') + 8) % 24)
+            };
+
+            $scope.alarm.url = dataService.getUrl();
+        }
     }
 
     //url management
