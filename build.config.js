@@ -69,6 +69,7 @@ module.exports = {
       'vendor/angular-cookies/angular-cookies.min.js',
       'vendor/jquery/dist/jquery.min.js',
       'vendor/angular-timer/dist/angular-timer.min.js',
+      'vendor/angular-translate/angular-translate.min.js',
       'vendor/firebase/firebase.js',
       'vendor/angularfire/dist/angularfire.min.js',
       'vendor/moment/min/moment.min.js',
@@ -98,7 +99,6 @@ module.exports = {
       'vendor/bootstrap/dist/css/bootstrap.min.css'
     ],
     assets: [
-      'vendor/font-awesome/fonts/*'
     ]
   }
 };

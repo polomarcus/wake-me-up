@@ -9,5 +9,19 @@ app.factory('dataService', function() {
         return url;
     };
 
+    /**
+     * @description
+     * display date management
+     * 9 -> 09 for example
+     */
+    DataService.correctFormatDate = function correctFormatDate(date){
+        if(date < 10) {
+            date = '0' + date;
+        }
+
+        return date;
+    };
+
+
     return DataService;
 });

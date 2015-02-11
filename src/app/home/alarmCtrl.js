@@ -58,10 +58,10 @@ angular.module( 'AlarmModule', [
             alarmTimeHour = $scope.alarm.time.hour,
             alarmTimeMinute = $scope.alarm.time.min;
 
-        todayDate = correctFormatDate(todayDate);
-        todayMonth = correctFormatDate(todayMonth + 1);
-        alarmTimeHour = correctFormatDate(alarmTimeHour);
-        alarmTimeMinute = correctFormatDate(alarmTimeMinute);
+        todayDate = dataService.correctFormatDate(todayDate);
+        todayMonth = dataService.correctFormatDate(todayMonth + 1);
+        alarmTimeHour = dataService.correctFormatDate(alarmTimeHour);
+        alarmTimeMinute = dataService.correctFormatDate(alarmTimeMinute);
 
         //init alarm time
         var alarmTmp = moment(today.year() + "-" + todayMonth + "-" + todayDate + " " + alarmTimeHour + ":" + alarmTimeMinute  + ":00");
@@ -224,16 +224,6 @@ angular.module( 'AlarmModule', [
       }
     };
 
-
-    //@TODO angular service
-    //9 -> 09 for example
-    function correctFormatDate(date){
-      if(date < 10) {
-        date = '0' + date;
-      }
-
-      return date;
-    }
 
     //return boolean
     //time to wake up

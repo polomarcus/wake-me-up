@@ -4,11 +4,14 @@ angular.module( 'reveilEnLigne', [
   'reveilEnLigne.controllers',
   'reveilEnLigne.services',
   'ui.router',
-  'firebase'
+  'firebase',
+  'i18n'
 ])
 
-.config( function myAppConfig ( $stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise( '/' );
+.config( function myAppConfig ( $stateProvider, $urlRouterProvider, $translateProvider) {
+    $urlRouterProvider.otherwise( '/' );
+
+    $translateProvider.preferredLanguage('fr_FR');
 })
 
 .run(function(amMoment) {
