@@ -46,7 +46,7 @@ angular.module( 'ChronoModule', [
         $scope.timerPaused = false;
       }
       else {
-        $scope.timerStartOrStop = "Continuer";
+        $scope.timerStartOrStop = "Continue";
         $scope.timerPaused = true;
         //stop time
         document.getElementById('chrono').getElementsByTagName('timer')[0].stop();

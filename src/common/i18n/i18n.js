@@ -12,6 +12,10 @@ angular.module('i18n', [
             'SINGLE' : '',
             'ZERO' : '',
 
+            //MESSAGE
+            'LOADING' : 'Loading',
+            'URL' : 'URL',
+
             //MENU
             'MENU.ALARM.NAME' : 'Alarm clock',
             'MENU.CHRONO.NAME' : 'Chronometer',
@@ -39,8 +43,9 @@ angular.module('i18n', [
 
             //ERROR
             'FORM.ERROR.URL' : 'The URL is not valid, example: http://www.youtube.com/watch?v=KGyZY4HNumw',
-            'FORM.ERROR.MINUTE' : 'The minute is not valid, between 0 et 59.',
-            'FORM.ERROR.HOUR' : 'The hour is not valid, between 0 and 23',
+            'FORM.ERROR.MINUTE' : 'The minute is not valid, it must be between 0 et 59.',
+            'FORM.ERROR.HOUR' : 'The hour is not valid, it must be between 0 and 23',
+            'FORM.ERROR' : 'Non valid hour, example : 7:00',
 
             //CHRONO PANEL
             'CHRONO.PANEL.TITLE' : 'Chronometer',
@@ -61,6 +66,13 @@ angular.module('i18n', [
             //COMMENTS PANEL
             'COMMENTS.PANEL.TITLE' : 'Facebook comments',
 
+            //COMMENTS PANEL
+            'FIREBASE.PANEL.TITLE' : 'Last 100 alarms registered',
+            'FIREBASE.PANEL.LOADING' : 'Loading users alarm...',
+            'FIREBASE.PARAGRAPH' : "Loading data from the Firebase database. If there are too many users connected it will not load... Sorry for any inconvenience.",
+            'FIREBASE.LOOKFOR' : 'Look for a alarm on the',
+            'REGISTRED.ALARM' : 'registred',
+
             //FOOTER
             'FOOTER.PART1' : 'Wakes up you with',
             'FOOTER.PART2' : 'since 2011'
@@ -76,6 +88,18 @@ angular.module('i18n', [
             'SINGLE' : '',
             'ZERO' : '',
 
+            //MESSAGE
+            'LOADING' : 'Chargement',
+            'URL' : 'URL',
+
+            //TIME
+            'HOUR' : 'Heure',
+            'HHOUR' : 'heure',
+            'MINUTE' : 'Minute',
+            'MMINUTE' : 'minute',
+            'SECOND' : 'Seconde',
+            'SSECOND' : 'seconde',
+
             //MENU
             'MENU.ALARM.NAME' : 'Alarme',
             'MENU.CHRONO.NAME' : 'Chronomètre',
@@ -84,7 +108,7 @@ angular.module('i18n', [
             'MENU.OLD.VERSION' : 'Version 1',
 
             //ALARM PANEL
-            'ALARM.PANEL.TITLE' : 'Paramètres réveil',
+            'ALARM.PANEL.TITLE' : 'Paramètres alarme',
             'ALARM.PANEL.PLATFORM' : 'Plateforme musicale',
             'ALARM.PANEL.PLATFORM.DESCRIPTION' : 'Utilisez Youtube, SoundCloud...',
             'ALARM.PANEL.RADIO' : 'Radio',
@@ -94,21 +118,15 @@ angular.module('i18n', [
             'ALARM.PANEL.URL' : 'URL',
             'ALARM.PANEL.TEST' : 'Tester l\'URL',
 
-            'ALARM.PANEL.HOUR' : 'Heure',
-            'ALARM.PANEL.HHOUR' : 'heure',
-            'ALARM.PANEL.MINUTE' : 'Minute',
-            'ALARM.PANEL.MMINUTE' : 'minute',
-            'ALARM.PANEL.SECOND' : 'Seconde',
-            'ALARM.PANEL.SSECOND' : 'seconde',
-
             'ALARM.PANEL.ACTIVATE' : 'Activer',
             'ALARM.PANEL.OFF' : 'Off',
             'ALARM.WILL.RING' : 'L\'alarme sonnera dans',
 
             //ERROR
             'FORM.ERROR.URL' : 'L\'URL n\'est pas valide, exemple: http://www.youtube.com/watch?v=KGyZY4HNumw',
-            'FORM.ERROR.MINUTE' : 'Les minutes ne sont pas au bon formats, entre 0 et 59.',
-            'FORM.ERROR.HOUR' : 'L\'heure n\'est pas au bon format, entre 0 et 23.',
+            'FORM.ERROR.MINUTE' : 'Les minutes ne sont pas au bon formats, elles doivent être comprises entre 0 et 59.',
+            'FORM.ERROR.HOUR' : 'L\'heure n\'est pas au bon format, elle doit être comprise entre 0 et 23.',
+            'FORM.ERROR' : 'Format d\'heure non valide, exemple : 7:00',
 
             //CHRONO PANEL
             'CHRONO.PANEL.TITLE' : 'Chronomètre',
@@ -128,6 +146,13 @@ angular.module('i18n', [
 
             //COMMENTS PANEL
             'COMMENTS.PANEL.TITLE' : 'Commentaires Facebook',
+
+            //COMMENTS PANEL
+            'FIREBASE.PANEL.TITLE' : 'Les 8 dernières alarmes en temps réel',
+            'FIREBASE.PANEL.LOADING' : 'Chargement des alarmes des internautes...',
+            'FIREBASE.PARAGRAPH' : "Si cela dure trop longtemps il se peut que le compte gratuit de Firebase est atteint son nombre de connexions maximum...",
+            'FIREBASE.LOOKFOR' : 'Chercher une alarme sur les',
+            'REGISTRED.ALARM' : 'enregistrées',
 
             //FOOTER
             'FOOTER.PART1' : 'Vous réveille avec',

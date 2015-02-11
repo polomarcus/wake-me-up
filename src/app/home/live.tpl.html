@@ -2,23 +2,23 @@
   <section id="live" ng-show="!peakReached">
     <div class="panel panel-warning">
       <div class="panel-heading text-center">
-          <strong ng-show="liveData.length == 0">Chargement des alarmes des internautes...</strong>
-          <strong ng-show="liveData.length > 0">Les 8 dernières alarmes en temps réel (si vous êtes chanceux)</span></strong>
+          <strong ng-show="liveData.length == 0">{{'FIREBASE.PANEL.LOADING'|translate}}</strong>
+          <strong ng-show="liveData.length > 0">{{'FIREBASE.PANEL.TITLE'|translate}}</strong>
       </div>
       <div class="panel-body" style="padding-bottom: 13px;padding-top: 0px;">
 
         <!-- SEARCH INPUT -->
         <div ng-show="liveData.length > 0" class="block-center" style="margin-top: 10px;"class="col-md-12" >
           <div class="form-group">
-            <label class="sr-only" for="hour">Chercher une alarme sur les {{ liveData.length }} enregistrées</label>
-            <input ng-model="q" id="search" class="form-control" placeholder="Chercher une alarme sur les 100 dernières enregistrées">
+            <label class="sr-only" for="search">{{ 'FIREBASE.LOOKFOR' | translate }} {{ liveData.length }} {{ 'REGISTRED.ALARM' | translate }}</label>
+            <input ng-model="q" id="search" class="form-control" placeholder="{{ 'FIREBASE.LOOKFOR' | translate }} {{ liveData.length }} {{ 'REGISTRED.ALARM' | translate }}">
           </div>
         </div>
 
         <table class="table table-bordered" ng-show="liveData.length > 0">
             <tr>
-              <th class="text-center">URL</th>
-              <th class="text-center">Heure</th>
+              <th class="text-center">{{ 'URL' | translate}}</th>
+              <th class="text-center">{{ 'HOUR' | translate}}</th>
             </tr>
             <tr class="animate-repeat" dir-paginate="l in liveData |  filter:q | itemsPerPage: 8 track by $index" ng-show="l.url != null">
               <td class="crop col-lg-10 col-md-10">
@@ -37,11 +37,9 @@
 
          <div ng-show="liveData.length === 0">
            <p class="text-center">
-             Chargement...
+             {{ 'LOADING' | translate }}
           </p>
-           <p>
-             Si cela dure trop longtemps il se peut que le compte gratuit de <a href="https://www.firebase.com/pricing.html">Firebase</a> est atteint son nombre de connexions maximum...
-           </p>
+           <p>{{ 'FIREBASE.PARAGRAPH' | translate}}</p>
          </div>
       </div>
     </div>

@@ -118,8 +118,10 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-12">
-              <p ng-show="alarmForm.url.$invalid" class="help-block">{{ 'FORM.ERROR.URL' | translate }}</p>
+            <div ng-show="alarmForm.url.$invalid" class="col-md-12">
+              <div class="alert alert-danger" role="alert">
+                <p class="help-block">{{ 'FORM.ERROR.URL' | translate }}</p>
+              </div>
             </div>
           </div>
 
@@ -127,21 +129,19 @@
             <div class="col-md-12">
               <div class="col-md-4">
                 <div class="form-group">
-                  <label class="sr-only" for="hour">{{ 'ALARM.PANEL.HOUR'  | translate }}</label>
+                  <label class="sr-only" for="hour">{{ 'HOUR'  | translate }}</label>
                   <div class="input-group">
-                    <input type="number" name="hour" class="form-control" id="hour" ng-model="alarm.time.hour" placeholder="Heure" ng-disabled="alarm.status !== ''" ng-minlength=0 ng-minlength=23 required>
-                    <div class="input-group-addon">{{ 'ALARM.PANEL.HOUR' | translate }}</div>
-                    <p ng-show="alarmForm.hour.$error.minlength || alarmForm.alarm.time.hour.$error.maxlength"  class="help-block">{{ 'FORM.ERROR.HOUR' | translate }}</p>
+                    <input type="number" name="hour" class="form-control" id="hour" ng-model="alarm.time.hour" placeholder="{{ 'HOUR'  | translate }}" ng-disabled="alarm.status !== ''" ng-minlength=0 ng-maxlength=23>
+                    <div class="input-group-addon">{{ 'HOUR' | translate }}</div>
                   </div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
-                  <label class="sr-only" for="minute"> {{ 'ALARM.PANEL.MINUTE' | translate }}</label>
+                  <label class="sr-only" for="minute"> {{ 'MINUTE' | translate }}</label>
                   <div class="input-group">
-                    <input type="number" name="minute" class="form-control" id="minute" ng-model="alarm.time.min" placeholder="Minute" ng-disabled="alarm.status !== ''" ng-minlength=0 ng-minlength=59 required>
-                    <div class="input-group-addon">{{ 'ALARM.PANEL.MINUTE' | translate }}</div>
-                    <p ng-show="alarmForm.minute.$error.minlength || alarmForm.alarm.time.hour.$error.maxlength"  class="help-block">{{ 'FORM.ERROR.MINUTE' | translate }}</p>
+                    <input type="number" name="minute" class="form-control" id="minute" ng-model="alarm.time.min" placeholder="{{ 'MINUTE'  | translate }}" ng-disabled="alarm.status !== ''" ng-minlength=0 ng-maxlength=59>
+                    <div class="input-group-addon">{{ 'MINUTE' | translate }}</div>
                   </div>
                 </div>
             </div>
@@ -158,13 +158,20 @@
           </div>
         </div>
 
+        <div ng-show="alarmForm.hour.$invalid || alarmForm.minute.$invalid || alarmForm.$error.maxlength || alarmForm.$error.minlength">
+          <div class="alert alert-danger" role="alert">
+            <p ng-show="alarmForm.hour.$invalid" class="help-block">{{ 'FORM.ERROR.HOUR' | translate }}</p>
+            <p ng-show="alarmForm.minute.$invalid" class="help-block">{{ 'FORM.ERROR.MINUTE' | translate }}</p>
+          </div>
+        </div>
+
         </form>
       </div>
 
       <!-- FORM ERROR -->
       <div class="alert alert-danger" role="alert" ng-show="alarm.error != ''">
         <p class="text-center">
-            {{ alarm.error }}
+          {{ 'FORM.ERROR' | translate }}
         </p>
       </div>
 
@@ -173,7 +180,7 @@
         <timer autostart="false" countdown="countdown" finish-callback="alarm.finish()" max-time-unit="'hour'" interval="1000">
           <div class="alert alert-success" role="alert" ng-hide="hours == 0 && minutes == 0 && seconds == 0">
             <p class="text-center">
-             {{ 'ALARM.WILL.RING' | translate }} <strong ng-hide="hours == 0">{{hours}} {{ 'ALARM.PANEL.HHOUR'|translate }}{{hoursS}}</strong> <strong ng-hide="minutes == 0">{{minutes}}  {{ 'ALARM.PANEL.MMINUTE'|translate }}{{minutesS}}</strong> <strong ng-hide="seconds == 0">{{seconds}}  {{ 'ALARM.PANEL.SSECOND'|translate }}{{secondsS}}</strong>
+             {{ 'ALARM.WILL.RING' | translate }} <strong ng-hide="hours == 0">{{hours}} {{ 'HHOUR'|translate }}{{hoursS}}</strong> <strong ng-hide="minutes == 0">{{minutes}}  {{ 'MMINUTE'|translate }}{{minutesS}}</strong> <strong ng-hide="seconds == 0">{{seconds}}  {{ 'SSECOND'|translate }}{{secondsS}}</strong>
             </p>
           </div>
         </timer>
