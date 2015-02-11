@@ -10,6 +10,7 @@ angular.module('i18n', [
             //PLURAL
             'PLURAL' : 's',
             'SINGLE' : '',
+            'ZERO' : '',
 
             //MENU
             'MENU.ALARM.NAME' : 'Alarm clock',
@@ -29,14 +30,17 @@ angular.module('i18n', [
             'ALARM.PANEL.URL' : 'URL',
             'ALARM.PANEL.TEST' : 'Test URL',
             'ALARM.PANEL.HOUR' : 'Hour',
+            'ALARM.PANEL.HHOUR' : 'hour',
             'ALARM.PANEL.MINUTE' : 'Minute',
+            'ALARM.PANEL.MMINUTE' : 'minute',
             'ALARM.PANEL.SECOND' : 'Second',
+            'ALARM.PANEL.SSECOND' : 'second',
             'ALARM.PANEL.ACTIVATE' : 'Activate',
 
             //ERROR
             'FORM.ERROR.URL' : 'The URL is not valid, example: http://www.youtube.com/watch?v=KGyZY4HNumw',
-            'FORM.ERROR.MINUTE' : 'Les minutes ne sont pas au bon formats, entre 0 et 59.',
-            'FORM.ERROR.HOUR' : 'The URL is not valid, example: ',
+            'FORM.ERROR.MINUTE' : 'The minute is not valid, between 0 et 59.',
+            'FORM.ERROR.HOUR' : 'The hour is not valid, between 0 and 23',
 
             //CHRONO PANEL
             'CHRONO.PANEL.TITLE' : 'Chronometer',
@@ -70,6 +74,7 @@ angular.module('i18n', [
             //PLURAL
             'PLURAL' : 's',
             'SINGLE' : '',
+            'ZERO' : '',
 
             //MENU
             'MENU.ALARM.NAME' : 'Alarme',
@@ -79,7 +84,7 @@ angular.module('i18n', [
             'MENU.OLD.VERSION' : 'Version 1',
 
             //ALARM PANEL
-            'ALARM.PANEL.TITLE' : 'Paramètres alarmes',
+            'ALARM.PANEL.TITLE' : 'Paramètres réveil',
             'ALARM.PANEL.PLATFORM' : 'Plateforme musicale',
             'ALARM.PANEL.PLATFORM.DESCRIPTION' : 'Utilisez Youtube, SoundCloud...',
             'ALARM.PANEL.RADIO' : 'Radio',
@@ -88,18 +93,22 @@ angular.module('i18n', [
             'ALARM.PANEL.TV.DESCRIPTION' : 'Regarder la télévision',
             'ALARM.PANEL.URL' : 'URL',
             'ALARM.PANEL.TEST' : 'Tester l\'URL',
+
             'ALARM.PANEL.HOUR' : 'Heure',
+            'ALARM.PANEL.HHOUR' : 'heure',
             'ALARM.PANEL.MINUTE' : 'Minute',
+            'ALARM.PANEL.MMINUTE' : 'minute',
             'ALARM.PANEL.SECOND' : 'Seconde',
+            'ALARM.PANEL.SSECOND' : 'seconde',
 
             'ALARM.PANEL.ACTIVATE' : 'Activer',
             'ALARM.PANEL.OFF' : 'Off',
             'ALARM.WILL.RING' : 'L\'alarme sonnera dans',
 
             //ERROR
-            'FORM.ERROR.URL' : 'The URL is not valid, example: http://www.youtube.com/watch?v=KGyZY4HNumw',
+            'FORM.ERROR.URL' : 'L\'URL n\'est pas valide, exemple: http://www.youtube.com/watch?v=KGyZY4HNumw',
             'FORM.ERROR.MINUTE' : 'Les minutes ne sont pas au bon formats, entre 0 et 59.',
-            'FORM.ERROR.HOUR' : 'The URL is not valid, example: ',
+            'FORM.ERROR.HOUR' : 'L\'heure n\'est pas au bon format, entre 0 et 23.',
 
             //CHRONO PANEL
             'CHRONO.PANEL.TITLE' : 'Chronomètre',

@@ -13,19 +13,19 @@
             </p>
             <div class="radio">
               <label>
-                <input ng-click="changeUrl('http://www.youtube.com/watch?v=KGyZY4HNumw')" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" ng-checked="'http://www.youtube.com/watch?v=KGyZY4HNumw' === alarm.url">
+                <input ng-click="changeUrl('http://www.youtube.com/watch?v=KGyZY4HNumw')" type="radio" name="optionsRadios" value="option1" ng-checked="'http://www.youtube.com/watch?v=KGyZY4HNumw' === alarm.url">
                 Pigeon John - Boomerang
               </label>
             </div>
             <div class="radio">
               <label>
-                <input ng-click="changeUrl('http://www.dailymotion.com/video/x2ze7l')" type="radio" name="optionsRadios" id="optionsRadios2" value="option2" ng-checked="'http://www.dailymotion.com/video/x2ze7l' === alarm.url">
+                <input ng-click="changeUrl('http://www.dailymotion.com/video/x2ze7l')" type="radio" name="optionsRadios" value="option2" ng-checked="'http://www.dailymotion.com/video/x2ze7l' === alarm.url">
                 J Dilla - Nothing like this
               </label>
             </div>
             <div class="radio">
               <label>
-                <input ng-click="changeUrl('https://soundcloud.com/20syl/20syl-ongoing-thing')" type="radio" name="optionsRadios" id="optionsRadios2" value="option3" ng-checked="'https://soundcloud.com/20syl/20syl-ongoing-thing' === alarm.url">
+                <input ng-click="changeUrl('https://soundcloud.com/20syl/20syl-ongoing-thing')" type="radio" name="optionsRadios" value="option3" ng-checked="'https://soundcloud.com/20syl/20syl-ongoing-thing' === alarm.url">
                 20Syl - Ongoing thing
               </label>
             </div>
@@ -44,25 +44,25 @@
             </p>
               <div class="radio">
                 <label>
-                  <input ng-click="changeUrl('http://www.novaplanet.com/radionova/player')" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" ng-checked="'http://www.novaplanet.com/radionova/player' === alarm.url">
+                  <input ng-click="changeUrl('http://www.novaplanet.com/radionova/player')" type="radio" name="optionsRadios" value="option1" ng-checked="'http://www.novaplanet.com/radionova/player' === alarm.url">
                   Nova
                 </label>
               </div>
               <div class="radio">
                 <label>
-                  <input ng-click="changeUrl('http://play.nrj.fr/nrj/nrj.html')" type="radio" name="optionsRadios" id="optionsRadios2" value="option2" ng-checked="'http://play.nrj.fr/nrj/nrj.html' === alarm.url">
+                  <input ng-click="changeUrl('http://play.nrj.fr/nrj/nrj.html')" type="radio" name="optionsRadios" value="option2" ng-checked="'http://play.nrj.fr/nrj/nrj.html' === alarm.url">
                   NRJ
                 </label>
               </div>
               <div class="radio">
                 <label>
-                  <input ng-click="changeUrl('http://www.lemouv.fr/player')" type="radio" name="optionsRadios" id="optionsRadios2" value="option2" ng-checked="'http://www.lemouv.fr/player' === alarm.url">
+                  <input ng-click="changeUrl('http://www.lemouv.fr/player')" type="radio" name="optionsRadios" value="option2" ng-checked="'http://www.lemouv.fr/player' === alarm.url">
                   Le mouv'
                 </label>
               </div>
               <div class="radio">
                 <label>
-                  <input ng-click="changeUrl('http://www.rtl.fr/direct')"type="radio" name="optionsRadios" id="optionsRadios4" value="option4" ng-checked="'http://www.rtl.fr/direct' === alarm.url">
+                  <input ng-click="changeUrl('http://www.rtl.fr/direct')"type="radio" name="optionsRadios" value="option4" ng-checked="'http://www.rtl.fr/direct' === alarm.url">
                   RTL
                 </label>
               </div>
@@ -113,10 +113,12 @@
                 </div>
                 <div class="col-md-4">
                   <button type="button" ng-disabled="$scope.alarmURL == ''" ng-click="launchLink('test')" class="btn btn-primary btn-block" ng-show="alarm.button === 'ON'">
-                    {{ 'ALARM.PANEL.URL' | translate }}
+                    {{ 'ALARM.PANEL.TEST' | translate }}
                   </button>
                 </div>
               </div>
+            </div>
+            <div class="col-md-12">
               <p ng-show="alarmForm.url.$invalid" class="help-block">{{ 'FORM.ERROR.URL' | translate }}</p>
             </div>
           </div>
@@ -129,7 +131,7 @@
                   <div class="input-group">
                     <input type="number" name="hour" class="form-control" id="hour" ng-model="alarm.time.hour" placeholder="Heure" ng-disabled="alarm.status !== ''" ng-minlength=0 ng-minlength=23 required>
                     <div class="input-group-addon">{{ 'ALARM.PANEL.HOUR' | translate }}</div>
-                    <p ng-show="alarmForm.hour.$error.minlength || alarmForm.alarm.time.hour.$error.maxlength"  class="help-block">L'heure n'est pas au bon format, entre 0 et 23.</p>
+                    <p ng-show="alarmForm.hour.$error.minlength || alarmForm.alarm.time.hour.$error.maxlength"  class="help-block">{{ 'FORM.ERROR.HOUR' | translate }}</p>
                   </div>
                 </div>
               </div>
@@ -145,7 +147,7 @@
             </div>
 
             <div class="col-md-4">
-              <button type="button" ng-disabled="alarmForm.$invalid" ng-click="alarm.activate()" class="btn btn-primary btn-block" ng-show="alarm.button === 'ON'">
+              <button type="button" ng-disabled="alarmForm.$invalid" ng-click="alarm.activate()" class="btn btn-success btn-block" ng-show="alarm.button === 'ON'">
                 {{ 'ALARM.PANEL.ACTIVATE' | translate }}
               </button>
 
@@ -171,7 +173,7 @@
         <timer autostart="false" countdown="countdown" finish-callback="alarm.finish()" max-time-unit="'hour'" interval="1000">
           <div class="alert alert-success" role="alert" ng-hide="hours == 0 && minutes == 0 && seconds == 0">
             <p class="text-center">
-             {{ 'ALARM.WILL.RING' | translate }} <strong ng-hide="hours == 0">{{hours}} {{ 'ALARM.PANEL.HOUR'|translate }}{{hoursS}}</strong> <strong ng-hide="minutes == 0">{{minutes}}  {{ 'ALARM.PANEL.MINUTE'|translate }}{{minutesS}}</strong> <strong ng-hide="seconds == 0">{{seconds}}  {{ 'ALARM.PANEL.SECOND'|translate }}{{secondsS}}</strong>
+             {{ 'ALARM.WILL.RING' | translate }} <strong ng-hide="hours == 0">{{hours}} {{ 'ALARM.PANEL.HHOUR'|translate }}{{hoursS}}</strong> <strong ng-hide="minutes == 0">{{minutes}}  {{ 'ALARM.PANEL.MMINUTE'|translate }}{{minutesS}}</strong> <strong ng-hide="seconds == 0">{{seconds}}  {{ 'ALARM.PANEL.SSECOND'|translate }}{{secondsS}}</strong>
             </p>
           </div>
         </timer>
