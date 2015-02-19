@@ -3,7 +3,7 @@ angular.module('i18n', [
 ])
 .config(['$translateProvider', function ($translateProvider) {
 
-        $translateProvider.translations('en_US', {
+        $translateProvider.translations('en', {
             //WEBSITE
             'MENU.WEBSITE.NAME' : 'Online-alarm-clock.com',
 
@@ -79,7 +79,7 @@ angular.module('i18n', [
 
         });
 
-        $translateProvider.translations('fr_FR', {
+        $translateProvider.translations('fr', {
             //WEBSITE
             'MENU.WEBSITE.NAME' : 'Reveil-en-ligne.fr',
 
@@ -160,5 +160,5 @@ angular.module('i18n', [
 
     });
 
-        $translateProvider.translations('de_DE', {});
+        $translateProvider.translations('de', {});
     }]);

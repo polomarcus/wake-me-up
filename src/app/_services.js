@@ -1,1 +1,1 @@
-angular.module( 'reveilEnLigne.services', ['ngCookies']);
+angular.module( 'reveilEnLigne.services', ['ngCookies',  'i18n', 'angularMoment']);
