@@ -6,11 +6,9 @@
           <strong> {{ 'CHRONO.PANEL.TITLE' | translate }}</strong>
       </div>
       <div class="panel-body text-center">
-        <timer autostart="false" interval="1000">
+        <timer autostart="false" interval="1000" language="fr">
           <h3>
-            <strong ng-hide="hours == 0"><span id="chronoHour">{{hours}}</span> {{ 'MMINUTE'|translate }}{{hoursS}}</strong>
-            <strong ng-hide="minutes == 0"><span id="chronoMin">{{minutes}}</span> {{ 'HHOUR'|translate }}{{minutesS}}</strong>
-            <strong><span id="chronoSec">{{seconds}}</span> {{ 'SSECOND'|translate }}{{secondsS}}</strong>
+              {{ yearUnit }}
           </h3>
         </timer>
         

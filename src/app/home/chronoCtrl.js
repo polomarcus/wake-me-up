@@ -21,13 +21,16 @@ angular.module( 'ChronoModule', [
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'ChronoCtrl', function ChronoCtrl( $scope, $timeout) {
+.controller( 'ChronoCtrl', function ChronoCtrl( $scope, i18nService) {
     //chronometer
     $scope.times = [];
     $scope.timerRunning = false;
     $scope.timerPaused = false;
     $scope.timerBegin = true;
     $scope.timerStartOrStop = "Start";
+
+    //language angular-timer
+    $scope.language = i18nService.get();
 
     $scope.manageTimer = function (){
       if($scope.timerRunning === false && $scope.timerBegin === true){
