@@ -28,8 +28,8 @@ angular.module( 'reveilEnLigne.home', [
  * this way makes each module more "self-contained".
  */
 .config(function config( $stateProvider ) {
-        $stateProvider.state( 'home.lang', {
-            url: '/home/:langKey',
+        $stateProvider.state( 'home', {
+            url: '/home',
             views: {
                 "main": {
                     controller: 'HomeCtrl',
@@ -39,6 +39,16 @@ angular.module( 'reveilEnLigne.home', [
             data:{ pageTitle: '' }
         });
 
+        $stateProvider.state( 'home.lang', {
+            url: '/:langKey',
+            views: {
+                "main": {
+                    controller: 'HomeCtrl',
+                    templateUrl: 'home/home.tpl.html'
+                }
+            },
+            data:{ pageTitle: 'Test ' }
+        });
 })
 
 

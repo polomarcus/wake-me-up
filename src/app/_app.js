@@ -20,7 +20,17 @@ angular.module( 'reveilEnLigne', [
                 }
             },
             data:{ pageTitle: '' }
-        });
+        })
+            .state('otherwise.lang', {
+                url: '/:keyLangApp',
+                views: {
+                    "main": {
+                        controller: 'HomeCtrl',
+                        templateUrl: 'home/home.tpl.html'
+                    }
+                },
+                data:{ pageTitle: '' }
+            });
 
         $urlRouterProvider.otherwise('/');
     })
