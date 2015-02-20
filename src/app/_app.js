@@ -14,7 +14,7 @@ angular.module( 'reveilEnLigne', [
         $stateProvider.state('otherwise', {
             url: '/',
             onEnter: function (i18nService) {
-                i18nService.set(navigator.language.split('-')[0] || 'en');
+                i18nService.set(navigator.language.split('-')[0] || 'en'); //navigator language
             },
             views: {
                 "main": {

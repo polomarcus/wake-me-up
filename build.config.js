@@ -69,7 +69,7 @@ module.exports = {
       'vendor/angular-cookies/angular-cookies.min.js',
       'vendor/angular-sanitize/angular-sanitize.min.js',
       'vendor/jquery/dist/jquery.min.js',
-      'vendor/angular-timer/dist/angular-timer.min.js',
+      'vendor/angular-timer/dist/angular-timer.js',
       'vendor/angular-translate/angular-translate.min.js',
       'vendor/firebase/firebase.js',
       'vendor/angularfire/dist/angularfire.min.js',

@@ -32,6 +32,15 @@ angular.module( 'ChronoModule', [
     //language angular-timer
     $scope.language = i18nService.get();
 
+    console.log(" $scope.language ",  $scope.language );
+
+    $scope.$watch(function () {
+        return i18nService.get();
+    }, function (newVal) {
+        $scope.language = newVal;
+        console.log(" $scope.language ",  $scope.language );
+    });
+
     $scope.manageTimer = function (){
       if($scope.timerRunning === false && $scope.timerBegin === true){
         $scope.timerStartOrStop = "Pause";
