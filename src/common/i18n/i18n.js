@@ -16,6 +16,10 @@ angular.module('i18n', [
             'LOADING' : 'Loading',
             'URL' : 'URL',
 
+            //LANGUAGE
+            'ADD.YOURS': 'Add a language',
+            'LANGUAGE': 'Language',
+
             //MENU
             'MENU.ALARM.NAME' : 'Alarm clock',
             'MENU.CHRONO.NAME' : 'Chronometer',
@@ -92,6 +96,10 @@ angular.module('i18n', [
             'LOADING' : 'Chargement',
             'URL' : 'URL',
 
+            //LANGUAGE
+            'ADD.YOURS': 'Ajoutez une langue',
+            'LANGUAGE': 'Langue',
+
             //TIME
             'HOUR' : 'Heure',
             'HHOUR' : 'heure',
@@ -160,5 +168,16 @@ angular.module('i18n', [
 
     });
 
-        $translateProvider.translations('de', {});
+        //@TODO
+        //$translateProvider.translations('de', {});
+        //$translateProvider.translations('es', {});
+        //$translateProvider.translations('pt', {});
+        //$translateProvider.translations('it', {});
+        //$translateProvider.translations('pl', {});
+        //$translateProvider.translations('ja', {});
+        //$translateProvider.translations('ko', {});
+        //$translateProvider.translations('tr', {});
+
+
+        $translateProvider.fallbackLanguage(['en', 'fr']);
     }]);

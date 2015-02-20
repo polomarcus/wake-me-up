@@ -23,6 +23,9 @@
     <link rel="shortcut icon" href="assets/img/icon.png" type="image/x-icon">
     <link rel="icon" href="assets/img/icon.png" type="image/x-icon">
 
+    <!-- flags -->
+    <link rel="import" href="../vendor/flag-icon/flag-icon.html">
+
     <!-- font awesome from BootstrapCDN -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
@@ -42,13 +45,6 @@
   </head>
   <body>
     <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&appId=559454604162123&version=v2.0";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
 
     <menu-top></menu-top>
 
@@ -68,6 +64,8 @@
   <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
   <script type="text/javascript" src="assets/js/googleTrack.js"></script>
   <script type="text/javascript" src="assets/js/advertisement.js"></script>
+  <!-- https://github.com/stevenrskelton/flag-icon -->
+  <script src="../vendor/webcomponentsjs/webcomponents.min.js"></script>
 
     <!-- Début tag AdServerPub //-->
     <script language="JavaScript" type="text/javascript" src="http://www2.adserverpub.com/footerads.php?id=22019-27062&data=1&width=728&height=90"></script>

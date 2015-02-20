@@ -92,6 +92,7 @@ module.exports = {
       'vendor/soundcloud/sdk.js',
       'vendor/angular-utils-pagination/dirPagination.js',
       'vendor/bootstrap/js/collapse.js',
+      'vendor/bootstrap/js/dropdown.js',
       'assets/js/googleplus.js',
       'assets/js/googleTrack.js',
       'assets/js/advertisement.js'

@@ -5,15 +5,50 @@ app.factory('i18nService', function(amMoment, $translate) {
         this.language = 'en';
     };
 
+    //@TODO get data from $translateProvider.Translation
+    var availableLanguages = [
+        'en',
+        'fr'
+    ];
+
+    var preferredLanguage = 'en';
+
     I18nService.prototype.set = function set(lang){
+        //check if the lang exists
+        if(_.indexOf(availableLanguages, lang) === -1){
+            lang = preferredLanguage;
+        }
+
         this.language = lang;
         amMoment.changeLocale(lang); //momentJS
         $translate.use(lang); // app language
+        facebookLanguage(lang);
     };
 
     I18nService.prototype.get = function get(){
         return this.language;
     };
+
+    //@TODO called twice
+    function facebookLanguage(lang){
+        if(lang === 'en'){
+            lang += '_GB';
+        }
+
+        if(lang === 'fr'){
+            lang += '_FR';
+        }
+
+        $(window).load(function() {
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/" + lang + "/sdk.js#xfbml=1&appId=559454604162123&version=v2.0";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        });
+    }
 
     return new I18nService();
 });

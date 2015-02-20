@@ -14,6 +14,7 @@ angular.module( 'reveilEnLigne', [
         $stateProvider.state('otherwise', {
             url: '/',
             onEnter: function (i18nService) {
+                //set the navigator language by default if none is here
                 i18nService.set(navigator.language.split('-')[0] || 'en'); //navigator language
             },
             views: {
@@ -44,10 +45,9 @@ angular.module( 'reveilEnLigne', [
     .controller( 'AppCtrl', function AppCtrl ( $scope, $location, $anchorScroll, i18nService, $stateParams ) {
         console.log('%c\nReveil-en-ligne.fr by @polomarcus from Montpellier, France\nGithub : https://github.com/polomarcus/reveil-en-ligne\n', 'color: #4472B9; font-family: "arial"; font-size: 20px;');
 
-        console.log("$stateParams controller app", $stateParams);
         //AdBlock management
         $scope.adBlock = false;
-        if (document.getElementById('ads_bottom') === null) {
+        if(document.getElementById('ads_bottom') === null) {
             $scope.adBlock = true; //Put true if adblock
         }
 

@@ -32,13 +32,10 @@ angular.module( 'ChronoModule', [
     //language angular-timer
     $scope.language = i18nService.get();
 
-    console.log(" $scope.language ",  $scope.language );
-
     $scope.$watch(function () {
         return i18nService.get();
     }, function (newVal) {
         $scope.language = newVal;
-        console.log(" $scope.language ",  $scope.language );
     });
 
     $scope.manageTimer = function (){
@@ -77,7 +74,8 @@ angular.module( 'ChronoModule', [
     };
 
     //Register a lap
-    $scope.lapTimer = function lapTimer(time){
+    $scope.lapTimer = function lapTimer(){
+        var time = $('timer > h3').html(); //@TODO angular way, passing variable form diretive to controller
         $scope.times.push(time);
     };
 
