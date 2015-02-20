@@ -37,9 +37,9 @@ angular.module( 'reveilEnLigne.home', [
                 }
             },
             data:{ pageTitle: '' }
-        });
+        })
 
-        $stateProvider.state( 'home.lang', {
+        .state( 'home.lang', {
             url: '/:langKey',
             views: {
                 "main": {
@@ -51,13 +51,7 @@ angular.module( 'reveilEnLigne.home', [
         });
 })
 
-
-/**
- * And of course we define a controller for our route.
- */
 .controller( 'HomeCtrl', function HomeController( $scope,$stateParams, $timeout, urlUtilsService ) {
-
-        console.log('$stateParams',$stateParams);
   //init
   $scope.clock = {
     time: moment()

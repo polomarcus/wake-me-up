@@ -1,17 +1,13 @@
 var app = angular.module('reveilEnLigne.services');
 
 app.factory('i18nService', function(amMoment, $translate) {
-    var I18nService = function() {};
-
-    I18nService.prototype.language = 'en'; //default language
+    var I18nService = function() {
+        this.language = 'en';
+    };
 
     I18nService.prototype.set = function set(lang){
-
         this.language = lang;
         amMoment.changeLocale(lang); //momentJS
-        console.log('$translate', $translate.versionInfo());
-
-
         $translate.use(lang); // app language
     };
 

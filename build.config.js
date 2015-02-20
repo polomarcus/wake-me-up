@@ -74,6 +74,7 @@ module.exports = {
       'vendor/firebase/firebase.js',
       'vendor/angularfire/dist/angularfire.min.js',
       'vendor/moment/min/moment.min.js',
+      'vendor/humanize-duration/humanize-duration.js',
       'vendor/lodash/lodash.min.js',
       'vendor/moment/locale/fr.js',
       'vendor/moment/locale/en-gb.js',

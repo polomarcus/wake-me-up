@@ -68,8 +68,7 @@ angular.module( 'ChronoModule', [
     };
 
     //Register a lap
-    $scope.lapTimer = function (){
-        var time = $('#chronoHour').html() + ' h ' + $('#chronoMin').html() + ' min ' + $('#chronoSec').html() + ' sec';
+    $scope.lapTimer = function lapTimer(time){
         $scope.times.push(time);
     };
 

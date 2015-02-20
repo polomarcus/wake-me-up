@@ -13,6 +13,9 @@ angular.module( 'reveilEnLigne', [
 
         $stateProvider.state('otherwise', {
             url: '/',
+            onEnter: function (i18nService) {
+                i18nService.set(navigator.language.split('-')[0] || 'en');
+            },
             views: {
                 "main": {
                     controller: 'HomeCtrl',
@@ -22,7 +25,10 @@ angular.module( 'reveilEnLigne', [
             data:{ pageTitle: '' }
         })
             .state('otherwise.lang', {
-                url: '/:keyLangApp',
+                url: ':keyLangApp',
+                onEnter: function (i18nService, $stateParams) {
+                    i18nService.set($stateParams.keyLangApp);
+                },
                 views: {
                     "main": {
                         controller: 'HomeCtrl',
@@ -32,17 +38,13 @@ angular.module( 'reveilEnLigne', [
                 data:{ pageTitle: '' }
             });
 
-        $urlRouterProvider.otherwise('/');
+       $urlRouterProvider.otherwise('/');
     })
 
-    .run(function($location, i18nService, $stateParams) {
-        console.log("$stateParams", $stateParams);
-        i18nService.set('fr');
-    })
-
-    .controller( 'AppCtrl', function AppCtrl ( $scope, $location, $anchorScroll, i18nService ) {
+    .controller( 'AppCtrl', function AppCtrl ( $scope, $location, $anchorScroll, i18nService, $stateParams ) {
         console.log('%c\nReveil-en-ligne.fr by @polomarcus from Montpellier, France\nGithub : https://github.com/polomarcus/reveil-en-ligne\n', 'color: #4472B9; font-family: "arial"; font-size: 20px;');
 
+        console.log("$stateParams controller app", $stateParams);
         //AdBlock management
         $scope.adBlock = false;
         if (document.getElementById('ads_bottom') === null) {

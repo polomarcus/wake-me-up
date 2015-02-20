@@ -6,52 +6,52 @@
           <strong> {{ 'CHRONO.PANEL.TITLE' | translate }}</strong>
       </div>
       <div class="panel-body text-center">
-        <timer autostart="false" interval="1000" language="fr">
+        <timer autostart="false" interval="1000" language="language">
           <h3>
               {{ yearUnit }}
           </h3>
+
+            <!-- CHRONO CONTROLLERS -->
+            <div class="row">
+                <div class="col-md-4">
+                    <button ng-if="timerStartOrStop == 'Pause'" ng-click="manageTimer()" class="btn btn-primary btn-block">
+                        {{ 'CHRONO.BUTTON.STOP'|translate }}
+                    </button>
+
+                    <button ng-if="timerStartOrStop == 'Start'" ng-click="manageTimer()" class="btn btn-primary btn-block">
+                        {{ 'CHRONO.BUTTON.START'|translate }}
+                    </button>
+
+                    <button ng-if="timerStartOrStop == 'Continue'" ng-click="manageTimer()" class="btn btn-primary btn-block">
+                        {{ 'CHRONO.BUTTON.RESUME'|translate }}
+                    </button>
+                </div>
+
+                <div class="col-md-4">
+                    <button ng-click="lapTimer(yearUnit)" class="btn btn-warning btn-block" ng-disabled="!timerRunning">
+                        {{  'CHRONO.BUTTON.LAP'|translate }}
+                    </button>
+                </div>
+
+                <div class="col-md-4">
+                    <button ng-click="clearTimer()" class="btn btn-danger btn-block" ng-disabled="!timerRunning && !timerPaused">
+                        {{  'CHRONO.BUTTON.CLEAR'|translate }}
+                    </button>
+                </div>
+            </div>
+
+            <!-- LAPS -->
+            <table class="table table-striped"  ng-show="times.length > 0">
+                <tr>
+                    <th class="text-center">#</th>
+                    <th class="text-center">  {{  'CHRONO.RECORD.TIME'|translate }}</th>
+                </tr>
+                <tr ng-repeat="time in times track by $index">
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ time }}</td>
+                </tr>
+            </table>
         </timer>
-        
-        <!-- CHRONO CONTROLLERS -->
-        <div class="row">
-          <div class="col-md-4">
-            <button ng-if="timerStartOrStop == 'Pause'" ng-click="manageTimer()" class="btn btn-primary btn-block">
-                {{ 'CHRONO.BUTTON.STOP'|translate }}
-            </button>
-
-              <button ng-if="timerStartOrStop == 'Start'" ng-click="manageTimer()" class="btn btn-primary btn-block">
-                  {{ 'CHRONO.BUTTON.START'|translate }}
-              </button>
-
-              <button ng-if="timerStartOrStop == 'Continue'" ng-click="manageTimer()" class="btn btn-primary btn-block">
-                  {{ 'CHRONO.BUTTON.RESUME'|translate }}
-              </button>
-          </div>
-
-          <div class="col-md-4">
-            <button ng-click="lapTimer()" class="btn btn-warning btn-block" ng-disabled="!timerRunning">
-                {{  'CHRONO.BUTTON.LAP'|translate }}
-             </button>
-          </div>
-
-          <div class="col-md-4">
-            <button ng-click="clearTimer()" class="btn btn-danger btn-block" ng-disabled="!timerRunning && !timerPaused">
-                {{  'CHRONO.BUTTON.CLEAR'|translate }}
-            </button>
-          </div>
-         </div>
-
-         <!-- LAPS -->
-        <table class="table table-striped"  ng-show="times.length > 0">
-            <tr>
-              <th class="text-center">#</th>
-              <th class="text-center">  {{  'CHRONO.RECORD.TIME'|translate }}</th>
-            </tr>
-            <tr ng-repeat="time in times track by $index">
-              <td>{{ $index + 1 }}</td>
-              <td>{{ time }}</td>
-            </tr>
-         </table>
       </div>
     </div>
   </section>
