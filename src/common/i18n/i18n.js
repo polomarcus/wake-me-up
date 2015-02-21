@@ -5,12 +5,13 @@ angular.module('i18n', [
 
         $translateProvider.translations('en', {
             //WEBSITE
-            'MENU.WEBSITE.NAME' : 'Online-alarm-clock.com',
+            'MENU.WEBSITE.NAME' : 'Reveil-en-ligne.fr',
+            'WEBSITE.TITLE' : 'Internet favorite\'s online alarm!',
 
             //PLURAL
             'PLURAL' : 's',
             'SINGLE' : '',
-            'ZERO' : '',
+            'ZERO' : 's',
 
             //MESSAGE
             'LOADING' : 'Loading',
@@ -19,6 +20,14 @@ angular.module('i18n', [
             //LANGUAGE
             'ADD.YOURS': 'Add a language',
             'LANGUAGE': 'Language',
+
+            //TIME
+            'HOUR' : 'Hour',
+            'HHOUR' : 'hour',
+            'MINUTE' : 'Minute',
+            'MMINUTE' : 'minute',
+            'SECOND' : 'Second',
+            'SSECOND' : 'second',
 
             //MENU
             'MENU.ALARM.NAME' : 'Alarm clock',
@@ -31,12 +40,36 @@ angular.module('i18n', [
             'ALARM.PANEL.TITLE' : 'Alarm settings',
             'ALARM.PANEL.PLATFORM' : 'Musical Platform',
             'ALARM.PANEL.PLATFORM.DESCRIPTION' : 'Use Youtube, SoundCloud...',
+            'ALARM.YOURCHOICE' : 'Propose a sound on our ',
+
             'ALARM.PANEL.RADIO' : 'Radio',
             'ALARM.PANEL.RADIO.DESCRIPTION' : 'Use a radio link',
+            'ALARM.RADIO1': 'Hot97',
+            'ALARM.RADIO1.URL': 'http://player.liquidcompass.net/WQHTFM',
+            'ALARM.RADIO2': 'WNYC',
+            'ALARM.RADIO2.URL': 'https://www.wnyc.org/radio/#/streams/wnyc-fm939',
+            'ALARM.RADIO3': 'Magic 105.4',
+            'ALARM.RADIO3.URL': 'http://radioplayer.magic.co.uk/live/',
+            'ALARM.RADIO4': 'CBS',
+            'ALARM.RADIO4.URL': 'http://player.radio.com/listen/station/cbs-radio-news/',
+
             'ALARM.PANEL.TV' : 'Television',
             'ALARM.PANEL.TV.DESCRIPTION' : 'Watch TV',
+            'ALARM.TV1': 'Channel 4',
+            'ALARM.TV1.URL':'http://www.channel4.com/now/c4',
+            'ALARM.TV2': 'BBC news',
+            'ALARM.TV2.URL': 'http://www.bbc.co.uk/iplayer/live/bbcnews',
+            'ALARM.TV3': 'CNN',
+            'ALARM.TV3.URL': 'http://live.cnn.com/',
+            'ALARM.TV4': 'NBC',
+            'ALARM.TV4.URL': 'http://www.nbc.com/live',
+
             'ALARM.PANEL.URL' : 'URL',
             'ALARM.PANEL.TEST' : 'Test URL',
+
+            'ALARM.PANEL.OFF' : 'Off',
+            'ALARM.WILL.RING' : 'The alarm will ring in ',
+
             'ALARM.PANEL.HOUR' : 'Hour',
             'ALARM.PANEL.HHOUR' : 'hour',
             'ALARM.PANEL.MINUTE' : 'Minute',
@@ -86,6 +119,7 @@ angular.module('i18n', [
         $translateProvider.translations('fr', {
             //WEBSITE
             'MENU.WEBSITE.NAME' : 'Reveil-en-ligne.fr',
+            'WEBSITE.TITLE' : 'Le réveil en ligne préféré des internautes!',
 
             //PLURAL
             'PLURAL' : 's',
@@ -119,10 +153,30 @@ angular.module('i18n', [
             'ALARM.PANEL.TITLE' : 'Paramètres alarme',
             'ALARM.PANEL.PLATFORM' : 'Plateforme musicale',
             'ALARM.PANEL.PLATFORM.DESCRIPTION' : 'Utilisez Youtube, SoundCloud...',
+            'ALARM.YOURCHOICE' : 'Ton son! Propose le sur la page ',
+
             'ALARM.PANEL.RADIO' : 'Radio',
             'ALARM.PANEL.RADIO.DESCRIPTION' : 'Utilisez un lien radio',
+
+            'ALARM.RADIO1': 'Nova',
+            'ALARM.RADIO1.URL': 'http://www.novaplanet.com/radionova/player',
+            'ALARM.RADIO2': 'NRJ',
+            'ALARM.RADIO2.URL': 'http://play.nrj.fr/nrj/nrj.html',
+            'ALARM.RADIO3': 'Mouv',
+            'ALARM.RADIO3.URL': 'http://www.lemouv.fr/player',
+            'ALARM.RADIO4': 'RTL',
+            'ALARM.RADIO4.URL': 'http://www.rtl.fr/direct',
+
             'ALARM.PANEL.TV' : 'Télévision',
             'ALARM.PANEL.TV.DESCRIPTION' : 'Regarder la télévision',
+            'ALARM.TV1': 'TF1',
+            'ALARM.TV1.URL':'http://www.tf1.fr/live/',
+            'ALARM.TV2': 'France 2',
+            'ALARM.TV2.URL': 'http://www.france2.fr/direct',
+            'ALARM.TV3': 'France 3',
+            'ALARM.TV3.URL': 'http://www.france3.fr/direct',
+            'ALARM.TV4': 'France 4',
+            'ALARM.TV4.URL': 'http://pluzz.francetv.fr/france4',
             'ALARM.PANEL.URL' : 'URL',
             'ALARM.PANEL.TEST' : 'Tester l\'URL',
 
@@ -167,6 +221,8 @@ angular.module('i18n', [
             'FOOTER.PART2' : 'depuis 2011'
 
     });
+
+
 
         //@TODO
         //$translateProvider.translations('de', {});

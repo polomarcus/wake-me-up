@@ -51,7 +51,7 @@ angular.module( 'reveilEnLigne.home', [
         });
 })
 
-.controller( 'HomeCtrl', function HomeController( $scope,$stateParams, $timeout, urlUtilsService ) {
+.controller( 'HomeCtrl', function HomeController( $scope,$stateParams, $timeout, urlUtilsService) {
   //init
   $scope.clock = {
     time: moment()

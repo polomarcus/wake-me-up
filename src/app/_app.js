@@ -13,9 +13,10 @@ angular.module( 'reveilEnLigne', [
 
         $stateProvider.state('otherwise', {
             url: '/',
-            onEnter: function (i18nService) {
-                //set the navigator language by default if none is here
-                i18nService.set(navigator.language.split('-')[0] || 'en'); //navigator language
+            onEnter: function (i18nService, $location) {
+                if($location.url() === "/"){
+                    i18nService.set(navigator.language.split('-')[0] || 'en'); //navigator language
+                }
             },
             views: {
                 "main": {
@@ -25,8 +26,8 @@ angular.module( 'reveilEnLigne', [
             },
             data:{ pageTitle: '' }
         })
-            .state('otherwise.lang', {
-                url: ':keyLangApp',
+            .state('lang', {
+                url: '/:keyLangApp',
                 onEnter: function (i18nService, $stateParams) {
                     i18nService.set($stateParams.keyLangApp);
                 },
@@ -42,7 +43,7 @@ angular.module( 'reveilEnLigne', [
        $urlRouterProvider.otherwise('/');
     })
 
-    .controller( 'AppCtrl', function AppCtrl ( $scope, $location, $anchorScroll, i18nService, $stateParams ) {
+    .controller( 'AppCtrl', function AppCtrl ( $scope, $location, $anchorScroll, i18nService, $stateParams, $translate ) {
         console.log('%c\nReveil-en-ligne.fr by @polomarcus from Montpellier, France\nGithub : https://github.com/polomarcus/reveil-en-ligne\n', 'color: #4472B9; font-family: "arial"; font-size: 20px;');
 
         //AdBlock management
@@ -51,10 +52,17 @@ angular.module( 'reveilEnLigne', [
             $scope.adBlock = true; //Put true if adblock
         }
 
-        $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
-            if ( angular.isDefined( toState.data.pageTitle ) ) {
-                $scope.pageTitle = toState.data.pageTitle + 'Reveil-en-ligne.fr' ;
-            }
+        $scope.pageTitle = "Reveil-en-ligne.fr";
+
+        //@TODO not working
+        $translate('WEBSITE.TITLE')
+            .then(function (translatedValue) {
+                console.log('translatedValue',translatedValue);
+                $scope.pageTitle = translatedValue + '| Reveil-en-ligne.fr' ;
+                $scope.alarm.urlId = url;
+            },
+        function(err){
+            console.log("error translate", err);
         });
 
         //utils

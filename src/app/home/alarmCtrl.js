@@ -9,7 +9,7 @@ angular.module( 'AlarmModule', [
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'AlarmCtrl', function AlarmControl( $scope, $timeout, urlUtilsService, firebaseService, cookieService, dataService) {
+.controller( 'AlarmCtrl', function AlarmControl( $scope, $timeout, urlUtilsService, firebaseService, cookieService, dataService, $translate) {
     //Alarm Ctrl
     //show/hide URL div
     $scope.$parent.playURL = false;
@@ -265,8 +265,17 @@ angular.module( 'AlarmModule', [
     }
 
     //url management
-    $scope.changeUrl = function(url){
-      $scope.alarm.url = url;
+    $scope.changeUrl = function(url, isKey){
+      if(isKey){
+          $translate(url)
+              .then(function (translatedValue) {
+                  $scope.alarm.url = translatedValue;
+                  $scope.alarm.urlId = url;
+              });
+      }
+      else {
+          $scope.alarm.url = url;
+      }
     };
 })
 ;

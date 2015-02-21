@@ -29,15 +29,19 @@ app.factory('i18nService', function(amMoment, $translate) {
         return this.language;
     };
 
-    //@TODO called twice
-    function facebookLanguage(lang){
-        if(lang === 'en'){
-            lang += '_GB';
+    function getFullLangCode(lang){
+        switch(lang) {
+            case 'en':
+                return lang +'_GB';
+            case 'fr':
+                return lang +'_FR';
+            default:
+                return 'en_GB';
         }
+    }
 
-        if(lang === 'fr'){
-            lang += '_FR';
-        }
+    function facebookLanguage(lang){
+        lang = getFullLangCode(lang);
 
         $(window).load(function() {
             (function (d, s, id) {
