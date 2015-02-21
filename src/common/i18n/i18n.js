@@ -6,7 +6,7 @@ angular.module('i18n', [
         $translateProvider.translations('en', {
             //WEBSITE
             'MENU.WEBSITE.NAME' : 'Reveil-en-ligne.fr',
-            'WEBSITE.TITLE' : 'Internet favorite\'s online alarm!',
+            'WEBSITE.TITLE' : 'Internet favorite\'s alarm clock!',
 
             //PLURAL
             'PLURAL' : 's',
