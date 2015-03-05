@@ -9,7 +9,7 @@ angular.module( 'AlarmModule', [
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'AlarmCtrl', function AlarmControl( $scope, $timeout, urlUtilsService, firebaseService, cookieService, dataService, $translate) {
+.controller( 'AlarmCtrl', function AlarmControl( $scope, $timeout, urlUtilsService, firebaseService, cookieService, dataService, $translate, gaTrackerService) {
     //Alarm Ctrl
     //show/hide URL div
     $scope.$parent.playURL = false;
@@ -169,6 +169,10 @@ angular.module( 'AlarmModule', [
     //lauch sound, status is used to display the countdown
     $scope.launchLink = function(status){
       if( !$scope.$parent.playURL ){
+
+        //Store on Google Analytics
+        gaTrackerService.track('Alarm on', $scope.alarm.url);
+
         //urlUtilsService.playURL = true; //future
         $scope.$parent.playURL = true;
         $scope.$parent.playURL = true;
