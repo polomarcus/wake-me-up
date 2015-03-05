@@ -66,6 +66,7 @@ module.exports = {
   vendor_files: {
     js: [
       'vendor/angular/angular.min.js',
+      // 'vendor/angular/angular.min.js.map',
       'vendor/angular-cookies/angular-cookies.min.js',
       'vendor/angular-sanitize/angular-sanitize.min.js',
       'vendor/jquery/dist/jquery.min.js',
