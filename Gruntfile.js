@@ -13,6 +13,7 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-conventional-changelog');
   grunt.loadNpmTasks('grunt-bump');
   grunt.loadNpmTasks('grunt-coffeelint');
@@ -60,6 +61,18 @@ module.exports = function ( grunt ) {
       }
     },
 
+      // gzip assets 1-to-1 for production
+    compress: {
+          main: {
+              options: {
+                  archive: 'archive/<%= pkg.version %>.zip'
+              },
+              expand: true,
+              cwd: 'bin/',
+              src: ['**/*'],
+              dest: '.'
+          }
+    },
 
     /**
      * launch local server
@@ -291,8 +304,8 @@ module.exports = function ( grunt ) {
     uglify: {
       compile: {
         options: {
-          banner: '<%= meta.banner %>',
-          report: 'gzip'
+          banner: '<%= meta.banner %>'
+        //  report: 'gzip'
         },
         files: {
           '<%= concat.compile_js.dest %>': '<%= concat.compile_js.dest %>'
@@ -609,12 +622,15 @@ module.exports = function ( grunt ) {
   /**
    * The default task is to build and compile.
    */
-  grunt.registerTask( 'default', [ 'build', 'compile', 'ftp-deploy:build' ] );
+  grunt.registerTask( 'default', [ 'build', 'compile'] );
+
+  //Staging FTP
+  grunt.registerTask( 'staging', ['ftp-deploy:build' ] );
 
   /**
    * The default task is to put code in production and bump the version
    */
-  grunt.registerTask( 'prod', [ 'bump', 'ftp-deploy:prod', 'devperf'] );
+  grunt.registerTask( 'prod', [ 'bump', 'ftp-deploy:prod', 'compress', 'devperf'] );
 
   /**
    * The `build` task gets your app ready to run for development and testing.
