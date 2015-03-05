@@ -63,15 +63,15 @@ module.exports = function ( grunt ) {
 
       // gzip assets 1-to-1 for production
     compress: {
-          main: {
-              options: {
-                  archive: 'archive/<%= pkg.version %>.zip'
-              },
-              expand: true,
-              cwd: 'bin/',
-              src: ['**/*'],
-              dest: '.'
-          }
+      main: {
+          options: {
+              archive: 'archive/<%= pkg.version %>.zip'
+          },
+          expand: true,
+          cwd: 'bin/',
+          src: ['**/*'],
+          dest: '.'
+      }
     },
 
     /**
