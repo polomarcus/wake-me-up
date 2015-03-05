@@ -51,11 +51,17 @@ angular.module( 'reveilEnLigne.home', [
         });
 })
 
-.controller( 'HomeCtrl', function HomeController( $scope,$stateParams, $timeout, urlUtilsService) {
+.controller( 'HomeCtrl', function HomeController( $scope,$stateParams, $timeout, urlUtilsService, $translate) {
   //init
   $scope.clock = {
     time: moment()
   };
+
+    //@TODO use it in _app.js
+    $translate('WEBSITE.TITLE')
+        .then(function (translatedValue) {
+            $scope.pageTitle = translatedValue;
+        });
 
   $scope.playURL = urlUtilsService.playURL;
 

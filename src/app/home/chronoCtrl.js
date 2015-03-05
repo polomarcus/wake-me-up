@@ -21,7 +21,7 @@ angular.module( 'ChronoModule', [
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'ChronoCtrl', function ChronoCtrl( $scope, i18nService) {
+.controller( 'ChronoCtrl', function ChronoCtrl( $scope, i18nService, $translate) {
     //chronometer
     $scope.times = [];
     $scope.timerRunning = false;

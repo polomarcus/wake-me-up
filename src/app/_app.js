@@ -52,10 +52,10 @@ angular.module( 'reveilEnLigne', [
             $scope.adBlock = true; //Put true if adblock
         }
 
-        $scope.pageTitle = "Reveil-en-ligne.fr";
+        // $scope.pageTitle = "Reveil-en-ligne.fr"; //#TODO change
 
         //@TODO not working
-        $translate('WEBSITE.TITLE')
+ /*       $translate('WEBSITE.TITLE')
             .then(function (translatedValue) {
                 console.log('translatedValue',translatedValue);
                 $scope.pageTitle = translatedValue + '| Reveil-en-ligne.fr' ;
@@ -63,7 +63,7 @@ angular.module( 'reveilEnLigne', [
             },
         function(err){
             console.log("error translate", err);
-        });
+        });*/
 
         //utils
         //Go to anchor
