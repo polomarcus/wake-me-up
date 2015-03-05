@@ -4,8 +4,7 @@ angular.module( 'reveilEnLigne', [
     'reveilEnLigne.controllers',
     'reveilEnLigne.services',
     'ui.router',
-    'firebase',
-    'i18n'
+    'firebase'
 ])
 
     .config( function myAppConfig ( $stateProvider, $urlRouterProvider) {
@@ -24,7 +23,7 @@ angular.module( 'reveilEnLigne', [
                     templateUrl: 'home/home.tpl.html'
                 }
             },
-            data:{ pageTitle: '' }
+            data:{ pageTitle: 'Reveil-en-ligne.fr' }
         })
             .state('lang', {
                 url: '/:keyLangApp',
@@ -43,11 +42,12 @@ angular.module( 'reveilEnLigne', [
        $urlRouterProvider.otherwise('/');
     })
 
-    .controller( 'AppCtrl', function AppCtrl ( $scope, $location, $anchorScroll, i18nService, $stateParams, $translate ) {
+    .controller( 'AppCtrl', function AppCtrl ( $scope, $location, $anchorScroll, i18nService) {
         console.log('%c\nReveil-en-ligne.fr by @polomarcus from Montpellier, France\nGithub : https://github.com/polomarcus/reveil-en-ligne\n', 'color: #4472B9; font-family: "arial"; font-size: 20px;');
 
         //AdBlock management
         $scope.adBlock = false;
+
         if(document.getElementById('ads_bottom') === null) {
             $scope.adBlock = true; //Put true if adblock
         }
@@ -55,7 +55,7 @@ angular.module( 'reveilEnLigne', [
         // $scope.pageTitle = "Reveil-en-ligne.fr"; //#TODO change
 
         //@TODO not working
- /*       $translate('WEBSITE.TITLE')
+ /*       i18nService.translate('WEBSITE.TITLE')
             .then(function (translatedValue) {
                 console.log('translatedValue',translatedValue);
                 $scope.pageTitle = translatedValue + '| Reveil-en-ligne.fr' ;

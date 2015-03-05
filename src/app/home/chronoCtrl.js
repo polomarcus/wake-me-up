@@ -13,15 +13,13 @@
  * specified, as shown below.
  */
 angular.module( 'ChronoModule', [
-  'ui.router',
-  'timer',
-  'angularMoment'
+  'ui.router'
 ])
 
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'ChronoCtrl', function ChronoCtrl( $scope, i18nService, $translate) {
+.controller( 'ChronoCtrl', function ChronoCtrl($scope, i18nService) {
     //chronometer
     $scope.times = [];
     $scope.timerRunning = false;

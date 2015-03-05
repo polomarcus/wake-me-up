@@ -1,7 +1,7 @@
 angular.module('i18n', [
     'pascalprecht.translate'
 ])
-.config(['$translateProvider', function ($translateProvider) {
+.config( function ($translateProvider) {
         /**
          * Available languages :
          * English
@@ -229,7 +229,6 @@ angular.module('i18n', [
             //FOOTER
             'FOOTER.PART1' : 'Vous réveille avec',
             'FOOTER.PART2' : 'depuis 2011'
-
     });
 
 
@@ -246,4 +245,4 @@ angular.module('i18n', [
 
 
         $translateProvider.fallbackLanguage(['en', 'fr']);
-    }]);
+    });

@@ -65,18 +65,18 @@ module.exports = {
    */
   vendor_files: {
     js: [
-      'vendor/angular/angular.min.js',
+      'vendor/angular/angular.js',
       // 'vendor/angular/angular.min.js.map',
       'vendor/angular-cookies/angular-cookies.min.js',
-      'vendor/angular-sanitize/angular-sanitize.min.js',
+      //'vendor/angular-sanitize/angular-sanitize.min.js', //@TODO break compile uglify ???
       'vendor/jquery/dist/jquery.min.js',
+      'vendor/moment/min/moment.min.js',
+      'vendor/moment/min/locales.min.js',
+      'vendor/humanize-duration/humanize-duration.js',
       'vendor/angular-timer/dist/angular-timer.min.js',
       'vendor/angular-translate/angular-translate.min.js',
       'vendor/firebase/firebase.js',
       'vendor/angularfire/dist/angularfire.min.js',
-      'vendor/moment/min/moment.min.js',
-      'vendor/moment/min/locales.min.js',
-      'vendor/humanize-duration/humanize-duration.js',
       'vendor/lodash/lodash.min.js',
       'vendor/angular-moment/angular-moment.min.js',
       'vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',

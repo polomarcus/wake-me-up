@@ -1,10 +1,9 @@
 var app = angular.module("liveModule", [
   "firebase",
-  'angularUtils.directives.dirPagination',
-  'ngSanitize'
+  'angularUtils.directives.dirPagination'
 ]);
 
-app.controller("liveCtrl", function($scope, firebaseService, $timeout, $sanitize) {
+app.controller("liveCtrl", function($scope, firebaseService, $timeout) {
   $scope.peakReached = false;
 
   $scope.liveData = firebaseService.get();

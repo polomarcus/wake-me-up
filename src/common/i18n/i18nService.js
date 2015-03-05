@@ -13,6 +13,10 @@ app.factory('i18nService', function(amMoment, $translate) {
 
     var preferredLanguage = 'en';
 
+    /**
+     * set language for momentJS and angular-translate and facebook comments
+     * @param lang
+     */
     I18nService.prototype.set = function set(lang){
         //check if the lang exists
         if(_.indexOf(availableLanguages, lang) === -1){
@@ -27,6 +31,15 @@ app.factory('i18nService', function(amMoment, $translate) {
 
     I18nService.prototype.get = function get(){
         return this.language;
+    };
+
+    /**
+     * simple use of $translate method, to avoid using $translate dependency in module/Services
+     * @param key translation
+     * @returns {promise)
+     */
+    I18nService.prototype.translate = function translate(key){
+        return $translate(key);
     };
 
     function getFullLangCode(lang){

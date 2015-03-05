@@ -1,15 +1,11 @@
 angular.module( 'AlarmModule', [
-  'ui.router',
-  'timer',
-  'angularMoment',
-  'reveilEnLigne.services',
-  'firebase'
+  'ui.router'
 ])
 
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'AlarmCtrl', function AlarmControl( $scope, $timeout, urlUtilsService, firebaseService, cookieService, dataService, $translate, gaTrackerService) {
+.controller( 'AlarmCtrl', function AlarmControl( $scope, $timeout, urlUtilsService, firebaseService, cookieService, dataService, i18nService, gaTrackerService) {
     //Alarm Ctrl
     //show/hide URL div
     $scope.$parent.playURL = false;
@@ -271,7 +267,7 @@ angular.module( 'AlarmModule', [
     //url management
     $scope.changeUrl = function(url, isKey){
       if(isKey){
-          $translate(url)
+          i18nService.translate(url)
               .then(function (translatedValue) {
                   $scope.alarm.url = translatedValue;
                   $scope.alarm.urlId = url;
