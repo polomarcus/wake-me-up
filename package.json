@@ -35,6 +35,7 @@
     "grunt-ftp-deploy": "^0.1.9",
     "grunt-html2js": "^0.1.9",
     "grunt-karma": "^0.8.2",
+    "grunt-ng-annotate": "^0.10.0",
     "grunt-ngmin": "0.0.2",
     "karma": "^0.12.9",
     "karma-coffee-preprocessor": "^0.2.1",
