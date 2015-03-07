@@ -23,6 +23,7 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-html2js');
   grunt.loadNpmTasks('grunt-ftp-deploy');
   grunt.loadNpmTasks('grunt-devperf');
+  grunt.loadNpmTasks('grunt-protractor-runner');
 
   /**
    * Load in our build configuration file.
@@ -418,16 +419,19 @@ module.exports = function ( grunt ) {
      * The Karma configurations.
      */
     karma: {
-      options: {
-        configFile: '<%= build_dir %>/karma-unit.js'
-      },
       unit: {
-        port: 9019,
-        background: true
-      },
-      continuous: {
-        singleRun: true
+          configFile: '<%= build_dir %>/karma-unit.js',
+          port: 9019,
+          background: true
       }
+    },
+
+    protractor: {
+        options: {
+            keepAlive: true,
+            configFile: "protractor/conf.js"
+        },
+        run: {}
     },
 
     /**
@@ -631,7 +635,7 @@ module.exports = function ( grunt ) {
   /**
    * The default task is to put code in production and bump the version
    */
-  grunt.registerTask( 'prod', [ 'bump', 'ftp-deploy:prod', 'devperf', 'compress'] );
+  grunt.registerTask( 'prod', ['e2e', 'bump', 'ftp-deploy:prod', 'compress'] );
 
   /**
    * The `build` task gets your app ready to run for development and testing.
@@ -639,8 +643,7 @@ module.exports = function ( grunt ) {
   grunt.registerTask( 'build', [
     'clean', 'html2js', 'jshint', 'coffeelint', 'coffee', 'less:build',
     'concat:build_css', 'copy:build_app_assets', 'copy:build_vendor_assets',
-    'copy:build_appjs', 'copy:build_vendorjs', 'copy:build_vendorcss', 'index:build' //'karmaconfig',
-    //'karma:continuous'
+    'copy:build_appjs', 'copy:build_vendorjs', 'copy:build_vendorcss', 'index:build','karmaconfig'
   ]);
 
   /**
@@ -649,6 +652,11 @@ module.exports = function ( grunt ) {
    */
   grunt.registerTask( 'compile', [
     'less:compile', 'copy:compile_assets', 'ngAnnotate', 'concat:compile_js', 'uglify', 'index:compile'
+  ]);
+
+  //Test e2e
+  grunt.registerTask( 'e2e', [
+      'protractor:run'
   ]);
 
   /**
@@ -705,6 +713,7 @@ module.exports = function ( grunt ) {
   grunt.registerMultiTask( 'karmaconfig', 'Process karma config templates', function () {
     var jsFiles = filterForJS( this.filesSrc );
 
+    //unit
     grunt.file.copy( 'karma/karma-unit.tpl.js', grunt.config( 'build_dir' ) + '/karma-unit.js', {
       process: function ( contents, path ) {
         return grunt.template.process( contents, {
@@ -713,6 +722,16 @@ module.exports = function ( grunt ) {
           }
         });
       }
+    });
+
+    grunt.file.copy( 'karma/karma-e2e.tpl.js', grunt.config( 'build_dir' ) + '/karma-e2e.js', {
+        process: function ( contents, path ) {
+            return grunt.template.process( contents, {
+                data: {
+                    scripts: jsFiles
+                }
+            });
+        }
     });
   });
 
