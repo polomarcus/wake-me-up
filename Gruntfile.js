@@ -631,7 +631,7 @@ module.exports = function ( grunt ) {
   /**
    * The default task is to put code in production and bump the version
    */
-  grunt.registerTask( 'prod', [ 'bump', 'ftp-deploy:prod', 'compress', 'devperf'] );
+  grunt.registerTask( 'prod', [ 'bump', 'ftp-deploy:prod', 'devperf', 'compress'] );
 
   /**
    * The `build` task gets your app ready to run for development and testing.
