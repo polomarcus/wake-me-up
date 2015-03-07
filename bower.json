@@ -1,6 +1,6 @@
 {
   "name": "reveil-en-ligne",
-  "version": "2.0.16",
+  "version": "2.0.17",
   "devDependencies": {
     "angular": "~1.2",
     "angular-mocks": "~1.2",
