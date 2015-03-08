@@ -85,11 +85,23 @@ module.exports = function ( grunt ) {
           port: 8080,
           base: 'build',
           hostname: 'localhost',
+          livereload: true,
           open : {
             target: 'http://localhost:8080', // target url to open
             appName: 'Google Chrome' // name of the app that opens, ie: open, start, xdg-open
           }
         }
+      },
+      bin: {
+          options: {
+              port: 8080,
+              base: 'bin',
+              hostname: 'localhost',
+              open : {
+                  target: 'http://localhost:8080', // target url to open
+                  appName: 'Google Chrome' // name of the app that opens, ie: open, start, xdg-open
+              }
+          }
       }
     },
 
@@ -622,12 +634,15 @@ module.exports = function ( grunt ) {
    * before watching for changes.
    */
   grunt.renameTask( 'watch', 'delta' );
-  grunt.registerTask( 'watch', [ 'connect', 'build', 'delta' ] );
+  grunt.registerTask( 'watch', [ 'connect:server', 'build', 'delta' ] );
+
+    grunt.renameTask( 'gamma', 'connect:bin' );
+    grunt.registerTask(  'gamma', [ 'connect:bin' ]);
 
   /**
    * The default task is to build and compile.
    */
-  grunt.registerTask( 'default', [ 'build', 'compile'] );
+  grunt.registerTask( 'default', [ 'build', 'compile', 'e2e'] );
 
   //Staging FTP
   grunt.registerTask( 'staging', ['ftp-deploy:build' ] );
@@ -656,6 +671,7 @@ module.exports = function ( grunt ) {
 
   //Test e2e
   grunt.registerTask( 'e2e', [
+      'connect:bin',
       'protractor:run'
   ]);
 
