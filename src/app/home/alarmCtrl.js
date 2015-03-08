@@ -43,6 +43,7 @@ angular.module( 'AlarmModule', [
     //when the user click on the ON button
     $scope.alarm.activate = function() {
       if( $scope.alarm.time.hour >= 0 && $scope.alarm.time.hour < 24 &&  $scope.alarm.time.min >= 0 &&  $scope.alarm.time.min < 60){
+
         //no errors detected
         $scope.alarm.error= '';
 
@@ -64,6 +65,9 @@ angular.module( 'AlarmModule', [
 
           //save cookie
         cookieService.set(alarmTmp._i, $scope.alarm.url);
+
+        //Store on Google Analytics
+        gaTrackerService.track('set', 'Alarm activate', alarmTmp._i);
 
         //compute diff between today and alarmDate
         //hours
@@ -99,24 +103,6 @@ angular.module( 'AlarmModule', [
         }
       };
 
-      //reset alarm
-      $scope.alarm.reset = function() {
-        $scope.alarm.button = 'ON';
-        $scope.$parent.playURL = false;
-        clearInterval($scope.intervalAlarm);
-        //remove playing URL
-        $('#url2play').html("");
-
-        $scope.countdown = 0;
-        document.getElementById('countdown').getElementsByTagName('timer')[0].stop();
-
-        $timeout(function() {
-          $scope.$apply();  // anything you want can go here and will safely be run on the next digest.
-        });
-
-        $scope.alarm.status = '';
-    };
-
     //set countdown alarm //@TODO countdown timer
      $scope.alarm.countdown = function(val) {
        if( $scope.countdownInterval == null ){
@@ -139,6 +125,9 @@ angular.module( 'AlarmModule', [
      };
 
     $scope.alarm.reset = function() {
+        //Store on Google Analytics
+        gaTrackerService.track('reset', 'Alarm reset', '');
+
         $scope.alarm.button = 'ON';
         $scope.$parent.playURL = false;
         clearInterval($scope.intervalAlarm);
@@ -167,7 +156,7 @@ angular.module( 'AlarmModule', [
       if( !$scope.$parent.playURL ){
 
         //Store on Google Analytics
-        gaTrackerService.track('Alarm on', $scope.alarm.url);
+        gaTrackerService.track('alarm', 'Alarm on', $scope.alarm.url);
 
         //urlUtilsService.playURL = true; //future
         $scope.$parent.playURL = true;

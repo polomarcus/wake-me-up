@@ -42,7 +42,7 @@ angular.module( 'reveilEnLigne', [
        $urlRouterProvider.otherwise('/');
     })
 
-    .controller( 'AppCtrl', function AppCtrl ( $scope, $location, $anchorScroll, i18nService) {
+    .controller( 'AppCtrl', function AppCtrl ( $scope, $location, $anchorScroll, i18nService, gaTrackerService) {
         console.log('%c\nReveil-en-ligne.fr by @polomarcus from Montpellier, France\nGithub : https://github.com/polomarcus/reveil-en-ligne\n', 'color: #4472B9; font-family: "arial"; font-size: 20px;');
 
         //AdBlock management
@@ -68,6 +68,9 @@ angular.module( 'reveilEnLigne', [
         //utils
         //Go to anchor
         $scope.goToAnchor = function(anchorName) {
+            //Store on Google Analytics
+            gaTrackerService.track('menuAnchor', 'click', anchorName);
+
             // set the location.hash to the id of
             // the element you wish to scroll to.
             $location.hash(anchorName);
@@ -78,7 +81,19 @@ angular.module( 'reveilEnLigne', [
 
         //change language
         $scope.changeLanguage = function changeLanguage(lang) {
+            //Store on Google Analytics
+            gaTrackerService.track('changeLanguage', 'click', lang);
+
             i18nService.set(lang);
         };
+
+        //Menu top facebook interaction
+        $scope.facebookClick = function facebookClick(type) {
+            //Store on Google Analytics
+            gaTrackerService.track('facebookClick', 'click', type);
+        };
+
+
+
     })
 ;
