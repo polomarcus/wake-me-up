@@ -115,7 +115,7 @@ angular.module('i18n', [
             'FIREBASE.PANEL.TITLE' : 'Last 100 alarms registered',
             'FIREBASE.PANEL.LOADING' : 'Loading users alarm...',
             'FIREBASE.PARAGRAPH' : "Loading data from the Firebase database. If there are too many users connected it will not load... Sorry for any inconvenience.",
-            'FIREBASE.LOOKFOR' : 'Look for a alarm on the',
+            'FIREBASE.LOOKFOR' : 'Look for an alarm on the',
             'REGISTRED.ALARM' : 'registred',
 
             //FOOTER
