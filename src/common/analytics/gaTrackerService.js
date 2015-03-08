@@ -3,15 +3,15 @@ var app = angular.module('reveilEnLigne.services');
 app.factory('gaTrackerService', function($log) {
     var GaTrackerService = function() {};
 
-    GaTrackerService.prototype.track = function track(type, message){
+    GaTrackerService.prototype.track = function track(category, type, message){
         //$log.info("Google Analytics", message);
         _gaq.push([
             '_trackEvent',
-            'alarm',
+            category,
             type,
             message
         ]);
     };
 
-    return GaTrackerService;
+    return new GaTrackerService();
 });
