@@ -70,7 +70,6 @@ angular.module( 'ChronoModule', [
         $scope.timerPaused = false;
         $scope.timerBegin = true;
         $scope.timerStartOrStop = 'CHRONO.BUTTON.START';
-        console.log(" $scope.timerStartOrStop",  $scope.timerStartOrStop);
     }
 
     init();
