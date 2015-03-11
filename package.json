@@ -36,7 +36,6 @@
     "grunt-html2js": "^0.1.9",
     "grunt-karma": "^0.8.2",
     "grunt-ng-annotate": "^0.10.0",
-    "grunt-ngmin": "0.0.2",
     "grunt-protractor-runner": "^1.2.1",
     "grunt-protractor-webdriver": "^0.2.0",
     "karma": "^0.12.9",

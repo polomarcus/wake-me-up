@@ -93,15 +93,15 @@ module.exports = function ( grunt ) {
         }
       },
       bin: {
-          options: {
-              port: 8080,
-              base: 'bin',
-              hostname: 'localhost',
-              open : {
-                  target: 'http://localhost:8080', // target url to open
-                  appName: 'Google Chrome' // name of the app that opens, ie: open, start, xdg-open
-              }
-          }
+        options: {
+            port: 8080,
+            base: 'bin',
+            hostname: 'localhost',
+            open : {
+                target: 'http://localhost:8080', // target url to open
+                appName: 'Google Chrome' // name of the app that opens, ie: open, start, xdg-open
+            }
+        }
       }
     },
 
@@ -319,7 +319,8 @@ module.exports = function ( grunt ) {
       compile: {
         options: {
           banner: '<%= meta.banner %>',
-          report: 'gzip'
+          report: 'gzip',
+          sourceMap : true //auto processed source map
         },
         files: {
           '<%= concat.compile_js.dest %>': '<%= concat.compile_js.dest %>'
@@ -636,13 +637,13 @@ module.exports = function ( grunt ) {
   grunt.renameTask( 'watch', 'delta' );
   grunt.registerTask( 'watch', [ 'connect:server', 'build', 'delta' ] );
 
-    grunt.renameTask( 'gamma', 'connect:bin' );
-    grunt.registerTask(  'gamma', [ 'connect:bin' ]);
+  //Use to test production minified code with E2E
+  grunt.registerTask(  'gamma', [ 'connect:bin:keepalive' ]);
 
   /**
    * The default task is to build and compile.
    */
-  grunt.registerTask( 'default', [ 'build', 'compile', 'e2e'] );
+  grunt.registerTask( 'default', [ 'build', 'compile'] );
 
   //Staging FTP
   grunt.registerTask( 'staging', ['ftp-deploy:build' ] );
@@ -650,7 +651,7 @@ module.exports = function ( grunt ) {
   /**
    * The default task is to put code in production and bump the version
    */
-  grunt.registerTask( 'prod', ['e2e', 'bump', 'ftp-deploy:prod', 'compress'] );
+  grunt.registerTask( 'prod', ['bump', 'ftp-deploy:prod', 'compress'] ); //#TODO use e2e task here
 
   /**
    * The `build` task gets your app ready to run for development and testing.
@@ -671,8 +672,8 @@ module.exports = function ( grunt ) {
 
   //Test e2e
   grunt.registerTask( 'e2e', [
-      'connect:bin',
-      'protractor:run'
+    'connect:bin',
+    'protractor:run'
   ]);
 
   /**

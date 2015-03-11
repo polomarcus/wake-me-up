@@ -20,7 +20,7 @@ module.exports = {
    * app's unit tests.
    */
   app_files: {
-    js: [ 'src/**/*.js', '!src/**/*.spec.js', '!src/assets/**/*.js' ],
+    js: [ 'src/**/*.js', '!src/**/*.spec.js', '!src/assets/**/*.js', '!src/test/**/*.js' ],
     jsunit: [ 'src/**/*.spec.js' ],
     jse2e: [ 'src/test/**/*.js' ],
 
@@ -42,7 +42,8 @@ module.exports = {
    */
   test_files: {
     js: [
-      'vendor/angular-mocks/angular-mocks.js'
+      'vendor/angular-mocks/angular-mocks.js',
+      'src/test/**/*.js'
     ]
   },
 
@@ -66,10 +67,9 @@ module.exports = {
    */
   vendor_files: {
     js: [
-      'vendor/angular/angular.js',
+      'vendor/angular/angular.min.js',
       // 'vendor/angular/angular.min.js.map',
       'vendor/angular-cookies/angular-cookies.min.js',
-      //'vendor/angular-sanitize/angular-sanitize.min.js', //@TODO break compile uglify ???
       'vendor/jquery/dist/jquery.min.js',
       'vendor/moment/min/moment.min.js',
       'vendor/moment/min/locales.min.js',
@@ -93,7 +93,6 @@ module.exports = {
       'assets/js/advertisement.js'
     ],
     css: [
-      //'vendor/font-awesome/css/font-awesome.min.css', //@TODO
       'vendor/bootstrap/dist/css/bootstrap.min.css'
     ],
     assets: [

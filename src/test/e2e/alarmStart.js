@@ -10,7 +10,6 @@ describe('Controller: AlarmCtrl', function () {
     var activateBtn = element(by.id('activateBtn'));
     var offBtn = element(by.id('offBtn'));
 
-
     beforeEach(function() {
         hourInput.clear();
         minuteInput.clear();
@@ -56,5 +55,24 @@ describe('Controller: AlarmCtrl', function () {
 
         //reinit state
         offBtn.click();
+    });
+
+    it('should launch a the link in an iframe https://github.com/polomarcus/reveil-en-ligne when the alarm rings', function () {
+      var date = new Date();
+      var sleepTime = 60 -  date.getSeconds() + 5; //5 is margin
+      var minute = date.getMinutes();
+      var hour = date.getHours();
+
+      //Set values for minute hour and url
+      hourInput.sendKeys(hour);
+      minuteInput.sendKeys(minute + 1);
+      urlInput.sendKeys('https://github.com/polomarcus/reveil-en-ligne');
+
+      //Activate alarm button click
+      activateBtn.click();
+
+      browser.sleep(sleepTime * 1000);
+
+      expect(element(by.css('#url2play iframe')).isPresent()).toBeTruthy();
     });
 });
