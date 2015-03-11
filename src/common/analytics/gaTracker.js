@@ -1,5 +1,5 @@
 // AngularJS errors handler
-angular.module('reveilEnLigne')
+angular.module('wakeMeUp')
     .config(function ($provide) {
         $provide.decorator("$exceptionHandler", function ($delegate) {
             return function (exception, cause) {

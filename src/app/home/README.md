@@ -32,7 +32,7 @@ The dependencies block is also where component dependencies should be
 specified, as shown below.
 
 ```js
-angular.module( 'reveilEnLigne.home', [
+angular.module( 'wakeMeUp.home', [
   'ui.router',
   'titleService',
   'plusOne'

@@ -1,4 +1,4 @@
-var alarm = angular.module( 'reveilEnLigne.controllers');
+var alarm = angular.module( 'wakeMeUp.controllers');
 
 alarm.directive('footerContent', function() {
   return {

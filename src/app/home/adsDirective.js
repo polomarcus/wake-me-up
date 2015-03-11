@@ -1,4 +1,4 @@
-var app = angular.module('reveilEnLigne.controllers');
+var app = angular.module('wakeMeUp.controllers');
 
 app.directive('ads', function($timeout) {
   return {

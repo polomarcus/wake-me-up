@@ -1,3 +1,3 @@
-angular.module( 'reveilEnLigne.controllers', [
-  'reveilEnLigne.home'
+angular.module( 'wakeMeUp.controllers', [
+  'wakeMeUp.home'
 ]);

@@ -1,4 +1,4 @@
-var app = angular.module('reveilEnLigne.services');
+var app = angular.module('wakeMeUp.services');
 
 app.factory('firebaseService', function($firebase) {
     var firebaseService = function() {};

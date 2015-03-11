@@ -1,4 +1,4 @@
-var app = angular.module('reveilEnLigne.services');
+var app = angular.module('wakeMeUp.services');
 
 app.factory('i18nService', function(amMoment, $translate) {
     var I18nService = function() {

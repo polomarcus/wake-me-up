@@ -12,7 +12,7 @@
  * The dependencies block here is also where component dependencies should be
  * specified, as shown below.
  */
-angular.module( 'reveilEnLigne.home', [
+angular.module( 'wakeMeUp.home', [
   'ui.router',
   'timer',
   'AlarmModule',

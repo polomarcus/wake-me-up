@@ -1,4 +1,4 @@
-var app = angular.module('reveilEnLigne.controllers');
+var app = angular.module('wakeMeUp.controllers');
 
 app.directive('comments', function() {
   return {

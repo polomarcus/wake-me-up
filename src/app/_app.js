@@ -1,8 +1,8 @@
-angular.module( 'reveilEnLigne', [
+angular.module( 'wakeMeUp', [
     'templates-app',
     'templates-common',
-    'reveilEnLigne.controllers',
-    'reveilEnLigne.services',
+    'wakeMeUp.controllers',
+    'wakeMeUp.services',
     'ui.router',
     'firebase'
 ])
