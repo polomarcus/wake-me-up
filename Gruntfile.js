@@ -102,6 +102,13 @@ module.exports = function ( grunt ) {
                 appName: 'Google Chrome' // name of the app that opens, ie: open, start, xdg-open
             }
         }
+      },
+      prod: {
+        options: {
+            port: 8080,
+            base: '/',
+            hostname: 'localhost'
+        }
       }
     },
 
@@ -185,7 +192,7 @@ module.exports = function ( grunt ) {
             cwd: 'src/assets',
             expand: true
           }
-       ]
+        ]
       },
       build_vendor_assets: {
         files: [
@@ -196,7 +203,7 @@ module.exports = function ( grunt ) {
             expand: true,
             flatten: true
           }
-       ]
+        ]
       },
       build_appjs: {
         files: [
@@ -235,6 +242,12 @@ module.exports = function ( grunt ) {
             dest: '<%= compile_dir %>/assets',
             cwd: '<%= build_dir %>/assets',
             expand: true
+          },
+          {
+            src: [ '<%= vendor_files.css %>' ],
+            dest: '<%= compile_dir %>/',
+            cwd: '.',
+            expand: true
           }
         ]
       }
@@ -249,6 +262,9 @@ module.exports = function ( grunt ) {
        * together.
        */
       build_css: {
+        options: {
+          banner: '<%= meta.banner %>'
+        },
         src: [
           '<%= vendor_files.css %>',
           '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css'
@@ -651,7 +667,7 @@ module.exports = function ( grunt ) {
   /**
    * The default task is to put code in production and bump the version
    */
-  grunt.registerTask( 'prod', ['bump', 'ftp-deploy:prod', 'compress'] ); //#TODO use e2e task here
+  grunt.registerTask( 'prod', ['bump', 'e2e', 'ftp-deploy:prod', 'compress'] ); //#TODO use e2e task here
 
   /**
    * The `build` task gets your app ready to run for development and testing.
@@ -673,6 +689,12 @@ module.exports = function ( grunt ) {
   //Test e2e
   grunt.registerTask( 'e2e', [
     'connect:bin',
+    'protractor:run'
+  ]);
+
+  //Test e2e production server
+  grunt.registerTask( 'e2e-prod', [
+    'connect:prod',
     'protractor:run'
   ]);
 
