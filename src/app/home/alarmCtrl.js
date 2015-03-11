@@ -157,6 +157,7 @@ angular.module( 'AlarmModule', [
 
         //Store on Google Analytics
         gaTrackerService.track('alarm', 'Alarm on', $scope.alarm.url);
+        gaTrackerService.track('alarm', 'Alarm time', $scope.alarm.time.hour + ':' + $scope.alarm.time.min);
 
         //urlUtilsService.playURL = true; //future
         $scope.$parent.playURL = true;
