@@ -663,7 +663,7 @@ module.exports = function ( grunt ) {
   /**
    * The default task is to put code in production and bump the version
    */
-  grunt.registerTask( 'prod', ['bump', 'e2e', 'ftp-deploy:prod', 'compress'] ); //#TODO use e2e task here
+  grunt.registerTask( 'prod', ['e2e', 'bump', 'ftp-deploy:prod', 'compress'] );
 
   /**
    * The `build` task gets your app ready to run for development and testing.
