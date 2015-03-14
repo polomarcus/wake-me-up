@@ -5,7 +5,7 @@ angular.module( 'AlarmModule', [
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'AlarmCtrl', function AlarmControl( $scope, $timeout, urlUtilsService, firebaseService, cookieService, dataService, i18nService, gaTrackerService) {
+.controller( 'AlarmCtrl', function AlarmControl( $scope, $timeout, urlUtilsService, firebaseService, cookieService, dataService, i18nService, gaTrackerService, $q) {
     //Alarm Ctrl
     //show/hide URL div
     $scope.$parent.playURL = false;
@@ -179,13 +179,15 @@ angular.module( 'AlarmModule', [
         $scope.alarm.button='OFF';
         $('#url2play').fadeIn(); //@TODO angular way
 
+        //str = urlUtilsService.getHTML($scope.alarm.url); @TODO proper function inside a service
         var urlvideo = $scope.alarm.url,
             id,
             SoundCloudURL = false,
             str,
-            SCregexp = /^https?:\/\/(soundcloud.com|snd.sc)\/(.*)$/;
+            SCregexp = /^https?:\/\/(soundcloud.com|snd.sc)\/(.*)$/,
+            defer = $q.defer();
 
-          if (/Youtube/i.test(urlvideo) || (/Youtu/i.test(urlvideo))) { //Cas
+          if (/Youtube/i.test(urlvideo) || (/Youtu/i.test(urlvideo))) {
             if(/Youtube/i.test(urlvideo)){
                   id = urlUtilsService.youtubeIDextract(urlvideo, true);
             }
@@ -193,24 +195,35 @@ angular.module( 'AlarmModule', [
               id = urlUtilsService.youtubeIDextract(urlvideo, false);
             }
 
-          //video = "http://www.youtube.com/v/zR2BboZeLEw"; //Video example type
-          str =  urlUtilsService.youtubeBuilder(id);
+            //video = "http://www.youtube.com/v/zR2BboZeLEw"; //Video example type
+            str =  urlUtilsService.youtubeBuilder(id);
+            defer.resolve(str);
           }
           else if(/Dailymotion/i.test(urlvideo)) { //Cas Dailymotion
             id = urlUtilsService.dailyIDextract(urlvideo);
             str = urlUtilsService.dailymotionBuilder(id);
+            defer.resolve(str);
           }
-          else if( urlvideo.match(SCregexp) && urlvideo.match(SCregexp)[2]) {
+          else if( urlvideo.match(SCregexp) && urlvideo.match(SCregexp)[2]) { //Soundcloud
             SoundCloudURL = true;
             urlUtilsService.launchSoundCloud(urlvideo);
+            defer.resolve(str);
           }
-          else { //others cases
+          else if( urlvideo.match('mixcloud')) { //Mixcloud
+            defer.resolve(urlUtilsService.mixcloudBuilder(urlvideo));
+          }
+          else { //others cases we use iframe src
             str = urlUtilsService.iframeBuilder(urlvideo);
+            defer.resolve(str);
           }
 
-        if( !SoundCloudURL ){
-          $('#url2play').html(str); //make appear the link on the page
-        }
+        defer.promise.
+          then(function(str){
+            console.log('str', str);
+            if( !SoundCloudURL ){
+              $('#url2play').html(str); //make appear the link on the page
+            }
+          });
       }
     };
 
