@@ -91,37 +91,70 @@
                 </section>
 
                 <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="col-xs-12 col-sm-6 col-md-8">
                         <h4><i class="fa fa-youtube-play"></i> {{ 'ALARM.PANEL.PLATFORM' | translate }}</h4>
                         <p>
                             {{ 'ALARM.PANEL.PLATFORM.DESCRIPTION' | translate }}
                         </p>
-                        <div class="radio">
-                            <label>
-                                <input ng-click="changeUrl('http://www.youtube.com/watch?v=KGyZY4HNumw')" type="radio" name="optionsRadios" value="option1" ng-checked="'http://www.youtube.com/watch?v=KGyZY4HNumw' === alarm.url">
-                                Pigeon John - Boomerang
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input ng-click="changeUrl('http://www.dailymotion.com/video/x2ze7l')" type="radio" name="optionsRadios" value="option2" ng-checked="'http://www.dailymotion.com/video/x2ze7l' === alarm.url">
-                                J Dilla - Nothing like this
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input ng-click="changeUrl('https://soundcloud.com/20syl/20syl-ongoing-thing')" type="radio" name="optionsRadios" value="option3" ng-checked="'https://soundcloud.com/20syl/20syl-ongoing-thing' === alarm.url">
-                                20Syl - Ongoing thing
-                            </label>
+
+                        <div class="col-md-6">
+                            <div class="radio">
+                                <label>
+                                    <input ng-click="changeUrl('http://www.youtube.com/watch?v=KGyZY4HNumw')" type="radio" name="optionsRadios" value="option1" ng-checked="'http://www.youtube.com/watch?v=KGyZY4HNumw' === alarm.url">
+                                    Pigeon John - Boomerang
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input ng-click="changeUrl('http://www.dailymotion.com/video/x2ze7l')" type="radio" name="optionsRadios" value="option2" ng-checked="'http://www.dailymotion.com/video/x2ze7l' === alarm.url">
+                                    J Dilla - Nothing like this
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input ng-click="changeUrl('https://soundcloud.com/20syl/20syl-ongoing-thing')" type="radio" name="optionsRadios" value="option3" ng-checked="'https://soundcloud.com/20syl/20syl-ongoing-thing' === alarm.url">
+                                    20Syl - Ongoing thing
+                                </label>
+                            </div>
+
+                            <div class="radio disabled">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" ng-disabled="true">
+                                    {{ 'ALARM.YOURCHOICE' | translate }} <a href="https://www.facebook.com/reveil.en.ligne" target="_BLANK">facebook</a>
+                                </label>
+                            </div>
                         </div>
 
-                        <div class="radio disabled">
-                            <label>
-                                <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" ng-disabled="true">
-                                {{ 'ALARM.YOURCHOICE' | translate }} <a href="https://www.facebook.com/reveil.en.ligne" target="_BLANK">facebook</a>
-                            </label>
+                        <div class="col-md-6">
+                            <div class="radio">
+                                <label>
+                                    <input ng-click="changeUrl('https://www.mixcloud.com/VinylAddict/pete-rock-vs-dj-premier/')" type="radio" name="optionsRadios" id="tf1" value="option1">
+                                    Mixcloud - Pete Rock vs DJ Premier
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input ng-click="changeUrl('https://www.mixcloud.com/mentalow/mentalow-mix-036-by-vins-da-cuero/')" type="radio" name="optionsRadios" id="fr2" value="option2">
+                                    Mentalow Mix #036 by Vin'S da Cuero
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input ng-click="changeUrl('https://soundcloud.com/atomathome/daft-punk-emotion-atom-remix')"type="radio" name="optionsRadios" id="fr3" value="option3">
+                                    Daft Punk - Emotion (ATOM Remix)
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input ng-click="changeUrl('https://soundcloud.com/letterstothesun/letters-to-the-sun-my-heart')"type="radio" name="optionsRadios" id="fr4" value="option3">
+                                    Letters To The Sun - My Heart
+                                </label>
+                            </div>
                         </div>
                     </div>
+
+
+                    <!-- RADIOS -->
                     <div class="col-xs-12 col-sm-6 col-md-4">
                         <h4 class="text-center"><i class="fa fa-music"></i> {{ 'ALARM.PANEL.RADIO' | translate }}</h4>
                         <p>
@@ -149,36 +182,6 @@
                             <label>
                                 <input ng-click="changeUrl('ALARM.RADIO4.URL', true)"type="radio" name="optionsRadios" value="option4" ng-checked="'ALARM.RADIO4.URL' === alarm.urlId">
                                 {{ 'ALARM.RADIO4' | translate }}
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                        <h4 class="text-center"><i class="fa fa-video-camera"></i> {{ 'ALARM.PANEL.TV' | translate }}</h4>
-                        <p>
-                            {{ 'ALARM.PANEL.TV.DESCRIPTION' | translate }}
-                        </p>
-                        <div class="radio">
-                            <label>
-                                <input ng-click="changeUrl('ALARM.TV1.URL',true)" type="radio" name="optionsRadios" id="tf1" value="option1">
-                                {{'ALARM.TV1' | translate}}
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input ng-click="changeUrl('ALARM.TV2.URL',true)" type="radio" name="optionsRadios" id="fr2" value="option2">
-                                {{'ALARM.TV2' | translate}}
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input ng-click="changeUrl('ALARM.TV3.URL',true)"type="radio" name="optionsRadios" id="fr3" value="option3">
-                                {{'ALARM.TV3' | translate}}
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input ng-click="changeUrl('ALARM.TV4.URL', true)"type="radio" name="optionsRadios" id="fr4" value="option3">
-                                {{'ALARM.TV4' | translate}}
                             </label>
                         </div>
                     </div>

@@ -46,7 +46,7 @@ angular.module('i18n', [
             //ALARM PANEL
             'ALARM.PANEL.TITLE' : 'Alarm settings',
             'ALARM.PANEL.PLATFORM' : 'Musical Platform',
-            'ALARM.PANEL.PLATFORM.DESCRIPTION' : 'Use Youtube, SoundCloud...',
+            'ALARM.PANEL.PLATFORM.DESCRIPTION' : 'Use Youtube, SoundCloud, MixCloud...',
             'ALARM.YOURCHOICE' : 'Propose a sound on our ',
 
             'ALARM.PANEL.RADIO' : 'Radio',
@@ -161,7 +161,7 @@ angular.module('i18n', [
             //ALARM PANEL
             'ALARM.PANEL.TITLE' : 'Paramètres alarme',
             'ALARM.PANEL.PLATFORM' : 'Plateforme musicale',
-            'ALARM.PANEL.PLATFORM.DESCRIPTION' : 'Utilisez Youtube, SoundCloud...',
+            'ALARM.PANEL.PLATFORM.DESCRIPTION' : 'Utilisez Youtube, SoundCloud, MixCloud...',
             'ALARM.YOURCHOICE' : 'Ton son! Propose le sur la page ',
 
             'ALARM.PANEL.RADIO' : 'Radio',
