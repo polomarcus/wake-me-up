@@ -161,7 +161,7 @@ module.exports = function ( grunt ) {
         createTag: true,
         tagName: 'v%VERSION%',
         tagMessage: 'Version %VERSION%',
-        push: true,
+        push: false,
         pushTo: 'origin'
       }
     },
@@ -670,7 +670,7 @@ module.exports = function ( grunt ) {
    * Save the lastest compile scripts in a zip file and bump the project version
    * //@TODO it is manually done to not push on master and creating an infinite loop with the Codeship CI/CD
    */
-  grunt.registerTask( 'save', ['bump', 'grunt', 'compress'] );
+  grunt.registerTask( 'save', ['bump','build', 'compile', 'compress'] );
 
 
   /**
