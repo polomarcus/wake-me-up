@@ -9,6 +9,11 @@ describe('Controller: AlarmCtrl', function () {
     var latestResult = element(by.binding('latest'));
     var activateBtn = element(by.id('activateBtn'));
     var offBtn = element(by.id('offBtn'));
+    var testBtn = element(by.id('testBtn'));
+    var ytBtn = element(by.id('youtube1'));
+    var dailymotionBtn = element(by.id('dailymotion1'));
+    var soundcloudBtn = element(by.id('soundcloud1'));
+    var mixcloudBtn = element(by.id('Mixcloud1'));
 
     beforeEach(function() {
         hourInput.clear();
@@ -40,23 +45,6 @@ describe('Controller: AlarmCtrl', function () {
         expect(element(by.id('urlValidError')).getText()).toMatch("URL is not valid");
     });
 
-    it('should activate the alarm at 7:00 with https://github.com/polomarcus/reveil-en-ligne as URL', function () {
-
-        //Set values for minute hour and url
-        hourInput.sendKeys(7);
-        minuteInput.sendKeys(0);
-        urlInput.sendKeys('https://github.com/polomarcus/reveil-en-ligne');
-
-        //Activate alarm button click
-        activateBtn.click();
-
-        expect(element(by.css('#countdown p')).getText()).toMatch("The alarm will ring");
-
-
-        //reinit state
-        offBtn.click();
-    });
-
     it('should launch a the link in an iframe https://github.com/polomarcus/reveil-en-ligne when the alarm rings', function () {
       var date = new Date();
       var sleepTime = 60 -  date.getSeconds() + 5; //5 is margin
@@ -74,5 +62,70 @@ describe('Controller: AlarmCtrl', function () {
       browser.sleep(sleepTime * 1000);
 
       expect(element(by.css('#url2play iframe')).isPresent()).toBeTruthy();
+
+      //reinit state
+      offBtn.click();
+    });
+
+    it('should launch a the SoundCloud link in an iframe when the alarm rings', function () {
+      //Set values for minute hour and url
+      hourInput.sendKeys(1);
+      minuteInput.sendKeys(30);
+      soundcloudBtn.click();
+      expect(urlInput.getAttribute('value')).toMatch('soundcloud');
+
+      //Activate alarm button click
+      testBtn.click();
+      browser.sleep(1000);
+      expect(element(by.css('#url2play iframe')).isPresent()).toBeTruthy();
+
+      //reinit state
+      offBtn.click();
+    });
+
+    it('should launch a the MixCloud link in an iframe when the alarm rings', function () {
+      //Set values for minute hour and url
+      hourInput.sendKeys(1);
+      minuteInput.sendKeys(30);
+      mixcloudBtn.click();
+      expect(urlInput.getAttribute('value')).toMatch('mixcloud');
+
+      //Activate alarm button click
+      testBtn.click();
+      browser.sleep(1000);
+      expect(element(by.css('#url2play iframe')).isPresent()).toBeTruthy();
+
+      //reinit state
+      offBtn.click();
+    });
+
+    it('should launch a the Dailymotion link in an iframe when the alarm rings', function () {
+      //Set values for minute hour and url
+      hourInput.sendKeys(1);
+      minuteInput.sendKeys(30);
+      dailymotionBtn.click();
+      expect(urlInput.getAttribute('value')).toMatch('dailymotion');
+
+      //Activate alarm button click
+      testBtn.click();
+      browser.sleep(1000);
+      expect(element(by.css('#url2play iframe')).isPresent()).toBeTruthy();
+
+      //reinit state
+      offBtn.click();
+    });
+
+    it('should launch a the link in an iframe Youtube when the test btn is clicked', function () {
+      //Set values for minute hour and url
+      hourInput.sendKeys(1);
+      minuteInput.sendKeys(30);
+      ytBtn.click();
+      expect(urlInput.getAttribute('value')).toMatch('youtube');
+
+      //Activate alarm button click
+      testBtn.click();
+      browser.sleep(1000);
+      expect(element(by.css('#url2play object')).isPresent()).toBeTruthy();
+
     });
 });

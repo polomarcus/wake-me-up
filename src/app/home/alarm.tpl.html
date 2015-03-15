@@ -57,7 +57,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <button type="button" ng-disabled="$scope.alarmURL == ''" ng-click="launchLink('test')" class="btn btn-primary btn-block" ng-show="alarm.button === 'ON'">
+                                        <button type="button" ng-disabled="$scope.alarmURL == ''" ng-click="launchLink('test')" id="testBtn" class="btn btn-primary btn-block" ng-show="alarm.button === 'ON'">
                                             {{ 'ALARM.PANEL.TEST' | translate }}
                                         </button>
                                     </div>
@@ -100,19 +100,19 @@
                         <div class="col-md-6">
                             <div class="radio">
                                 <label>
-                                    <input ng-click="changeUrl('http://www.youtube.com/watch?v=KGyZY4HNumw')" type="radio" name="optionsRadios" value="option1" ng-checked="'http://www.youtube.com/watch?v=KGyZY4HNumw' === alarm.url">
+                                    <input ng-click="changeUrl('http://www.youtube.com/watch?v=KGyZY4HNumw')" type="radio" name="optionsRadios"  id="youtube1" value="option1" ng-checked="'http://www.youtube.com/watch?v=KGyZY4HNumw' === alarm.url">
                                     Pigeon John - Boomerang
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input ng-click="changeUrl('http://www.dailymotion.com/video/x2ze7l')" type="radio" name="optionsRadios" value="option2" ng-checked="'http://www.dailymotion.com/video/x2ze7l' === alarm.url">
+                                    <input ng-click="changeUrl('http://www.dailymotion.com/video/x2ze7l')" type="radio" name="optionsRadios" id="dailymotion1" value="option2" ng-checked="'http://www.dailymotion.com/video/x2ze7l' === alarm.url">
                                     J Dilla - Nothing like this
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input ng-click="changeUrl('https://soundcloud.com/20syl/20syl-ongoing-thing')" type="radio" name="optionsRadios" value="option3" ng-checked="'https://soundcloud.com/20syl/20syl-ongoing-thing' === alarm.url">
+                                    <input ng-click="changeUrl('https://soundcloud.com/20syl/20syl-ongoing-thing')" type="radio" name="optionsRadios" id="soundcloud1" value="option3" ng-checked="'https://soundcloud.com/20syl/20syl-ongoing-thing' === alarm.url">
                                     20Syl - Ongoing thing
                                 </label>
                             </div>
@@ -128,25 +128,25 @@
                         <div class="col-md-6">
                             <div class="radio">
                                 <label>
-                                    <input ng-click="changeUrl('https://www.mixcloud.com/VinylAddict/pete-rock-vs-dj-premier/')" type="radio" name="optionsRadios" id="tf1" value="option1">
+                                    <input ng-click="changeUrl('https://www.mixcloud.com/VinylAddict/pete-rock-vs-dj-premier/')" type="radio" name="optionsRadios" id="Mixcloud1" value="option1" ng-checked="'https://www.mixcloud.com/VinylAddict/pete-rock-vs-dj-premier/' === alarm.url">
                                     Mixcloud - Pete Rock vs DJ Premier
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input ng-click="changeUrl('https://www.mixcloud.com/mentalow/mentalow-mix-036-by-vins-da-cuero/')" type="radio" name="optionsRadios" id="fr2" value="option2">
+                                    <input ng-click="changeUrl('https://www.mixcloud.com/mentalow/mentalow-mix-036-by-vins-da-cuero/')" type="radio" name="optionsRadios" id="Mixcloud2" value="option2" ng-checked="'https://www.mixcloud.com/mentalow/mentalow-mix-036-by-vins-da-cuero/' === alarm.url">
                                     Mentalow Mix #036 by Vin'S da Cuero
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input ng-click="changeUrl('https://soundcloud.com/atomathome/daft-punk-emotion-atom-remix')"type="radio" name="optionsRadios" id="fr3" value="option3">
+                                    <input ng-click="changeUrl('https://soundcloud.com/atomathome/daft-punk-emotion-atom-remix')"type="radio" name="optionsRadios" id="fr3" value="option3" ng-checked="'https://soundcloud.com/atomathome/daft-punk-emotion-atom-remix' === alarm.url">
                                     Daft Punk - Emotion (ATOM Remix)
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input ng-click="changeUrl('https://soundcloud.com/letterstothesun/letters-to-the-sun-my-heart')"type="radio" name="optionsRadios" id="fr4" value="option3">
+                                    <input ng-click="changeUrl('https://soundcloud.com/letterstothesun/letters-to-the-sun-my-heart')"type="radio" name="optionsRadios" id="fr4" value="option3" ng-checked="'https://soundcloud.com/letterstothesun/letters-to-the-sun-my-heart' === alarm.url">
                                     Letters To The Sun - My Heart
                                 </label>
                             </div>
