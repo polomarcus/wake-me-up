@@ -8,6 +8,6 @@ before_script:
   - npm install --quiet -g grunt-cli karma bower
   - npm install
   - bower install
+  - node node_modules/protractor/bin/webdriver-manager update
 
 script: grunt
-
