@@ -8,11 +8,12 @@ Based on ngBoilerplate
 Install Node.js and then:
 
 ```sh
-$ git clone git://github.com/polomarcus/reveil-en-ligne
-$ cd reveil-en-ligne
+$ git clone git://github.com/polomarcus/wake-me-up
+$ cd wake-me-up
 $ sudo npm -g install grunt-cli karma bower
 $ npm install
 $ bower install
+$ node node_modules/protractor/bin/webdriver-manager update
 $ grunt watch
 ```
 
@@ -43,7 +44,7 @@ All you have to do is clone it and start coding!
 At a high level, the structure looks roughly like this:
 
 ```
-reveil-en-ligne/
+wake-me-up/
   |- grunt-tasks/
   |- karma/
   |- src/
