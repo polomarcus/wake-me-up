@@ -19,7 +19,6 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-bump');
   grunt.loadNpmTasks('grunt-coffeelint');
   grunt.loadNpmTasks('grunt-karma');
-  grunt.loadNpmTasks('grunt-ngmin');
   grunt.loadNpmTasks('grunt-html2js');
   grunt.loadNpmTasks('grunt-ftp-deploy');
   grunt.loadNpmTasks('grunt-devperf');
