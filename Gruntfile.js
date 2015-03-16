@@ -654,7 +654,7 @@ module.exports = function ( grunt ) {
   /**
    * The default task is to build and compile.
    */
-  grunt.registerTask( 'default', [ 'build', 'compile', 'e2e'] );
+  grunt.registerTask( 'default', [ 'build', 'compile'] );
 
   //Staging FTP
   grunt.registerTask( 'staging', ['ftp-deploy:build' ] );
