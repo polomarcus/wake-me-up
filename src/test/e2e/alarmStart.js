@@ -7,6 +7,7 @@ describe('Controller: AlarmCtrl', function () {
     var minuteInput = element(by.model('alarm.time.min'));
     var urlInput = element(by.model('alarm.url'));
     var latestResult = element(by.binding('latest'));
+    var countdownAlarm = element(by.css('#countdown timer p'));
     var activateBtn = element(by.id('activateBtn'));
     var offBtn = element(by.id('offBtn'));
     var testBtn = element(by.id('testBtn'));
@@ -14,6 +15,7 @@ describe('Controller: AlarmCtrl', function () {
     var dailymotionBtn = element(by.id('dailymotion1'));
     var soundcloudBtn = element(by.id('soundcloud1'));
     var mixcloudBtn = element(by.id('Mixcloud1'));
+    var deezerBtn = element(by.id('deezer1'));
 
     beforeEach(function() {
         hourInput.clear();
@@ -47,7 +49,7 @@ describe('Controller: AlarmCtrl', function () {
 
     it('should launch a the link in an iframe https://github.com/polomarcus/reveil-en-ligne when the alarm rings', function () {
       var date = new Date();
-      var sleepTime = 60 -  date.getSeconds() + 5; //5 is margin
+      var sleepTime = 60 -  date.getSeconds() + 3; //5 is margin
       var minute = date.getMinutes();
       var hour = date.getHours();
 
@@ -58,6 +60,10 @@ describe('Controller: AlarmCtrl', function () {
 
       //Activate alarm button click
       activateBtn.click();
+
+      browser.sleep(1000);
+
+      expect(countdownAlarm.getText()).toMatch('second');
 
       browser.sleep(sleepTime * 1000);
 
@@ -105,6 +111,23 @@ describe('Controller: AlarmCtrl', function () {
       minuteInput.sendKeys(30);
       dailymotionBtn.click();
       expect(urlInput.getAttribute('value')).toMatch('dailymotion');
+
+      //Activate alarm button click
+      testBtn.click();
+      browser.sleep(1000);
+      expect(element(by.css('#url2play iframe')).isPresent()).toBeTruthy();
+
+      //reinit state
+      offBtn.click();
+    });
+
+
+    it('should launch a the Deezer link in an iframe when the alarm rings', function () {
+      //Set values for minute hour and url
+      hourInput.sendKeys(1);
+      minuteInput.sendKeys(30);
+      deezerBtn.click();
+      expect(urlInput.getAttribute('value')).toMatch('deezer');
 
       //Activate alarm button click
       testBtn.click();
