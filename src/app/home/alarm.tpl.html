@@ -81,7 +81,7 @@
 
                 <!-- COUNTDOWN DISPLAY -->
                 <section id="countdown" ng-show="alarm.status !== ''">
-                    <timer autostart="false" countdown="countdown" finish-callback="alarm.finish()" max-time-unit="'hour'" interval="1000">
+                    <timer autostart="false" countdown="countdown" language="{{ language }}" finish-callback="alarm.finish()" max-time-unit="'hour'" interval="1000">
                         <div class="alert alert-success" role="alert" ng-hide="hourUnit == 0">
                             <p class="text-center">
                                 {{ 'ALARM.WILL.RING' | translate }} {{ hourUnit }}</strong>
@@ -129,13 +129,13 @@
                             <div class="radio">
                                 <label>
                                     <input ng-click="changeUrl('https://www.mixcloud.com/VinylAddict/pete-rock-vs-dj-premier/')" type="radio" name="optionsRadios" id="Mixcloud1" value="option1" ng-checked="'https://www.mixcloud.com/VinylAddict/pete-rock-vs-dj-premier/' === alarm.url">
-                                    Mixcloud - Pete Rock vs DJ Premier
+                                    Pete Rock vs DJ Premier on MixCloud
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input ng-click="changeUrl('https://www.mixcloud.com/mentalow/mentalow-mix-036-by-vins-da-cuero/')" type="radio" name="optionsRadios" id="Mixcloud2" value="option2" ng-checked="'https://www.mixcloud.com/mentalow/mentalow-mix-036-by-vins-da-cuero/' === alarm.url">
-                                    Mentalow Mix #036 by Vin'S da Cuero
+                                    <input ng-click="changeUrl('http://www.deezer.com/track/91883774')" type="radio" name="optionsRadios" id="deezer1" value="option2" ng-checked="'http://www.deezer.com/track/91883774' === alarm.url">
+                                    Joey Bada$$ - Paper Trail$
                                 </label>
                             </div>
                             <div class="radio">
@@ -146,8 +146,8 @@
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input ng-click="changeUrl('https://soundcloud.com/letterstothesun/letters-to-the-sun-my-heart')"type="radio" name="optionsRadios" id="fr4" value="option3" ng-checked="'https://soundcloud.com/letterstothesun/letters-to-the-sun-my-heart' === alarm.url">
-                                    Letters To The Sun - My Heart
+                                    <input ng-click="changeUrl('http://www.deezer.com/radio/genre/30761')"type="radio" name="optionsRadios" id="fr4" value="option3" ng-checked="'http://www.deezer.com/radio/genre/30761' === alarm.url">
+                                    Deezer Radio - Indie Pop Rock
                                 </label>
                             </div>
                         </div>
