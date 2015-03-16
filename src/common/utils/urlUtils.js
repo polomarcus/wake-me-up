@@ -88,7 +88,7 @@ app.factory('urlUtilsService', function($http, $q) {
     };
 
     /**
-     * return a mixcloud video HTML object
+     * return a mixcloud promise containing the embed HTML
      * via a GET to https://www.mixcloud.com/oembed/?url= + URL + &format=json
      * example https://www.mixcloud.com/oembed/?url=https%3A//www.mixcloud.com/spartacus/party-time/&format=json
      * &callback=JSON_CALLBACK mandatory for AngularJS jsonp
@@ -114,6 +114,56 @@ app.factory('urlUtilsService', function($http, $q) {
           });
 
         return defer.promise;
+    };
+
+    /**
+     * return a deezer video HTML object
+     * examples :
+     * album : http://www.deezer.com/album/9326526
+     * playlist : http://www.deezer.com/playlist/1108276611
+     * track : http://www.deezer.com/track/91883774
+     * radio : http://www.deezer.com/radio/genre/31021
+     * @param {string} URL
+     * @returns {string} HTML node
+     */
+    UrlUtilsService.prototype.deezerBuilder = function deezerBuilder(url){
+      var embed = '',
+        deezerType,
+        recognizedType = true,
+        deezerId;
+
+      if(url.match('playlist')){
+        deezerType = 'playlist';
+        deezerId = url.split('playlist/')[1];
+      }
+      else if(url.match('track')){
+        deezerType = 'tracks';
+        deezerId = url.split('track/')[1];
+      }
+      else if(url.match('album')) {
+        deezerType = 'album';
+        deezerId = url.split('album/')[1];
+      }
+      else  if(url.match('radio')) {
+        deezerType = 'radio';
+        deezerId = 'radio-' + url.split('genre/')[1];
+      }
+      else {
+        recognizedType = false;
+      }
+
+      if(recognizedType) {
+        embed = '<iframe scrolling="no" frameborder="0" allowTransparency="true"' +
+        'src="http://www.deezer.com/plugins/player?autoplay=true&playlist=true&width=500&height=240&cover=true&' +
+        'type=' + deezerType +
+        '&id=' + deezerId +
+        '&title=&app_id=undefined"' +
+        'width="500" height="240"></iframe>';
+      }
+
+      console.log("embed", embed);
+
+      return embed;
     };
 
 

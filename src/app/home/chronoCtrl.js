@@ -4,16 +4,6 @@ angular.module( 'ChronoModule', [
 ])
 
 .controller( 'ChronoCtrl', function ChronoCtrl($scope, i18nService) {
-
-    //language angular-timer
-    $scope.language = i18nService.get();
-
-    $scope.$watch(function () {
-        return i18nService.get();
-    }, function (newVal) {
-        $scope.language = newVal;
-    });
-
     $scope.manageTimer = function (){
       if($scope.timerRunning === false && $scope.timerBegin === true){
         $scope.timerStartOrStop = 'CHRONO.BUTTON.STOP';
