@@ -65,6 +65,16 @@ angular.module( 'wakeMeUp.home', [
 
   $scope.playURL = urlUtilsService.playURL;
 
+  //language angular-timer
+  $scope.language = i18nService.get();
+
+  $scope.$watch(function () {
+    return i18nService.get();
+  }, function (newVal) {
+    $scope.language = newVal;
+  });
+
+
   //display current date on the website
   setInterval(function(){
     $scope.clock.time = moment();
