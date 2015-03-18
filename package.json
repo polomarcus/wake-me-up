@@ -2,15 +2,15 @@
   "author": "Paul Leclercq",
   "name": "wake-me-up",
   "version": "2.0.24",
-  "homepage": "https://github.com/polomarcus/reveil-en-ligne",
+  "homepage": "https://github.com/polomarcus/wake-me-up",
   "licenses": {
     "type": "MIT",
-    "url": "https://github.com/polomarcus/reveil-en-lignemaster/LICENSE"
+    "url": "https://github.com/polomarcus/wake-me-up/master/LICENSE"
   },
-  "bugs": "https://github.com/polomarcus/reveil-en-ligneissues",
+  "bugs": "https://github.com/polomarcus/wake-me-up/issues",
   "repository": {
     "type": "git",
-    "url": "git@github.com:polomarcus/reveil-en-ligne.git"
+    "url": "git@github.com:polomarcus/wake-me-up.git"
   },
   "dependencies": {
     "prerender-node": "^1.1.1"
