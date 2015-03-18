@@ -49,7 +49,11 @@ angular.module( 'wakeMeUp', [
         $scope.adBlock = false;
 
         if(document.getElementById('ads_bottom') === null) {
-            $scope.adBlock = true; //Put true if adblock
+          $scope.adBlock = true; //Put true if adblock
+          gaTrackerService.track('Adblocker', 'adblock');
+        }
+        else{
+          gaTrackerService.track('No adblocker', 'no adblock');
         }
 
         // $scope.pageTitle = "Reveil-en-ligne.fr"; //#TODO change
