@@ -663,7 +663,7 @@ module.exports = function ( grunt ) {
    * The default task is to put code in production and bump the version
    * Done by CodeShip CD
    */
-  grunt.registerTask( 'prod', ['e2e', 'bump', 'build', 'compile', 'ftp-deploy:prod'] );
+  grunt.registerTask( 'prod', ['bump', 'build', 'compile', 'ftp-deploy:prod'] );
 
  /**
    * Save the lastest compile scripts in a zip file and bump the project version
