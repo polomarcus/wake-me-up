@@ -152,15 +152,15 @@ module.exports = function ( grunt ) {
           "bower.json"
         ],
         commit: true,
-        commitMessage: 'chore(release): v%VERSION%',
+        commitMessage: 'chore(release): v%VERSION% --skip-ci', //CodeShip --skip-ci to skip the build
         commitFiles: [
           "package.json",
           "bower.json"
         ],
         createTag: true,
         tagName: 'v%VERSION%',
-        tagMessage: 'Version %VERSION%',
-        push: false,
+        tagMessage: 'Version %VERSION% --skip-ci',
+        push: true,
         pushTo: 'origin'
       }
     },
@@ -663,7 +663,7 @@ module.exports = function ( grunt ) {
    * The default task is to put code in production and bump the version
    * Done by CodeShip CD
    */
-  grunt.registerTask( 'prod', ['e2e', 'ftp-deploy:prod'] );
+  grunt.registerTask( 'prod', ['e2e', 'bump', 'build', 'compile', 'ftp-deploy:prod'] );
 
  /**
    * Save the lastest compile scripts in a zip file and bump the project version
@@ -692,12 +692,6 @@ module.exports = function ( grunt ) {
   //Test e2e
   grunt.registerTask( 'e2e', [
     'connect:bin',
-    'protractor:run'
-  ]);
-
-  //Test e2e production server
-  grunt.registerTask( 'e2e-prod', [
-    'connect:prod',
     'protractor:run'
   ]);
 
