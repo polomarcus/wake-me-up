@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html ng-app="wakeMeUp" ng-controller="AppCtrl">
   <head>
-     <title>{{ pageTitle }}</title>
+     <title>{{ 'MENU.WEBSITE.NAME' | translate }}{{ ' | '}}{{ 'WEBSITE.TITLE' | translate }}</title>
 
     <!-- social media tags -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@polomarcus">
-    <meta name="twitter:title" content="Reveil en ligne">
-    <meta name="twitter:description" content="Le réveil en ligne préféré des internautes">
+    <meta name="twitter:title" translate translate-attr-content="MENU.WEBSITE.NAME">
+    <meta name="twitter:description" translate translate-attr-content="WEBSITE.TITLE">
     <meta name="twitter:creator" content="@polomarcus">
-    <meta property="og:title" content="Reveil en ligne" />
+    <meta property="og:title" translate translate-attr-content="MENU.WEBSITE.NAME" />
     <meta property="og:type" content="website" />
-    <meta name="keywords" content="reveil en ligne, reveil matin, online alarm clock">
-    <meta name="description" content="Servez vous de vos liens YouTube, Deezer, SoundCloud, Mixcloud pour vous réveiller."> <!-- #TODO i18n -->
+    <meta name="keywords" content="reveil en ligne, reveil matin, online alarm clock, music, musique">
+    <meta name="description" translate translate-attr-content="WEBSITE.DESCRIPTION">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="fb:admins" content="paul.leclercq">
     <meta name="robots" content="index,follow">

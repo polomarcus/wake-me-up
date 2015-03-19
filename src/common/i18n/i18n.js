@@ -14,6 +14,7 @@ angular.module('i18n', [
             //WEBSITE
             'MENU.WEBSITE.NAME' : 'Wake-me-up.co',
             'WEBSITE.TITLE' : 'Internet\'s favorite alarm clock!',
+            'WEBSITE.DESCRIPTION' : 'Use a Youtube, SoundCloud, Deezer, MixCloud or your favorite radio link to wake you up!',
 
             //PLURAL
             'PLURAL' : 's',
@@ -129,6 +130,7 @@ angular.module('i18n', [
             //WEBSITE
             'MENU.WEBSITE.NAME' : 'Reveil-en-ligne.fr',
             'WEBSITE.TITLE' : 'Le réveil en ligne préféré des internautes!',
+            'WEBSITE.DESCRIPTION' : 'Servez vous de vos liens YouTube, Deezer, SoundCloud, Mixcloud pour vous réveiller.',
 
             //PLURAL
             'PLURAL' : 's',

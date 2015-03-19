@@ -57,18 +57,6 @@ angular.module( 'wakeMeUp.home', [
     time: moment()
   };
 
-    //@TODO use it in _app.js issue #10
-  i18nService.translate('MENU.WEBSITE.NAME')
-    .then(function (translatedValue) {
-      $scope.$parent.pageTitle = translatedValue + ' | ' ;
-    });
-
-  //@TODO use it in _app.js #10
-  i18nService.translate('WEBSITE.TITLE')
-      .then(function (translatedValue) {
-        $scope.$parent.pageTitle += translatedValue;
-      });
-
   $scope.playURL = urlUtilsService.playURL;
 
   //language angular-timer
