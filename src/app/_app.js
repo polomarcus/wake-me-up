@@ -50,24 +50,8 @@ angular.module( 'wakeMeUp', [
 
         if(document.getElementById('ads_bottom') === null) {
           $scope.adBlock = true; //Put true if adblock
-          gaTrackerService.track('Adblocker', 'adblock');
         }
-        else{
-          gaTrackerService.track('No adblocker', 'no adblock');
-        }
-
-        // $scope.pageTitle = "Reveil-en-ligne.fr"; //#TODO change
-
-        //@TODO not working
- /*       i18nService.translate('WEBSITE.TITLE')
-            .then(function (translatedValue) {
-                console.log('translatedValue',translatedValue);
-                $scope.pageTitle = translatedValue + '| Reveil-en-ligne.fr' ;
-                $scope.alarm.urlId = url;
-            },
-        function(err){
-            console.log("error translate", err);
-        });*/
+        gaTrackerService.track('Adblocker', $scope.adBlock);
 
         //utils
         //Go to anchor

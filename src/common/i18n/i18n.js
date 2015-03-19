@@ -12,8 +12,8 @@ angular.module('i18n', [
         //ENGLISH
         $translateProvider.translations('en', {
             //WEBSITE
-            'MENU.WEBSITE.NAME' : 'Reveil-en-ligne.fr',
-            'WEBSITE.TITLE' : 'Internet favorite\'s alarm clock!',
+            'MENU.WEBSITE.NAME' : 'Wake-me-up.co',
+            'WEBSITE.TITLE' : 'Internet\'s favorite alarm clock!',
 
             //PLURAL
             'PLURAL' : 's',
@@ -242,7 +242,6 @@ angular.module('i18n', [
         //$translateProvider.translations('ja', {});
         //$translateProvider.translations('ko', {});
         //$translateProvider.translations('tr', {});
-
 
         $translateProvider.fallbackLanguage(['en', 'fr']);
     });
