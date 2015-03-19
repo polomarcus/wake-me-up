@@ -16,6 +16,7 @@ app.directive('ads', function($timeout) {
                 slot        : '#chrono',
                 format      : "inread",
                 minSlot     : 0,
+                css         : 'margin:auto; max-width: 300px',
                 components  : { mute: {delay :0}, skip: {delay :0} },
                 mutable     : false,
                 BTF         : false
@@ -25,7 +26,7 @@ app.directive('ads', function($timeout) {
                  var js, s = d.getElementsByTagName('script')[0];
                  js = d.createElement('script');
                  js.async = true;
-                 js.src = 'http://cdn.teads.tv/js/all-v2.js';
+                 js.src = 'http://cdn.teads.tv/js/all-v1.js';
                  s.parentNode.insertBefore(js, s);
             })(window.document);
           });
