@@ -10,4 +10,4 @@ before_script:
   - bower install
   - node node_modules/protractor/bin/webdriver-manager update
 
-script: grunt
+script: grunt; grunt e2e;

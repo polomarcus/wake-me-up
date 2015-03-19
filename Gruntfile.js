@@ -331,11 +331,10 @@ module.exports = function ( grunt ) {
         options: {
           banner: '<%= meta.banner %>',
           report: 'gzip',
-          compress: true,
           sourceMap : true //auto processed source map
         },
         files: {
-          '<%= concat.compile_js.dest %>': '<%= concat.compile_js.dest %>'
+          '<%= concat.compile_js.dest %>': ['<%= concat.compile_js.dest %>']
         }
       }
     },
