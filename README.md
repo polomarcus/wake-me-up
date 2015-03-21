@@ -8,13 +8,13 @@ Based on ngBoilerplate
 Install Node.js and then:
 
 ```sh
-$ git clone git://github.com/polomarcus/wake-me-up
-$ cd wake-me-up
-$ sudo npm -g install grunt-cli karma bower
-$ npm install
-$ bower install
-$ node node_modules/protractor/bin/webdriver-manager update
-$ grunt watch
+ git clone git://github.com/polomarcus/wake-me-up
+ cd wake-me-up
+ sudo npm -g install grunt-cli karma bower
+ npm install
+ bower install
+ node node_modules/protractor/bin/webdriver-manager update
+ grunt watch
 ```
 
 ## E2E test
