@@ -14,7 +14,7 @@ angular.module('i18n', [
             //WEBSITE
             'MENU.WEBSITE.NAME' : 'Wake-me-up.co',
             'WEBSITE.TITLE' : 'Internet\'s favorite alarm clock!',
-            'WEBSITE.DESCRIPTION' : 'Use a Youtube, SoundCloud, Deezer, MixCloud or your favorite radio link to wake you up!',
+            'WEBSITE.DESCRIPTION' : 'Use Youtube, SoundCloud, Deezer, MixCloud or your favorite radio link as an online alarm clock!',
 
             //PLURAL
             'PLURAL' : 's',
@@ -31,11 +31,7 @@ angular.module('i18n', [
 
             //TIME
             'HOUR' : 'Hour',
-            'HHOUR' : 'hour',
             'MINUTE' : 'Minute',
-            'MMINUTE' : 'minute',
-            'SECOND' : 'Second',
-            'SSECOND' : 'second',
 
             //MENU
             'MENU.ALARM.NAME' : 'Alarm clock',
@@ -60,17 +56,6 @@ angular.module('i18n', [
             'ALARM.RADIO3.URL': 'http://radioplayer.magic.co.uk/live/',
             'ALARM.RADIO4': 'CBS',
             'ALARM.RADIO4.URL': 'http://player.radio.com/listen/station/cbs-radio-news/',
-
-            'ALARM.PANEL.TV' : 'Television',
-            'ALARM.PANEL.TV.DESCRIPTION' : 'Watch TV',
-            'ALARM.TV1': 'Channel 4',
-            'ALARM.TV1.URL':'http://www.channel4.com/now/c4',
-            'ALARM.TV2': 'BBC news',
-            'ALARM.TV2.URL': 'http://www.bbc.co.uk/iplayer/live/bbcnews',
-            'ALARM.TV3': 'CNN',
-            'ALARM.TV3.URL': 'http://live.cnn.com/',
-            'ALARM.TV4': 'NBC',
-            'ALARM.TV4.URL': 'http://www.nbc.com/live',
 
             'ALARM.PANEL.URL' : 'URL',
             'ALARM.PANEL.TEST' : 'Test URL',
@@ -128,9 +113,9 @@ angular.module('i18n', [
         //FRENCH
         $translateProvider.translations('fr', {
             //WEBSITE
-            'MENU.WEBSITE.NAME' : 'Reveil-en-ligne.fr',
+            'MENU.WEBSITE.NAME' : 'Wake-me-up',
             'WEBSITE.TITLE' : 'Le réveil en ligne préféré des internautes!',
-            'WEBSITE.DESCRIPTION' : 'Servez vous de vos liens YouTube, Deezer, SoundCloud, Mixcloud pour vous réveiller.',
+            'WEBSITE.DESCRIPTION' : 'Servez-vous de vos liens YouTube, Deezer, SoundCloud, Mixcloud pour vous réveiller.',
 
             //PLURAL
             'PLURAL' : 's',
@@ -147,11 +132,7 @@ angular.module('i18n', [
 
             //TIME
             'HOUR' : 'Heure',
-            'HHOUR' : 'heure',
             'MINUTE' : 'Minute',
-            'MMINUTE' : 'minute',
-            'SECOND' : 'Seconde',
-            'SSECOND' : 'seconde',
 
             //MENU
             'MENU.ALARM.NAME' : 'Alarme',
@@ -178,16 +159,6 @@ angular.module('i18n', [
             'ALARM.RADIO4': 'RTL',
             'ALARM.RADIO4.URL': 'http://www.rtl.fr/direct',
 
-            'ALARM.PANEL.TV' : 'Télévision',
-            'ALARM.PANEL.TV.DESCRIPTION' : 'Regarder la télévision',
-            'ALARM.TV1': 'TF1',
-            'ALARM.TV1.URL':'http://www.tf1.fr/live/',
-            'ALARM.TV2': 'France 2',
-            'ALARM.TV2.URL': 'http://www.france2.fr/direct',
-            'ALARM.TV3': 'France 3',
-            'ALARM.TV3.URL': 'http://www.france3.fr/direct',
-            'ALARM.TV4': 'France 4',
-            'ALARM.TV4.URL': 'http://pluzz.francetv.fr/france4',
             'ALARM.PANEL.URL' : 'URL',
             'ALARM.PANEL.TEST' : 'Tester l\'URL',
 

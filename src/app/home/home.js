@@ -51,7 +51,9 @@ angular.module( 'wakeMeUp.home', [
         });
 })
 
-.controller( 'HomeCtrl', function HomeController( $scope,$stateParams, $timeout, urlUtilsService, i18nService) {
+.controller( 'HomeCtrl', function HomeController( $scope,$stateParams, $timeout, urlUtilsService, i18nService, seoService) {
+  //Title and meta description init
+  seoService.init();
   //init
   $scope.clock = {
     time: moment()
@@ -67,7 +69,6 @@ angular.module( 'wakeMeUp.home', [
   }, function (newVal) {
     $scope.language = newVal;
   });
-
 
   //display current date on the website
   setInterval(function(){
