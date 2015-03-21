@@ -5,16 +5,7 @@
             <xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="http://www.wake-me-up.co/en"
-                    />
-    </url>
-
-    <url>
-        <loc>http://www.wake-me-up.co</loc>
-            <xhtml:link
-            rel="alternate"
-            hreflang="fr"
-            href="http://www.reveil-en-ligne.fr/fr"
+                    href="http://www.reveil-en-ligne.fr/en"
                     />
     </url>
 </urlset>
