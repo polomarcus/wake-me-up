@@ -12,6 +12,7 @@ describe('Controller: AlarmCtrl', function () {
     var urlInput = element(by.model('alarm.url'));
     var latestResult = element(by.binding('latest'));
     var countdownAlarm = element(by.css('#countdown timer p'));
+    var progressBar = element(by.css('#countdown .progress-bar'));
     var alarmPanel = element(by.css('alarm'));
     var activateBtn = element(by.id('activateBtn'));
     var offBtn = element(by.id('offBtn'));
@@ -78,6 +79,7 @@ describe('Controller: AlarmCtrl', function () {
         browser.sleep(1000);
 
         expect(countdownAlarm.getText()).toMatch('second');
+        expect(progressBar.getText()).toMatch('%');
 
         browser.sleep(sleepTime * 1000);
 
