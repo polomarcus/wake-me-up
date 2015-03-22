@@ -1,10 +1,10 @@
 # How to contribute
-Every help is welcomed! 
+Any help is welcome! 
 The project needs :
 * More 3rd party integration like Spotify
 * More languages available
 * A better UI
-* Certainly refactoring 
+* Certainly a refactoring 
 * *Your awesome idea*
 
 ## Steps 
