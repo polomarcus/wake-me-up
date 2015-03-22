@@ -4,9 +4,6 @@ app.factory('seoService', function ($document, i18nService) {
   var SeoService = function() {};
 
   SeoService.prototype.init = function init(){
-
-    console.log("seoService init");
-
     //Title
     i18nService.translate('WEBSITE.TITLE')
       .then(function(favorite){
