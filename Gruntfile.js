@@ -66,7 +66,8 @@ module.exports = function ( grunt ) {
     //Push to gh-pages the content of bin
     'gh-pages': {
       options: {
-        base: 'bin'
+        base: 'bin',
+        message: 'Gh-pages update --skip-ci'
       },
       src: ['**']
     },
