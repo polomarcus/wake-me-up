@@ -8,3 +8,4 @@ vendor/
 .idea
 .DS_Store
 devperf/
+.grunt/
