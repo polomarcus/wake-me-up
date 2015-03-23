@@ -672,14 +672,13 @@ module.exports = function ( grunt ) {
    * The default task is to put code in production and bump the version
    * Done by CodeShip CD
    */
-  grunt.registerTask( 'prod', ['bump', 'build', 'compile', 'ftp-deploy:prod', 'gh-pages'] );
+  grunt.registerTask( 'prod', ['bump', 'build', 'compile', 'ftp-deploy:prod', 'gh-pages', 'compress'] );
 
  /**
    * Save the lastest compile scripts in a zip file and bump the project version
    * //@TODO it is manually done to not push on master and creating an infinite loop with the Codeship CI/CD
    */
   grunt.registerTask( 'save', ['bump','build', 'compile', 'compress'] );
-
 
   /**
    * The `build` task gets your app ready to run for development and testing.
