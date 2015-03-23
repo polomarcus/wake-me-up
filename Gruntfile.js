@@ -23,6 +23,7 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-ftp-deploy');
   grunt.loadNpmTasks('grunt-devperf');
   grunt.loadNpmTasks('grunt-protractor-runner');
+  grunt.loadNpmTasks('grunt-gh-pages');
 
   /**
    * Load in our build configuration file.
@@ -60,6 +61,14 @@ module.exports = function ( grunt ) {
         src: 'bin',
         dest: '/'
       }
+    },
+
+    //Push to gh-pages the content of bin
+    'gh-pages': {
+      options: {
+        base: 'bin'
+      },
+      src: ['**']
     },
 
       // gzip assets 1-to-1 for production
@@ -663,7 +672,7 @@ module.exports = function ( grunt ) {
    * The default task is to put code in production and bump the version
    * Done by CodeShip CD
    */
-  grunt.registerTask( 'prod', ['bump', 'build', 'compile', 'ftp-deploy:prod'] );
+  grunt.registerTask( 'prod', ['bump', 'build', 'compile', 'ftp-deploy:prod', 'gh-pages'] );
 
  /**
    * Save the lastest compile scripts in a zip file and bump the project version
