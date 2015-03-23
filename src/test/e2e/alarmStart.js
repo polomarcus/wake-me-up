@@ -1,7 +1,7 @@
 describe('Controller: AlarmCtrl', function () {
     //INIT
     //Go to HP with english language
-    browser.get('http://localhost:8080/#/en');
+    browser.get('http://wake-me-up.co/staging/#/en');
 
     var scrollIntoView = function (element) {
       arguments[0].scrollIntoView();

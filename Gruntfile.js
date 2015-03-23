@@ -702,6 +702,7 @@ module.exports = function ( grunt ) {
 
   //Test e2e
   grunt.registerTask( 'e2e', [
+    'staging', // staging website is tested with saucelabs
     'connect:bin',
     'protractor:run'
   ]);
