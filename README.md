@@ -1,6 +1,6 @@
 # Wake-me-up.co ![CodeShip status](https://codeship.com/projects/f3791410-65dc-0132-4975-3a7ced7f95b9/status?branch=master)
 
-[![Sauce Test Status](https://saucelabs.com/buildstatus/paleclercq)](https://saucelabs.com/u/paleclercq)
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/paleclercq.svg)](https://saucelabs.com/u/paleclercq)
 
 Based on ngBoilerplate
 
