@@ -1,16 +1,15 @@
 /* protractor-local.conf.js */
 exports.config =  {
-    sauceUser: process.env.SAUCE_USERNAME,
-    sauceKey: process.env.SAUCE_ACCESS_KEY,
+    //sauceUser: process.env.SAUCE_USERNAME,
+    //sauceKey: process.env.SAUCE_ACCESS_KEY,
 
-    allScriptsTimeout: 50000,
+    allScriptsTimeout: 100000,
     specs: ['../src/test/e2e/*.js'],
     baseUrl: 'http://localhost:4444/wd/hub',
     maxSessions: 1,
     multiCapabilities: [ //You can add several browsers here
       {'browserName': 'chrome'},
-      {'browserName': 'firefox'},
-      {'browserName': 'internet explorer'}
+      {'browserName': 'firefox'}
     ],
     framework: 'jasmine',
 

@@ -1,7 +1,7 @@
 describe('Controller: ChronoCtrl', function () {
   //Go to HP with english language, not using beforeEach to accelerate tests execution
-  browser.get('http://wake-me-up.co/staging/#/en#chrono');
-  //browser.get('http://localhost:8080/#/en#chrono');
+  //browser.get('http://wake-me-up.co/staging/#/en#chrono');
+  browser.get('http://localhost:8080/#/en#chrono');
 
   var scrollIntoView = function (element) {
     arguments[0].scrollIntoView();
@@ -19,6 +19,7 @@ describe('Controller: ChronoCtrl', function () {
 
   it('should activate the chronometrer when clicking on the start button', function () {
     timerCtrlBtn.click();
+
     browser.sleep(1000);
     expect(timer.getText()).toMatch('1 second');
   });

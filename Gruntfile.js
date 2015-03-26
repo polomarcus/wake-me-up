@@ -462,8 +462,8 @@ module.exports = function ( grunt ) {
 
     protractor: {
         options: {
-            sauceUser:process.env.SAUCE_USERNAME,
-            sauceKey:process.env.SAUCE_KEY,
+           //sauceUser:process.env.SAUCE_USERNAME,
+           //sauceKey:process.env.SAUCE_KEY,
             keepAlive: false,
             configFile: "protractor/conf.js"
         },
