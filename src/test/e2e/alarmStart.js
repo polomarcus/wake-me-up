@@ -80,6 +80,7 @@ describe('Controller: AlarmCtrl', function () {
 
         expect(countdownAlarm.getText()).toMatch('second');
         expect(progressBar.getText()).toMatch('%');
+        expect(progressBar.getAttribute('class')).toMatch('active');
 
         browser.sleep(sleepTime * 1000);
 
