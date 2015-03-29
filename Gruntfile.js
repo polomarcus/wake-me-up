@@ -24,6 +24,8 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-devperf');
   grunt.loadNpmTasks('grunt-protractor-runner');
   grunt.loadNpmTasks('grunt-gh-pages');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-closure-tools');
 
   /**
    * Load in our build configuration file.
@@ -72,17 +74,24 @@ module.exports = function ( grunt ) {
       src: ['**']
     },
 
-      // gzip assets 1-to-1 for production
     compress: {
-      main: {
+      main: { // zip file of the compile_dir folder
           options: {
               archive: 'archive/<%= pkg.version %>.zip'
           },
           expand: true,
-          cwd: 'bin/',
+          cwd: '<%= compile_dir %>/',
           src: ['**/*'],
           dest: '.'
-      }
+      }//,
+      //gzip: {  // gzip assets 1-to-1 for production
+      //  options:{
+      //    mode: 'gzip'
+      //  },
+      //  //expand: true,
+      //  src: ['<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.js'],
+      //  dest: '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.gz.js'
+      //}
     },
 
     /**
@@ -117,7 +126,21 @@ module.exports = function ( grunt ) {
       }
     },
 
-    /**
+    /** Minified index.HTML */
+    htmlmin: {                                     // Task
+      dist: {                                      // Target
+        options: {                                 // Target options
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: {
+          '<%= compile_dir %>/index.html': '<%= compile_dir %>/index.html'
+        }
+      }
+    },
+
+
+  /**
      * The banner is the comment that is placed at the top of our compiled
      * source files. It is first processed as a Grunt template, where the `<%=`
      * pairs are evaluated based on this very configuration object.
@@ -333,12 +356,68 @@ module.exports = function ( grunt ) {
       }
     },
 
+    closureCompiler: {
+      options: {
+        // [OPTIONAL] Set exec method options
+        execOpts: {
+          /**
+           * Set maxBuffer if you got message "Error: maxBuffer exceeded."
+           * Node default: 200*1024
+           */
+          maxBuffer: 999999 * 1024
+        },
+        // most options here omitted for brevity
+        compilerFile: 'node_modules/superstartup-closure-compiler/build/compiler.jar',
+
+        //// [OPTIONAL] Set Closure Compiler Directives here
+        compilerOpts: {
+        //  /**
+        //   * Keys will be used as directives for the compiler
+        //   * values can be strings or arrays.
+        //   * If no value is required use null
+        //   *
+        //   * The directive 'externs' is treated as a special case
+        //   * allowing a grunt file syntax (<config:...>, *)
+        //   *
+        //   * Following are some directive samples...
+        //   */
+            compilation_level: 'ADVANCED_OPTIMIZATIONS',
+        //  //externs: ['vendor/**/*.js', 'node_modules/teads-lib-front-utils/dist/teads-lib-front-utils.min.js'],
+        //  define: ["'goog.DEBUG=false'"],
+        //  extra_annotation_name: ['scope', 'restrict', 'ngdoc', 'require', 'methodOf', 'propertyOf', 'eventOf', 'eventType', 'TODO'],
+        //  warning_level: 'verbose',
+        //  jscomp_off: ['checkTypes', 'fileoverviewTags'],
+          summary_detail_level: 3
+        //  output_wrapper: '<%= meta.banner %>'
+        //  language_in: 'ECMASCRIPT5'
+        },
+        d32: true, // will use 'java -client -d32 -jar compiler.jar'
+        TieredCompilation: true // will use 'java -server -XX:+TieredCompilation -jar compiler.jar'
+      },
+      minify: {
+        // [REQUIRED] paths to be traversed to build the dependencies
+        //src: '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.js',
+        src : [
+          '<%= vendor_files.js %>',
+         // 'module.prefix',
+          '<%= build_dir %>/src/**/*.js',
+          '<%= html2js.app.dest %>',
+          '<%= html2js.common.dest %>'
+         // 'module.suffix'
+        ],
+
+        // [OPTIONAL] if not set, will output to stdout
+        dest: '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.min.js'
+      }
+    },
+
     /**
      * Minify the sources!
      */
     uglify: {
       compile: {
         options: {
+          compress: true,
           banner: '<%= meta.banner %>',
           report: 'gzip',
           sourceMap : true //auto processed source map
@@ -503,6 +582,7 @@ module.exports = function ( grunt ) {
         dir: '<%= compile_dir %>',
         src: [
           '<%= concat.compile_js.dest %>',
+          //'<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.gz.js',
           '<%= vendor_files.css %>',
           '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css'
         ]
@@ -675,13 +755,13 @@ module.exports = function ( grunt ) {
    * The default task is to put code in production and bump the version
    * Done by CodeShip CD
    */
-  grunt.registerTask( 'prod', ['bump', 'build', 'compile', 'ftp-deploy:prod', 'gh-pages', 'compress'] );
+  grunt.registerTask( 'prod', ['bump', 'build', 'compile', 'ftp-deploy:prod', 'gh-pages', 'compress:main'] );
 
  /**
    * Save the lastest compile scripts in a zip file and bump the project version
    * //@TODO it is manually done to not push on master and creating an infinite loop with the Codeship CI/CD
    */
-  grunt.registerTask( 'save', ['bump','build', 'compile', 'compress'] );
+  grunt.registerTask( 'save', ['bump','build', 'compile', 'compress:main'] );
 
   /**
    * The `build` task gets your app ready to run for development and testing.
@@ -697,12 +777,15 @@ module.exports = function ( grunt ) {
    * minifying your code.
    */
   grunt.registerTask( 'compile', [
-    'less:compile', 'copy:compile_assets', 'ngAnnotate', 'concat:compile_js', 'uglify', 'index:compile'
+    'less:compile', 'copy:compile_assets', 'ngAnnotate',// 'closureCompiler',
+    'concat:compile_js',
+    'uglify',
+    'index:compile', 'htmlmin'
   ]);
 
   //Test e2e
   grunt.registerTask( 'e2e', [
-    'staging', // staging website is tested with saucelabs
+    //'staging', // staging website is tested with saucelabs
     'connect:bin',
     'protractor:run'
   ]);
