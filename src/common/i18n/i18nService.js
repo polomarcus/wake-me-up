@@ -36,7 +36,7 @@ app.factory('i18nService', function(amMoment, $translate) {
     /**
      * simple use of $translate method, to avoid using $translate dependency in module/Services
      * @param key translation
-     * @returns {promise)
+     * @returns {promise}
      */
     I18nService.prototype.translate = function translate(key){
         return $translate(key);
