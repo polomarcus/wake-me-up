@@ -52,7 +52,7 @@ angular.module( 'wakeMeUp', [
     if(document.getElementById('ads_bottom') === null) {
       $scope.adBlock = true; //Put true if adblock
     }
-    gaTrackerService.track('Adblocker', $scope.adBlock);
+    gaTrackerService.track('Adblocker', 'value', $scope.adBlock);
 
     //utils
     //Go to anchor
