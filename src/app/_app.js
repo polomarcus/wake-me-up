@@ -84,7 +84,18 @@ angular.module( 'wakeMeUp', [
     };
 
     function displayConsoleLogMessage(){
-      console.log('%c\nReveil-en-ligne.fr/Wake-me-up.co by @polomarcus from Montpellier, France\nGithub : https://github.com/polomarcus/wake-me-up\n', 'color: #4472B9; font-family: "arial"; font-size: 20px;');
+      console.log('%c\nWake-me-up.co - Reveil-en-ligne.fr\nBy @polomarcus from Montpellier, France since 2011\nGithub : https://github.com/polomarcus/wake-me-up\n', 'color: #4472B9; font-family: "arial"; font-size: 20px;');
+      cancelConsoleOutput();
+    }
+
+    /**
+     * cancel all other console.log
+     */
+    function cancelConsoleOutput() {
+      console.log = function (){};
+      console.warn = function (){};
+      console.info = function (){};
+      console.debug = function (){};
     }
   })
 ;
