@@ -5,7 +5,7 @@ angular.module( 'AlarmModule', [
 /**
  * And of course we define a controller for our route.
  */
-  .controller( 'AlarmCtrl', function AlarmControl( $scope, $timeout, urlUtilsService, firebaseService, cookieService, dataService, i18nService, gaTrackerService, $q) {
+  .controller( 'AlarmCtrl', function AlarmControl( $scope, $timeout, urlUtilsService, firebaseService, cookieService, dataService, i18nService, gaTrackerService, $q, adsService) {
     //Alarm Ctrl
     //show/hide URL div
     $scope.$parent.playURL = false;
@@ -52,6 +52,8 @@ angular.module( 'AlarmModule', [
         //no errors detected
         $scope.alarm.error= '';
 
+        //Teads inRead
+        adsService.launchInread();
 
         var tmp,
           today = moment(),
@@ -327,7 +329,6 @@ angular.module( 'AlarmModule', [
       return displayProgressBar;
     }
 
-    //url management
     $scope.changeUrl = function(url, isKey){
       if(isKey){
         i18nService.translate(url)
