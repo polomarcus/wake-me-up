@@ -25,6 +25,25 @@ Install Node.js and then:
 grunt e2e
 ```
 
+## Add a language
+If you are awesome enough to translate wake me up into your favorite language here's the steps :
+* You can find translations here and you can freely modify them: https://github.com/polomarcus/wake-me-up/blob/master/src/common/i18n/i18n.js
+* Update the menu to propose your new language : https://github.com/polomarcus/wake-me-up/blob/master/src/app/default/menuTop.tpl.html
+```HTML
+<ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ 'LANGUAGE' | translate }}<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="" ng-click="changeLanguage('en')">English</a></li>
+                    <li><a href="" ng-click="changeLanguage('fr')">Français</a></li>
+                    <li><a href="" ng-click="changeLanguage('NEW_LANGUAGE')">YOUR_NEW_LANGUAGE</a></li>
+                    <li class="divider"></li>
+                    <li><a target="_blank" href="https://github.com/polomarcus/reveil-en-ligne">{{ 'ADD.YOURS' | translate }}</a></li>
+                </ul>
+            </li>
+        </ul>
+```
+
 ## Purpose
 
 `ngBoilerplate` is designed to make life easy by providing a basic framework
