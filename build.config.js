@@ -67,6 +67,8 @@ module.exports = {
    */
   vendor_files: {
     js: [
+      'src/assets/js/googleTrack.js',
+      'src/assets/js/advertisement.js',
       'vendor/angular/angular.min.js',
       // 'vendor/angular/angular.min.js.map',
       'vendor/angular-cookies/angular-cookies.min.js',
@@ -87,12 +89,10 @@ module.exports = {
       'vendor/angular-utils-pagination/dirPagination.js',
       'vendor/bootstrap/js/collapse.js',
       'vendor/bootstrap/js/dropdown.js',
-      'assets/js/googleplus.js',
-      'assets/js/googleTrack.js',
-      'assets/js/advertisement.js'
+      'src/assets/js/googleplus.js'
     ],
     css: [
-      'src/assets/css/bootstrap-darky-theme.css',
+      'src/assets/css/bootstrap-darky-theme.css'
       //'vendor/bootstrap-material-design/dist/css/material.min.css' //@TODO use material design
     ],
     assets: [
