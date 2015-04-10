@@ -21,6 +21,8 @@ app.factory('seoService', function ($document, i18nService) {
     function(err){
       console.log("err seo");
     });
+
+    setLangHTMLTag(i18nService.use());
   };
 
   /**
@@ -35,6 +37,15 @@ app.factory('seoService', function ($document, i18nService) {
    */
   function setTitle(value){
     $document.prop('title', value);
+  }
+
+  /**
+   * http://www.w3.org/html/wg/drafts/html/master/semantics.html#the-html-element
+   * set attribut lang of the HTML for accessibility
+   * @param {string} value
+   */
+  function setLangHTMLTag(value){
+    document.querySelector('html').setAttribute('lang', value);
   }
 
   return new SeoService();
