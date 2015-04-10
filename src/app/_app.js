@@ -97,6 +97,7 @@ angular.module( 'wakeMeUp', [
       console.warn = function (){};
       console.info = function (){};
       console.debug = function (){};
+      console.error = function (){};
     }
   })
 ;

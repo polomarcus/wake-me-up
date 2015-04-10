@@ -42,6 +42,14 @@ app.factory('i18nService', function(amMoment, $translate) {
         return $translate(key);
     };
 
+    /**
+     * simple use of $translate use method, to avoid using $translate dependency in module/Services
+     * @returns {promise} currrent language used
+     */
+    I18nService.prototype.use = function use(){
+        return $translate.use();
+    };
+
     function getFullLangCode(lang){
         switch(lang) {
             case 'en':
