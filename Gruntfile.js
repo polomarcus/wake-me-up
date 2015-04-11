@@ -26,6 +26,7 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-gh-pages');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-closure-tools');
+  grunt.loadNpmTasks('grunt-pagespeed');
 
   /**
    * Load in our build configuration file.
@@ -62,6 +63,20 @@ module.exports = function ( grunt ) {
         },
         src: 'bin',
         dest: '/'
+      }
+    },
+
+    pagespeed: {
+      options: {
+        key: 'AIzaSyBMAYvTl7a_1TaeA6jyUcMW_Ed1MS9wSfE',
+        url: "http://wake-me-up.co/"
+      },
+      prod: {
+        options: {
+          url: "http://wake-me-up.co/",
+          locale: "en_GB",
+          threshold: 70
+        }
       }
     },
 
@@ -755,7 +770,7 @@ module.exports = function ( grunt ) {
    * The default task is to put code in production and bump the version
    * Done by CodeShip CD
    */
-  grunt.registerTask( 'prod', ['bump', 'build', 'compile', 'ftp-deploy:prod', 'gh-pages', 'compress:main'] );
+  grunt.registerTask( 'prod', ['bump', 'build', 'compile', 'ftp-deploy:prod', 'gh-pages', 'compress:main', 'pagespeed'] );
 
  /**
    * Save the lastest compile scripts in a zip file and bump the project version
