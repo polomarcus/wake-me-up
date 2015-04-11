@@ -1,6 +1,6 @@
 {
   "name": "wake-me-up",
-  "version": "2.0.41",
+  "version": "2.0.42",
   "devDependencies": {
     "angular": "~1.3.14",
     "angular-mocks": "~1.2",

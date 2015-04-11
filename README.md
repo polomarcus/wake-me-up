@@ -1,31 +1,46 @@
 # Wake-me-up.co ![CodeShip status](https://codeship.com/projects/f3791410-65dc-0132-4975-3a7ced7f95b9/status?branch=master)
+Made with AngularJS and based on ngBoilerplate
 
-[![Sauce Test Status](https://saucelabs.com/browser-matrix/paleclercq.svg)](https://saucelabs.com/u/paleclercq)
+## Description
+Wake me up is the *self proclaimed* **internet's favorite alarm clock**. 
 
-Based on ngBoilerplate
+### Why ?
+Wake me up uses the world most-used musical platforms JS SDK :
+* Soundcloud
+* Mixcloud
+* Deezer
+* Youtube
+* Dailymotion
+* ~~Spotify~~ (not allowing autoplay)
 
-***
 
 ## Quick Start
 
 Install Node.js and then:
 
 ```sh
- git clone git://github.com/polomarcus/wake-me-up
- cd wake-me-up
- sudo npm -g install grunt-cli karma bower
- npm install
- bower install
- node node_modules/protractor/bin/webdriver-manager update
- grunt watch
+ git clone git://github.com/polomarcus/wake-me-up;
+ cd wake-me-up;
+ sudo npm -g install grunt-cli karma bower;
+ npm install;
+ bower install;
+ node node_modules/protractor/bin/webdriver-manager update;
+ grunt watch;
 ```
 
-## E2E test
+## Workflow
+Wake me up uses Codeship as a **continuous integration (CI)** service and a **continuous deployment (CD)** service.
+Every commits on any branchs will start the CI.
+Every commits on the master branch will start the CI and the CD.
+
+### E2E Tests
 ```sh
 grunt e2e
 ```
+## Contributing
+Please see https://github.com/polomarcus/wake-me-up/blob/master/CONTRIBUTING.md :)
 
-## Add a language
+### Add a language
 If you are awesome enough to translate wake me up into your favorite language here's the steps :
 * You can find translations here and you can freely modify them: https://github.com/polomarcus/wake-me-up/blob/master/src/common/i18n/i18n.js
 * Update the menu to propose your new language : https://github.com/polomarcus/wake-me-up/blob/master/src/app/default/menuTop.tpl.html
