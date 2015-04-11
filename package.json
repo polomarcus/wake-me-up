@@ -42,6 +42,7 @@
     "grunt-pagespeed": "^0.4.1",
     "grunt-protractor-runner": "^1.2.1",
     "grunt-protractor-webdriver": "^0.2.0",
+    "grunt-zopfli": "^0.3.2",
     "karma": "^0.12.32",
     "karma-coffee-preprocessor": "^0.2.1",
     "karma-firefox-launcher": "^0.1.3",

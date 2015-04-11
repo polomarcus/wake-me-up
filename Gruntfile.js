@@ -27,6 +27,7 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-closure-tools');
   grunt.loadNpmTasks('grunt-pagespeed');
+  grunt.loadNpmTasks('grunt-zopfli');
 
   /**
    * Load in our build configuration file.
@@ -63,6 +64,20 @@ module.exports = function ( grunt ) {
         },
         src: 'bin',
         dest: '/'
+      }
+    },
+
+    'zopfli': {
+      'options': {
+        report:true
+      },
+      'your-target': {
+        'options': {
+          // Target-specific options go here
+        },
+        'files': {
+          '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.gz.js': '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.js'
+        }
       }
     },
 
@@ -595,8 +610,8 @@ module.exports = function ( grunt ) {
       compile: {
         dir: '<%= compile_dir %>',
         src: [
-          '<%= concat.compile_js.dest %>',
-          //'<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.gz.js',
+          //'<%= concat.compile_js.dest %>',
+          '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.gz.js',
           '<%= vendor_files.css %>',
           '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css'
         ]
@@ -794,6 +809,7 @@ module.exports = function ( grunt ) {
     'less:compile', 'copy:compile_assets', 'ngAnnotate',// 'closureCompiler',
     'concat:compile_js',
     'uglify',
+    'zopfli',
     'index:compile', 'htmlmin'
   ]);
 
