@@ -74,8 +74,7 @@ module.exports = function ( grunt ) {
       prod: {
         options: {
           url: "http://wake-me-up.co/",
-          locale: "en_GB",
-          threshold: 70
+          locale: "en_GB"
         }
       }
     },
@@ -200,7 +199,7 @@ module.exports = function ( grunt ) {
           "bower.json"
         ],
         commit: true,
-        commitMessage: 'chore(release): v%VERSION% --skip-ci', //CodeShip --skip-ci to skip the build
+        commitMessage: 'release(*): v%VERSION% --skip-ci', //CodeShip --skip-ci to skip the build
         commitFiles: [
           "package.json",
           "bower.json"
