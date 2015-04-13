@@ -112,15 +112,15 @@ module.exports = function ( grunt ) {
           cwd: '<%= compile_dir %>/',
           src: ['**/*'],
           dest: '.'
-      }//,
-      //gzip: {  // gzip assets 1-to-1 for production
-      //  options:{
-      //    mode: 'gzip'
-      //  },
-      //  //expand: true,
-      //  src: ['<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.js'],
-      //  dest: '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.gz.js'
-      //}
+      },
+      gzip: {  // gzip assets 1-to-1 for production
+        options:{
+          mode: 'gzip'
+        },
+        //expand: true,
+        src: ['<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.js'],
+        dest: '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.gz.js'
+      }
     },
 
     /**
@@ -806,10 +806,10 @@ module.exports = function ( grunt ) {
    * minifying your code.
    */
   grunt.registerTask( 'compile', [
-    'less:compile', 'copy:compile_assets', 'ngAnnotate',// 'closureCompiler',
+    'less:compile', 'copy:compile_assets', 'ngAnnotate',
     'concat:compile_js',
     'uglify',
-    'zopfli',
+    'compress:gzip',
     'index:compile', 'htmlmin'
   ]);
 
