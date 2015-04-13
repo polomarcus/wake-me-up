@@ -1,15 +1,16 @@
 describe('App: language', function () {
+  var url = 'http://wake-me-up.co/staging/#/';
   var header = element(by.css('.navbar-header'));
   var languageBtn = element(by.css('.navbar-right .dropdown a'));
   var languageEnglishBtn = element(by.css('.dropdown-menu li a'));
 
   it('should be English when /#/en', function () {
-    browser.get('http://localhost:8080/#/en');
+    browser.get(url + 'en');
     expect(header.getText()).toMatch('alarm clock');
   });
 
   it('should be French when /#/fr', function () {
-    browser.get('http://localhost:8080/#/fr');
+    browser.get(url + 'fr');
     expect(header.getText()).toMatch('réveil en ligne');
   });
 
