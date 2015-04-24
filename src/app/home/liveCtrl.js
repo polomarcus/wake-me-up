@@ -4,7 +4,7 @@ var app = angular.module("liveModule", [
 ]);
 
 app.controller("liveCtrl", function($scope, firebaseService, $timeout) {
-  $scope.peakReached = false;
+  $scope.peakReached = true;
 
   $scope.liveData = firebaseService.get();
 
@@ -12,6 +12,9 @@ app.controller("liveCtrl", function($scope, firebaseService, $timeout) {
   $timeout(function(){
     if($scope.liveData.length === 0) {
       $scope.peakReached = true;
+    }
+    else {
+      $scope.peakReached = false;
     }
   }, 10000);
 
