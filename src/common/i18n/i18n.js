@@ -209,7 +209,7 @@ angular.module('i18n', [
     $translateProvider.translations('es', {
       //WEBSITE
       'MENU.WEBSITE.NAME' : 'Wake-me-up',
-      'WEBSITE.TITLE' : 'El Despertador online preferido de los usuarios de Internet',
+      'WEBSITE.TITLE' : 'El Despertador online preferido de Internet',
       'WEBSITE.DESCRIPTION' : 'Utilice YouTube, Deezer, SoundCloud, Mixcloud, Dailymotion',
 
       //PLURAL
