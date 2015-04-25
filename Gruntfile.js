@@ -27,7 +27,6 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-closure-tools');
   grunt.loadNpmTasks('grunt-pagespeed');
-  grunt.loadNpmTasks('grunt-zopfli');
 
   /**
    * Load in our build configuration file.
@@ -67,19 +66,6 @@ module.exports = function ( grunt ) {
       }
     },
 
-    'zopfli': {
-      'options': {
-        report:true
-      },
-      'your-target': {
-        'options': {
-          // Target-specific options go here
-        },
-        'files': {
-          '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.gz.js': '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.js'
-        }
-      }
-    },
 
     pagespeed: {
       options: {
@@ -89,7 +75,8 @@ module.exports = function ( grunt ) {
       prod: {
         options: {
           url: "http://wake-me-up.co/",
-          locale: "en_GB"
+          locale: "en_GB",
+          threshold: 50
         }
       }
     },
