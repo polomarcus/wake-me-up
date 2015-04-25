@@ -238,7 +238,7 @@ angular.module('i18n', [
 
       //ALARM PANEL
       'ALARM.PANEL.TITLE' : 'Ajuste de la alarma',
-      'ALARM.PANEL.PLATFORM' : 'plataforma de Música',
+      'ALARM.PANEL.PLATFORM' : 'Plataforma de Música',
       'ALARM.PANEL.PLATFORM.DESCRIPTION' : 'Utilice YouTube, Deezer, SoundCloud, Mixcloud, Dailymotion',
       'ALARM.YOURCHOICE' : 'Su sonido! Ofrece en la página ',
 

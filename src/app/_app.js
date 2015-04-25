@@ -94,7 +94,7 @@ angular.module( 'wakeMeUp', [
      * cancel all other console.log
      */
     function cancelConsoleOutput() {
-      console.log = function (){};
+      //console.log = function (){};
       console.warn = function (){};
       console.info = function (){};
       console.debug = function (){};
