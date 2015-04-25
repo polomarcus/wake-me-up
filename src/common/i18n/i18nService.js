@@ -62,6 +62,10 @@ app.factory('i18nService', function(amMoment, $translate) {
                 return lang +'_GB';
             case 'es':
                 return lang +'_ES';
+            case 'de':
+                return lang +'_DE';
+            case 'pt':
+                return lang +'_PT';
             case 'fr':
                 return lang +'_FR';
             default:
