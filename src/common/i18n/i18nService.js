@@ -8,7 +8,8 @@ app.factory('i18nService', function(amMoment, $translate) {
     //@TODO get data from $translateProvider.Translation
     var availableLanguages = [
         'en',
-        'fr'
+        'fr',
+        'es'
     ];
 
     var preferredLanguage = 'en';
@@ -18,6 +19,11 @@ app.factory('i18nService', function(amMoment, $translate) {
      * @param lang
      */
     I18nService.prototype.set = function set(lang){
+        //Keep only the 2 first char : en-US --> en
+        if(lang.length > 2){
+            lang = lang.substr(0,2);
+        }
+
         //check if the lang exists
         if(_.indexOf(availableLanguages, lang) === -1){
             lang = preferredLanguage;
@@ -54,6 +60,12 @@ app.factory('i18nService', function(amMoment, $translate) {
         switch(lang) {
             case 'en':
                 return lang +'_GB';
+            case 'es':
+                return lang +'_ES';
+            case 'de':
+                return lang +'_DE';
+            case 'pt':
+                return lang +'_PT';
             case 'fr':
                 return lang +'_FR';
             default:

@@ -14,6 +14,11 @@ describe('App: language', function () {
     expect(header.getText()).toMatch('réveil en ligne');
   });
 
+  it('should be Spanish when /#/es', function () {
+    browser.get(url + 'es');
+    expect(header.getText()).toMatch('Despertador');
+  });
+
   it('should be change the language when clicking on "Language" -> "English"', function () {
     languageBtn.click();
     languageEnglishBtn.click();

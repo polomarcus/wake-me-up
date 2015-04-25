@@ -46,6 +46,9 @@ angular.module( 'wakeMeUp', [
   .controller( 'AppCtrl', function AppCtrl ( $scope, $location, $anchorScroll, i18nService, gaTrackerService, seoService) {
     displayConsoleLogMessage();
 
+    //hide loading message
+    $scope.isViewLoading = false;
+
     $scope.appReady = true;
 
     //AdBlock management
