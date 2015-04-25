@@ -9,12 +9,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <h1>
-          <a class="navbar-brand" href="index.html">
-             {{ 'MENU.WEBSITE.NAME' | translate }}<br/>
-              <small>{{ 'WEBSITE.TITLE' | translate }}</small>
-          </a>
-        </h1>
+        <div itemscope itemtype="http://schema.org/SoftwareApplication/WebApplication">
+            <h1>
+                <a class="navbar-brand" href="index.html">
+                    <span itemprop="name">{{ 'MENU.WEBSITE.NAME' | translate }}</span>
+                    <br/>
+                    <small itemprop="featureList">{{ 'WEBSITE.TITLE' | translate }}</small>
+                </a>
+            </h1>
+        </div>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
