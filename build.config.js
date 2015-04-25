@@ -67,8 +67,8 @@ module.exports = {
    */
   vendor_files: {
     js: [
-      'src/assets/js/googleTrack.js',
-      'src/assets/js/advertisement.js',
+      //'src/assets/js/googleTrack.js',
+      //'src/assets/js/advertisement.js',
       'vendor/angular/angular.min.js',
       // 'vendor/angular/angular.min.js.map',
       'vendor/angular-cookies/angular-cookies.min.js',
