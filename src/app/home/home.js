@@ -30,6 +30,12 @@ angular.module( 'wakeMeUp.home', [
 .config(function config( $stateProvider ) {
         $stateProvider.state( 'home', {
             url: '/home',
+            onEnter: function (i18nService, $location) {
+              var navigatorLanguage = navigator.language || navigator.browserLanguage;
+              if($location.url() === "/home"){
+                i18nService.set(navigatorLanguage || 'en'); //navigator language
+              }
+            },
             views: {
                 "main": {
                     controller: 'HomeCtrl',
