@@ -205,11 +205,103 @@ angular.module('i18n', [
       'FOOTER.IS.OPENSOURCE' : 'est open source'
     });
 
+    //Spanish
+    $translateProvider.translations('es', {
+      //WEBSITE
+      'MENU.WEBSITE.NAME' : 'Wake-me-up',
+      'WEBSITE.TITLE' : 'El Despertador online preferido de los usuarios de Internet',
+      'WEBSITE.DESCRIPTION' : 'Utilice YouTube, Deezer, SoundCloud, Mixcloud, Dailymotion',
 
+      //PLURAL
+      'PLURAL' : 's',
+      'SINGLE' : '',
+      'ZERO' : '',
+
+      //MESSAGE
+      'LOADING' : 'Carga',
+      'URL' : 'URL',
+
+      //LANGUAGE
+      'ADD.YOURS': 'Agregar un idioma',
+      'LANGUAGE': 'Idioma',
+
+      //TIME
+      'HOUR' : 'Hora',
+      'MINUTE' : 'Minuto',
+
+      //MENU
+      'MENU.ALARM.NAME' : 'Despertador',
+      'MENU.CHRONO.NAME' : 'Cronógrafo',
+      'MENU.COMMENTS.NAME' : 'Comentarios',
+      'MENU.FACEBOOK' : 'Facebook',
+      'MENU.OLD.VERSION' : 'Version 1',
+
+      //ALARM PANEL
+      'ALARM.PANEL.TITLE' : 'Ajuste de la alarma',
+      'ALARM.PANEL.PLATFORM' : 'plataforma de Música',
+      'ALARM.PANEL.PLATFORM.DESCRIPTION' : 'Utilice YouTube, Deezer, SoundCloud, Mixcloud, Dailymotion',
+      'ALARM.YOURCHOICE' : 'Su sonido! Ofrece en la página ',
+
+      'ALARM.PANEL.RADIO' : 'Radio',
+      'ALARM.PANEL.RADIO.DESCRIPTION' : 'Utilice la radio',
+
+      'ALARM.RADIO1': 'Nova',
+      'ALARM.RADIO1.URL': 'http://www.novaplanet.com/radionova/player',
+      'ALARM.RADIO2': 'NRJ',
+      'ALARM.RADIO2.URL': 'http://play.nrj.fr/nrj/nrj.html',
+      'ALARM.RADIO3': 'Mouv',
+      'ALARM.RADIO3.URL': 'http://www.lemouv.fr/player',
+      'ALARM.RADIO4': 'RTL',
+      'ALARM.RADIO4.URL': 'http://www.rtl.fr/direct',
+
+      'ALARM.PANEL.URL' : 'URL',
+      'ALARM.PANEL.TEST' : 'Probar URL',
+
+      'ALARM.PANEL.ACTIVATE' : 'Activar',
+      'ALARM.PANEL.OFF' : 'Off',
+      'ALARM.WILL.RING' : 'La alarma sonará en',
+      'ALARM.KEEPON.MESSAGE' : 'Mantenga su equipo funcionando a operar la alarma',
+
+      //ERROR
+      'FORM.ERROR.URL' : 'La URL no es válida, por ejemplo: http://www.youtube.com/watch?v=KGyZY4HNumw',
+      'FORM.ERROR.MINUTE' : 'Los minutos no están en el formato correcto, deben estar entre 0 y 59.',
+      'FORM.ERROR.HOUR' : 'La hora no esta en el formato correcto, deben estar entre 0 y 23.',
+      'FORM.ERROR' : 'Formato de hora no válida, por ejemplo: 7:00',
+
+      //CHRONO PANEL
+      'CHRONO.PANEL.TITLE' : 'Cronógrafo',
+      'CHRONO.BUTTON.START' : 'Start',
+      'CHRONO.BUTTON.PAUSE' : 'Pausa',
+      'CHRONO.BUTTON.LAP' : 'Torre',
+      'CHRONO.BUTTON.STOP' : 'Stop',
+      'CHRONO.BUTTON.CLEAR' : 'Clear',
+      'CHRONO.BUTTON.RESUME' : 'Continuar',
+      'CHRONO.RECORD.TIME' : 'Tiempo registrado',
+
+      //AD PANEL
+      'AD.PANEL.TITLE' : 'Publicidad ',
+      'AD.PANEL.SUBTITLE' : 'porque hacer un sitio que lleva tiempo',
+      'AD.PANEL.PARAGRAPH1' : "Utiliza AdBlock, como yo! Pero yo pasé mucho tiempo en este sitio, hay un pub situado en la parte inferior de la página y video publicitario inRead, que desaparece cuando termina debajo del cronómetro.",
+      'AD.PANEL.PARAGRAPH2' : 'Gracias si decide no bloquear nada en esta página y voy a beber una cerveza a su salud! Si no es así, saber que yo respeto su elección y le permiten disfrutar el gif.',
+
+      //COMMENTS PANEL
+      'COMMENTS.PANEL.TITLE' : 'Facebook Comentarios',
+
+      //COMMENTS PANEL
+      'FIREBASE.PANEL.TITLE' : 'Los últimos 8 alarmas en tiempo real',
+      'FIREBASE.PANEL.LOADING' : 'Chargement des alarmes des internautes...',
+      'FIREBASE.PARAGRAPH' : "Si se tarda demasiado tiempo, puede ser que la cuenta gratuita es Firebase alcanzó su número máximo de conexiones...",
+      'FIREBASE.LOOKFOR' : 'Buscar una alarma en',
+      'REGISTRED.ALARM' : 'registradas',
+
+      //FOOTER
+      'FOOTER.PART1' : 'Te despiertas con ',
+      'FOOTER.PART2' : ' desde 2011',
+      'FOOTER.IS.OPENSOURCE' : 'es open source'
+    });
 
     //@TODO
     //$translateProvider.translations('de', {});
-    //$translateProvider.translations('es', {});
     //$translateProvider.translations('pt', {});
     //$translateProvider.translations('it', {});
     //$translateProvider.translations('pl', {});

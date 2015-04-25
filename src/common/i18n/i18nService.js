@@ -8,7 +8,8 @@ app.factory('i18nService', function(amMoment, $translate) {
     //@TODO get data from $translateProvider.Translation
     var availableLanguages = [
         'en',
-        'fr'
+        'fr',
+        'es'
     ];
 
     var preferredLanguage = 'en';
