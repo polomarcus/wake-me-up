@@ -186,7 +186,7 @@ angular.module('i18n', [
       //AD PANEL
       'AD.PANEL.TITLE' : 'Publicité ',
       'AD.PANEL.SUBTITLE' : 'parce que faire un site ça prend du temps',
-      'AD.PANEL.PARAGRAPH1' : "Tu utilises AdBlock, comme moi ! Cependant j'ai passé beaucoup de temps sur ce site, il y a une pub placée tout en bas de la page et une publicité vidéo \"inRead\" qui disparait lorsqu'elle se termine située en dessous du chronomètre.",
+      'AD.PANEL.PARAGRAPH1' : "Tu utilises AdBlock, comme moi ! Cependant j'ai passé beaucoup de temps sur ce site, il y a une pub placée tout en bas de la page et une publicité vidéo sans son qui disparait lorsqu'elle se termine située en dessous des paramètres de l'alarme.",
       'AD.PANEL.PARAGRAPH2' : 'Je te remercie si tu choisis de ne rien bloquer sur cette page et je boirai un  à ta santé ! Sinon, sache que je respecte ton choix et je te laisse profiter du gif.',
 
       //COMMENTS PANEL
