@@ -113,7 +113,7 @@ angular.module('i18n', [
     //FRENCH
     $translateProvider.translations('fr', {
       //WEBSITE
-      'MENU.WEBSITE.NAME' : 'Wake-me-up',
+      'MENU.WEBSITE.NAME' : 'Wake-me-up.co',
       'WEBSITE.TITLE' : 'Le réveil en ligne préféré des internautes!',
       'WEBSITE.DESCRIPTION' : 'Servez-vous de vos liens YouTube, Deezer, SoundCloud, Mixcloud pour vous réveiller.',
 
@@ -208,8 +208,8 @@ angular.module('i18n', [
     //Spanish
     $translateProvider.translations('es', {
       //WEBSITE
-      'MENU.WEBSITE.NAME' : 'Wake-me-up',
-      'WEBSITEr.TITLE' : 'El Despertador online preferido de Internet',
+      'MENU.WEBSITE.NAME' : 'Wake-me-up.co',
+      'WEBSITE.TITLE' : 'El Despertador online preferido de Internet',
       'WEBSITE.DESCRIPTION' : 'Utilice YouTube, Deezer, SoundCloud, Mixcloud, Dailymotion',
 
       //PLURAL
