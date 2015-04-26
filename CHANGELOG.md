@@ -1,3 +1,46 @@
+# 2.0.51 (2015-04-26)
+
+## Features
+### gzip
+
+* with zopfli ([9b5bee43](git@github.com:polomarcus/wake-me-up/commit/9b5bee43))
+
+### firebase
+
+* only displayed after connection ([0b06772c](git@github.com:polomarcus/wake-me-up/commit/0b06772c))
+
+### spanish
+
+* add spanish ([741b55dd](git@github.com:polomarcus/wake-me-up/commit/741b55dd))
+
+### i18n
+
+* finish spanish + fix a bug with default browser language ([d8713505](git@github.com:polomarcus/wake-me-up/commit/d8713505))
+
+* facebook i18n for portugese, german and spanish ([5bc27a6f](git@github.com:polomarcus/wake-me-up/commit/5bc27a6f))
+
+### seo
+
+* show website title before app is loaded ([46441c74](git@github.com:polomarcus/wake-me-up/commit/46441c74))
+
+### googleSurvey
+
+* closes #15 ([c35743be](git@github.com:polomarcus/wake-me-up/commit/c35743be))
+
+### SEO
+
+* https://developers.google.com/structured-data/site-name ([35a1d545](git@github.com:polomarcus/wake-me-up/commit/35a1d545))
+
+
+
+## Bug fixes
+### lang
+
+* translate when the route is home ([69b98be5](git@github.com:polomarcus/wake-me-up/commit/69b98be5))
+
+
+
+
 # 0.3.2 (2014-04-15)
 
 ## Features
