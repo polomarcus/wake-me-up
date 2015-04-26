@@ -209,7 +209,7 @@ angular.module('i18n', [
     $translateProvider.translations('es', {
       //WEBSITE
       'MENU.WEBSITE.NAME' : 'Wake-me-up',
-      'WEBSITE.TITLE' : 'El Despertador online preferido de Internet',
+      'WEBSITEr.TITLE' : 'El Despertador online preferido de Internet',
       'WEBSITE.DESCRIPTION' : 'Utilice YouTube, Deezer, SoundCloud, Mixcloud, Dailymotion',
 
       //PLURAL
@@ -270,11 +270,11 @@ angular.module('i18n', [
 
       //CHRONO PANEL
       'CHRONO.PANEL.TITLE' : 'Cronógrafo',
-      'CHRONO.BUTTON.START' : 'Start',
-      'CHRONO.BUTTON.PAUSE' : 'Pausa',
-      'CHRONO.BUTTON.LAP' : 'Torre',
+      'CHRONO.BUTTON.START' : 'Iniciar',
+      'CHRONO.BUTTON.PAUSE' : 'Detener',
+      'CHRONO.BUTTON.LAP' : 'Marque',
       'CHRONO.BUTTON.STOP' : 'Stop',
-      'CHRONO.BUTTON.CLEAR' : 'Clear',
+      'CHRONO.BUTTON.CLEAR' : 'Reajustar',
       'CHRONO.BUTTON.RESUME' : 'Continuar',
       'CHRONO.RECORD.TIME' : 'Tiempo registrado',
 
@@ -288,7 +288,7 @@ angular.module('i18n', [
       'COMMENTS.PANEL.TITLE' : 'Facebook Comentarios',
 
       //COMMENTS PANEL
-      'FIREBASE.PANEL.TITLE' : 'Los últimos 8 alarmas en tiempo real',
+      'FIREBASE.PANEL.TITLE' : 'Las últimas 8 alarmas en tiempo real',
       'FIREBASE.PANEL.LOADING' : 'Chargement des alarmes des internautes...',
       'FIREBASE.PARAGRAPH' : "Si se tarda demasiado tiempo, puede ser que la cuenta gratuita es Firebase alcanzó su número máximo de conexiones...",
       'FIREBASE.LOOKFOR' : 'Buscar una alarma en',
