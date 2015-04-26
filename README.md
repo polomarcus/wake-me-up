@@ -43,6 +43,7 @@ Please see https://github.com/polomarcus/wake-me-up/blob/master/CONTRIBUTING.md 
 ### Add a language
 If you are awesome enough to translate wake me up into your favorite language here's the steps :
 * You can find translations here and you can freely modify them: https://github.com/polomarcus/wake-me-up/blob/master/src/common/i18n/i18n.js
+* Add your languages to the existing langugages lists here, for example 'de' for german or 'it' for italian: https://github.com/polomarcus/wake-me-up/blob/master/src/common/i18n/i18nService.js#L9
 * Update the menu to propose your new language : https://github.com/polomarcus/wake-me-up/blob/master/src/app/default/menuTop.tpl.html
 ```HTML
 <ul class="nav navbar-nav navbar-right">
@@ -58,6 +59,8 @@ If you are awesome enough to translate wake me up into your favorite language he
             </li>
         </ul>
 ```
+* And finally add the new language on the index page for SEO purposes : https://github.com/polomarcus/wake-me-up/blob/master/src/index.html#L30
+
 
 ## Purpose
 
