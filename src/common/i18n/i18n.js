@@ -169,7 +169,7 @@ angular.module('i18n', [
 
       //ERROR
       'FORM.ERROR.URL' : 'L\'URL n\'est pas valide, exemple: http://www.youtube.com/watch?v=KGyZY4HNumw',
-      'FORM.ERROR.MINUTE' : 'Les minutes ne sont pas au bon formats, elles doivent être comprises entre 0 et 59.',
+      'FORM.ERROR.MINUTE' : 'Les minutes ne sont pas au bon format, elles doivent être comprises entre 0 et 59.',
       'FORM.ERROR.HOUR' : 'L\'heure n\'est pas au bon format, elle doit être comprise entre 0 et 23.',
       'FORM.ERROR' : 'Format d\'heure non valide, exemple : 7:00',
 
@@ -195,7 +195,7 @@ angular.module('i18n', [
       //COMMENTS PANEL
       'FIREBASE.PANEL.TITLE' : 'Les 8 dernières alarmes en temps réel',
       'FIREBASE.PANEL.LOADING' : 'Chargement des alarmes des internautes...',
-      'FIREBASE.PARAGRAPH' : "Si cela dure trop longtemps il se peut que le compte gratuit de Firebase est atteint son nombre de connexions maximum...",
+      'FIREBASE.PARAGRAPH' : "Si cela dure trop longtemps il se peut que le compte gratuit de Firebase ait atteint son nombre de connexions maximum...",
       'FIREBASE.LOOKFOR' : 'Chercher une alarme sur les',
       'REGISTRED.ALARM' : 'enregistrées',
 
