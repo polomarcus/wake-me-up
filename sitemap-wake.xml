@@ -2,10 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
         <loc>http://www.wake-me-up.co</loc>
-            <xhtml:link
+        <xhtml:link
             rel="alternate"
             hreflang="fr"
-            href="http://www.wake-me-up.co/fr"
+            href="http://www.wake-me-up.co/#/fr"
                     />
+
+        <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://www.wake-me-up.co/#/es"
+                />
     </url>
 </urlset>

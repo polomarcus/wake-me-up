@@ -5,7 +5,14 @@
             <xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="http://www.reveil-en-ligne.fr/en"
+                    href="http://www.reveil-en-ligne.fr/#/en"
                     />
+            <xhtml:link
+                    rel="alternate"
+                    hreflang="es"
+                    href="http://www.reveil-en-ligne.fr/#/es"
+                    />
+
+
     </url>
 </urlset>
