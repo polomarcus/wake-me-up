@@ -300,7 +300,107 @@ angular.module('i18n', [
       'FOOTER.IS.OPENSOURCE' : 'es open source'
     });
 
-    //@TODO
+
+    //Italian
+    $translateProvider.translations('it', {
+      //WEBSITE
+      'MENU.WEBSITE.NAME' : 'Reveil-en-ligne.fr',
+      'WEBSITE.TITLE' : 'La sveglia online preferita dagli utenti!',
+      'WEBSITE.DESCRIPTION' : 'Serviti dei link YouTube, Deezer, SoundCloud, Mixcloud per svegliarti',
+
+      //PLURAL
+      'PLURAL' : 's',
+      'SINGLE' : '',
+      'ZERO' : '',
+
+      //MESSAGE
+      'LOADING' : 'Caricamento',
+      'URL' : 'URL',
+
+      //LANGUAGE
+      'ADD.YOURS': 'Aggiungere una lingua',
+      'LANGUAGE': 'Lingua',
+
+      //TIME
+      'HOUR' : 'Ora',
+      'HHOUR' : 'ora',
+      'MINUTE' : 'Minuto',
+      'MMINUTE' : 'minuto',
+      'SECOND' : 'Secondo',
+      'SSECOND' : 'secondo',
+
+      //MENU
+      'MENU.ALARM.NAME' : 'Sveglia',
+      'MENU.CHRONO.NAME' : 'Cronometro',
+      'MENU.COMMENTS.NAME' : 'Commenti',
+      'MENU.FACEBOOK' : 'Page Facebook',
+      'MENU.OLD.VERSION' : 'Version 1',
+
+      //ALARM PANEL
+      'ALARM.PANEL.TITLE' : 'Impostazioni sveglia',
+      'ALARM.PANEL.PLATFORM' : 'Piattaforma musicale',
+      'ALARM.PANEL.PLATFORM.DESCRIPTION' : ' Usa YouTube, Deezer, SoundCloud, Mixcloud o Dailymotion',
+      'ALARM.YOURCHOICE' : ' La tua musica! Condividila sulla pagina',
+
+      'ALARM.PANEL.RADIO' : 'Radio',
+      'ALARM.PANEL.RADIO.DESCRIPTION' : 'Utilizza un link radio',
+
+      'ALARM.RADIO1': 'Virgin Radio',
+      'ALARM.RADIO1.URL': 'http://www.virginradio.it/sezioni/1184/virgin-radio-fm',
+      'ALARM.RADIO2': 'Radio DeeJay',
+      'ALARM.RADIO2.URL': 'http://www.deejay.it/radio/',
+      'ALARM.RADIO3': 'RDS',
+      'ALARM.RADIO3.URL': 'http://www.rds.it/diretta/',
+      'ALARM.RADIO4': 'RTL',
+      'ALARM.RADIO4.URL': 'http://www.rtl.it/FM/',
+
+
+      'ALARM.PANEL.TEST' : 'Provare il link',
+      'ALARM.PANEL.ACTIVATE' : 'On',
+      'ALARM.PANEL.OFF' : 'Off',
+      'ALARM.WILL.RING' : 'La sveglia suonerà tras',
+      'ALARM.KEEPON.MESSAGE' : 'Tieni il computer acceso per far funzionare la sveglia',
+
+      //ERROR
+      'FORM.ERROR.URL' : 'Il link non è valido, ecco un esempio: http://www.youtube.com/watch?v=KGyZY4HNumw',
+      'FORM.ERROR.MINUTE' : ' I minuti non sono validi, devono essere tra 0 e 59',
+      'FORM.ERROR.HOUR' : 'L\'ora non è valida, deve essere tra 0 e 23',
+      'FORM.ERROR' : 'Il formato dell\'ora non è valido, ecco un esempio: 7:00',
+
+      //CHRONO PANEL
+      'CHRONO.PANEL.TITLE' : 'Cronometro',
+      'CHRONO.BUTTON.START' : 'Start',
+      'CHRONO.BUTTON.PAUSE' : 'Pausa',
+      'CHRONO.BUTTON.LAP' : 'Ripetizione',
+      'CHRONO.BUTTON.STOP' : 'Stop',
+      'CHRONO.BUTTON.CLEAR' : 'Cancella',
+      'CHRONO.BUTTON.RESUME' : 'Continuare',
+      'CHRONO.RECORD.TIME' : 'Tempo registrato',
+
+      //AD PANEL
+      'AD.PANEL.TITLE' : 'Pubblicità ',
+      'AD.PANEL.SUBTITLE' : 'perchè per fare un sito ci vuole tempo',
+      'AD.PANEL.PARAGRAPH1' : "Usi AdBlock, proprio come me! Nonostante ciò ho passato molto tempo su questo sito, ci sono solo una pubblicità in fondo alla pagina e un video pubblicitario che scompare non appena finito sotto i parametri della sveglia.",
+      'AD.PANEL.PARAGRAPH2' : 'Ti ringrazio se scegli di non bloccare nulla su questa pagina, brinderò alla tua salute! Altrimenti, sappi che rispetto la tua scelta e ti offro questa gif.',
+
+      //COMMENTS PANEL
+      'COMMENTS.PANEL.TITLE' : 'Commenti Facebook',
+
+      //COMMENTS PANEL
+      'FIREBASE.PANEL.TITLE' : 'Le 8 ultime sveglie in tempo reale',
+      'FIREBASE.PANEL.LOADING' : 'Caricamento della sveglia degli utenti...',
+      'FIREBASE.PARAGRAPH' : "Se il sistema ci mette troppo tempo, può darsi che tu abbia già raggiunto il limite di connessioni dell'account gratuito Firebase...",
+      'FIREBASE.LOOKFOR' : 'Cercare una sveglia sulle',
+      'REGISTRED.ALARM' : 'registrate',
+
+      //FOOTER
+      'FOOTER.PART1' : ' Ti sveglia con',
+      'FOOTER.PART2' : 'dal 2011',
+      'FOOTER.IS.OPENSOURCE' : 'è open source'
+  });
+
+
+//@TODO
     //$translateProvider.translations('de', {});
     //$translateProvider.translations('pt', {});
     //$translateProvider.translations('it', {});
