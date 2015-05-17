@@ -304,7 +304,7 @@ angular.module('i18n', [
     //Italian
     $translateProvider.translations('it', {
       //WEBSITE
-      'MENU.WEBSITE.NAME': 'Reveil-en-ligne.fr',
+      'MENU.WEBSITE.NAME': 'Wake-me-up.co',
       'WEBSITE.TITLE': 'La sveglia online preferita dagli utenti!',
       'WEBSITE.DESCRIPTION': 'Serviti dei link YouTube, Deezer, SoundCloud, Mixcloud per svegliarti',
 
@@ -400,6 +400,7 @@ angular.module('i18n', [
     });
 
     $translateProvider.translations('pt',{
+      'MENU.WEBSITE.NAME': 'Wake-me-up.co',
     'WEBSITE.TITLE':	'o toque do despertador',
     'WEBSITE.DESCRIPTION':	'Usa il tuo link di YouTube, Deezer, SoundCloud, Mixcloud per svegliarti',
     'LOADING':	'Aguardando',
@@ -466,6 +467,7 @@ angular.module('i18n', [
 
 
 $translateProvider.translations('ru',{
+  'MENU.WEBSITE.NAME': 'Wake-me-up.co',
   'WEBSITE.TITLE':	'Будильник который выбирают все пользователи интернета ',
   'WEBSITE.DESCRIPTION':	'Используйте ссылки из YouTube,  Deezer,  Soundcloud, Mixcloud для приятного пробуждения  ',
   'LOADING':	'Загрузка ',
@@ -515,6 +517,7 @@ $translateProvider.translations('ru',{
   });
 
 $translateProvider.translations('de',{
+  'MENU.WEBSITE.NAME': 'Wake-me-up.co',
   'WEBSITE.TITLE':	'Der favorit Online-Erwachen den Surfern',
   'WEBSITE.DESCRIPTION':	'Nutzen Sie Ihre Youtube/Deezer/Soundcloud/Mixcloud links um Sie aufzuwachen',
   'LOADING':	'Wird geladen',
