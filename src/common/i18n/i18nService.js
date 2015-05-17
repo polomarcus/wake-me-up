@@ -9,6 +9,10 @@ app.factory('i18nService', function(amMoment, $translate) {
     var availableLanguages = [
         'en',
         'fr',
+        'it',
+        'de',
+        'ru',
+        'pt',
         'es'
     ];
 
@@ -68,6 +72,8 @@ app.factory('i18nService', function(amMoment, $translate) {
                 return lang +'_PT';
             case 'fr':
                 return lang +'_FR';
+            case 'ru':
+                return lang +'_RU';
             default:
                 return 'en_GB';
         }

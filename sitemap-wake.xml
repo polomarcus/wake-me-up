@@ -13,5 +13,25 @@
                 hreflang="es"
                 href="http://www.wake-me-up.co/#/es"
                 />
+        <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="http://www.wake-me-up.co/#/pt"
+                />
+        <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="http://www.wake-me-up.co/#/ru"
+                />
+        <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="http://www.wake-me-up.co/#/it"
+                />
+        <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="http://www.wake-me-up.co/#/de"
+                />
     </url>
 </urlset>

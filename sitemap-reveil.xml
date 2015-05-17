@@ -13,6 +13,25 @@
                     href="http://www.reveil-en-ligne.fr/#/es"
                     />
 
-
+            <xhtml:link
+                    rel="alternate"
+                    hreflang="pt"
+                    href="http://www.reveil-en-ligne.fr/#/pt"
+                    />
+            <xhtml:link
+                    rel="alternate"
+                    hreflang="ru"
+                    href="http://www.reveil-en-ligne.fr/#/ru"
+                    />
+            <xhtml:link
+                    rel="alternate"
+                    hreflang="it"
+                    href="http://www.reveil-en-ligne.fr/#/it"
+                    />
+            <xhtml:link
+                    rel="alternate"
+                    hreflang="de"
+                    href="http://www.reveil-en-ligne.fr/#/de"
+                    />
     </url>
 </urlset>

@@ -576,10 +576,6 @@ $translateProvider.translations('de',{
 
 
 //@TODO
-    //$translateProvider.translations('de', {});
-    //$translateProvider.translations('pt', {});
-    //$translateProvider.translations('it', {});
-    //$translateProvider.translations('pl', {});
     //$translateProvider.translations('ja', {});
     //$translateProvider.translations('ko', {});
     //$translateProvider.translations('tr', {});
