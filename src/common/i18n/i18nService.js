@@ -44,6 +44,14 @@ app.factory('i18nService', function(amMoment, $translate) {
     };
 
     /**
+     * Russian language does not have adblock translation
+     * @returns {boolean}
+     */
+    I18nService.prototype.getTranslationAdOK = function getTranslationAdOK(){
+        return this.language !== 'ru';
+    };
+
+    /**
      * simple use of $translate method, to avoid using $translate dependency in module/Services
      * @param key translation
      * @returns {promise}

@@ -1,5 +1,6 @@
 <!-- ADS -->
-<div ng-show="adBlock">
+{{ translationOK == true }}
+<div ng-show="adBlock && translationOK">
   <div class="panel panel-default">
     <div class="panel-heading text-center">
         <strong>{{ 'AD.PANEL.TITLE' | translate }}</strong><span style="font-size:11px;"> {{'AD.PANEL.SUBTITLE' | translate }}</span>
