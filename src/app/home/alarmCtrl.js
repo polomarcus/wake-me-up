@@ -184,6 +184,7 @@ angular.module( 'AlarmModule', [
           gaTrackerService.track('test', 'test on', $scope.alarm.url);
         }
         else {
+          var now = moment();
 
           //Store on Google Analytics
           gaTrackerService.track('alarm', 'Alarm URL', $scope.alarm.url);
