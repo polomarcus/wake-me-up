@@ -184,9 +184,11 @@ angular.module( 'AlarmModule', [
           gaTrackerService.track('test', 'test on', $scope.alarm.url);
         }
         else {
+
           //Store on Google Analytics
-          gaTrackerService.track('alarm', 'Alarm on', $scope.alarm.url);
-          gaTrackerService.track('alarm', 'Alarm time', $scope.alarm.time.hour + ':' + $scope.alarm.time.min);
+          gaTrackerService.track('alarm', 'Alarm URL', $scope.alarm.url);
+          gaTrackerService.track('alarm', 'Alarm time', $scope.alarm.time.hour);
+          gaTrackerService.track('alarm', 'Alarm check', $scope.alarm.time.hour + ':' + $scope.alarm.time.min + '=? real:'+ now.hours() + ':' + now.minutes()  +')');
         }
 
 
