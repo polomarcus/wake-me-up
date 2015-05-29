@@ -169,7 +169,8 @@ angular.module( 'AlarmModule', [
       $scope.alarm.status = '';
     };
 
-    //when we need to wake up the user with the alarm
+    // when we need to wake up the user with the alarm
+    // Callback for angular-timer
     $scope.alarm.finish = function(){
       $scope.alarm.status='L\'alarme sonne !';
       $scope.launchLink('ring');

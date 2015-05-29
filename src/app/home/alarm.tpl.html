@@ -81,7 +81,7 @@
 
                 <!-- COUNTDOWN DISPLAY -->
                 <section id="countdown" ng-show="alarm.status !== ''">
-                    <timer autostart="false" countdown="countdown" language="{{ language }}" finish-callback="alarm.finish()" max-time-unit="'hour'" interval="1000">
+                    <timer autostart="false" countdown="countdown" language="{{ language }}" max-time-unit="'hour'" interval="1000">
                         <div class="alert alert-success" role="alert" ng-hide="hourUnit == 0">
                             <p class="text-center">
                                 {{ 'ALARM.WILL.RING' | translate }} {{ hourUnit }}</strong>
