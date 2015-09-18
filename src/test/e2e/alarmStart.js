@@ -169,6 +169,8 @@ describe('Controller: AlarmCtrl', function () {
         browser.sleep(1000);
         expect(element(by.css('#url2play object')).isPresent()).toBeTruthy();
 
+         //reinit state
+         offBtn.click();
       });
 
       it('should launch the Twitch link in an iframe with embed at the end when the test btn is clicked', function () {
@@ -178,7 +180,6 @@ describe('Controller: AlarmCtrl', function () {
         //Set twitch URL
         urlInput.sendKeys(twitchURL);
 
-        ytBtn.click();
         expect(urlInput.getAttribute('value')).toMatch('twitch');
 
         //Activate alarm button click
