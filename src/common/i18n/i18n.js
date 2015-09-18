@@ -14,7 +14,7 @@ angular.module('i18n', [
       //WEBSITE
       'MENU.WEBSITE.NAME': 'Wake-me-up.co',
       'WEBSITE.TITLE': 'Internet\'s favorite alarm clock!',
-      'WEBSITE.DESCRIPTION': 'Use Youtube, SoundCloud, Deezer, MixCloud or your favorite radio link as an online alarm clock!',
+      'WEBSITE.DESCRIPTION': 'Use Youtube, Twitch, SoundCloud, Deezer, MixCloud or your favorite radio link as an online alarm clock!',
 
       //PLURAL
       'PLURAL': 's',
@@ -43,7 +43,7 @@ angular.module('i18n', [
       //ALARM PANEL
       'ALARM.PANEL.TITLE': 'Alarm settings',
       'ALARM.PANEL.PLATFORM': 'Musical Platform',
-      'ALARM.PANEL.PLATFORM.DESCRIPTION': 'Use Youtube, SoundCloud, MixCloud, Deezer or Dailymotion',
+      'ALARM.PANEL.PLATFORM.DESCRIPTION': 'Use Youtube, Twitch, SoundCloud, MixCloud, Deezer or Dailymotion',
       'ALARM.YOURCHOICE': 'Propose a sound on our ',
 
       'ALARM.PANEL.RADIO': 'Radio',
@@ -144,7 +144,7 @@ angular.module('i18n', [
       //ALARM PANEL
       'ALARM.PANEL.TITLE': 'Paramètres alarme',
       'ALARM.PANEL.PLATFORM': 'Plateforme musicale',
-      'ALARM.PANEL.PLATFORM.DESCRIPTION': 'Utilisez Youtube, SoundCloud, MixCloud, Deezer ou Dailymotion',
+      'ALARM.PANEL.PLATFORM.DESCRIPTION': 'Utilisez Youtube, Twitch, SoundCloud, MixCloud, Deezer ou Dailymotion',
       'ALARM.YOURCHOICE': 'Ton son! Propose le sur la page ',
 
       'ALARM.PANEL.RADIO': 'Radio',
@@ -210,7 +210,7 @@ angular.module('i18n', [
       //WEBSITE
       'MENU.WEBSITE.NAME': 'Wake-me-up.co',
       'WEBSITE.TITLE': 'El Despertador online preferido de Internet',
-      'WEBSITE.DESCRIPTION': 'Utilice YouTube, Deezer, SoundCloud, Mixcloud, Dailymotion',
+      'WEBSITE.DESCRIPTION': 'Utilice YouTube, Twitch, Deezer, SoundCloud, Mixcloud, Dailymotion',
 
       //PLURAL
       'PLURAL': 's',
@@ -239,7 +239,7 @@ angular.module('i18n', [
       //ALARM PANEL
       'ALARM.PANEL.TITLE': 'Ajuste de la alarma',
       'ALARM.PANEL.PLATFORM': 'Plataforma de Música',
-      'ALARM.PANEL.PLATFORM.DESCRIPTION': 'Utilice YouTube, Deezer, SoundCloud, Mixcloud, Dailymotion',
+      'ALARM.PANEL.PLATFORM.DESCRIPTION': 'Utilice YouTube, Twitch, Deezer, SoundCloud, Mixcloud, Dailymotion',
       'ALARM.YOURCHOICE': 'Su sonido! Ofrece en la página ',
 
       'ALARM.PANEL.RADIO': 'Radio',
@@ -422,7 +422,7 @@ angular.module('i18n', [
     'MENU.FACEBOOK':	'Página Facebook',
     'ALARM.PANEL.TITLE':	'Ajustes alarme',
     'ALARM.PANEL.PLATFORM':	'Plataforma musical',
-    'ALARM.PANEL.PLATFORM.DESCRIPTION':	'Utiliza Youtube ou Dailymotion',
+    'ALARM.PANEL.PLATFORM.DESCRIPTION':	'Utiliza Youtube, Twitch, Deezer, Mixcloud ou Soundclound',
     'ALARM.YOURCHOICE':	'A sua musica! Oferece na pagina.',
     'ALARM.PANEL.RADIO':	'Radio',
     'ALARM.PANEL.RADIO.DESCRIPTION':	'Utiliza um link Radio',
@@ -487,7 +487,7 @@ $translateProvider.translations('ru',{
   'MENU.FACEBOOK':	'Страница Facebook ',
   'ALARM.PANEL.TITLE':	'Настройки будильника ',
   'ALARM.PANEL.PLATFORM':	'Музыкальная платформа',
-  'ALARM.PANEL.PLATFORM.DESCRIPTION':	'Используйте Youtube, SoundCloud, MixCloud, Deezer ou Dailymotion',
+  'ALARM.PANEL.PLATFORM.DESCRIPTION':	'Используйте Youtube, Twitch, SoundCloud, MixCloud, Deezer, Dailymotion',
     'ALARM.YOURCHOICE':	'Твоя музыка! Делись с ней на странице',
       'ALARM.PANEL.RADIO':	'Радиа',
       'ALARM.PANEL.RADIO.DESCRIPTION':	'Используйте ссылку на радио',
@@ -519,7 +519,7 @@ $translateProvider.translations('ru',{
 $translateProvider.translations('de',{
   'MENU.WEBSITE.NAME': 'Wake-me-up.co',
   'WEBSITE.TITLE':	'Der favorit Online-Erwachen den Surfern',
-  'WEBSITE.DESCRIPTION':	'Nutzen Sie Ihre Youtube/Deezer/Soundcloud/Mixcloud links um Sie aufzuwachen',
+  'WEBSITE.DESCRIPTION':	'Nutzen Sie Ihre Youtube, Twitch,Deezer, Soundcloud, Mixcloud links um Sie aufzuwachen',
   'LOADING':	'Wird geladen',
   'URL':	'URL',
   'ADD.YOURS':	'Sprache hinzufügen',

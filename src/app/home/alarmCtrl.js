@@ -247,7 +247,10 @@ angular.module( 'AlarmModule', [
         else if( urlvideo.match('mixcloud')) { //Mixcloud
           defer.resolve(urlUtilsService.mixcloudBuilder(urlvideo));
         }
-        else if( urlvideo.match('deezer')) { //Mixcloud
+        else if( urlvideo.match('twitch')) {
+          defer.resolve(urlUtilsService.twitchBuilder(urlvideo));
+        }
+        else if( urlvideo.match('deezer')) { //Deezer
           defer.resolve(urlUtilsService.deezerBuilder(urlvideo));
         }
         else { //others cases we use iframe src
