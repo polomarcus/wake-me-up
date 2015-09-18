@@ -161,17 +161,30 @@ app.factory('urlUtilsService', function($http, $q) {
         'width="500" height="240"></iframe>';
       }
 
-      console.log("embed", embed);
-
       return embed;
     };
 
 
+    /**
+     * Return a twich iframe
+     * we have to add /embed for twitch integration
+     * @param url string
+     * @returns {HTML node} iframe
+     */
+    UrlUtilsService.prototype.twitchBuilder = function twitchBuilder(url){
+       var embed = '/embed';
+       if( url.match('/embed') ) { //Security if a smart user has already added embed at end of a twitch URL
+        embed = '';
+       }
+
+       return this.iframeBuilder(url + embed);
+    };
+
 
     /**
      * return a iframe HTML object
-     * @param id
-     * @returns {HTML node}
+     * @param url string
+     * @returns {HTML node} iframe
      */
     UrlUtilsService.prototype.iframeBuilder = function iframeBuilder(url){
         return "<iframe style='width:100%;'src='" + url + "'>" + "</iframe>";

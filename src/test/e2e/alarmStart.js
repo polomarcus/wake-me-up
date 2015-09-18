@@ -23,6 +23,7 @@ describe('Controller: AlarmCtrl', function () {
     var soundcloudBtn = element(by.id('soundcloud1'));
     var mixcloudBtn = element(by.id('Mixcloud1'));
     var deezerBtn = element(by.id('deezer1'));
+    var twitchURL = "https://twitch.com/20syl/20syl-ongoing-thing";
 
     beforeEach(function() {
         hourInput.clear();
@@ -167,6 +168,25 @@ describe('Controller: AlarmCtrl', function () {
         testBtn.click();
         browser.sleep(1000);
         expect(element(by.css('#url2play object')).isPresent()).toBeTruthy();
+
+         //reinit state
+         offBtn.click();
+      });
+
+      it('should launch the Twitch link in an iframe with embed at the end when the test btn is clicked', function () {
+        //Set values for minute hour and url
+        hourInput.sendKeys(1);
+        minuteInput.sendKeys(30);
+        //Set twitch URL
+        urlInput.sendKeys(twitchURL);
+
+        expect(urlInput.getAttribute('value')).toMatch('twitch');
+
+        //Activate alarm button click
+        testBtn.click();
+        browser.sleep(1000);
+        expect(element(by.css('#url2play iframe')).isPresent()).toBeTruthy();
+        expect(element(by.css('#url2play iframe')).getAttribute('src')).toMatch('embed');
 
       });
     });
