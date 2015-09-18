@@ -172,7 +172,12 @@ app.factory('urlUtilsService', function($http, $q) {
      * @returns {HTML node} iframe
      */
     UrlUtilsService.prototype.twitchBuilder = function twitchBuilder(url){
-        return this.iframeBuilder(url + "/embed");
+       var embed = '/embed';
+       if( url.match('/embed') ) { //Security if a smart user has already added embed at end of a twitch URL
+        embed = '';
+       }
+
+       return this.iframeBuilder(url + embed);
     };
 
 
