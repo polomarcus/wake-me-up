@@ -45,6 +45,11 @@ angular.module( 'AlarmModule', [
       }
     });
 
+    //Launch Tooltip
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+    })
+
     //when the user click on the ON button
     $scope.alarm.activate = function() {
       if( $scope.alarm.time.hour >= 0 && $scope.alarm.time.hour < 24 &&  $scope.alarm.time.min >= 0 &&  $scope.alarm.time.min < 60){
