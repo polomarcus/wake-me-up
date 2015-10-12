@@ -7,6 +7,7 @@ Wake me up is the *self proclaimed* **internet's favorite alarm clock**.
 ### Why ?
 Wake me up uses the world most-used musical platforms JS SDK :
 * Soundcloud
+* Twitch
 * Mixcloud
 * Deezer
 * Youtube
