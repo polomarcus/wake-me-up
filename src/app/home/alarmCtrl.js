@@ -195,7 +195,7 @@ angular.module( 'AlarmModule', [
           var testHour = $scope.alarm.time.hour - now.hours();
           var outputAlarm = $scope.alarm.time.hour + "(" + now.hours() + ")" + ":" + $scope.alarm.time.min + "(" + now.minutes() + ")";
           var rsltTest = true;
-          if(testHour == 0) {
+          if(testHour === 0) {
             rsltTest = testMinute > -2 && testMinute < 2;
             if(!(testMinute > -2 && testMinute < 2)){
                gaTrackerService.track('alarm', 'Alarm check minute', outputAlarm);
