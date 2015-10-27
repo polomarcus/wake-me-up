@@ -190,7 +190,20 @@ angular.module( 'AlarmModule', [
           //Store on Google Analytics
           gaTrackerService.track('alarm', 'Alarm URL', $scope.alarm.url);
           gaTrackerService.track('alarm', 'Alarm time', $scope.alarm.time.hour);
-          gaTrackerService.track('alarm', 'Alarm check', $scope.alarm.time.hour + ':' + $scope.alarm.time.min + '=? real:'+ now.hours() + ':' + now.minutes()  +')');
+
+          var testMinute = $scope.alarm.time.min - now.minutes();
+          var testHour = $scope.alarm.time.hour - now.hours();
+          var outputAlarm = $scope.alarm.time.hour + "(" + now.hours() + ")" + ":" + $scope.alarm.time.min + "(" + now.minutes() + ")";
+          var rsltTest = true;
+          if(testHour == 0) {
+            rsltTest = testMinute > -2 && testMinute < 2;
+            if(!(testMinute > -2 && testMinute < 2)){
+               gaTrackerService.track('alarm', 'Alarm check minute', outputAlarm);
+            }
+          }
+          else {
+            gaTrackerService.track('alarm', 'Alarm check hour', outputAlarm);
+          }
         }
 
 
