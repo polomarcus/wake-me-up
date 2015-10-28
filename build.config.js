@@ -70,7 +70,7 @@ module.exports = {
       //'src/assets/js/googleTrack.js',
       //'src/assets/js/advertisement.js',
       'vendor/angular/angular.min.js',
-      // 'vendor/angular/angular.min.js.map',
+      //'vendor/angular/angular.min.js.map',
       'vendor/angular-cookies/angular-cookies.min.js',
       'vendor/jquery/dist/jquery.min.js',
       'vendor/moment/min/moment-with-locales.min.js',
@@ -87,8 +87,7 @@ module.exports = {
       'vendor/angular-ui-utils/modules/route/route.js',
       'vendor/soundcloud/sdk.js',
       'vendor/angular-utils-pagination/dirPagination.js',
-      'vendor/bootstrap/js/collapse.js',
-      'vendor/bootstrap/js/dropdown.js',
+      'vendor/bootstrap/dist/js/bootstrap.min.js',
       'src/assets/js/googleplus.js'
     ],
     css: [

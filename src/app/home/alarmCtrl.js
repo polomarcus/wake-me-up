@@ -48,7 +48,7 @@ angular.module( 'AlarmModule', [
     //Launch Tooltip
     $(function () {
       $('[data-toggle="tooltip"]').tooltip();
-    })
+    });
 
     //when the user click on the ON button
     $scope.alarm.activate = function() {
