@@ -8,33 +8,23 @@
                 <form role="form" name="alarmForm" novalidate>
                     <div class="row">
                         <div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="sr-only" for="hour">{{ 'HOUR'  | translate }}</label>
                                     <div class="input-group">
-                                        <input type="number" name="hour" class="form-control" id="hour" ng-model="alarm.time.hour" placeholder="{{ 'HOUR'  | translate }}" ng-disabled="alarm.status !== ''" min="0" max="23" ng-required="true">
                                         <div class="input-group-addon">{{ 'HOUR' | translate }}</div>
+                                        <input type="number" name="hour" class="form-control" id="hour" ng-model="alarm.time.hour" placeholder="{{ 'HOUR'  | translate }}" ng-disabled="alarm.status !== ''" min="0" max="23" ng-required="true">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="sr-only" for="minute"> {{ 'MINUTE' | translate }}</label>
                                     <div class="input-group">
-                                        <input type="number" name="minute" class="form-control" id="minute" ng-model="alarm.time.min" placeholder="{{ 'MINUTE'  | translate }}" ng-disabled="alarm.status !== ''" min="0" max="59" ng-required="true">
                                         <div class="input-group-addon">{{ 'MINUTE' | translate }}</div>
+                                        <input type="number" name="minute" class="form-control" id="minute" ng-model="alarm.time.min" placeholder="{{ 'MINUTE'  | translate }}" ng-disabled="alarm.status !== ''" min="0" max="59" ng-required="true">
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <button type="button" id="activateBtn" ng-disabled="alarmForm.$invalid" ng-click="alarm.activate()" class="btn btn-success btn-block" ng-show="alarm.button === 'ON'">
-                                    {{ 'ALARM.PANEL.ACTIVATE' | translate }}
-                                </button>
-
-                                <button type="button" id="offBtn" ng-click="alarm.reset()" class="btn btn-danger btn-block" ng-show="alarm.button === 'OFF'">
-                                    {{ 'ALARM.PANEL.OFF' | translate }}
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -52,12 +42,12 @@
                                 <div class="form-group">
                                     <div class="col-md-8">
                                         <div class="input-group">
-                                            <div class="input-group-addon">URL</div>
+                                            <div class="input-group-addon" data-toggle="tooltip" data-placement="top" title=" YouTube, Twitch, Deezer, SoundCloud, Mixcloud, Dailymotion">URL</div>
                                             <input type="url" name="url" ng-model="alarm.url" class="form-control" id="url" placeholder="http://youtu.be/KGyZY4HNumw" ng-required="true">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <button type="button" ng-disabled="$scope.alarmURL == ''" ng-click="launchLink('test')" id="testBtn" class="btn btn-primary btn-block" ng-show="alarm.button === 'ON'">
+                                        <button type="button" ng-disabled="alarm.url == ''" ng-click="launchLink('test')" id="testBtn" class="btn btn-primary btn-block" ng-show="alarm.button === 'ON'">
                                             {{ 'ALARM.PANEL.TEST' | translate }}
                                         </button>
                                     </div>
@@ -76,6 +66,19 @@
                         <p class="text-center">
                             {{ 'FORM.ERROR' | translate }}
                         </p>
+                    </div>
+
+                    <!-- ACTIVATE -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" id="activateBtn" ng-disabled="alarmForm.$invalid" ng-click="alarm.activate()" class="btn btn-success btn-block" ng-show="alarm.button === 'ON'">
+                                {{ 'ALARM.PANEL.ACTIVATE' | translate }}
+                            </button>
+
+                            <button type="button" id="offBtn" ng-click="alarm.reset()" class="btn btn-danger btn-block" ng-show="alarm.button === 'OFF'">
+                                {{ 'ALARM.PANEL.OFF' | translate }}
+                            </button>
+                        </div>
                     </div>
                 </form>
 

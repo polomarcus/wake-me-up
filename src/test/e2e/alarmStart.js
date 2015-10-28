@@ -5,6 +5,7 @@ describe('Controller: AlarmCtrl', function () {
     browser.get(url + 'en#chrono');
 
     var scrollIntoView = function (element) {
+      document.querySelector('.adsp-footerads').style.display = 'none'; //hide ad, because it might cause test failure
       arguments[0].scrollIntoView();
     };
 
