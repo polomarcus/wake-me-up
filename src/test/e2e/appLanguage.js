@@ -5,7 +5,7 @@ describe('App: language', function () {
   var languageEnglishBtn = element(by.css('.dropdown-menu li a'));
 
   var scrollIntoView = function (element) {
-    document.querySelector('.adsp-footerads').style.display = 'none'; //hide ad, because it might cause test failure
+    //document.querySelector('.adsp-footerads').style.display = 'none'; //hide ad, because it might cause test failure
     arguments[0].scrollIntoView();
   };
 
