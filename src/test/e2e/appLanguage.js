@@ -4,6 +4,12 @@ describe('App: language', function () {
   var languageBtn = element(by.css('.navbar-right .dropdown a'));
   var languageEnglishBtn = element(by.css('.dropdown-menu li a'));
 
+  var scrollIntoView = function (element) {
+    document.querySelector('.adsp-footerads').style.display = 'none'; //hide ad, because it might cause test failure
+    arguments[0].scrollIntoView();
+  };
+
+
   it('should be English when /#/en', function () {
     browser.get(url + 'en');
     expect(header.getText()).toMatch('alarm clock');
@@ -42,6 +48,7 @@ describe('App: language', function () {
 
 
   it('should be change the language when clicking on "Language" -> "English"', function () {
+    browser.executeScript(scrollIntoView, languageBtn.getWebElement());
     languageBtn.click();
     languageEnglishBtn.click();
     expect(header.getText()).toMatch('alarm clock');
