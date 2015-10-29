@@ -87,7 +87,8 @@ module.exports = {
       'vendor/angular-ui-utils/modules/route/route.js',
       'vendor/soundcloud/sdk.js',
       'vendor/angular-utils-pagination/dirPagination.js',
-      'vendor/bootstrap/dist/js/bootstrap.min.js',
+      'vendor/bootstrap/js/collapse.js',
+      'vendor/bootstrap/js/dropdown.js',
       'src/assets/js/googleplus.js'
     ],
     css: [
