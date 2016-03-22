@@ -23,7 +23,7 @@ describe('Controller: AlarmCtrl', function () {
     var soundcloudBtn = element(by.id('soundcloud1'));
     var mixcloudBtn = element(by.id('Mixcloud1'));
     var deezerBtn = element(by.id('deezer1'));
-    var twitchURL = https://www.twitch.tv/spamfish";
+    var twitchURL = "https://www.twitch.tv/spamfish";
 
     beforeEach(function() {
         hourInput.clear();
