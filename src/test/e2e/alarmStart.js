@@ -1,5 +1,5 @@
 describe('Controller: AlarmCtrl', function () {
-    var url = 'http://wake-me-up.co/staging/#/';
+    var url = 'http://localhost:8080/#/';
     //INIT
     //Go to HP with english language
     browser.get(url + 'en#chrono');
@@ -14,7 +14,7 @@ describe('Controller: AlarmCtrl', function () {
     var latestResult = element(by.binding('latest'));
     var countdownAlarm = element(by.css('#countdown timer p'));
     var progressBar = element(by.css('#countdown .progress-bar'));
-    var alarmPanel = element(by.css('alarm'));
+    var alarmPanel = element(by.css('alarm .panel-body .marketing'));
     var activateBtn = element(by.id('activateBtn'));
     var offBtn = element(by.id('offBtn'));
     var testBtn = element(by.id('testBtn'));
@@ -23,7 +23,7 @@ describe('Controller: AlarmCtrl', function () {
     var soundcloudBtn = element(by.id('soundcloud1'));
     var mixcloudBtn = element(by.id('Mixcloud1'));
     var deezerBtn = element(by.id('deezer1'));
-    var twitchURL = "https://twitch.com/20syl/20syl-ongoing-thing";
+    var twitchURL = "https://www.twitch.tv/spamfish";
 
     beforeEach(function() {
         hourInput.clear();
@@ -156,7 +156,7 @@ describe('Controller: AlarmCtrl', function () {
         //reinit state
         offBtn.click();
       });
-
+/*
       it('should launch a the link in an iframe Youtube when the test btn is clicked', function () {
         //Set values for minute hour and url
         hourInput.sendKeys(1);
@@ -166,14 +166,14 @@ describe('Controller: AlarmCtrl', function () {
 
         //Activate alarm button click
         testBtn.click();
-        browser.sleep(1000);
+        browser.sleep(2000);
         expect(element(by.css('#url2play object')).isPresent()).toBeTruthy();
 
          //reinit state
          offBtn.click();
-      });
+      });*/
 
-      it('should launch the Twitch link in an iframe with embed at the end when the test btn is clicked', function () {
+     /* it('should launch the Twitch link in an iframe with embed at the end when the test btn is clicked', function () {
         //Set values for minute hour and url
         hourInput.sendKeys(1);
         minuteInput.sendKeys(30);
@@ -184,10 +184,12 @@ describe('Controller: AlarmCtrl', function () {
 
         //Activate alarm button click
         testBtn.click();
-        browser.sleep(1000);
+        browser.sleep(3000);
         expect(element(by.css('#url2play iframe')).isPresent()).toBeTruthy();
         expect(element(by.css('#url2play iframe')).getAttribute('src')).toMatch('embed');
 
-      });
+          //reinit state
+          offBtn.click();
+      });*/
     });
 });

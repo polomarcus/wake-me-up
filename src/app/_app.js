@@ -16,6 +16,8 @@ angular.module( 'wakeMeUp', [
         var navigatorLanguage = navigator.language || navigator.browserLanguage;
         if($location.url() === "/"){
           i18nService.set(navigatorLanguage || 'en'); //navigator language
+        } else {
+          i18nService.set("unknown");
         }
       },
       views: {

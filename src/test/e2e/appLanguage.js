@@ -1,5 +1,6 @@
 describe('App: language', function () {
-  var url = 'http://wake-me-up.co/staging/#/';
+  var url = 'http://localhost:8080/#/';
+
   var header = element(by.css('.navbar-header'));
   var languageBtn = element(by.css('.navbar-right .dropdown a'));
   var languageEnglishBtn = element(by.css('.dropdown-menu li a'));
@@ -46,11 +47,11 @@ describe('App: language', function () {
     expect(header.getText()).toMatch('Surfern');
   });
 
-
+/*
   it('should be change the language when clicking on "Language" -> "English"', function () {
     browser.executeScript(scrollIntoView, languageBtn.getWebElement());
     languageBtn.click();
     languageEnglishBtn.click();
     expect(header.getText()).toMatch('alarm clock');
-  });
+  });*/
 });
