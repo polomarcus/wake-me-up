@@ -1,5 +1,6 @@
 describe('App: language', function () {
-  var url = 'http://wake-me-up.co/staging/#/';
+  var url = 'http://localhost:8080/#/';
+
   var header = element(by.css('.navbar-header'));
   var languageBtn = element(by.css('.navbar-right .dropdown a'));
   var languageEnglishBtn = element(by.css('.dropdown-menu li a'));

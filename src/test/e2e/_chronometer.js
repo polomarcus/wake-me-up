@@ -1,5 +1,5 @@
 describe('Controller: ChronoCtrl', function () {
-  var url = 'http://wake-me-up.co/staging/#/';
+  var url = 'http://localhost:8080/#/';
   //Go to HP with english language, not using beforeEach to accelerate tests execution
   //browser.get('http://wake-me-up.co/staging/#/en#chrono');
   browser.get(url + 'en#chrono');
