@@ -166,7 +166,7 @@ describe('Controller: AlarmCtrl', function () {
 
         //Activate alarm button click
         testBtn.click();
-        browser.sleep(1000);
+        browser.sleep(2000);
         expect(element(by.css('#url2play object')).isPresent()).toBeTruthy();
 
          //reinit state
@@ -184,10 +184,12 @@ describe('Controller: AlarmCtrl', function () {
 
         //Activate alarm button click
         testBtn.click();
-        browser.sleep(1000);
+        browser.sleep(3000);
         expect(element(by.css('#url2play iframe')).isPresent()).toBeTruthy();
         expect(element(by.css('#url2play iframe')).getAttribute('src')).toMatch('embed');
 
+          //reinit state
+          offBtn.click();
       });
     });
 });
