@@ -62,7 +62,7 @@ angular.module('i18n', [
 
       'ALARM.PANEL.OFF': 'Off',
       'ALARM.WILL.RING': 'The alarm will ring in ',
-      'ALARM.KEEPON.MESSAGE': 'In order for the alarm to ring, please keep your computer running and this tab must be the current one of your browser',
+      'ALARM.KEEPON.MESSAGE': 'In order for the alarm to ring, please keep your computer running and this tab must be visible',
 
       'ALARM.PANEL.HOUR': 'Hour',
       'ALARM.PANEL.HHOUR': 'hour',
@@ -165,7 +165,7 @@ angular.module('i18n', [
       'ALARM.PANEL.ACTIVATE': 'Activer',
       'ALARM.PANEL.OFF': 'Off',
       'ALARM.WILL.RING': 'L\'alarme sonnera dans',
-      'ALARM.KEEPON.MESSAGE': 'Gardez votre ordinateur allumé pour faire fonctionner l\'alarme et cet onglet doit être celui courant de votre navigateur',
+      'ALARM.KEEPON.MESSAGE': 'Gardez votre ordinateur allumé pour faire fonctionner l\'alarme et cet onglet doit rester visible',
 
       //ERROR
       'FORM.ERROR.URL': 'L\'URL n\'est pas valide, exemple: http://www.youtube.com/watch?v=KGyZY4HNumw',
