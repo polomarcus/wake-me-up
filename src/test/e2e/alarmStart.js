@@ -156,7 +156,7 @@ describe('Controller: AlarmCtrl', function () {
         //reinit state
         offBtn.click();
       });
-/*
+
       it('should launch a the link in an iframe Youtube when the test btn is clicked', function () {
         //Set values for minute hour and url
         hourInput.sendKeys(1);
@@ -167,13 +167,13 @@ describe('Controller: AlarmCtrl', function () {
         //Activate alarm button click
         testBtn.click();
         browser.sleep(2000);
-        expect(element(by.css('#url2play object')).isPresent()).toBeTruthy();
+        expect(element(by.css('#url2play iframe')).isPresent()).toBeTruthy();
 
          //reinit state
          offBtn.click();
-      });*/
+      });
 
-     /* it('should launch the Twitch link in an iframe with embed at the end when the test btn is clicked', function () {
+     it('should launch the Twitch link in an iframe with embed at the end when the test btn is clicked', function () {
         //Set values for minute hour and url
         hourInput.sendKeys(1);
         minuteInput.sendKeys(30);
@@ -190,6 +190,6 @@ describe('Controller: AlarmCtrl', function () {
 
           //reinit state
           offBtn.click();
-      });*/
+      });
     });
 });
