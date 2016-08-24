@@ -49,18 +49,11 @@ app.factory('urlUtilsService', function($http, $q) {
      * @returns {HTML node}
      */
     UrlUtilsService.prototype.youtubeBuilder = function youtubeBuilder(id){
-        var url = "http://www.youtube.com/v/" + id;
+        var url = "http://www.youtube.com/embed/" + id + "?autoplay=1";
 
-        var video =  "<object width=\"420\" height=\"315\"> "+
-        "<param name=\"movie\" value=\"" +
-        video +
-        "&loop=1&autoplay=1?version=3&amp;hl=fr_FR&amp;rel=0\">" +
-        "</param><param name=\"allowFullScreen\" value=\"true\"></param> " +
-        "<param name=\"allowscriptaccess\" value=\"always\"></param>"  +
-        "<embed  width=\"420\" height=\"315\" src=\"" +
-        url +
-        "&loop=1&autoplay=1?version=3&amp;hl=fr_FR&amp;rel=0\" type=\"application/x-shockwave-flash\" allowscriptaccess=\"always\" allowfullscreen=\"true\"></embed>"  +
-        "</object>";
+        var video = "<iframe id=\"ytplayer\" type=\"text/html\" width=\"640\" height=\"390\"" +
+                       "src=\"" + url + "\"" +
+                       "frameborder=\"0\"/>";
 
         return video;
     };
@@ -73,7 +66,7 @@ app.factory('urlUtilsService', function($http, $q) {
     UrlUtilsService.prototype.dailymotionBuilder = function dailymotionBuilder(id){
         var url = "http://www.dailymotion.com/embed/video/" + id;
 
-        var video =  "<iframe frameborder=\"0\" autoplay='true' src=\"" + url + "?autoPlay=1\">" +
+        var video =  "<iframe frameborder=\"0\" autoplay='true' src=\"" + url + "?autoPlay=1&enablejsapi=1\">" +
         "</iframe><br />" +
         "<a href=\"http://www.dailymotion.com/video/" + id +"\" target=\"_blank\">" +
         "Bon réveil !" +
