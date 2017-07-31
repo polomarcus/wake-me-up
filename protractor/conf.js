@@ -8,8 +8,7 @@ exports.config =  {
     baseUrl: 'http://localhost:4444/wd/hub',
     maxSessions: 1,
     multiCapabilities: [ //You can add several browsers here
-      {'browserName': 'chrome'},
-      {'browserName': 'firefox'}
+      {'browserName': 'chrome'}
     ],
     framework: 'jasmine',
 
