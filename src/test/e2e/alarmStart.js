@@ -78,7 +78,7 @@ describe('Controller: AlarmCtrl', function () {
         //Activate alarm button click
         activateBtn.click();
 
-        browser.sleep(1000);
+        browser.sleep(2000);
 
         expect(countdownAlarm.getText()).toMatch('second');
         expect(progressBar.getText()).toMatch('%');
@@ -189,7 +189,7 @@ describe('Controller: AlarmCtrl', function () {
         expect(element(by.css('#url2play iframe')).getAttribute('src')).toMatch('embed');
 
           //reinit state
-          offBtn.click();
+        offBtn.click();
       });
     });
 });
