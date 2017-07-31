@@ -22,13 +22,13 @@ describe('Controller: ChronoCtrl', function () {
     timerCtrlBtn.click();
 
     browser.sleep(1000);
-    expect(timer.getText()).toMatch('1 second');
+    expect(timer.getText()).toMatch('second');
   });
 
   it('should desactivate the chronometrer when clicking on the pause button', function () {
     timerCtrlBtn.click();
     browser.sleep(1000);
-    expect(timer.getText()).toMatch('1 second');
+    expect(timer.getText()).toMatch('second');
   });
 
   it('should register lap when clicking on the lap button', function () {
@@ -37,7 +37,7 @@ describe('Controller: ChronoCtrl', function () {
     lapBtn.click();
     expect(element.all(by.repeater('time in times')).count()).toEqual(1);
     expect(lapTableContent.first().getText()).toMatch('1');
-    expect(lapTableContent.get(1).getText()).toMatch('2 second');
+    expect(lapTableContent.get(1).getText()).toMatch('second');
   });
 
   it('should remove lap registered and remove the timer when clicking on clear', function () {

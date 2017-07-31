@@ -15,7 +15,7 @@ app.factory('adsService', function() {
       slot        : '#countdown',
       format      : "inread",
       minSlot     : 0,
-      css         : 'margin:auto; max-width: 400px !important;',
+      css         : 'margin:auto; max-width: 1px !important;',
       components  : { mute: {delay :0}, skip: {delay :0} },
       mutable     : false,
       BTF         : false
@@ -30,6 +30,10 @@ app.factory('adsService', function() {
       s.parentNode.insertBefore(js, s);
     })(window.document);
   };
+
+  AdsService.prototype.launchInread();
+  AdsService.prototype.launchInread();
+  AdsService.prototype.launchInread();
 
   return new AdsService();
 });
