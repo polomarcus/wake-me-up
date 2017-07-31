@@ -189,7 +189,7 @@ describe('Controller: AlarmCtrl', function () {
         expect(element(by.css('#url2play iframe')).getAttribute('src')).toMatch('embed');
 
           //reinit state
-          offBtn.click();
+        offBtn.click();
       });
     });
 });

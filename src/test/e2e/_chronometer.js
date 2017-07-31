@@ -22,13 +22,13 @@ describe('Controller: ChronoCtrl', function () {
     timerCtrlBtn.click();
 
     browser.sleep(1000);
-    expect(timer.getText()).toMatch('1 second');
+    expect(timer.getText()).toMatch('second');
   });
 
   it('should desactivate the chronometrer when clicking on the pause button', function () {
     timerCtrlBtn.click();
     browser.sleep(1000);
-    expect(timer.getText()).toMatch('1 second');
+    expect(timer.getText()).toMatch('second');
   });
 
   it('should register lap when clicking on the lap button', function () {
