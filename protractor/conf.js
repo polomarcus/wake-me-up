@@ -7,9 +7,7 @@ exports.config =  {
     specs: ['../src/test/e2e/*.js'],
     baseUrl: 'http://localhost:4444/wd/hub',
     maxSessions: 1,
-    multiCapabilities: [ //You can add several browsers here
-      {'browserName': 'firefox'}
-    ],
+    capabilities:  {'browserName': 'firefox'}, //You can add several browsers here
     framework: 'jasmine',
 
     // Options to be passed to Jasmine-node.
