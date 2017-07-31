@@ -9,3 +9,4 @@ vendor/
 .DS_Store
 devperf/
 .grunt/
+*.log
