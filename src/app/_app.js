@@ -3,8 +3,7 @@ angular.module( 'wakeMeUp', [
   'templates-common',
   'wakeMeUp.controllers',
   'wakeMeUp.services',
-  'ui.router',
-  'firebase'
+  'ui.router'
 ])
 
   .config( function myAppConfig ( $stateProvider, $urlRouterProvider) {
