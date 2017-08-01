@@ -5,7 +5,7 @@ angular.module( 'AlarmModule', [
 /**
  * And of course we define a controller for our route.
  */
-  .controller( 'AlarmCtrl', function AlarmControl( $scope, $timeout, urlUtilsService, firebaseService, cookieService, dataService, i18nService, gaTrackerService, $q, adsService) {
+  .controller( 'AlarmCtrl', function AlarmControl( $scope, $timeout, urlUtilsService, cookieService, dataService, i18nService, gaTrackerService, $q, adsService) {
     //Alarm Ctrl
     //show/hide URL div
     $scope.$parent.playURL = false;
@@ -212,16 +212,6 @@ angular.module( 'AlarmModule', [
         $scope.$parent.playURL = true;
         if(status === 'ring' || status === "ringSecure"){
           $scope.alarm.status= status;
-        }
-
-        if(status === "ring"){
-          //save firebase
-          var tmpFirebase = {
-            'url' : $scope.alarm.url,
-            'time' : $scope.alarmTime._i
-          };
-
-          firebaseService.add(tmpFirebase);
         }
 
         $scope.alarm.button='OFF';

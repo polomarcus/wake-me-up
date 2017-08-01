@@ -23,7 +23,7 @@ app.factory('cookieService', function($cookies) {
     };
 
     /**
-     * return is a cookie is well setted
+     * return is a cookie is well set
      * @returns {boolean}
      */
     function isCookieDefinied(){

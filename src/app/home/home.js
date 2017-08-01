@@ -17,9 +17,7 @@ angular.module( 'wakeMeUp.home', [
   'timer',
   'AlarmModule',
   'ChronoModule',
-  'liveModule',
-  'angularMoment',
-  'firebase'
+  'angularMoment'
 ])
 
 .controller( 'HomeCtrl', function HomeController( $scope,$stateParams, $timeout, urlUtilsService, i18nService, seoService) {

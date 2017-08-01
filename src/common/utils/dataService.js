@@ -3,7 +3,7 @@ var app = angular.module('wakeMeUp.services');
 app.factory('dataService', function() {
     var DataService = function() {};
 
-    var url = 'https://soundcloud.com/20syl/20syl-ongoing-thing';
+    var url = 'https://soundcloud.com/20syl/alltta-20syl-mr-j-medeiros-million-dreams-instrumental';
 
     DataService.getUrl = function getUrl(){
         return url;
