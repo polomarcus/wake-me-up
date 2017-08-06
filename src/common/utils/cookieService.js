@@ -3,18 +3,26 @@ var app = angular.module('wakeMeUp.services');
 app.factory('cookieService', function($cookies) {
     var CookieService = function() {};
 
+
     CookieService.set = function set(alarm, url){
-        // Setting a cookie
-        $cookies.alarm = alarm;
-        $cookies.url = url;
+
+        var now = new Date();
+        now.setDate(now.getDate() + 30);
+
+         var options = {
+            expires: now
+         };
+
+         $cookies.put('alarm',alarm,options);
+         $cookies.put('url',url,options);
     };
 
     CookieService.get = function get(){
         // Getting a cookie
         if(isCookieDefinied()){
             return {
-                alarm : $cookies.alarm,
-                url :$cookies.url
+                alarm : $cookies.get('alarm'),
+                url :$cookies.get('url')
             };
         }
         else {
@@ -27,7 +35,7 @@ app.factory('cookieService', function($cookies) {
      * @returns {boolean}
      */
     function isCookieDefinied(){
-        return !_.isUndefined($cookies.alarm) && !_.isUndefined($cookies.url);
+        return !_.isUndefined($cookies.get('alarm')) && !_.isUndefined($cookies.get('url'));
     }
 
     return CookieService;
