@@ -49,7 +49,7 @@ app.factory('urlUtilsService', function($http, $q) {
      * @returns {HTML node}
      */
     UrlUtilsService.prototype.youtubeBuilder = function youtubeBuilder(id){
-        var url = "http://www.youtube.com/embed/" + id + "?autoplay=1";
+        var url = "https://www.youtube.com/embed/" + id + "?autoplay=1";
 
         var video = "<iframe id=\"ytplayer\" type=\"text/html\" width=\"640\" height=\"390\"" +
                        "src=\"" + url + "\"" +
@@ -64,15 +64,15 @@ app.factory('urlUtilsService', function($http, $q) {
      * @returns {HTML node}
      */
     UrlUtilsService.prototype.dailymotionBuilder = function dailymotionBuilder(id){
-        var url = "http://www.dailymotion.com/embed/video/" + id;
+        var url = "https://www.dailymotion.com/embed/video/" + id;
 
         var video =  "<iframe frameborder=\"0\" autoplay='true' src=\"" + url + "?autoPlay=1&enablejsapi=1\">" +
         "</iframe><br />" +
-        "<a href=\"http://www.dailymotion.com/video/" + id +"\" target=\"_blank\">" +
+        "<a href=\"https://www.dailymotion.com/video/" + id +"\" target=\"_blank\">" +
         "Bon réveil !" +
         "	</a>" +
         "	<i>par " +
-        "<a href=\"http://www.dailymotion.com/\" target=\"_blank\">" +
+        "<a href=\"https://www.dailymotion.com/\" target=\"_blank\">" +
         "Reveil-en-ligne.fr" +
         "</a>"  +
         "</i>";
@@ -112,10 +112,10 @@ app.factory('urlUtilsService', function($http, $q) {
     /**
      * return a deezer video HTML object
      * examples :
-     * album : http://www.deezer.com/album/9326526
-     * playlist : http://www.deezer.com/playlist/1108276611
-     * track : http://www.deezer.com/track/91883774
-     * radio : http://www.deezer.com/radio/genre/31021
+     * album : https://www.deezer.com/album/9326526
+     * playlist : https://www.deezer.com/playlist/1108276611
+     * track : https://www.deezer.com/track/91883774
+     * radio : https://www.deezer.com/radio/genre/31021
      * @param {string} URL
      * @returns {string} HTML node
      */
@@ -147,7 +147,7 @@ app.factory('urlUtilsService', function($http, $q) {
 
       if(recognizedType) {
         embed = '<iframe scrolling="no" frameborder="0" allowTransparency="true"' +
-        'src="http://www.deezer.com/plugins/player?autoplay=true&playlist=true&width=500&height=240&cover=true&' +
+        'src="https://www.deezer.com/plugins/player?autoplay=true&playlist=true&width=500&height=240&cover=true&' +
         'type=' + deezerType +
         '&id=' + deezerId +
         '&title=&app_id=undefined"' +
