@@ -114,12 +114,7 @@ describe('Controller: AlarmCtrl', function () {
         minuteInput.sendKeys(30);
         mixcloudBtn.click();
         expect(urlInput.getAttribute('value')).toMatch('mixcloud');
-
-        //Activate alarm button click
-        testBtn.click();
-        browser.sleep(3000);
-        expect(element(by.css('#url2play iframe')).isPresent()).toBeTruthy();
-
+        
         //reinit state
         offBtn.click();
       });
