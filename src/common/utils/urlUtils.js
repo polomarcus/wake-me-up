@@ -96,9 +96,10 @@ app.factory('urlUtilsService', function($http, $q) {
         $http.jsonp(getUrl).
           success(function(data, status, headers, config) {
             //Add autoplay value to embed
-            var output = data.embed.substr(0, data.embed.indexOf('?autoplay=') + 10);
-            output += '1'; //autoplay value
-            output += data.embed.substr(data.embed.indexOf('?autoplay=') + 10, data.embed.length);
+            var whereToAdd = data.embed.indexOf('/iframe/?') + 9;
+            var output = data.embed.substr(0, whereToAdd);
+            output += 'autoplay=1&'; //autoplay value
+            output += data.embed.substr(whereToAdd, data.embed.length);
 
             defer.resolve(output);
           }).
