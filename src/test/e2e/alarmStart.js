@@ -117,7 +117,7 @@ describe('Controller: AlarmCtrl', function () {
 
         //Activate alarm button click
         testBtn.click();
-        browser.sleep(1000);
+        browser.sleep(3000);
         expect(element(by.css('#url2play iframe')).isPresent()).toBeTruthy();
 
         //reinit state

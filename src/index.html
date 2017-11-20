@@ -35,12 +35,6 @@
     <link rel="alternate" href="https://wake-me-up.co/#/it" hreflang="it" />
     <link rel="alternate" href="https://reveil-en-ligne.fr/#/fr" hreflang="fr" />
 
-    <!-- font awesome from BootstrapCDN -->
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-
-    <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
-    <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
-
     <script src="assets/js/soundcloud.min.js"></script>
     <script type="text/javascript">
       SC.initialize({
@@ -51,6 +45,11 @@
     <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
     <script type="text/javascript" src="<%= file %>"></script><% }); %>
 
+    <!-- font awesome from BootstrapCDN -->
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
+    <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
   </head>
   <body>
     <div id="fb-root"></div>
