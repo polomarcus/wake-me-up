@@ -596,7 +596,7 @@ module.exports = function ( grunt ) {
       compile: {
         dir: '<%= compile_dir %>',
         src: [
-          '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.gz.js',
+          '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.js',
           '<%= vendor_files.css %>',
           '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css'
         ]
