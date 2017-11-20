@@ -108,17 +108,6 @@ describe('Controller: AlarmCtrl', function () {
         offBtn.click();
       });
 
-      it('should launch a the MixCloud link in an iframe when the alarm rings', function () {
-        //Set values for minute hour and url
-        hourInput.sendKeys(1);
-        minuteInput.sendKeys(30);
-        mixcloudBtn.click();
-        expect(urlInput.getAttribute('value')).toMatch('mixcloud');
-        
-        //reinit state
-        offBtn.click();
-      });
-
       it('should launch a the Dailymotion link in an iframe when the alarm rings', function () {
         //Set values for minute hour and url
         hourInput.sendKeys(1);
