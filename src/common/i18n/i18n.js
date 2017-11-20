@@ -53,9 +53,9 @@ angular.module('i18n', [
       'ALARM.RADIO2': 'WNYC',
       'ALARM.RADIO2.URL': 'https://www.wnyc.org/radio/#/streams/wnyc-fm939',
       'ALARM.RADIO3': 'Magic 105.4',
-      'ALARM.RADIO3.URL': 'http://radioplayer.magic.co.uk/live/',
+      'ALARM.RADIO3.URL': 'https://radioplayer.magic.co.uk/live/',
       'ALARM.RADIO4': 'CBS',
-      'ALARM.RADIO4.URL': 'http://player.radio.com/listen/station/cbs-radio-news/',
+      'ALARM.RADIO4.URL': 'https://player.radio.com/listen/station/cbs-radio-news/',
 
       'ALARM.PANEL.URL': 'URL',
       'ALARM.PANEL.TEST': 'Test URL',
@@ -73,7 +73,7 @@ angular.module('i18n', [
       'ALARM.PANEL.ACTIVATE': 'Activate',
 
       //ERROR
-      'FORM.ERROR.URL': 'The URL is not valid, example: http://www.youtube.com/watch?v=KGyZY4HNumw',
+      'FORM.ERROR.URL': 'The URL is not valid, example: https://www.youtube.com/watch?v=KGyZY4HNumw',
       'FORM.ERROR.MINUTE': 'The minute is not valid, it must be between 0 et 59.',
       'FORM.ERROR.HOUR': 'The hour is not valid, it must be between 0 and 23',
       'FORM.ERROR': 'Non valid hour, example : 7:00',
@@ -151,13 +151,13 @@ angular.module('i18n', [
       'ALARM.PANEL.RADIO.DESCRIPTION': 'Utilisez un lien radio',
 
       'ALARM.RADIO1': 'Nova',
-      'ALARM.RADIO1.URL': 'http://www.novaplanet.com/radionova/player',
+      'ALARM.RADIO1.URL': 'https://www.novaplanet.com/radionova/player',
       'ALARM.RADIO2': 'NRJ',
-      'ALARM.RADIO2.URL': 'http://play.nrj.fr/nrj/nrj.html',
+      'ALARM.RADIO2.URL': 'https://play.nrj.fr/nrj/nrj.html',
       'ALARM.RADIO3': 'Mouv',
-      'ALARM.RADIO3.URL': 'http://www.lemouv.fr/player',
+      'ALARM.RADIO3.URL': 'https://www.lemouv.fr/player',
       'ALARM.RADIO4': 'RTL',
-      'ALARM.RADIO4.URL': 'http://www.rtl.fr/direct',
+      'ALARM.RADIO4.URL': 'https://www.rtl.fr/direct',
 
       'ALARM.PANEL.URL': 'URL',
       'ALARM.PANEL.TEST': 'Tester l\'URL',
@@ -168,7 +168,7 @@ angular.module('i18n', [
       'ALARM.KEEPON.MESSAGE': 'Gardez votre ordinateur allumé pour faire fonctionner l\'alarme et cet onglet doit rester visible',
 
       //ERROR
-      'FORM.ERROR.URL': 'L\'URL n\'est pas valide, exemple: http://www.youtube.com/watch?v=KGyZY4HNumw',
+      'FORM.ERROR.URL': 'L\'URL n\'est pas valide, exemple: https://www.youtube.com/watch?v=KGyZY4HNumw',
       'FORM.ERROR.MINUTE': 'Les minutes ne sont pas au bon format, elles doivent être comprises entre 0 et 59.',
       'FORM.ERROR.HOUR': 'L\'heure n\'est pas au bon format, elle doit être comprise entre 0 et 23.',
       'FORM.ERROR': 'Format d\'heure non valide, exemple : 7:00',
@@ -246,13 +246,13 @@ angular.module('i18n', [
       'ALARM.PANEL.RADIO.DESCRIPTION': 'Utilice la radio',
 
       'ALARM.RADIO1': 'Nova',
-      'ALARM.RADIO1.URL': 'http://www.novaplanet.com/radionova/player',
+      'ALARM.RADIO1.URL': 'https://www.novaplanet.com/radionova/player',
       'ALARM.RADIO2': 'NRJ',
-      'ALARM.RADIO2.URL': 'http://play.nrj.fr/nrj/nrj.html',
+      'ALARM.RADIO2.URL': 'https://play.nrj.fr/nrj/nrj.html',
       'ALARM.RADIO3': 'Mouv',
-      'ALARM.RADIO3.URL': 'http://www.lemouv.fr/player',
+      'ALARM.RADIO3.URL': 'https://www.lemouv.fr/player',
       'ALARM.RADIO4': 'RTL',
-      'ALARM.RADIO4.URL': 'http://www.rtl.fr/direct',
+      'ALARM.RADIO4.URL': 'https://www.rtl.fr/direct',
 
       'ALARM.PANEL.URL': 'URL',
       'ALARM.PANEL.TEST': 'Probar URL',
@@ -263,7 +263,7 @@ angular.module('i18n', [
       'ALARM.KEEPON.MESSAGE': 'Mantenga su equipo funcionando a operar la alarma',
 
       //ERROR
-      'FORM.ERROR.URL': 'La URL no es válida, por ejemplo: http://www.youtube.com/watch?v=KGyZY4HNumw',
+      'FORM.ERROR.URL': 'La URL no es válida, por ejemplo: https://www.youtube.com/watch?v=KGyZY4HNumw',
       'FORM.ERROR.MINUTE': 'Los minutos no están en el formato correcto, deben estar entre 0 y 59.',
       'FORM.ERROR.HOUR': 'La hora no esta en el formato correcto, deben estar entre 0 y 23.',
       'FORM.ERROR': 'Formato de hora no válida, por ejemplo: 7:00',
@@ -346,13 +346,13 @@ angular.module('i18n', [
       'ALARM.PANEL.RADIO.DESCRIPTION': 'Utilizza un link radio',
 
       'ALARM.RADIO1': 'Virgin Radio',
-      'ALARM.RADIO1.URL': 'http://www.virginradio.it/sezioni/1184/virgin-radio-fm',
+      'ALARM.RADIO1.URL': 'https://www.virginradio.it/sezioni/1184/virgin-radio-fm',
       'ALARM.RADIO2': 'Radio DeeJay',
-      'ALARM.RADIO2.URL': 'http://www.deejay.it/radio/',
+      'ALARM.RADIO2.URL': 'https://www.deejay.it/radio/',
       'ALARM.RADIO3': 'RDS',
-      'ALARM.RADIO3.URL': 'http://www.rds.it/diretta/',
+      'ALARM.RADIO3.URL': 'https://www.rds.it/diretta/',
       'ALARM.RADIO4': 'RTL',
-      'ALARM.RADIO4.URL': 'http://www.rtl.it/FM/',
+      'ALARM.RADIO4.URL': 'https://www.rtl.it/FM/',
 
 
       'ALARM.PANEL.TEST': 'Provare il link',
@@ -362,7 +362,7 @@ angular.module('i18n', [
       'ALARM.KEEPON.MESSAGE': 'Tieni il computer acceso per far funzionare la sveglia',
 
       //ERROR
-      'FORM.ERROR.URL': 'Il link non è valido, ecco un esempio: http://www.youtube.com/watch?v=KGyZY4HNumw',
+      'FORM.ERROR.URL': 'Il link non è valido, ecco un esempio: https://www.youtube.com/watch?v=KGyZY4HNumw',
       'FORM.ERROR.MINUTE': ' I minuti non sono validi, devono essere tra 0 e 59',
       'FORM.ERROR.HOUR': 'L\'ora non è valida, deve essere tra 0 e 23',
       'FORM.ERROR': 'Il formato dell\'ora non è valido, ecco un esempio: 7:00',
@@ -539,7 +539,7 @@ $translateProvider.translations('de',{
   'ALARM.PANEL.RADIO':	'Radio',
   'ALARM.PANEL.RADIO.DESCRIPTION':	'Benutzen Sie eine Link Radio	',
   'ALARM.RADIO1':	'Kronehit',
-  'ALARM.RADIO1.URL':	'http://www.kronehit.at/',
+  'ALARM.RADIO1.URL':	'https://www.kronehit.at/',
   //'ALARM.RADIO2':	',
   //'ALARM.RADIO2.URL':	',
   //'ALARM.RADIO3':	',
