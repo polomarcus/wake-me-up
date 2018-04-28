@@ -8,9 +8,6 @@ export default class Time extends Component {
   handleTime = () => {
     const now = new Date()
 
-    const currentHour = now.getHours()
-    const currentMinutes = now.getMinutes()
-
     const {
       hour: { value: hours },
       minutes: { value: minutes },

@@ -4,3 +4,13 @@ node_js:
 branches:
   only:
   - v2
+script:
+- yarn test
+- yarn build
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github-token: $GITHUB_TOKEN
+  local_dir: build
+  on:
+    branch: v2
