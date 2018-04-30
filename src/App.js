@@ -5,7 +5,7 @@ import Time from './Time'
 
 class App extends Component {
   state = {
-    dark: false,
+    dark: true,
   }
 
   componentDidMount() {
