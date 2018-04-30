@@ -1,34 +1,48 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import Time from './Time';
+import Clock from './app/ui/Clock';
+import { toggleTheme } from './actions';
 
-class App extends Component {
-  state = {
-    dark: true,
-  };
-
-  componentDidMount() {
-    setInterval(() => this.forceUpdate(), 1000);
+class App extends React.PureComponent {
+  constructor (props) {
+    super(props);
+    // le dispatch vient du connect react-redux
+    const { dispatch } = props;
+    this.actions = bindActionCreators({ toggleTheme }, dispatch);
+    // !!! toujours bind to this
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick = () => {
-    this.setState({
-      dark: !this.state.dark,
-    });
-  };
-  render() {
-    const time = new Date().toLocaleTimeString();
+  handleClick () {
+    // on peut envoyer une variable a l'actions
+    // pour la faire passer dans le store
+    this.actions.toggleTheme();
+  }
 
+  render () {
+    const { isdark } = this.props;
     return (
-      <div className={`App ${this.state.dark ? 'dark' : ''}`}>
-        <div className="time">{time}</div>
-        <div onClick={this.handleClick} className="dark-switch">
+      <div className={`App ${(isdark && 'dark') || ''}`}>
+        <Clock />
+        <button onClick={this.handleClick} className="dark-switch">
           dark
-        </div>
+        </button>
         <Time />
       </div>
     );
   }
 }
 
-export default App;
+App.propTypes = {
+  isdark: PropTypes.bool.isRequired,
+  dispatch: PropTypes.func.isRequired,
+};
+
+export default connect(state => ({
+  // a la place utilise la variable string 'theme' pour la classe CSS ^^
+  isdark: state.theme === 'dark',
+}))(App);

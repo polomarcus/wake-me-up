@@ -1,40 +1,47 @@
-import React, { Component } from 'react'
-import {calculateRemainingTime,isItTime, launchAlarm} from './helper/time.js';
+import React, { Component } from 'react';
+import {
+  calculateRemainingTime,
+  isItTime,
+  launchAlarm,
+} from './helper/time.js';
 
-export default class Time extends Component {
+export default class Time extends React.PureComponent {
   state = {
     timer: null,
-    hourRemaining : 0,
+    hourRemaining: 0,
     minuteRemaining: 0,
-  }
+  };
 
   handleTime = () => {
     const {
       hour: { value: hours },
       minutes: { value: minutes },
-    } = document.forms[0]
+    } = document.forms[0];
 
-    const timer = new Date()
-    timer.setHours(hours, minutes)
+    const timer = new Date();
+    timer.setHours(hours, minutes);
 
-    this.setState({ timer })
-  }
+    this.setState({ timer });
+  };
 
   componentDidMount() {
     setInterval(() => {
-      const { timer } = this.state
-      const currentTime = new Date()
+      const { timer } = this.state;
+      const currentTime = new Date();
 
       if (timer) {
-        const remaining = calculateRemainingTime(timer, currentTime)
-        this.setState({ hourRemaining: remaining.hours, minuteRemaining: remaining.minutes })
+        const remaining = calculateRemainingTime(timer, currentTime);
+        this.setState({
+          hourRemaining: remaining.hours,
+          minuteRemaining: remaining.minutes,
+        });
 
-        if( isItTime(timer, currentTime) ) {
-          launchAlarm()
-          this.setState({ timer: null })
+        if (isItTime(timer, currentTime)) {
+          launchAlarm();
+          this.setState({ timer: null });
         }
       }
-    }, 1000)
+    }, 1000);
   }
 
   render() {
@@ -43,8 +50,12 @@ export default class Time extends Component {
         <input name="hour" type="text" />
         {':'}
         <input name="minutes" type="text" />
-        {this.state.timer && <div className="remaining">{this.state.hourRemaining}:{this.state.minuteRemaining}</div>}
+        {this.state.timer && (
+          <div className="remaining">
+            {this.state.hourRemaining}:{this.state.minuteRemaining}
+          </div>
+        )}
       </form>
-    )
+    );
   }
 }
