@@ -5,7 +5,7 @@ import {
   launchAlarm,
 } from './helper/time.js';
 
-export default class Time extends React.PureComponent {
+class Time extends React.PureComponent {
   state = {
     timer: null,
     hourRemaining: 0,
@@ -16,6 +16,7 @@ export default class Time extends React.PureComponent {
     const {
       hour: { value: hours },
       minutes: { value: minutes },
+      // biiiiiip -> react-final-form
     } = document.forms[0];
 
     const timer = new Date();
@@ -46,6 +47,14 @@ export default class Time extends React.PureComponent {
 
   render() {
     return (
+      // biiiiiip -> react-final-form
+      // biiiiiip -> react-final-form
+      // biiiiiip -> react-final-form
+      // biiiiiip -> react-final-form
+      // biiiiiip -> react-final-form
+      // biiiiiip -> react-final-form
+      // biiiiiip -> https://github.com/final-form/react-final-form
+      // ou redux-form du même auteur
       <form className="input-time" onChange={this.handleTime}>
         <input name="hour" type="text" />
         {':'}
@@ -59,3 +68,4 @@ export default class Time extends React.PureComponent {
     );
   }
 }
+export default Time;
