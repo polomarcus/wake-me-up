@@ -27,7 +27,6 @@ export default class Time extends Component {
 
       if (timer) {
         const remaining = calculateRemainingTime(timer, currentTime)
-        console.log("remaining", remaining)
         this.setState({ hourRemaining: remaining.hours, minuteRemaining: remaining.minutes })
 
         if( isItTime(timer, currentTime) ) {
