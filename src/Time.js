@@ -5,6 +5,7 @@ export default class Time extends Component {
     tomorrow: false,
     timer: null,
   }
+  
   handleTime = () => {
     const now = new Date()
 
@@ -20,6 +21,7 @@ export default class Time extends Component {
 
     this.setState({ timer, tomorrow })
   }
+
   componentDidMount() {
     setInterval(() => {
       const { timer } = this.state
