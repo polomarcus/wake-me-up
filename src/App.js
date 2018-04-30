@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -26,13 +27,21 @@ class App extends React.PureComponent {
   render () {
     const { isdark } = this.props;
     return (
-      <div className={`App ${(isdark && 'dark') || ''}`}>
-        <Clock />
-        <button onClick={this.handleClick} className="dark-switch">
-          dark
-        </button>
-        <Time />
-      </div>
+      <React.Fragment>
+        <Helmet>
+          <body className={`${(isdark && 'dark') || ''}`} />
+          <title>Wake Me Up</title>
+          <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" />
+        </Helmet>
+        <div className="App">
+          <Clock />
+          <button onClick={this.handleClick} className="dark-switch">
+            dark
+          </button>
+          <Time />
+        </div>
+      </React.Fragment>
     );
   }
 }
