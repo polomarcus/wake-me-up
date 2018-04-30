@@ -1,35 +1,57 @@
-import React, { Component } from 'react'
-import './App.css'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import Time from './Time'
+import Time from './Time';
+import Clock from './app/ui/Clock';
+import { toggleTheme } from './actions';
 
-class App extends Component {
-  state = {
-    dark: true,
+class App extends React.PureComponent {
+  constructor (props) {
+    super(props);
+    // le dispatch vient du connect react-redux
+    const { dispatch } = props;
+    this.actions = bindActionCreators({ toggleTheme }, dispatch);
+    // !!! toujours bind to this
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  componentDidMount() {
-    setInterval(() => this.forceUpdate(), 1000)
+  handleClick () {
+    // on peut envoyer une variable a l'actions
+    // pour la faire passer dans le store
+    this.actions.toggleTheme();
   }
 
-  handleClick = () => {
-    this.setState({
-      dark: !this.state.dark,
-    })
-  }
-  render() {
-    const time = new Date().toLocaleTimeString()
-
+  render () {
+    const { isdark } = this.props;
     return (
-      <div className={`App ${this.state.dark ? 'dark' : ''}`}>
-        <div className="time">{time}</div>
-        <div onClick={this.handleClick} className="dark-switch">
-          dark
+      <React.Fragment>
+        <Helmet>
+          <body className={`${(isdark && 'dark') || ''}`} />
+          <title>Wake Me Up</title>
+          <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" />
+        </Helmet>
+        <div className="App">
+          <Clock />
+          <button onClick={this.handleClick} className="dark-switch">
+            dark
+          </button>
+          <Time />
         </div>
-        <Time />
-      </div>
-    )
+      </React.Fragment>
+    );
   }
 }
 
-export default App
+App.propTypes = {
+  isdark: PropTypes.bool.isRequired,
+  dispatch: PropTypes.func.isRequired,
+};
+
+export default connect(state => ({
+  // a la place utilise la variable string 'theme' pour la classe CSS ^^
+  isdark: state.theme === 'dark',
+}))(App);
