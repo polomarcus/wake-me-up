@@ -46,3 +46,18 @@
   font-style: italic;
   font-size: 12px;
 }
+
+.hidden {
+  display: none;
+}
+
+.input-alarm input {
+  cursor: pointer;
+  font-size: 20px;
+  display: block;
+  margin: auto;
+  padding:20px;
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}

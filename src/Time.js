@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-import {calculateRemainingTime,isItTime, launchAlarm} from './helper/time.js';
+import {calculateRemainingTime,isItTime} from './helper/time.js';
+import Alarm from './Alarm'
 
 export default class Time extends Component {
   state = {
     timer: null,
+    alarm: false,
     hourRemaining : 0,
     minuteRemaining: 0,
   }
@@ -20,6 +22,10 @@ export default class Time extends Component {
     this.setState({ timer })
   }
 
+  switchOff = () => {
+    this.setState({ alarm : false })
+  }
+
   componentDidMount() {
     setInterval(() => {
       const { timer } = this.state
@@ -30,8 +36,7 @@ export default class Time extends Component {
         this.setState({ hourRemaining: remaining.hours, minuteRemaining: remaining.minutes })
 
         if( isItTime(timer, currentTime) ) {
-          launchAlarm()
-          this.setState({ timer: null })
+          this.setState({alarm: true, timer: null })
         }
       }
     }, 1000)
@@ -39,12 +44,22 @@ export default class Time extends Component {
 
   render() {
     return (
-      <form className="input-time" onChange={this.handleTime}>
-        <input name="hour" type="text" />
-        {':'}
-        <input name="minutes" type="text" />
-        {this.state.timer && <div className="remaining">{this.state.hourRemaining}:{this.state.minuteRemaining}</div>}
-      </form>
+      <div>
+        <form className="input-time" onChange={this.handleTime}>
+          <input name="hour" type="text" />
+          {':'}
+          <input name="minutes" type="text" />
+          {this.state.timer && !this.state.alarm && <div className="remaining">{this.state.hourRemaining}:{this.state.minuteRemaining}</div>}
+        </form>
+
+         {this.state.alarm && <div>
+             <Alarm />
+             <form className="input-alarm" onChange={this.switchOff}>
+               <input name="alarm" type="submit" value="OFF" />
+             </form>
+           </div>
+         }
+      </div>
     )
   }
 }

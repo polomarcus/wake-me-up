@@ -17,15 +17,13 @@ class App extends Component {
       dark: !this.state.dark,
     })
   }
+
   render() {
     const time = new Date().toLocaleTimeString()
 
     return (
       <div className={`App ${this.state.dark ? 'dark' : ''}`}>
         <div className="time">{time}</div>
-        <div onClick={this.handleClick} className="dark-switch">
-          dark
-        </div>
         <Time />
       </div>
     )
