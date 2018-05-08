@@ -14,7 +14,3 @@ export const isItTime = (timer, currentTime) => {
   return timer.getUTCHours() === currentTime.getUTCHours() &&
   timer.getMinutes() === currentTime.getMinutes()
 }
-
-export const launchAlarm = () => {
-  alert('🤪')
-}
