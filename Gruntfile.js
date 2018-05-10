@@ -47,8 +47,8 @@ module.exports = function ( grunt ) {
     'ftp-deploy': {
       build: {
         auth: {
-          host: 'reveil-en-ligne.fr',
-          port: 21,
+          host: 'home391394918.1and1-data.host',
+          port: 22,
           authKey: 'key1'
         },
         src: 'bin',
@@ -56,8 +56,8 @@ module.exports = function ( grunt ) {
       },
       prod: {
         auth: {
-          host: 'reveil-en-ligne.fr',
-          port: 21,
+          host: 'home391394918.1and1-data.host',
+          port: 22,
           authKey: 'key1'
         },
         src: 'bin',
@@ -596,7 +596,7 @@ module.exports = function ( grunt ) {
       compile: {
         dir: '<%= compile_dir %>',
         src: [
-          '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.gz.js',
+          '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.js',
           '<%= vendor_files.css %>',
           '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css'
         ]
