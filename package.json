@@ -1,6 +1,5 @@
 {
   "name": "wake-me-up",
-  "homepage": "https://polomarcus.github.io/wake-me-up",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
