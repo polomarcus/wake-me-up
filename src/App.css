@@ -57,6 +57,8 @@
   display: block;
   margin: auto;
   padding:20px;
+  padding-left:50px;
+  padding-right:50px;
   color: #fff;
   background-color: #d9534f;
   border-color: #d43f3a;
