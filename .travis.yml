@@ -1,9 +1,6 @@
 language: node_js
 node_js:
 - '8'
-branches:
-  only:
-  - v2
 script:
 - yarn test
 - yarn build
@@ -13,4 +10,4 @@ deploy:
   github-token: $GITHUB_TOKEN
   local_dir: build
   on:
-    branch: v2
+    branch: master

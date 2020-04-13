@@ -28,7 +28,7 @@ class App extends Component {
 
         <footer>
           <p>
-            Site sans traçage, ni publicité, et <a target="_blank" href="https://github.com/polomarcus/wake-me-up">code libre depuis 2011</a>
+            Site sans traçage, ni publicité, et <a href="https://github.com/polomarcus/wake-me-up">code libre depuis 2011</a>
           </p>
         </footer>
       </div>
