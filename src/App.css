@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: Inconsolata, sans-serif;
 }
 
 .dark-switch {
@@ -16,8 +17,7 @@
 }
 
 .time {
-  font-family: Inconsolata, sans-serif;
-  font-size: 40px;
+  font-size: 48px;
 }
 
 .input-time {
@@ -62,4 +62,12 @@
   color: #fff;
   background-color: #d9534f;
   border-color: #d43f3a;
+}
+
+footer {
+  bottom: 1%;
+  position: absolute;
+}
+a {
+    color: white;
 }
