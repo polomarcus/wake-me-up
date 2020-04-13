@@ -25,6 +25,12 @@ class App extends Component {
       <div className={`App ${this.state.dark ? 'dark' : ''}`}>
         <div className="time">{time}</div>
         <Time />
+
+        <footer>
+          <p>
+            Site sans traçage, ni publicité, et <a target="_blank" href="https://github.com/polomarcus/wake-me-up">code libre depuis 2011</a>
+          </p>
+        </footer>
       </div>
     )
   }
