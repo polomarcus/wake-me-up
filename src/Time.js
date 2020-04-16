@@ -46,10 +46,10 @@ export default class Time extends Component {
     return (
       <div>
         <form className="input-time" onChange={this.handleTime}>
-          <input name="hour" type="text" placeholder="07" />
+          <input name="hour" type="number" placeholder="07" min="0" max="23"/>
           {':'}
-          <input name="minutes" type="text" placeholder="30"/>
-          {this.state.timer && !this.state.alarm && <div className="remaining">Temps restant: {this.state.hourRemaining}:{this.state.minuteRemaining}</div>}
+          <input name="minutes" type="number" placeholder="30" min="0" max="59"/>
+          {this.state.timer && !this.state.alarm && <div className="remaining">Temps restant: {this.state.hourRemaining}h {this.state.minuteRemaining}min</div>}
         </form>
 
          {this.state.alarm && <div>

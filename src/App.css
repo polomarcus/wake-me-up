@@ -71,3 +71,8 @@ footer {
 a {
     color: white;
 }
+
+
+input:invalid {
+  color: #de4433 !important;
+}
