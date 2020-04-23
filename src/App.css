@@ -26,7 +26,7 @@
 
 .input-time input {
   padding: 10px;
-  width: 40px;
+  width: 60px;
   font-size: 20px;
   outline: none;
   border: none;
@@ -56,7 +56,7 @@
   font-size: 20px;
   display: block;
   margin: auto;
-  padding:20px;
+  padding: 20px;
   padding-left:50px;
   padding-right:50px;
   color: #fff;
@@ -68,10 +68,18 @@ footer {
   bottom: 1%;
   position: absolute;
 }
+
+footer p {
+  margin-bottom: 10px;
+}
+
+footer q {
+  font-size: 15px;
+}
+
 a {
     color: white;
 }
-
 
 input:invalid {
   color: #de4433 !important;

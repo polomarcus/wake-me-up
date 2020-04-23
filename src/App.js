@@ -27,9 +27,15 @@ class App extends Component {
         <Time />
 
         <footer>
-          <p>
-            Site sans traçage, ni publicité, et <a href="https://github.com/polomarcus/wake-me-up">code libre depuis 2011</a>
-          </p>
+          <center>
+            <p>
+              Site sans traçage, ni publicité, et <a href="https://github.com/polomarcus/wake-me-up">code libre depuis 2011</a>
+            </p>
+
+            <a href="https://lvsl.fr/nous-assistons-a-une-regression-des-normes-internationales-vers-la-sauvagerie-entretien-avec-jean-ziegler/">
+              <q>Homme qui marche, il n’y a pas de chemin : c’est en marchant que se trace le chemin</q> - Antonio Machado
+            </a>
+          </center>
         </footer>
       </div>
     )
